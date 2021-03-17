@@ -1,16 +1,26 @@
-# ui_kit
+# change_library
 
-A new Flutter project.
+Change custom toolkit for ui elements and reusable components
 
-## Getting Started
+#Principles
+Do not introduce spacing around the widget unless it is a part of the widget (i.e. TextButton). It is easier to just wrap it in padding during consumption.
 
-This project is a starting point for a Flutter application.
+# Workflow
+After you merge your PR to master new git tag will be generated
 
-A few resources to get you started if this is your first Flutter project:
+During development you can add local version of this lib to changeapp by substituting dependency in `pubspec.yaml` from
+```
+  ui_kit:
+    git:
+      url: git://github.com/ChangeFinance/ui_kit.git
+      ref: 0.0.8
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+to
+
+
+```
+  ui_kit:
+    path: /Users/almeynman/code/change/ui_kit
+```
