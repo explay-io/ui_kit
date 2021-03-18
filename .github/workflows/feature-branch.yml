@@ -1,8 +1,8 @@
 name: Feature branch
 
 on:
-  push:
-    branches-ignore:
+  pull_request:
+    branches:
       - 'master'
 
 jobs:
@@ -10,9 +10,18 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
-    - uses: subosito/flutter-action@v1
+    - name: Install Flutter
+      uses: subosito/flutter-action@v1
       with:
         flutter-version: '2.0.2'
-    - run: flutter pub get
-    - run: flutter analyze
-    - run: flutter test --concurrency=2
+    - name: Install app dependencies
+      run: flutter pub get
+    - name: Lint app
+      run: flutter analyze
+    - name: Test app
+      run: flutter test --coverage --concurrency=2
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: coverage/lcov.info
