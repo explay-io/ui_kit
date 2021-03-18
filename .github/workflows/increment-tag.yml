@@ -1,0 +1,14 @@
+name: Increment tag
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  tags-update:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run script increment-git-tag-patch
+      run: ./scripts/increment-git-tag-patch.sh
