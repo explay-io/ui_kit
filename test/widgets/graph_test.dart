@@ -23,7 +23,7 @@ void main() {
             data: data,
             labelPrefix: '\$',
             enableMaxMin: true,
-            lineColor: AppColor.green,
+            lineColor: AppColor.blue,
             enableGradient: false,
       )));
       expect(find.byType(Graph), findsOneWidget);

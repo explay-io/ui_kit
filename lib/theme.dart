@@ -6,7 +6,7 @@ import 'color.dart';
 final ThemeData theme = ThemeData(
   brightness: Brightness.light,
   primaryColor: primaryColor,
-  primarySwatch: AppColor.greenSwatch,
+  primarySwatch: AppColor.blueSwatch,
   canvasColor: AppColor.deepWhite,
   backgroundColor: AppColor.deepWhite,
   scaffoldBackgroundColor: AppColor.deepWhite,
@@ -15,7 +15,7 @@ final ThemeData theme = ThemeData(
   textTheme: _textTheme
 );
 
-const Color primaryColor = AppColor.green;
+const Color primaryColor = AppColor.blue;
 
 TextTheme _textTheme = const TextTheme(
   display4: AppText.header0,
@@ -34,6 +34,6 @@ ButtonThemeData _buttonTheme = ButtonThemeData(
   buttonColor: primaryColor,
   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
   disabledColor: AppColor.mediumGrey,
-  highlightColor: AppColor.darkerGreen,
+  highlightColor: AppColor.darkerBlue,
   minWidth: 48.0,
 );

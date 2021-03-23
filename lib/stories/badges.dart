@@ -16,7 +16,7 @@ Color _optionToColor(String optionSelected) {
     case 'Red':
       return AppColor.red;
     default:
-      return AppColor.green;
+      return AppColor.blue;
   }
 }
 

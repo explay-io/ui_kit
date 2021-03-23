@@ -43,7 +43,7 @@ class CustomRadioState extends State<CustomRadio> {
         itemCount: radioElements.length,
         itemBuilder: (BuildContext context, int index) {
           return new InkWell(
-            splashColor: AppColor.darkerGreen,
+            splashColor: AppColor.darkerBlue,
             onTap: () {
               setState(() {
                 radioElements.forEach((element) => element.isSelected = false);

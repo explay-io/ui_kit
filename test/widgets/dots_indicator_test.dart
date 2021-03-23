@@ -60,6 +60,6 @@ void main() {
 
     final firstDot = tester.widget<Dot>(find.byType(Dot).first);
 
-    expect(firstDot.color, AppColor.darkerGreen);
+    expect(firstDot.color, AppColor.darkerBlue);
   });
 }

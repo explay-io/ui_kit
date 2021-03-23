@@ -29,7 +29,7 @@ class Badge extends StatelessWidget {
         height: badgeHeight,
         decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(badgeHeight / 2)),
-            color: bgColor ?? AppColor.green),
+            color: bgColor ?? AppColor.blue),
         child: GestureDetector(
             onTap: onTap,
             child: Row(

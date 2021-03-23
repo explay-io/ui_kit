@@ -255,16 +255,16 @@ void testPressingState({
         (WidgetTester tester) async {
       await tester.pumpWidget(wrapInMaterialApp(buildButton(onPressed: () {})));
       expect(tester.widget<Text>(find.text(buttonText)).style.color,
-          AppColor.green);
+          AppColor.blue);
       final gesture = await tester.createGesture();
       await gesture.down(tester.getCenter(find.text(buttonText)));
       await tester.pumpAndSettle(const Duration(seconds: 1));
       expect(tester.widget<Text>(find.text(buttonText)).style.color,
-          AppColor.darkerGreen);
+          AppColor.darkerBlue);
       await gesture.up();
       await tester.pumpAndSettle(const Duration(seconds: 1));
       expect(tester.widget<Text>(find.text(buttonText)).style.color,
-          AppColor.green);
+          AppColor.blue);
     });
 
     testWidgets(

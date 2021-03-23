@@ -16,7 +16,7 @@ void main() {
               'Badge Content',
               minWidth: 80.0,
               textStyle: const TextStyle(color: AppColor.red, fontSize: 16.0),
-              bgColor: AppColor.green
+              bgColor: AppColor.blue
           )
       )
       );
@@ -26,7 +26,7 @@ void main() {
       final widget = tester.widget(find.byType(Container));
       final Container containerWidget = widget;
       final BoxDecoration decoration = containerWidget.decoration;
-      expect(decoration.color, AppColor.green);
+      expect(decoration.color, AppColor.blue);
       expect(
           decoration.borderRadius, const BorderRadius.all(Radius.circular(15)));
 
@@ -41,7 +41,7 @@ void main() {
             const ['Badge Content1', 'Badge Content2'],
             minWidth: 80.0,
             textStyle: const TextStyle(color: AppColor.red, fontSize: 16.0),
-            bgColor: AppColor.green
+            bgColor: AppColor.blue
         )
     )
     );
@@ -51,7 +51,7 @@ void main() {
     final widget = tester.widget(find.byType(Container));
     final Container containerWidget = widget;
     final BoxDecoration decoration = containerWidget.decoration;
-    expect(decoration.color, AppColor.green);
+    expect(decoration.color, AppColor.blue);
     expect(
         decoration.borderRadius, const BorderRadius.all(Radius.circular(15)));
 

@@ -18,7 +18,7 @@ class Graph extends StatelessWidget {
         this.enableMaxMin = false,
         this.labelPrefix = '€',
         this.enableGradient = true,
-        this.lineColor = AppColor.green
+        this.lineColor = AppColor.blue
       });
 
   void _drawMaxMinMarkers(Canvas context, double width, double height) {

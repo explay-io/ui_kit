@@ -71,7 +71,7 @@ class LabelValueEditableField extends StatelessWidget {
       padding: const EdgeInsets.only(left: 4.0),
       child: GestureDetector(
         child: IconTheme(
-            data: IconTheme.of(context).copyWith(color: AppColor.green ),
+            data: IconTheme.of(context).copyWith(color: AppColor.blue ),
             child: const Icon(
               Icons.create,
               size: 20.0,

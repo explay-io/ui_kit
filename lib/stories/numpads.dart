@@ -159,7 +159,7 @@ class _PasscodeNumpadStory extends StatelessWidget {
                         _showDialog(context, '', 'Action button pressed');
                       },
                       hasSecondaryActionButton: props['hasSecondaryActionButton'],
-                      secondaryActionWidget: Icon(Icons.fingerprint, color: AppColor.green, size: 25),
+                      secondaryActionWidget: Icon(Icons.fingerprint, color: AppColor.blue, size: 25),
                       onSecondaryActionButtonPressed: () {
                         _showDialog(context, '', 'Secondary action button pressed');
                       },

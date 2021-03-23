@@ -35,7 +35,7 @@ mixin ButtonMixin {
     if (isDisabled(enabled: enabled, onPressed: onPressed)) {
       return AppColor.mediumGrey;
     }
-    return pressing ? AppColor.darkerGreen : AppColor.green;
+    return pressing ? AppColor.darkerBlue : AppColor.blue;
   }
 
   double getFontSize({bool narrow, bool fullWidth = false}) {

@@ -144,7 +144,7 @@ class Graphs extends StatelessWidget {
       case 'Red':
         return AppColor.red;
       default:
-        return AppColor.green;
+        return AppColor.blue;
     }
   }
 }
