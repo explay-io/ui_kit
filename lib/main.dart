@@ -7,7 +7,6 @@ import 'package:ui_kit/stories/cards.dart';
 import 'package:ui_kit/stories/checkboxes.dart';
 import 'package:ui_kit/stories/colors.dart';
 import 'package:ui_kit/stories/currency_displays.dart';
-import 'package:ui_kit/stories/graphs.dart';
 import 'package:ui_kit/stories/indicators.dart';
 import 'package:ui_kit/stories/info_box.dart';
 import 'package:ui_kit/stories/inputs.dart';
@@ -61,7 +60,6 @@ void main() {
           CustomDatePicker(onChange: (dateTime) {}),
           CustomRadio(radioElements: CustomRadio.availableRadioModels()),
           Checkboxes(),
-          Graphs(),
           CustomLabelValue(),
           CurrencyDisplays(),
           InfoBoxes(),
