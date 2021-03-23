@@ -31,8 +31,8 @@ Widget _securedInfoBoxStory() {
       child: PropsExplorer(
           initialProps: const <String, dynamic>{
             'assetName': 'assets/convert_is_secured.svg',
-            'infoHeader': 'Your funds are stored securely',
-            'infoBody': 'Change uses a combination of offline storage and multi-signature solutions to ensure that your cryptocurrency is protected.'
+            'infoHeader': 'Header',
+            'infoBody': 'Body'
           },
           formBuilder: (context, props, updateProp) {
             return ListView(
