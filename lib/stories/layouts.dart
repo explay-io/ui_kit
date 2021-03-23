@@ -168,7 +168,7 @@ class Layouts extends StatelessWidget {
                 settings: const RouteSettings(name: infoLayoutRoute),
                 builder: (_) => GenericTemplate(
                     const Heading(
-                        'Invite a friend and you both get €10 worth of Bitcoin',
+                        'Invite a friend and you both get €10',
                         headingType: HeadingType.HEADING_2,
                         textAlign: TextAlign.left),
                     Padding(
@@ -226,7 +226,7 @@ class Layouts extends StatelessWidget {
                                   child: Align(
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                        'Add Euro or cryptocurrency to your account.',
+                                        'Add Euro to your account.',
                                         textAlign: TextAlign.left,
                                         style: Theme.of(context)
                                             .textTheme
