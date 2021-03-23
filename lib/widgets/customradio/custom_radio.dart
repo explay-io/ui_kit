@@ -22,11 +22,6 @@ class CustomRadio extends StatefulWidget {
         isSelected: false,
         svgPicture:
             SvgPicture.asset('assets/euro.svg', height: 30.0, width: 30.0)));
-    sampleRadioElements.add(new RadioModel('Bitcoin',
-        textShortform: 'BTC',
-        isSelected: false,
-        svgPicture: SvgPicture.asset('assets/bitcoin_colourful.svg',
-            height: 30.0, width: 30.0)));
     return sampleRadioElements;
   }
 }
