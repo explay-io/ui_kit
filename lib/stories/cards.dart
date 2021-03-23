@@ -161,12 +161,12 @@ class AppCards extends StatelessWidget {
       title: 'News Card',
       child: PropsExplorer(
         initialProps: const <String, dynamic>{
-          'source': 'TheBlock',
+          'source': 'NewsFeed',
           'time': 0,
           'title':
-              'Coinbase Challenger In Europe Change Launches Its Own Equity-Like Token - Coinbase Challenger In Europe Change Launches Its Own Equity-Like Token',
+              'Some news',
           'image':
-              'https://images.cointelegraph.com/images/1480_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS9zdG9yYWdlL3VwbG9hZHMvdmlldy80NjljNTI4N2Y0Yjc5NDMxOGRiNGQzMjQ3MGVlNjUzMi5qcGVn.jpeg'
+              'https://res.cloudinary.com/practicaldev/image/fetch/s--jh5laibJ--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/mq33e4a63bduhbljfiop.png'
         },
         formBuilder: (context, props, updateProp) {
           return ListView(
