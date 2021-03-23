@@ -17,11 +17,11 @@ class CustomRadio extends StatefulWidget {
 
   static List<RadioModel> availableRadioModels() {
     final sampleRadioElements = <RadioModel>[];
-    sampleRadioElements.add(new RadioModel('Euro',
-        textShortform: 'EUR',
+    sampleRadioElements.add(new RadioModel('one',
+        textShortform: 'any',
         isSelected: false,
         svgPicture:
-            SvgPicture.asset('assets/euro.svg', height: 30.0, width: 30.0)));
+            SvgPicture.asset('assets/save_as_you_pay.svg', height: 30.0, width: 30.0)));
     return sampleRadioElements;
   }
 }
