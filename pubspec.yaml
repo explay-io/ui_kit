@@ -24,11 +24,6 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^0.19.3
-# flutter_cupertino_date_picker: ^1.0.8
-# flutter_sparkline:
-#    git:
-#      url: https://github.com/ChangeFinance/flutter_sparkline.git
-#      ref: master
   intl: ^0.17.0
   shimmer: ^1.0.1
   animated_widgets:
@@ -52,6 +47,7 @@ dev_dependencies:
   recase: ^3.0.1
   mockito: ^4.0.0
   package_info: ^2.0.0
+  pedantic: ^1.11.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
