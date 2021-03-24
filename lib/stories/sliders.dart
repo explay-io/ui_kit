@@ -24,8 +24,8 @@ class Sliders extends StatelessWidget {
 
   Widget buildSlideOne() {
     return UtilitySlide(
-      'Pre-order your card',
-      'Convert instantly between your currencies and spend with your card world wide',
+      'Lorem Ipsum.',
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
       SvgPicture.asset(
         'assets/card_holder.svg',
         width: 285.0,
@@ -36,8 +36,8 @@ class Sliders extends StatelessWidget {
 
   Widget buildSlideTwo() {
     return UtilitySlide(
-      'Buy and trade cryptos',
-      'Get started with Bitcoin, Ethereum, and more with zero fees.',
+      'Lorem Ipsum.',
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
       SvgPicture.asset(
         'assets/free_trading.svg',
         width: 285.0,
@@ -48,9 +48,8 @@ class Sliders extends StatelessWidget {
 
   Widget buildSlideThree() {
     return UtilitySlide(
-      'Secure funds',
-      'Your funds are protected in multi-signature, '
-          'cold-storage cryptocurrency accounts',
+      'Lorem Ipsum.',
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
       SvgPicture.asset(
         'assets/secure_funds.svg',
         width: 285.0,
