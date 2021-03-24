@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 
 class AppColor {
   const AppColor._();
-  static const int changeBlue = 0xFF2196F3;
-  static const Color blue = Color(changeBlue);
-  static const Color blueSwatch = MaterialColor(changeBlue, {
+  static const Color blue = Color(0xFF2196F3);
+  static const Color blueSwatch = MaterialColor(0xFF2196F3, {
     50: Color(0xFFE8FBF6),
     100: Color(0xFFC5F4E9),
     200: Color(0xFF9FEDDA),
