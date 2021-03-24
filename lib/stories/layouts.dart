@@ -363,6 +363,7 @@ class Layouts extends StatelessWidget {
                   picture: Undraw(
                     color: AppColor.blue,
                     illustration: UndrawIllustration.mobile_application,
+                    height: 120.0,
                   ),
                 ),
               ),
