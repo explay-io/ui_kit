@@ -51,7 +51,7 @@ class SecurityInfoBoxWithLink extends StatelessWidget {
                           children: [
                             new TextSpan(
                                 text: infoLink,
-                                style: const TextStyle(color: AppColor.green),
+                                style: const TextStyle(color: AppColor.blue),
                                 recognizer: new TapGestureRecognizer()
                                   ..onTap = () async {
                                     debugPrint('Help Center tapped');

@@ -30,18 +30,18 @@ class AppColors extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const ColorInfoBox(
-            color: AppColor.green,
-            name: 'Green',
+            color: AppColor.blue,
+            name: 'Blue',
             usage: 'Button & Text Button',
           ),
           ColorInfoBox(
-            color: AppColor.paleGreen,
-            name: 'Pale Green 20%',
+            color: AppColor.paleBlue,
+            name: 'Pale Blue 20%',
             usage: 'Disabled Text Button',
           ),
           const ColorInfoBox(
-            color: AppColor.darkerGreen,
-            name: 'Darker Green',
+            color: AppColor.darkerBlue,
+            name: 'Darker Blue',
             usage: 'Pressed button state',
           ),
         ],
@@ -86,7 +86,7 @@ class AppColors extends StatelessWidget {
             usage: 'Error Text',
           ),
           ColorInfoBox(
-            color: AppColor.brightGreen,
+            color: AppColor.green,
             name: 'Green success',
             usage: 'Success',
           ),

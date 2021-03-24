@@ -69,7 +69,7 @@ class _PasscodeNumPadTextState extends State<PasscodeNumPadText> {
   Widget buildKeyItem(String val) {
     final isActionButton = val == widget.actionButtonText;
     final actionButtonStyle =
-    AppText.numPadTextStyle.copyWith(color: AppColor.darkerGreen, fontWeight: FontWeight.normal, fontSize: 16);
+    AppText.numPadTextStyle.copyWith(color: AppColor.darkerBlue, fontWeight: FontWeight.normal, fontSize: 16);
     Widget child;
     if (val != 'C') {
       child = Text(val,
@@ -147,7 +147,7 @@ class _KeyItem extends StatelessWidget {
     return Expanded(
         child: InkResponse(
             radius: 30,
-            splashColor: AppColor.brightGreen,
+            splashColor: AppColor.brightBlue,
             highlightColor: Colors.white,
             onTap: onKeyTap != null ? () => onKeyTap(value) : null,
             child: Container(alignment: Alignment.center, child: child)));

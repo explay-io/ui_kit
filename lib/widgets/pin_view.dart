@@ -32,7 +32,7 @@ class PinDot extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15), color: active ? AppColor.darkerGreen : AppColor.paleGreen),
+          borderRadius: BorderRadius.circular(15), color: active ? AppColor.darkerBlue : AppColor.paleBlue),
       child: const SizedBox(width: 15, height: 15),
     );
   }

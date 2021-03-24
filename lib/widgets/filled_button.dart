@@ -53,7 +53,7 @@ class _FilledButtonState extends State<FilledButton> with ButtonMixin {
         textColor: AppColor.deepWhite,
         disabledTextColor: AppColor.deepWhite,
         disabledColor: AppColor.mediumGrey,
-        highlightColor: AppColor.darkerGreen,
+        highlightColor: AppColor.darkerBlue,
       ),
     );
   }

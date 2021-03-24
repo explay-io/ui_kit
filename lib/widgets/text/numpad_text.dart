@@ -155,7 +155,7 @@ class KeyItem extends StatelessWidget {
     return Expanded(
         child: InkResponse(
             radius: 30,
-            splashColor: AppColor.brightGreen,
+            splashColor: AppColor.brightBlue,
             highlightColor: Colors.white,
             onLongPress: () => onKeyLongPress(value),
             onTap: () => onKeyTap(value),

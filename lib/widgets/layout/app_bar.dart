@@ -33,7 +33,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
         backgroundColor: Colors.white,
         elevation: 0.0,
         iconTheme:
-        Theme.of(context).iconTheme.copyWith(color: AppColor.green),
+        Theme.of(context).iconTheme.copyWith(color: AppColor.blue),
         flexibleSpace: showProgress && flowStepsNumber > 0? _progressWidget(context) : Container()
     );
   }
@@ -48,7 +48,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
               height: 1.0,
               width: 15.0,
               decoration: const BoxDecoration(
-                color: AppColor.green,
+                color: AppColor.blue,
               ),),
           )
         );

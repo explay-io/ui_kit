@@ -33,7 +33,7 @@ class DotsIndicator extends AnimatedWidget {
   Widget buildDot(int index) {
     final selectedPage = (controller.page ?? controller.initialPage).round();
     final color =
-        (selectedPage == index) ? AppColor.darkerGreen : AppColor.semiGrey;
+        (selectedPage == index) ? AppColor.darkerBlue : AppColor.semiGrey;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5.0),
       child: Dot(

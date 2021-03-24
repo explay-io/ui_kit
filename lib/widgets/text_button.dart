@@ -52,7 +52,7 @@ class _TextButtonState extends State<TextButton> with ButtonMixin {
             ? null
             : () => disableButtonWhileOnPressedExecutes(
                 setEnabled: _setEnabled, onPressed: widget.onPressed),
-        textColor: AppColor.green,
+        textColor: AppColor.blue,
         padding: widget.padding ??
             const EdgeInsets.symmetric(vertical: 17.5, horizontal: 18.5),
       ),
