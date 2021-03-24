@@ -54,8 +54,8 @@ class Layouts extends StatelessWidget {
                 MaterialPageRoute<dynamic>(
                     settings: const RouteSettings(name: utilityLayoutRoute),
                     builder: (_) => UtilityTemplate(
-                        'Update your app',
-                        'Get the latest version of the app.',
+                        'Lorem ipsum dolor sit amet.',
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada dui non egestas semper. Donec sit amet orci metus. Nam sit amet velit in ipsum lacinia suscipit. Duis quis erat convallis, vulputate neque nec, feugiat enim.',
                         SvgPicture.asset(
                           'assets/update-app.svg',
                           width: 285.0,
@@ -90,7 +90,7 @@ class Layouts extends StatelessWidget {
                     settings: const RouteSettings(name: informationLayoutRoute),
                     builder: (_) => InformationTemplate(
                           'Information template',
-                          'To verify your account, we need you to submit another identity document, alongside with your residence permit.\n\nYou can submit a photo of your passport, national ID, or drivers’ license.',
+                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada dui non egestas semper. Donec sit amet orci metus. Nam sit amet velit in ipsum lacinia suscipit. Duis quis erat convallis, vulputate neque nec, feugiat enim.',
                           SvgPicture.asset(
                             'assets/update-app.svg',
                             width: 200.0,
@@ -168,7 +168,7 @@ class Layouts extends StatelessWidget {
                 settings: const RouteSettings(name: infoLayoutRoute),
                 builder: (_) => GenericTemplate(
                     const Heading(
-                        'Invite a friend and you both get €10',
+                        'Lorem ipsum dolor sit amet.',
                         headingType: HeadingType.HEADING_2,
                         textAlign: TextAlign.left),
                     Padding(
@@ -213,7 +213,7 @@ class Layouts extends StatelessWidget {
               MaterialPageRoute<dynamic>(
                 settings: const RouteSettings(name: infoLayoutRoute),
                 builder: (_) => GenericTemplate(
-                    const Heading('Deposit',
+                    const Heading('Lorem ipsum',
                         headingType: HeadingType.HEADING_2,
                         textAlign: TextAlign.left),
                     Padding(
@@ -226,7 +226,7 @@ class Layouts extends StatelessWidget {
                                   child: Align(
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                        'Add Euro to your account.',
+                                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                                         textAlign: TextAlign.left,
                                         style: Theme.of(context)
                                             .textTheme
@@ -236,7 +236,7 @@ class Layouts extends StatelessWidget {
                                   )),
                               Padding(
                                   padding: const EdgeInsets.only(bottom: 30.0),
-                                  child: Text('I want to deposit:',
+                                  child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit',
                                       textAlign: TextAlign.left,
                                       style: Theme.of(context)
                                           .textTheme
@@ -275,14 +275,14 @@ class Layouts extends StatelessWidget {
                             mainAxisSize: MainAxisSize.max,
                             children: <Widget>[
                               const Heading(
-                                  'Exchange CAG tokens to new equity like CNG tokens',
+                                  'Lorem ipsum dolor sit amet.',
                                   headingType: HeadingType.HEADING_1,
                                   textAlign: TextAlign.left),
                               Container(
                                 child: Padding(
                                   padding: const EdgeInsets.only(top: 14.0),
                                   child: Text(
-                                      'CNG tokens give you the right to become shareholder',
+                                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                                       style: Theme.of(context).textTheme.body1),
                                 ),
                               ),
@@ -304,7 +304,7 @@ class Layouts extends StatelessWidget {
                                     text: new TextSpan(
                                       children: [
                                         TextSpan(
-                                          text: 'What is token swap?',
+                                          text: 'Lorem ipsum dolor sit amet.',
                                           style: Theme.of(context)
                                               .textTheme
                                               .body2
@@ -320,7 +320,7 @@ class Layouts extends StatelessWidget {
                           ),
                           Column(children: <Widget>[
                             FilledButton(
-                              'Go to Swap',
+                              'Accept',
                               onPressed: () {
                                 print('Test');
                               },
@@ -328,7 +328,7 @@ class Layouts extends StatelessWidget {
                               narrow: false,
                             ),
                             TextButton(
-                              'I\'m not CNG owner',
+                              'Cancel',
                               onPressed: () {
                                 print('Test');
                               },
@@ -336,7 +336,7 @@ class Layouts extends StatelessWidget {
                           ]),
                           leadingWidget: const CloseButton(),
                           title: const Text(
-                            'CAG Token Swap',
+                            'Title',
                           ),
                           picture: SvgPicture.asset(
                             'assets/update-app.svg',

@@ -2,7 +2,7 @@
 
 Custom toolkit for ui elements and reusable components
 
-#Principles
+# Principles
 Do not introduce spacing around the widget unless it is a part of the widget (i.e. TextButton). It is easier to just wrap it in padding during consumption.
 
 # Workflow
