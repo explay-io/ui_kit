@@ -60,16 +60,6 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  fonts:
-    - family: CryptoFont
-      fonts:
-        - asset: lib/fonts/cryptofont-webfont.ttf
-          weight: 400
-    - family: Circular
-      fonts:
-        - asset: lib/fonts/CircularPro-Book.ttf
-          weight: 400
-
   assets:
     - assets/update-app.svg
     - assets/euro.svg
