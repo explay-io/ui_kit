@@ -7,12 +7,11 @@ import 'package:ui_kit/widgets/text/heading.dart';
 import 'package:ui_kit/widgets/text/heading_type.dart';
 
 class UtilitySlide extends StatelessWidget {
-  final SvgPicture picture;
+  final Widget picture;
   final String heading;
   final String body;
 
-  const UtilitySlide(this.heading, this.body, this.picture)
-      : super();
+  const UtilitySlide(this.heading, this.body, this.picture) : super();
 
   @override
   Widget build(BuildContext context) {

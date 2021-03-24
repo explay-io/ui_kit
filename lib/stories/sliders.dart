@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:ui_kit/color.dart';
+import 'package:ui_kit/widgets/illustrations/undraw.dart';
+import 'package:ui_kit/widgets/illustrations/undraw_illustrations.dart';
 import 'package:ui_kit/widgets/layout/page_template.dart';
 import 'package:ui_kit/widgets/slider/layout/utility_slide.dart';
 import 'package:ui_kit/widgets/slider/slider.dart';
 
 class Sliders extends StatelessWidget {
   static const String sliderRoute = '/slider-page';
-  final _controller = new PageController();
+  final _controller = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +26,11 @@ class Sliders extends StatelessWidget {
 
   Widget buildSlideOne() {
     return UtilitySlide(
-      'Pre-order your card',
-      'Convert instantly between your currencies and spend with your card world wide',
-      SvgPicture.asset(
-        'assets/card_holder.svg',
+      'Slide 1 title',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      Undraw(
+        color: AppColor.blue,
+        illustration: UndrawIllustration.mobile_application,
         width: 285.0,
         height: 215.0,
       ),
@@ -36,10 +39,11 @@ class Sliders extends StatelessWidget {
 
   Widget buildSlideTwo() {
     return UtilitySlide(
-      'Buy and trade cryptos',
-      'Get started with Bitcoin, Ethereum, and more with zero fees.',
-      SvgPicture.asset(
-        'assets/free_trading.svg',
+      'Slide 2 title',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      Undraw(
+        color: AppColor.blue,
+        illustration: UndrawIllustration.mobile_application,
         width: 285.0,
         height: 215.0,
       ),
@@ -48,11 +52,11 @@ class Sliders extends StatelessWidget {
 
   Widget buildSlideThree() {
     return UtilitySlide(
-      'Secure funds',
-      'Your funds are protected in multi-signature, '
-          'cold-storage cryptocurrency accounts',
-      SvgPicture.asset(
-        'assets/secure_funds.svg',
+      'Slide 3 title',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      Undraw(
+        color: AppColor.blue,
+        illustration: UndrawIllustration.mobile_application,
         width: 285.0,
         height: 215.0,
       ),
