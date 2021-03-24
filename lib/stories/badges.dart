@@ -9,7 +9,7 @@ import 'package:ui_kit/widgets/badge/multivalue_badge.dart';
 
 import '../color.dart';
 
-const _colorList = ['Red', 'Green'];
+const _colorList = ['Red', 'Blue'];
 
 Color _optionToColor(String optionSelected) {
   switch (optionSelected) {
@@ -49,7 +49,7 @@ Widget _simpleBadgeStory() {
           initialProps: const <String, dynamic>{
             'text': '\$1234.56',
             'minWidth': 80.0,
-            'bgColor': 'Green'
+            'bgColor': 'Blue'
           },
           formBuilder: (context, props, updateProp) {
             return ListView(
@@ -95,7 +95,7 @@ Widget _multiValueBadgeStory() {
           initialProps: const <String, dynamic>{
             'texts': ['\$1234.56', '+1.23%'],
             'minWidth': 120.0,
-            'bgColor': 'Green'
+            'bgColor': 'Blue'
           },
           formBuilder: (context, props, updateProp) {
             return ListView(

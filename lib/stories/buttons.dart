@@ -234,7 +234,7 @@ class Buttons extends StatelessWidget {
       title: 'Switcher button',
       child: PropsExplorer(
         initialProps: const <String, dynamic>{
-          'buttonLabels': <String>['BTC','EUR','ETH'],
+          'buttonLabels': <String>['EUR','USD'],
         },
         formBuilder: (context, props, updateProp) {
           return ListView(
@@ -247,7 +247,7 @@ class Buttons extends StatelessWidget {
                 propKey: 'buttonLabels',
                 listToTextConverter: listToTextConverter,
                 textToListConverter: textToListConverter,
-                hintText: 'comma-separated list of strings e.g EUR,BTC,USD',
+                hintText: 'comma-separated list of strings e.g EUR,USD',
               )
             ],
           );
