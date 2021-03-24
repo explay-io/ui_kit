@@ -31,8 +31,8 @@ Widget _securedInfoBoxStory() {
       child: PropsExplorer(
           initialProps: const <String, dynamic>{
             'assetName': 'assets/convert_is_secured.svg',
-            'infoHeader': 'Your funds are stored securely',
-            'infoBody': 'Change uses a combination of offline storage and multi-signature solutions to ensure that your cryptocurrency is protected.'
+            'infoHeader': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            'infoBody': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada dui non egestas semper. Donec sit amet orci metus. Nam sit amet velit in ipsum lacinia suscipit. Duis quis erat convallis, vulputate neque nec, feugiat enim. Fusce laoreet, risus quis commodo tincidunt, nibh tortor dapibus neque, eget aliquet odio magna non leo. Cras viverra laoreet ante, a placerat purus fermentum sed. Cras lobortis blandit dolor, sed vestibulum purus faucibus id. Duis congue imperdiet erat consequat posuere. Quisque vel lorem odio. Nullam non diam ultrices, aliquet elit eget, viverra lorem. Donec vitae maximus lectus, eget pulvinar lacus. Nullam in tortor nisl. Aenean in blandit diam, nec cursus sem. Mauris eget rutrum nunc.'
           },
           formBuilder: (context, props, updateProp) {
             return ListView(

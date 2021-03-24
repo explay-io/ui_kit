@@ -36,14 +36,14 @@ class SliverWidgets {
   }
 
   Widget bottomButton() {
-    return FilledButton('Make a deposit', fullWidth: true, onPressed: () {
+    return FilledButton('Content', fullWidth: true, onPressed: () {
       debugPrint('Hello you clicked');
     });
   }
 
   Widget copy() {
     return const Text(
-      'Make a Euro deposit to start investing',
+      'Message',
       textAlign: TextAlign.center,
       style: AppText.header5,
     );

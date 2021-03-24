@@ -31,8 +31,8 @@ Widget _gaugeIndicatorStory() {
       title: 'Gauge Indicator',
       child: PropsExplorer(
           initialProps: const <String, dynamic>{
-            'bearishThreshold': 40.0,
-            'bullishThreshold': 60.0,
+            'dangerThreshold': 40.0,
+            'safeThreshold': 60.0,
             'score': 75.0
           },
           formBuilder: (context, props, updateProp) {
@@ -43,13 +43,13 @@ Widget _gaugeIndicatorStory() {
                   DoublePropUpdater(
                       props: props,
                       updateProp: updateProp,
-                      propKey: 'bearishThreshold',
+                      propKey: 'dangerThreshold',
                       min: 0.0,
                       max: 45.0),
                   DoublePropUpdater(
                       props: props,
                       updateProp: updateProp,
-                      propKey: 'bullishThreshold',
+                      propKey: 'safeThreshold',
                       min: 55.0,
                       max: 100.0),
                   DoublePropUpdater(
@@ -65,8 +65,8 @@ Widget _gaugeIndicatorStory() {
               Container(
                   child: Center(
                       child: GaugeIndicator(width: 200,
-                          bearishThreshold: props['bearishThreshold'] / 100.0,
-                          bullishThreshold: props['bullishThreshold'] / 100.0,
+                          dangerThreshold: props['dangerThreshold'] / 100.0,
+                          safeThreshold: props['safeThreshold'] / 100.0,
                           score: props['score'] / 100.0
                       )
                   )
