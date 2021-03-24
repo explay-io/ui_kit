@@ -55,7 +55,7 @@ class Layouts extends StatelessWidget {
                     settings: const RouteSettings(name: utilityLayoutRoute),
                     builder: (_) => UtilityTemplate(
                         'Update your app',
-                        'Get the latest version of Change to make sure you have access to the latest features and updates.',
+                        'Get the latest version of the app.',
                         SvgPicture.asset(
                           'assets/update-app.svg',
                           width: 285.0,
@@ -126,7 +126,7 @@ class Layouts extends StatelessWidget {
                 MaterialPageRoute<dynamic>(
                     settings: const RouteSettings(name: dismissibleLayoutRoute),
                     builder: (_) => GenericTemplate(
-                        const Heading('How can we make Change better?',
+                        const Heading('How can we make app better?',
                             headingType: HeadingType.HEADING_1,
                             textAlign: TextAlign.left),
                         Padding(
@@ -168,7 +168,7 @@ class Layouts extends StatelessWidget {
                 settings: const RouteSettings(name: infoLayoutRoute),
                 builder: (_) => GenericTemplate(
                     const Heading(
-                        'Invite a friend and you both get €10 worth of Bitcoin',
+                        'Invite a friend and you both get €10',
                         headingType: HeadingType.HEADING_2,
                         textAlign: TextAlign.left),
                     Padding(
@@ -176,7 +176,7 @@ class Layouts extends StatelessWidget {
                         child: Column(children: <Widget>[
                           const LabelValuePair(
                               labelText: 'Invite Link',
-                              valueText: 'getchange.com/r/2415',
+                              valueText: 'link.com/r/2415',
                               copyToClipboardEnabled: true),
                           Expanded(
                             flex: 1,
@@ -226,7 +226,7 @@ class Layouts extends StatelessWidget {
                                   child: Align(
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                        'Add Euro or cryptocurrency to your Change account.',
+                                        'Add Euro to your account.',
                                         textAlign: TextAlign.left,
                                         style: Theme.of(context)
                                             .textTheme
@@ -282,7 +282,7 @@ class Layouts extends StatelessWidget {
                                 child: Padding(
                                   padding: const EdgeInsets.only(top: 14.0),
                                   child: Text(
-                                      'CNG tokens give you the right to become shareholder of Change',
+                                      'CNG tokens give you the right to become shareholder',
                                       style: Theme.of(context).textTheme.body1),
                                 ),
                               ),
