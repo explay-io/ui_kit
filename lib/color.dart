@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class AppColor {
   const AppColor._();
-  static const Color blue = Color(0xFF2196F3);
-  static const Color blueSwatch = MaterialColor(0xFF2196F3, {
+  static const Color blue = Color(0xFF3EB5DB);
+  static const Color blueSwatch = MaterialColor(0xFF3EB5DB, {
     50: Color(0xFFE8FBF6),
     100: Color(0xFFC5F4E9),
     200: Color(0xFF9FEDDA),
@@ -16,8 +16,8 @@ class AppColor {
     900: Color(0xFF1BC48D),
   });
   static Color paleBlue = blue.withOpacity(0.2);
-  static const Color darkerBlue = Color(0xFF0D47A1);
-  static const Color brightBlue = Color(0xFF4CE2A7);
+  static const Color darkerBlue = Color(0xFF39A8CC);
+  static const Color brightBlue = Color(0xFF4CA7E2);
 
   static const Color deepBlack = Color(0xFF000000);
   static const Color deepWhite = Color(0xFFFFFFFF);
@@ -29,6 +29,8 @@ class AppColor {
   static const Color grey = Color(0xFFE7E7E7);
   static const Color mediumGrey = Color(0xFFE7E7E7);
   static const Color semiGrey = Color(0xFF9DA0A6);
+
+  static const Color green = Color(0xFF39CCA8);
 
   static const Color shadowColor = Color(0x1f0D0F10);
 }

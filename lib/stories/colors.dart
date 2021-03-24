@@ -86,7 +86,7 @@ class AppColors extends StatelessWidget {
             usage: 'Error Text',
           ),
           ColorInfoBox(
-            color: AppColor.brightBlue,
+            color: AppColor.green,
             name: 'Green success',
             usage: 'Success',
           ),
