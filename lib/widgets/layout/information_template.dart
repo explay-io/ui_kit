@@ -11,7 +11,7 @@ import 'app_bar.dart';
 class InformationTemplate extends StatelessWidget {
   final Widget leadingWidget;
   final List<Widget> tailingWidget;
-  final SvgPicture picture;
+  final Widget picture;
   final String heading;
   final String body;
   final Widget action;

@@ -210,7 +210,7 @@ packages:
     source: hosted
     version: "2.0.0"
   http:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: http
       url: "https://pub.dartlang.org"
@@ -265,13 +265,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.1.4"
-  ms_undraw:
-    dependency: "direct main"
-    description:
-      name: ms_undraw
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.2.0+15"
   package_config:
     dependency: transitive
     description:

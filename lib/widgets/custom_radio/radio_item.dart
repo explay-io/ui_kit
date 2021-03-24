@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:ui_kit/widgets/customradio/radio_model.dart';
+import 'package:ui_kit/widgets/custom_radio/radio_model.dart';
 
 import '../change_app_icons.dart';
 
@@ -11,28 +11,32 @@ class RadioItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    return new Container(
+    return Container(
       margin: const EdgeInsets.only(top: 14.00),
-      child: new Row(
+      child: Row(
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          new Container(
+          Container(
             height: 24.0,
             width: 24.0,
-            child: _radio(_item.isSelected)
+            child: _radio(
+              _item.isSelected,
             ),
-          new Container(
+          ),
+          Container(
             margin: const EdgeInsets.only(left: 10.0, right: 10.00),
-            child: new Row(children: <Widget>[
-              Padding(
-                  padding: const EdgeInsets.only(left: 10.00, right: 10.00),
-                  child: _item.svgPicture),
-              Padding(
+            child: Row(
+              children: <Widget>[
+                Padding(
+                    padding: const EdgeInsets.only(left: 10.00, right: 10.00),
+                    child: _item.picture),
+                Padding(
                   padding: const EdgeInsets.only(left: 5.00),
-                  child: Text(_item.text))
-            ]),
+                  child: Text(_item.text),
+                ),
+              ],
+            ),
           ),
         ],
       ),

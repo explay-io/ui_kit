@@ -25,7 +25,7 @@ import 'package:ui_kit/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_kit/widgets.dart';
 import 'package:ui_kit/widgets/custom_date_picker.dart';
-import 'package:ui_kit/widgets/customradio/custom_radio.dart';
+import 'package:ui_kit/widgets/custom_radio/custom_radio.dart';
 import 'package:ui_kit/widgets/layout/sliver_template.dart';
 import 'package:ui_kit/widgets/sliver_widgets.dart';
 import 'package:ui_kit/stories/progress_indicators.dart';
