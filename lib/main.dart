@@ -35,7 +35,7 @@ void main() {
     MaterialApp(
       theme: theme,
       home: StoryBook(
-        title: 'Change UI Components',
+        title: 'UI Components',
         pages: [
           Animations(),
           AppColors(),

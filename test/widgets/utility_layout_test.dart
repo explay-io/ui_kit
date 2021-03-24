@@ -9,16 +9,16 @@ import '../wrap_in_material_app.dart';
 void main() {
   group('UtilityTemplate', () {
     testWidgets('renders the expected layout', (WidgetTester tester) async {
-      const header = 'Update your app';
+      const header = 'Lorem Ipsum';
       const text =
-          'Get the latest version of Change to make sure you have access to the latest features and updates.';
+          'Lorem Ipsum is simply dummy text of the printing and typesetting industry.';
       final pic = SvgPicture.asset(
         'assets/update-app.svg',
         width: 285.0,
         height: 215.0,
       );
       final action = FilledButton(
-        'Update app',
+        'Lorem Ipsum',
         onPressed: () {},
         fullWidth: true,
         narrow: false,
@@ -29,7 +29,7 @@ void main() {
       expect(find.text(header), findsOneWidget);
       expect(find.text(text), findsOneWidget);
       expect(find.byType(SvgPicture), findsOneWidget);
-      expect(find.text('Update app'), findsOneWidget);
+      expect(find.text('Lorem Ipsum'), findsOneWidget);
     });
   });
 }
