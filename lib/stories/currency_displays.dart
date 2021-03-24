@@ -29,7 +29,7 @@ class CurrencyDisplays extends StatelessWidget {
       title: 'Currency Display',
       child: PropsExplorer(
         initialProps: const <String, dynamic>{
-          'currencySymbol': '₿',
+          'currencySymbol': '€',
           'amount': 100000.0,
           'amountIsNull': false,
           'isLarge': true,
@@ -96,10 +96,10 @@ class CurrencyDisplays extends StatelessWidget {
         },
         widgetBuilder: (context, props) {
           return CurrencySwitcher(
-            amounts: const ['2012', '0.0045'],
+            amounts: const ['2012', '2013'],
             currencyInfoList: [
               CurrencyInfo(label: 'USD', symbol: '\$', prefix: true),
-              CurrencyInfo(label: 'BTC', symbol: 'BTC')
+              CurrencyInfo(label: 'EUR', symbol: '\€', prefix: true),
             ],
           );
         },
