@@ -18,17 +18,17 @@ class _LoadersState extends State<Loaders> {
     pr.style(progressWidget:const CircularProgressIndicator());
 
     return Scaffold(
-      body: Center(,child: Text(
-              'Show loader',
-              style: TextStyle(color: Colors.white),
-            ),
-        child: RaisedButton(
-            color: Colors.blue,
-            onPressed: () {
-              pr.show();
-            })
-            
-      ),
+      body: Center(child: RaisedButton(
+              color: Colors.blue,
+              onPressed: () {
+                pr.show();
+              },
+              child: Text(
+                'Show loader',
+                style: TextStyle(color: Colors.white),
+              ),
+           ),
+        ),
     );
   }
 }

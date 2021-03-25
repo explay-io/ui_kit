@@ -166,8 +166,9 @@ class Popover extends StatelessWidget {
                 FlatButton(
                     onPressed: () async {
                       Navigator.pop(context);
-                    })
-                    child: const Text('Thats nice'),
+                    },
+                child: const Text('Thats nice'),
+                )
               ],
             );
           });

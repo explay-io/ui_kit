@@ -64,8 +64,9 @@ class _SliverTemplateState extends State<SliverTemplate> {
     return Scaffold(
       floatingActionButton: widget.floatingActionButton,
       body: NotificationListener<ScrollNotification>(
-        onNotification: (sn) async {
+        onNotification: (sn) {
           _scrollListener(sn.metrics.pixels, context);
+          return false;
         },
         child: CustomScrollView(
           controller: widget.scrollController,
