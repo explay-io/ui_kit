@@ -11,17 +11,17 @@ class Shaker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TranslationAnimatedWidget(
-      child: child,
       enabled: canShake,
       duration: shakeDuration,
       values: const [
-        const Offset(0, 0),
-        const Offset(50, 0),
-        const Offset(-50, 0),
-        const Offset(50, 0),
-        const Offset(-50, 0),
-        const Offset(0, 0),
+        Offset(0, 0),
+        Offset(50, 0),
+        Offset(-50, 0),
+        Offset(50, 0),
+        Offset(-50, 0),
+        Offset(0, 0),
       ],
+      child: child,
     );
   }
 }

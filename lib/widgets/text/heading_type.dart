@@ -1,9 +1,9 @@
 class HeadingType {
-  static const HeadingType HEADING_0 = const HeadingType._(0);
-  static const HeadingType HEADING_1 = const HeadingType._(1);
-  static const HeadingType HEADING_2 = const HeadingType._(2);
-  static const HeadingType HEADING_3 = const HeadingType._(3);
-  static const HeadingType HEADING_4 = const HeadingType._(4);
+  static const HeadingType HEADING_0 = HeadingType._(0);
+  static const HeadingType HEADING_1 = HeadingType._(1);
+  static const HeadingType HEADING_2 = HeadingType._(2);
+  static const HeadingType HEADING_3 = HeadingType._(3);
+  static const HeadingType HEADING_4 = HeadingType._(4);
 
 
   static List<HeadingType> get values =>

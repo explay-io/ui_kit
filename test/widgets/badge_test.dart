@@ -15,7 +15,7 @@ void main() {
           const Badge(
               'Badge Content',
               minWidth: 80.0,
-              textStyle: const TextStyle(color: AppColor.red, fontSize: 16.0),
+              textStyle: TextStyle(color: AppColor.red, fontSize: 16.0),
               bgColor: AppColor.blue
           )
       )

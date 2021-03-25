@@ -10,29 +10,29 @@ final ThemeData theme = ui_kit.theme.copyWith(
     iconTheme: _iconTheme,
     toggleableActiveColor: AppColors.primary,
     textTheme: const TextTheme(
-      title: _headingStyle,
-      body1: _bodyStyle,
-      body2: _bodyStyle2,
+      headline6: _headingStyle,
+      bodyText2: _bodyStyle,
+      bodyText1: _bodyStyle2,
       button: _buttonTextStyle,
       caption: _captionTextStyle,
-      display1: _appBarTitleStyle,
-      display2: AppText.header2,
-      display3: AppText.header1,
-      subhead: _bodyStyle,
+      headline4: _appBarTitleStyle,
+      headline3: AppText.header2,
+      headline2: AppText.header1,
+      subtitle1: _bodyStyle,
     )
 );
 
-const _buttonTextStyle = const TextStyle(
+const _buttonTextStyle = TextStyle(
   fontSize: 16.0,
   fontFamily: 'Circular',
   fontWeight: FontWeight.bold,
 );
 
-const _iconTheme = const IconThemeData(size: 36.0);
+const _iconTheme = IconThemeData(size: 36.0);
 
-const _textDisplayColor = const Color(0xFF9B9B9B);
+const _textDisplayColor = Color(0xFF9B9B9B);
 
-const _headingStyle = const TextStyle(
+const _headingStyle = TextStyle(
   fontSize: 28,
   fontFamily: 'Circular',
   fontWeight: FontWeight.w800,
@@ -40,21 +40,21 @@ const _headingStyle = const TextStyle(
   height: 0.7,
 );
 
-const TextStyle subHeadingStyle = const TextStyle(
+const TextStyle subHeadingStyle = TextStyle(
   color: Colors.black,
   fontSize: 18.0,
   fontFamily: 'Circular',
   fontWeight: FontWeight.bold,
 );
 
-const _bodyStyle = const TextStyle(
+const _bodyStyle = TextStyle(
   color: Colors.black,
   fontSize: 14.0,
   fontFamily: 'Circular',
   fontWeight: FontWeight.normal,
 );
 
-const _bodyStyle2 = const TextStyle(
+const _bodyStyle2 = TextStyle(
   color: Colors.black,
   fontSize: 11.0,
   fontFamily: 'Circular',
@@ -62,7 +62,7 @@ const _bodyStyle2 = const TextStyle(
   letterSpacing: 0.5,
 );
 
-const _captionTextStyle = const TextStyle(
+const _captionTextStyle = TextStyle(
   color: _textDisplayColor,
   fontSize: 11.0,
   fontFamily: 'Circular',
@@ -70,7 +70,7 @@ const _captionTextStyle = const TextStyle(
   letterSpacing: 0.5,
 );
 
-const _appBarTitleStyle = const TextStyle(
+const _appBarTitleStyle = TextStyle(
   color: AppColors.primary,
   fontSize: 11.8,
   fontFamily: 'Circular',
@@ -78,31 +78,31 @@ const _appBarTitleStyle = const TextStyle(
   letterSpacing: 2.0,
 );
 
-const _inputStyle = const TextStyle(
+const _inputStyle = TextStyle(
   fontSize: 12.0,
   fontFamily: 'Circular',
   fontWeight: FontWeight.bold,
 );
 
-const _inputHintStyle = const TextStyle(
+const _inputHintStyle = TextStyle(
   color: AppColors.hint,
   fontSize: 18.0,
   fontFamily: 'Circular',
   fontWeight: FontWeight.normal,
 );
 
-const _inputHelperStyle = const TextStyle(
+const _inputHelperStyle = TextStyle(
   color: AppColors.hint,
   fontSize: 12.0,
   fontFamily: 'Circular',
   fontWeight: FontWeight.normal,
 );
 
-const _inputDecorationTheme = const InputDecorationTheme(
+const _inputDecorationTheme = InputDecorationTheme(
     labelStyle: _inputStyle,
     hintStyle: _inputHintStyle,
     helperStyle: _inputHelperStyle,
     prefixStyle: _bodyStyle,
     suffixStyle: _bodyStyle,
     contentPadding:
-        const EdgeInsets.symmetric(vertical: 18.0, horizontal: 18.0));
+        EdgeInsets.symmetric(vertical: 18.0, horizontal: 18.0));

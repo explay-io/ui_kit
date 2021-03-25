@@ -80,11 +80,11 @@ class Popover extends StatelessWidget {
           padding: const EdgeInsets.all(30.0),
           child: Column(
             children: const <Widget>[
-              const Heading('Example Header',
+              Heading('Example Header',
                   headingType: HeadingType.HEADING_2),
               Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: const Text(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
                   textAlign: TextAlign.center,
                 ),
@@ -102,11 +102,11 @@ class Popover extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: const <Widget>[
-              const Heading('Example Header',
+              Heading('Example Header',
                   headingType: HeadingType.HEADING_2),
               Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: const Text(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
                   textAlign: TextAlign.center,
                 ),
@@ -128,8 +128,8 @@ class Popover extends StatelessWidget {
               const Heading('Example Header',
                   headingType: HeadingType.HEADING_2),
               const Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: const Text(
+                padding: EdgeInsets.all(12.0),
+                child: Text(
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
                   textAlign: TextAlign.center,
                 ),
@@ -164,10 +164,10 @@ class Popover extends StatelessWidget {
               content: Text(value),
               actions: <Widget>[
                 FlatButton(
-                    child: const Text('Thats nice'),
                     onPressed: () {
                       Navigator.pop(context);
                     })
+                    child: const Text('Thats nice'),
               ],
             );
           });

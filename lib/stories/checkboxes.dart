@@ -74,13 +74,13 @@ class Checkboxes extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('You clicked checkbox'),
-          content: new Text('isChecked: $chkState'),
+          content: Text('isChecked: $chkState'),
           actions: <Widget>[
-            new FlatButton(
-              child: const Text('OK'),
+            FlatButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
+              child: const Text('OK'),
             ),
           ],
         );

@@ -16,8 +16,8 @@ class BalanceAmount extends StatelessWidget {
       children: [
         FittedBox(
           fit: BoxFit.scaleDown,
-          child: new Text(data,
-              style: theme.body1
+          child: Text(data,
+              style: theme.bodyText2
                   .copyWith(fontWeight: FontWeight.bold, fontSize: 36.0)),
         ),
       ],

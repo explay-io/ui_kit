@@ -22,7 +22,7 @@ class Badge extends StatelessWidget {
     const defaultTextStyle = TextStyle(color: AppColor.deepWhite, fontSize: fontSize);
 
     return Container(
-        constraints: new BoxConstraints(
+        constraints: BoxConstraints(
           minWidth: minWidth,
         ),
         width: null,
@@ -41,7 +41,7 @@ class Badge extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: padding),
                       child:
                       Shimmer.fromColors(
-                        key: new Key(text),
+                        key: Key(text),
                         baseColor: defaultTextStyle.color,
                         highlightColor: bgColor,
                         loop: 1,

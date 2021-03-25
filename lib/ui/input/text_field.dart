@@ -52,7 +52,7 @@ class StreamTextField extends StatefulWidget {
 
   @override
   StreamTextFieldState createState() {
-    return new StreamTextFieldState();
+    return StreamTextFieldState();
   }
 }
 
@@ -170,7 +170,7 @@ class DecoratedTextField extends StatelessWidget {
     const smallTextStyle = TextStyle(fontSize: 12.0);
     return Container(
       padding: const EdgeInsets.only(top: 8.0),
-      child: new TextField(
+      child: TextField(
         onChanged: onChanged,
         maxLines: maxLines,
         textCapitalization: textCapitalization,
@@ -180,7 +180,7 @@ class DecoratedTextField extends StatelessWidget {
         focusNode: focusNode,
         autofocus: autofocus ?? false,
         autocorrect: autocorrect,
-        style: theme.textTheme.body1,
+        style: theme.textTheme.bodyText2,
         enableInteractiveSelection: enableInteractiveSelection,
         decoration: InputDecoration(
           enabled: enabled,

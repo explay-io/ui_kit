@@ -17,7 +17,7 @@ class MultiValueBadge extends StatefulWidget {
 
   @override
   _MultiValueBadgeState createState() {
-    return new _MultiValueBadgeState(0);
+    return _MultiValueBadgeState(0);
   }
 }
 

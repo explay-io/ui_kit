@@ -466,35 +466,35 @@ class SvgIcons {
         size: size,
       );
 
-  static const SvgIcon cardVisa = const SvgIcon(
+  static const SvgIcon cardVisa = SvgIcon(
       path: 'assets/images/card/card-visa.svg',
       color: SvgIconColor.noColor,
       size: Size.square(80.0)
   );
 
-  static const SvgIcon eurWalletIllustration = const SvgIcon(
+  static const SvgIcon eurWalletIllustration = SvgIcon(
     path: 'assets/images/market/euro-wallet.svg',
     color: SvgIconColor.noColor,
     size: Size(167.0, 81.0)
   );
 
-  static const SvgIcon cardSmall = const SvgIcon(
+  static const SvgIcon cardSmall = SvgIcon(
     path: 'assets/images/card/icons/card-small.svg',
     color: SvgIconColor.noColor,
     size: Size.square(24.0),
   );
 
-  static const SvgIcon makeFirstDepositImage = const SvgIcon(
+  static const SvgIcon makeFirstDepositImage = SvgIcon(
     path: 'assets/images/home/make-a-deposit-portfolio.svg',
     color: SvgIconColor.noColor,
   );
 
-  static const SvgIcon startVerificationImage = const SvgIcon(
+  static const SvgIcon startVerificationImage = SvgIcon(
     path: 'assets/images/home/verification.svg',
     color: SvgIconColor.noColor,
   );
 
-  static const SvgIcon rejectedVerificationImage = const SvgIcon(
+  static const SvgIcon rejectedVerificationImage = SvgIcon(
     path: 'assets/images/home/verification-rejected.svg',
     color: SvgIconColor.noColor,
   );

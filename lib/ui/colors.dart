@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 class AppColors {
   const AppColors._();
 
-  static const Color primaryColor = const Color(0xFF3EB5DB);
-  static const Color primary = const Color(0xFF3EB5DB);
-  static const Color primaryColorDarker = const Color(0xFF02a5bd);
-  static const Color secondary = const Color(0xFF3EB5DB);
-  static const Color secondaryLight = const Color(0xFF3EB5DB);
-  static const Color colorNeutralLight = const Color(0xFFcccccc);
-  static const Color warning = const Color(0xFFFFC9C0);
-  static const Color hint = const Color(0x8A000000);
+  static const Color primaryColor = Color(0xFF3EB5DB);
+  static const Color primary = Color(0xFF3EB5DB);
+  static const Color primaryColorDarker = Color(0xFF02a5bd);
+  static const Color secondary = Color(0xFF3EB5DB);
+  static const Color secondaryLight = Color(0xFF3EB5DB);
+  static const Color colorNeutralLight = Color(0xFFcccccc);
+  static const Color warning = Color(0xFFFFC9C0);
+  static const Color hint = Color(0x8A000000);
 
   static const LinearGradient buttonGradient = LinearGradient(
       begin: Alignment.centerLeft,

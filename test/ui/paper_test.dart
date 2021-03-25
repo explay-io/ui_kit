@@ -21,11 +21,11 @@ void main() {
       var counter = 0;
       await tester.pumpWidget(Directionality(
         textDirection: TextDirection.ltr,
-        child: new Paper(
-          children: const [],
+        child: Paper(
           onTap: () {
             counter++;
           },
+          children: const [],
         ),
       ));
       expect(find.byType(GestureDetector), findsOneWidget);

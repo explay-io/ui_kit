@@ -111,23 +111,28 @@ class _BottomSheetState extends State<BottomSheet> {
   bool get _dismissUnderway => widget.animationController.status == AnimationStatus.reverse;
 
   void _handleDragUpdate(DragUpdateDetails details) {
-    if (_dismissUnderway)
+    if (_dismissUnderway) {
       return;
+    }
     widget.animationController.value -= details.primaryDelta / (_childHeight ?? details.primaryDelta);
   }
 
   void _handleDragEnd(DragEndDetails details) {
-    if (_dismissUnderway)
+    if (_dismissUnderway) {
       return;
+    }
     if (details.velocity.pixelsPerSecond.dy > _kMinFlingVelocity) {
       final flingVelocity = -details.velocity.pixelsPerSecond.dy / _childHeight;
-      if (widget.animationController.value > 0.0)
+      if (widget.animationController.value > 0.0) {
         widget.animationController.fling(velocity: flingVelocity);
-      if (flingVelocity < 0.0)
+      }
+      if (flingVelocity < 0.0) {
         widget.onClosing();
+      }
     } else if (widget.animationController.value < _kCloseProgressThreshold) {
-      if (widget.animationController.value > 0.0)
+      if (widget.animationController.value > 0.0) {
         widget.animationController.fling(velocity: -1.0);
+      }
       widget.onClosing();
     } else {
       widget.animationController.forward();
@@ -144,13 +149,13 @@ class _BottomSheetState extends State<BottomSheet> {
     return !widget.enableDrag ? bottomSheet : GestureDetector(
       onVerticalDragUpdate: _handleDragUpdate,
       onVerticalDragEnd: _handleDragEnd,
+      excludeFromSemantics: true,
       child: ClipRRect(
           borderRadius: const BorderRadius.only(
-              topLeft: const Radius.circular(20.0),
-              topRight: const Radius.circular(20.0)
+              topLeft: Radius.circular(20.0),
+              topRight: Radius.circular(20.0)
           ),
           child: bottomSheet),
-      excludeFromSemantics: true,
     );
   }
 }
@@ -285,8 +290,9 @@ class _ModalBottomSheetRoute<T> extends PopupRoute<T> {
       removeTop: true,
       child: _ModalBottomSheet<T>(route: this),
     );
-    if (theme != null)
+    if (theme != null) {
       bottomSheet = Theme(data: theme, child: bottomSheet);
+    }
     return bottomSheet;
   }
 }

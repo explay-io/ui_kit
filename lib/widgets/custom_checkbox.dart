@@ -44,16 +44,16 @@ class CustomCheckbox extends StatelessWidget {
       onTap: (){onChanged(!isChecked);},
       child: Container(
         margin: const EdgeInsets.only(top: 14.00),
-        child: new Row(
+        child: Row(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            new Container(
+            Container(
                 height: 24.0,
                 width: 24.0,
                 child: _icon(isChecked)
             ),
-            new Container(
+            Container(
                 margin: const EdgeInsets.only(left: 10.0, right: 10.00),
                 child: label
             ),

@@ -147,7 +147,7 @@ class TimeFrameSelectorWidgetState extends State<TimeFrameSelector> {
       widgets.add(_buildDisableItem(timeFrame));
     }
 
-    return new Row(
+    return Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: widgets

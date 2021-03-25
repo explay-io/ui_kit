@@ -11,14 +11,14 @@ void main() {
     testWidgets('renders icon', (tester) async {
       await tester.pumpWidget(const Directionality(
           textDirection: TextDirection.ltr,
-          child: const CopyToClipboard(value: '123456')));
+          child: CopyToClipboard(value: '123456')));
       expect(find.byType(Icon), findsOneWidget);
     });
 
     testWidgets('copies on tap', (tester) async {
       setUpTestMethodChannel('flutter/platform', const JSONMethodCodec());
       await tester.pumpWidget(const MaterialApp(
-        home: const Scaffold(body: const CopyToClipboard(value: '123456')),
+        home: Scaffold(body: CopyToClipboard(value: '123456')),
       ));
       await tester.tap(find.byType(Icon));
       expectMethodCall('Clipboard.setData', arguments: <String, dynamic>{

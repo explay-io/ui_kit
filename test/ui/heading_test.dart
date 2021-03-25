@@ -5,7 +5,7 @@ import 'package:ui_kit/ui/text/heading.dart';
 void main() {
   testWidgets('Heading shows text', (tester) async {
     await tester.pumpWidget(const Directionality(
-        textDirection: TextDirection.ltr, child: const Heading('Test')));
+        textDirection: TextDirection.ltr, child: Heading('Test')));
     expect(find.text('Test'), findsOneWidget);
   });
 }

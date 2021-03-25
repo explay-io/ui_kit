@@ -10,9 +10,9 @@ class LabelText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
-    return new Text(
+    return Text(
       data,
-      style: theme.body1.copyWith(
+      style: theme.bodyText2.copyWith(
           color: AppColors.primaryColor,
           fontSize: 12.0,
           letterSpacing: 2.0,

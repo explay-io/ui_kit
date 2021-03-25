@@ -62,9 +62,9 @@ Widget _numPadStory() {
           },
           widgetBuilder: (context, props) {
             return Column(mainAxisSize: MainAxisSize.min, children: [
-              new Container(
+              Container(
                   width: 300.0,
-                  child: new IgnorePointer(
+                  child: IgnorePointer(
                       child: Container(
                           alignment: Alignment.bottomRight,
                           padding: const EdgeInsets.all(30.0),
@@ -74,7 +74,7 @@ Widget _numPadStory() {
                                   autofocus: false,
                                   controller: _textEditingController,
                                   textAlign: TextAlign.left,
-                                  style: Theme.of(context).textTheme.display2.copyWith(fontWeight: FontWeight.normal),
+                                  style: Theme.of(context).textTheme.headline3.copyWith(fontWeight: FontWeight.normal),
                                   decoration:
                                       InputDecoration.collapsed(hintText: '0', hintStyle: AppText.numPadTextStyle)))))),
               Container(
@@ -131,9 +131,9 @@ class _PasscodeNumpadStory extends StatelessWidget {
             },
             widgetBuilder: (context, props) {
               return Column(mainAxisSize: MainAxisSize.min, children: [
-                new Container(
+                Container(
                     width: 300.0,
-                    child: new IgnorePointer(
+                    child: IgnorePointer(
                         child: Container(
                             alignment: Alignment.bottomRight,
                             padding: const EdgeInsets.all(30.0),
@@ -143,7 +143,7 @@ class _PasscodeNumpadStory extends StatelessWidget {
                                     autofocus: false,
                                     controller: _textEditingController,
                                     textAlign: TextAlign.left,
-                                    style: Theme.of(context).textTheme.display2.copyWith(fontWeight: FontWeight.normal),
+                                    style: Theme.of(context).textTheme.headline3.copyWith(fontWeight: FontWeight.normal),
                                     decoration: InputDecoration.collapsed(
                                         hintText: '0', hintStyle: AppText.numPadTextStyle)))))),
                 Container(

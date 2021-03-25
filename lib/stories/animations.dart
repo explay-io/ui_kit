@@ -14,7 +14,7 @@ class Animations extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: const <Widget>[
-            const _ShakerStory(),
+            _ShakerStory(),
           ],
         ),
       ),
@@ -60,9 +60,9 @@ class __ShakerStoryState extends State<_ShakerStory> {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Shaker(
-                child: const Text('Tap the button to shake me!'),
                 canShake: canShake,
                 shakeDuration: Duration(milliseconds: durationMs),
+                child: const Text('Tap the button to shake me!'),
               ),
               const SizedBox(height: 10),
               FilledButton(

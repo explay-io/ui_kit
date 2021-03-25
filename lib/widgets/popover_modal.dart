@@ -9,7 +9,7 @@ class PopoverModal {
     return showModalBottomSheetCustom<T>(
         context: context,
         builder: (BuildContext context) {
-          return new Container(
+          return Container(
             color: const Color(0xFF737373),
             child: Container(
                 decoration: const BoxDecoration(

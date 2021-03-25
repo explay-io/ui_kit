@@ -42,7 +42,7 @@ void main() {
     });
 
     testWidgets('shows secondary action when no text has been entered', (WidgetTester tester) async {
-      const secondaryWidget = const Text('Secondary Action', key: const Key('secondaryActionWidget'));
+      const secondaryWidget = Text('Secondary Action', key: Key('secondaryActionWidget'));
 
       final testNumPad = PasscodeNumPadText(
         onChange: onChange,

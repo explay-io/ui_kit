@@ -23,7 +23,7 @@ void main() {
         narrow: false,
       );
 
-      const backbutton = const BackButton();
+      const backbutton = BackButton();
 
       await tester.pumpWidget(wrapInMaterialApp(InformationTemplate(
         header,

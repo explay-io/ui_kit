@@ -230,7 +230,7 @@ class Layouts extends StatelessWidget {
                                         textAlign: TextAlign.left,
                                         style: Theme.of(context)
                                             .textTheme
-                                            .body2
+                                            .bodyText1
                                             .copyWith(
                                                 color: AppColor.semiGrey)),
                                   )),
@@ -240,7 +240,7 @@ class Layouts extends StatelessWidget {
                                       textAlign: TextAlign.left,
                                       style: Theme.of(context)
                                           .textTheme
-                                          .body2
+                                          .bodyText1
                                           .copyWith(color: AppColor.semiGrey))),
                               Expanded(
                                   flex: 1,
@@ -283,7 +283,7 @@ class Layouts extends StatelessWidget {
                                   padding: const EdgeInsets.only(top: 14.0),
                                   child: Text(
                                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                                      style: Theme.of(context).textTheme.body1),
+                                      style: Theme.of(context).textTheme.bodyText2),
                                 ),
                               ),
                               const SizedBox(
@@ -299,15 +299,15 @@ class Layouts extends StatelessWidget {
                                   const SizedBox(
                                     width: 6,
                                   ),
-                                  new RichText(
+                                  RichText(
                                     textAlign: TextAlign.left,
-                                    text: new TextSpan(
+                                    text: TextSpan(
                                       children: [
                                         TextSpan(
                                           text: 'Lorem ipsum dolor sit amet.',
                                           style: Theme.of(context)
                                               .textTheme
-                                              .body2
+                                              .bodyText1
                                               .copyWith(
                                                   color: AppColor.semiGrey),
                                         ),

@@ -99,10 +99,10 @@ class _SliverTemplateState extends State<SliverTemplate> {
                   title: widget.content,
                   collapseMode: CollapseMode.pin,
                   background: Container(
-                    child: widget.backgroundWidget,
                     decoration: const BoxDecoration(
                       color: AppColor.deepWhite,
                     ),
+                    child: widget.backgroundWidget,
                   ),
                 ),
               ),

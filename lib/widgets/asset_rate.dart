@@ -19,11 +19,11 @@ class AssetRate extends StatelessWidget {
         RichText(
           text: TextSpan(
               children: [
-                new TextSpan(text: '$symbol ',
+                TextSpan(text: '$symbol ',
                     style: AppText.body2),
-                new TextSpan(text: '$value',
+                TextSpan(text: '$value',
                     style: AppText.header0.copyWith(fontWeight: FontWeight.bold)),
-                new TextSpan(text: '$cents',
+                TextSpan(text: '$cents',
                     style: AppText.body2),
               ]
           )

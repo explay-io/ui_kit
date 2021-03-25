@@ -28,12 +28,12 @@ class StreamCountryTextField extends StatefulWidget {
 
   @override
   StreamCountryTextFieldState createState() {
-    return new StreamCountryTextFieldState();
+    return StreamCountryTextFieldState();
   }
 }
 
 class StreamCountryTextFieldState extends State<StreamCountryTextField> {
-  final FocusNode _focus = new FocusNode();
+  final FocusNode _focus = FocusNode();
 
   @override
   void initState() {
@@ -78,8 +78,8 @@ class StreamCountryTextFieldState extends State<StreamCountryTextField> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             const Padding(
-                padding: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 0.0),
-                child: const Heading('Select country')),
+                padding: EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 0.0),
+                child: Heading('Select country')),
             Flexible(child: _buildOptions(countries, context))
           ],
         ),

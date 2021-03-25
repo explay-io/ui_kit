@@ -180,7 +180,7 @@ void testPaddingProp({
 }) {
   group('padding prop', () {
     testWidgets('if padding is passed, overwrite default', (WidgetTester tester) async {
-      const padding = const EdgeInsets.all(8.0);
+      const padding = EdgeInsets.all(8.0);
       await tester.pumpWidget(wrapInMaterialApp(buildButton(padding: padding)));
       final button =
           // ignore: avoid_as

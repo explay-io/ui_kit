@@ -66,7 +66,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
       }
     }
     return Padding(
-      padding: new EdgeInsets.only(
+      padding: EdgeInsets.only(
           top: MediaQuery.of(context).padding.top
       ),
       child:

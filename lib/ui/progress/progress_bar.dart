@@ -15,18 +15,18 @@ class ProgressBar extends StatelessWidget {
     final maxProgress = size.width / 1.5;
     return Container(
       color: AppColors.secondaryLight,
+      constraints: BoxConstraints.tightFor(width: maxProgress, height: 4.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          new Container(
+          Container(
             key: progressKey,
             color: AppColors.secondary,
-            constraints: new BoxConstraints.tightFor(
+            constraints: BoxConstraints.tightFor(
                 width: maxProgress * progress, height: 4.0),
           )
         ],
       ),
-      constraints: BoxConstraints.tightFor(width: maxProgress, height: 4.0),
     );
   }
 }

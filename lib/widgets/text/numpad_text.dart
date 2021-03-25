@@ -110,12 +110,12 @@ class _NumPadTextState extends State<NumPadText> {
   KeyItem buildKeyItem(String val) {
     return KeyItem(
       value: val,
+      onKeyTap: onKeyTapped,
+      onKeyLongPress: onKeyLongPressed,
       child: (val != 'C')
           ? Text(val,
               textAlign: TextAlign.center, style: AppText.numPadTextStyle)
           : const Icon(Icons.arrow_back, size: 24.0, color: AppColor.deepBlack),
-      onKeyTap: onKeyTapped,
-      onKeyLongPress: onKeyLongPressed,
     );
   }
 

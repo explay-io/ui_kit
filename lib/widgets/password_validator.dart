@@ -37,14 +37,14 @@ class _PasswordValidatorState extends State<PasswordValidator> {
     if (widget.password.length > 8) {
       counter = counter + 1;
     }
-    if (widget.password.contains(new RegExp(r'[A-Z]'))) {
+    if (widget.password.contains(RegExp(r'[A-Z]'))) {
       counter = counter + 1;
     }
-    if (widget.password.contains(new RegExp(r'[0-9]'))) {
+    if (widget.password.contains(RegExp(r'[0-9]'))) {
       counter = counter + 1;
     }
     if (widget.password
-        .contains(new RegExp(r'[!@_#$\%;^&*+(),.?":\-{}|<>/\\]'))) {
+        .contains(RegExp(r'[!@_#$\%;^&*+(),.?":\-{}|<>/\\]'))) {
       counter = counter + 1;
     }
     return counter;
@@ -132,10 +132,10 @@ class _PasswordValidatorState extends State<PasswordValidator> {
 
   String _hint() {
     if (widget.password.length > 8) {
-      if (widget.password.contains(new RegExp(r'[A-Z]'))) {
+      if (widget.password.contains(RegExp(r'[A-Z]'))) {
         if (widget.password.contains(RegExp(r'[0-9]'))) {
           if (widget.password
-              .contains(new RegExp(r'[!@_#$\%;^&*+(),.?":\-{}|<>/\\]'))) {
+              .contains(RegExp(r'[!@_#$\%;^&*+(),.?":\-{}|<>/\\]'))) {
             return widget.hintList[2];
           } else {
             return widget.hintList[1];
@@ -147,10 +147,10 @@ class _PasswordValidatorState extends State<PasswordValidator> {
         return widget.hintList[0];
       }
     } else {
-      if (widget.password.contains(new RegExp(r'[A-Z]'))) {
+      if (widget.password.contains(RegExp(r'[A-Z]'))) {
         if (widget.password.contains(RegExp(r'[0-9]'))) {
           if (widget.password
-              .contains(new RegExp(r'[!@_#$\%;^&*+(),.?":\-{}|<>/\\]'))) {
+              .contains(RegExp(r'[!@_#$\%;^&*+(),.?":\-{}|<>/\\]'))) {
             return widget.hintList[3];
           }
         }
@@ -173,7 +173,7 @@ class _PasswordValidatorState extends State<PasswordValidator> {
           ),
         ),
         const Padding(
-          padding: const EdgeInsets.only(bottom: 10.0),
+          padding: EdgeInsets.only(bottom: 10.0),
         ),
         SimpleProgressIndicator(
           background: true,
@@ -183,7 +183,7 @@ class _PasswordValidatorState extends State<PasswordValidator> {
           percentageFilled: (_passwordStrength()) * 20.0,
         ),
         const Padding(
-          padding: const EdgeInsets.only(top: 10.0),
+          padding: EdgeInsets.only(top: 10.0),
         ),
         Text(
           _hint(),

@@ -33,8 +33,9 @@ class CustomProgressDialog {
       double elevation,
       double borderRadius,
       Curve insetAnimCurve}) {
-    if (_isShowing)
+    if (_isShowing) {
       return;
+    }
 
     _progressWidget = progressWidget ?? _progressWidget;
     _backgroundColor = backgroundColor ?? _backgroundColor;
@@ -50,8 +51,9 @@ class CustomProgressDialog {
 
     _progressWidget = progressWidget ?? _progressWidget;
 
-    if (_isShowing)
+    if (_isShowing) {
       _dialog.update();
+    }
   }
 
   bool isShowing() {
@@ -64,16 +66,19 @@ class CustomProgressDialog {
         _isShowing = false;
         if (Navigator.of(_dismissingContext).canPop()) {
           Navigator.of(_dismissingContext).pop();
-          if (_showLogs)
+          if (_showLogs) {
             debugPrint('ProgressDialog dismissed');
+          }
         } else {
-          if (_showLogs)
+          if (_showLogs) {
             debugPrint('Cant pop ProgressDialog');
+          }
         }
       } on Exception catch (_) {}
     } else {
-      if (_showLogs)
+      if (_showLogs) {
         debugPrint('ProgressDialog already dismissed');
+      }
     }
   }
 
@@ -82,26 +87,29 @@ class CustomProgressDialog {
       try {
         _isShowing = false;
         Navigator.of(_dismissingContext).pop(true);
-        if (_showLogs)
+        if (_showLogs) {
           debugPrint('ProgressDialog dismissed');
+        }
         return Future.value(true);
       } on Exception catch (_) {
         return Future.value(false);
       }
     } else {
-      if (_showLogs)
+      if (_showLogs) {
         debugPrint('ProgressDialog already dismissed');
+      }
       return Future.value(false);
     }
   }
 
   void show() {
     if (!_isShowing) {
-      _dialog = new _Body();
+      _dialog = _Body();
       _isShowing = true;
 
-      if (_showLogs)
+      if (_showLogs) {
         debugPrint('ProgressDialog shown');
+      }
 
       showDialog<dynamic>(
         context: _context,
@@ -125,8 +133,9 @@ class CustomProgressDialog {
         },
       );
     } else {
-      if (_showLogs)
+      if (_showLogs) {
         debugPrint('ProgressDialog already shown/showing');
+      }
     }
   }
 }
@@ -152,8 +161,9 @@ class _BodyState extends State<_Body> {
   @override
   void dispose() {
     _isShowing = false;
-    if (_showLogs)
+    if (_showLogs) {
       debugPrint('ProgressDialog dismissed by back button');
+    }
     super.dispose();
   }
 

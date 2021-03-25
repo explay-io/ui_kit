@@ -44,19 +44,19 @@ class GradientPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final fullRect = new Rect.fromLTWH(0.0, 0.0, size.width, size.height);
+    final fullRect = Rect.fromLTWH(0.0, 0.0, size.width, size.height);
 
-    final gradientPaint = new Paint()
+    final gradientPaint = Paint()
       ..shader = AppColors.headingGradient.createShader(fullRect);
 
     final paragraphStyle =
         textStyle.getParagraphStyle(textAlign: TextAlign.center);
-    final paragraphBuilder = new ui.ParagraphBuilder(paragraphStyle)
-      ..pushStyle(new ui.TextStyle(
+    final paragraphBuilder = ui.ParagraphBuilder(paragraphStyle)
+      ..pushStyle(ui.TextStyle(
           foreground: gradientPaint, letterSpacing: textStyle.letterSpacing))
       ..addText(data);
     final paragraph = paragraphBuilder.build();
-    paragraph.layout(new ui.ParagraphConstraints(width: size.width));
+    paragraph.layout(ui.ParagraphConstraints(width: size.width));
 
     canvas.drawParagraph(paragraph, const Offset(0.0, 0.0));
   }

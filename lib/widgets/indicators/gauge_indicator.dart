@@ -21,7 +21,7 @@ class GaugeIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
+    return Container(
       width: width,
       height: width / 2,
       child: Stack(
@@ -70,7 +70,7 @@ class _GaugePainter extends CustomPainter {
     const Gradient gradient = LinearGradient(
       begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
-        colors: const [const Color(0x2172efdb), const Color(0x003edbb5)]
+        colors: [Color(0x2172efdb), Color(0x003edbb5)]
     );
     final bgPaint = Paint()
       ..style = PaintingStyle.fill

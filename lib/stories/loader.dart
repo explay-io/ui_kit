@@ -13,21 +13,21 @@ class _LoadersState extends State<Loaders> {
 
   @override
   Widget build(BuildContext context) {
-    pr = new CustomProgressDialog(context);
+    pr = CustomProgressDialog(context);
 
     pr.style(progressWidget:const CircularProgressIndicator());
 
     return Scaffold(
-      body: Center(
-        child: RaisedButton(
-            child: Text(
+      body: Center(,child: Text(
               'Show loader',
               style: TextStyle(color: Colors.white),
             ),
+        child: RaisedButton(
             color: Colors.blue,
             onPressed: () {
               pr.show();
-            }),
+            })
+            
       ),
     );
   }

@@ -25,7 +25,7 @@ class NewsCard extends StatelessWidget {
         onTap: onClick,
         child: Container(
             decoration: const BoxDecoration(
-                border: const Border(
+                border: Border(
                     bottom:
                         BorderSide(width: 1.0, color: AppColor.lightestGrey))),
             child: Padding(
@@ -40,7 +40,7 @@ class NewsCard extends StatelessWidget {
                       children: <Widget>[
                         Text(source, style: AppText.newsSourceTime),
                         const Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 4),
+                            padding: EdgeInsets.symmetric(horizontal: 4),
                             child: Text(
                               '●',
                               style: TextStyle(fontSize: 6),
@@ -87,16 +87,17 @@ class DateUtils {
     final num hours = minutes / 60;
     final num days = hours / 24;
     String result;
-    if (seconds < 90)
+    if (seconds < 90) {
       result = 'Now';
-    else if (minutes < 50)
+    } else if (minutes < 50) {
       result = '${minutes.round()}m';
-    else if (hours < 24)
+    } else if (hours < 24) {
       result = '${hours.round()}h';
-    else if (hours < 48)
+    } else if (hours < 48) {
       result = '${days.round()}d';
-    else
+    } else {
       result = '${days.round()}d';
+    }
 
     return result;
   }

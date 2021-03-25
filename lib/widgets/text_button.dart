@@ -36,10 +36,17 @@ class _TextButtonState extends State<TextButton> with ButtonMixin {
         setState(() => _pressing = false);
       },
       child: FlatButton(
+        onPressed: isDisabled(enabled: _enabled, onPressed: widget.onPressed)
+            ? null
+            : () => disableButtonWhileOnPressedExecutes(
+                setEnabled: _setEnabled, onPressed: widget.onPressed),
+        textColor: AppColor.blue,
+        padding: widget.padding ??
+            const EdgeInsets.symmetric(vertical: 17.5, horizontal: 18.5),
         child: Text(
           widget.text,
           style:  (widget.textStyle != null) ? widget.textStyle :
-              Theme.of(context).textTheme.body1.copyWith(
+              Theme.of(context).textTheme.bodyText2.copyWith(
                 color: getTextColorOnWhiteBackground(
                   enabled: _enabled,
                   pressing: _pressing,
@@ -48,13 +55,6 @@ class _TextButtonState extends State<TextButton> with ButtonMixin {
                 fontSize: 12.0,
               ),
         ),
-        onPressed: isDisabled(enabled: _enabled, onPressed: widget.onPressed)
-            ? null
-            : () => disableButtonWhileOnPressedExecutes(
-                setEnabled: _setEnabled, onPressed: widget.onPressed),
-        textColor: AppColor.blue,
-        padding: widget.padding ??
-            const EdgeInsets.symmetric(vertical: 17.5, horizontal: 18.5),
       ),
     );
   }

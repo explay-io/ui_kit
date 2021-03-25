@@ -16,7 +16,7 @@ class CurrencyDisplay extends StatelessWidget {
   final bool showCursor;
 
   static final TextStyle _smallTextStyle =
-      theme.textTheme.body2.copyWith(color: AppColor.semiGrey);
+      theme.textTheme.bodyText1.copyWith(color: AppColor.semiGrey);
 
   static NumberFormat get numberFormatter => NumberFormat('######.##');
   static NumberFormat get smallNumberFormatter => NumberFormat('#.######');
@@ -61,14 +61,14 @@ class CurrencyDisplay extends StatelessWidget {
         children.add(_Cursor(cursorHeight: cursorHeight, cursorColor: cursorColor));
       }
     } else {
-      children.add(new Align(
+      children.add(Align(
           alignment: Alignment.bottomCenter,
           child: Text(_getAmount(),
             style: textStyle, maxLines: 1, textAlign: TextAlign.end)));
       if (showCursor) {
         children.add(_Cursor(cursorHeight: cursorHeight, cursorColor: cursorColor));
       }
-      children.add(new Align(
+      children.add(Align(
         alignment: Alignment.bottomCenter,
         child: Text(' $currencySymbol', maxLines: 1, style: tickerTextStyle, textAlign: TextAlign.end,)));
     }

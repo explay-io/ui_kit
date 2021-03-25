@@ -13,10 +13,10 @@ class AmountText extends StatelessWidget {
 
     return Padding(
       padding: padding,
-      child: new Text(
+      child: Text(
         data,
         style:
-            theme.body1.copyWith(fontWeight: FontWeight.bold, fontSize: 16.0),
+            theme.bodyText2.copyWith(fontWeight: FontWeight.bold, fontSize: 16.0),
         textAlign: TextAlign.center,
       ),
     );

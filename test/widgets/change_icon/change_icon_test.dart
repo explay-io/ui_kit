@@ -7,7 +7,7 @@ import '../../wrap_in_material_app.dart';
 void main() {
   group('svg', () {
     testWidgets('renders widget', (WidgetTester tester) async {
-      const icon = const ChangeIcon(
+      const icon = ChangeIcon(
         ChangeIconData('wallet', ChangeIconType.enabled)
       );
       await tester.pumpWidget(wrapInMaterialApp(icon));

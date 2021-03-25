@@ -36,12 +36,12 @@ class AppSlider extends StatelessWidget {
   }
 
   Widget buildDots() {
-    return new Container(
+    return Container(
       padding: dotsPadding,
-      child: new Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          new DotsIndicator(
+          DotsIndicator(
             controller: pageController,
             itemCount: slides.length,
             onPageSelected: (int page) {

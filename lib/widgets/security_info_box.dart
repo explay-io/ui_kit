@@ -16,6 +16,12 @@ class SecurityInfoBox extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 10.0),
       child: Container(
+        decoration: const BoxDecoration(
+            color: AppColor.veryLightGrey,
+            border: null,
+            borderRadius: BorderRadius.all(Radius.circular(16)),
+            boxShadow: null
+        ),
         child:Padding(
           padding: const EdgeInsets.only(top: 15, bottom: 15, left: 10, right: 10),
           child: Row(
@@ -49,12 +55,6 @@ class SecurityInfoBox extends StatelessWidget {
               )
             ],
           ),
-        ),
-        decoration: const BoxDecoration(
-            color: AppColor.veryLightGrey,
-            border: null,
-            borderRadius: const BorderRadius.all(Radius.circular(16)),
-            boxShadow: null
         ),
       ),
     );

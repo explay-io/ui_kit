@@ -51,7 +51,7 @@ class _TwoStatesButtonState extends State<TwoStatesButton> with ButtonMixin {
 
   void _startTimer() {
     setState(() => _currentText = widget.initialText);
-    _timer = new Timer(Duration(seconds: widget.timeIntervalInSec), () {
+    _timer = Timer(Duration(seconds: widget.timeIntervalInSec), () {
       _resetState = false;
       setState(() => _currentText = widget.finalText);
     });
@@ -80,14 +80,6 @@ class _TwoStatesButtonState extends State<TwoStatesButton> with ButtonMixin {
     return Container(
       width: widget.fullWidth ? matchParentWidth(context) : null,
       child: RaisedButton(
-        child: Text(
-          _currentText,
-          style: (widget.textStyle != null) ? widget.textStyle :
-          Theme.of(context).textTheme.body1.copyWith(
-              color: AppColor.deepWhite,
-              fontSize: getFontSize(narrow: widget.narrow, fullWidth: widget.fullWidth)
-          ),
-        ),
         onPressed: isDisabled(enabled: _enabled, onPressed: widget.onPressed)
             ? null
             : () {
@@ -108,6 +100,14 @@ class _TwoStatesButtonState extends State<TwoStatesButton> with ButtonMixin {
         disabledTextColor: AppColor.deepWhite,
         disabledColor: AppColor.mediumGrey,
         highlightColor: AppColor.darkerBlue,
+        child: Text(
+          _currentText,
+          style: (widget.textStyle != null) ? widget.textStyle :
+          Theme.of(context).textTheme.bodyText2.copyWith(
+              color: AppColor.deepWhite,
+              fontSize: getFontSize(narrow: widget.narrow, fullWidth: widget.fullWidth)
+          ),
+        ),
       ),
     );
   }

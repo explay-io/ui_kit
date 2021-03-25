@@ -21,7 +21,7 @@ class Email extends StatelessWidget {
             labelText: 'Email Address',
             labelStyle: const TextStyle(fontSize: 18, height: -1.0),
             focusedBorder: const UnderlineInputBorder(
-                borderSide: const BorderSide(color: Colors.grey)),
+                borderSide: BorderSide(color: Colors.grey)),
             hintStyle: const TextStyle(color: Colors.white30),
             errorText: errorText,
             errorStyle: const TextStyle(color: Colors.red)),

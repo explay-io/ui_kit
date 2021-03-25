@@ -56,7 +56,7 @@ class LabelValueEditableField extends StatelessWidget {
             ? MainAxisAlignment.center
             : MainAxisAlignment.start,
         children: [
-          Flexible(child: value != null ? value :  Text(data, style: const TextStyle(fontSize: 16 , fontFamily: 'Circular', color: Colors.black, height: 1.5, fontWeight: FontWeight.bold))),
+          Flexible(child: value ?? Text(data, style: const TextStyle(fontSize: 16 , fontFamily: 'Circular', color: Colors.black, height: 1.5, fontWeight: FontWeight.bold))),
           _buildRoutingIcon(context, data),
         ],
       ),
@@ -70,12 +70,6 @@ class LabelValueEditableField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 4.0),
       child: GestureDetector(
-        child: IconTheme(
-            data: IconTheme.of(context).copyWith(color: AppColor.blue ),
-            child: const Icon(
-              Icons.create,
-              size: 20.0,
-            )),
         onTap: () {
           if (arguments != null) {
             Navigator.pushNamed(context, route, arguments: arguments);
@@ -83,6 +77,12 @@ class LabelValueEditableField extends StatelessWidget {
             Navigator.pushNamed(context, route);
           }
         },
+        child: IconTheme(
+            data: IconTheme.of(context).copyWith(color: AppColor.blue ),
+            child: const Icon(
+              Icons.create,
+              size: 20.0,
+            )),
       ),
     );
   }

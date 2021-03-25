@@ -12,12 +12,12 @@ class CustomRadio extends StatefulWidget {
 
   @override
   CustomRadioState createState() {
-    return new CustomRadioState(radioElements: radioElements);
+    return CustomRadioState(radioElements: radioElements);
   }
 
   static List<RadioModel> availableRadioModels() {
     final sampleRadioElements = <RadioModel>[];
-    sampleRadioElements.add(new RadioModel('one',
+    sampleRadioElements.add(RadioModel('one',
         textShortform: 'any',
         isSelected: false,
         svgPicture:
@@ -33,11 +33,11 @@ class CustomRadioState extends State<CustomRadio> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new ListView.builder(
+    return Scaffold(
+      body: ListView.builder(
         itemCount: radioElements.length,
         itemBuilder: (BuildContext context, int index) {
-          return new InkWell(
+          return InkWell(
             splashColor: AppColor.darkerBlue,
             onTap: () {
               setState(() {
@@ -46,13 +46,13 @@ class CustomRadioState extends State<CustomRadio> {
                 selectedRadioModel = radioElements[index].textShortform;
               });
             },
-            child: new RadioItem(radioElements[index]),
+            child: RadioItem(radioElements[index]),
           );
         },
       ),
       floatingActionButton: Padding(
           padding: const EdgeInsets.only(left: 10.0),
-          child: new FilledButton(
+          child: FilledButton(
             'Next',
             fullWidth: true,
             onPressed: () {

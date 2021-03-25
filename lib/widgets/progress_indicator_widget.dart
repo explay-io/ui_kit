@@ -12,7 +12,7 @@ class ProgressIndicatorWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: const [
-        const CircularProgressIndicator(),
+        CircularProgressIndicator(),
       ],
     );
   }

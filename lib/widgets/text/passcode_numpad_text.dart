@@ -112,8 +112,8 @@ class _PasscodeNumPadTextState extends State<PasscodeNumPadText> {
     );*/
     return _KeyItem(
       value: val,
-      child: child,
       onKeyTap: onKeyTap,
+      child: child,
     );
   }
 

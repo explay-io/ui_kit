@@ -28,7 +28,7 @@ class PageTemplate extends StatelessWidget {
               child: GestureDetector(
                   onTap: () {
                     //https://github.com/flutter/flutter/issues/7247
-                    FocusScope.of(context).requestFocus(new FocusNode());
+                    FocusScope.of(context).requestFocus(FocusNode());
                   },
                   child: child),
             )),

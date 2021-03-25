@@ -13,7 +13,7 @@ void main() {
     testWidgets('renders child widget', (WidgetTester tester) async {
       await tester.pumpWidget(wrapInMaterialApp(
           const AppCard(
-            child: const Text('Text Content')
+            child: Text('Text Content')
           )
         )
       );
@@ -40,7 +40,7 @@ void main() {
       expect(decoration.borderRadius, const BorderRadius.all(Radius.circular(4)));
       expect(decoration.boxShadow, [const BoxShadow(
           color: AppColor.shadowColor,
-          offset: const Offset(0.0, 3.0),
+          offset: Offset(0.0, 3.0),
           blurRadius: 5.0,
           spreadRadius: 0.0
       )]);
@@ -50,10 +50,10 @@ void main() {
       const child = Text('Text Content');
       await tester.pumpWidget(wrapInMaterialApp(
           const AppCard(
-              child: child,
               elevation: 3,
               margin: EdgeInsets.all(11.0),
               borderRadius: 1,
+              child: child,
           )
       )
       );
@@ -68,7 +68,7 @@ void main() {
       expect(decoration.borderRadius, const BorderRadius.all(Radius.circular(1)));
       expect(decoration.boxShadow, [const BoxShadow(
           color: AppColor.shadowColor,
-          offset: const Offset(0.0, 5.0),
+          offset: Offset(0.0, 5.0),
           blurRadius: 15.0,
           spreadRadius: 0.0
       )]);

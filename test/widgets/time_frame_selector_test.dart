@@ -37,7 +37,7 @@ void main() {
     });
 
     testWidgets('can access period selected from external object', (WidgetTester tester) async {
-      final timeFrameSelectorKey = new GlobalKey<TimeFrameSelectorWidgetState>();
+      final timeFrameSelectorKey = GlobalKey<TimeFrameSelectorWidgetState>();
       void onChangeTextField(String value) {
       }
 
@@ -70,7 +70,7 @@ void main() {
     });
 
     testWidgets('can disable 5 years option', (WidgetTester tester) async {
-      final timeFrameSelectorKey = new GlobalKey<
+      final timeFrameSelectorKey = GlobalKey<
           TimeFrameSelectorWidgetState>();
 
       void onChangeTextField(String value) {
@@ -99,7 +99,7 @@ void main() {
 
     testWidgets(
         'can disable 1 year and 5 years options', (WidgetTester tester) async {
-      final timeFrameSelectorKey = new GlobalKey<
+      final timeFrameSelectorKey = GlobalKey<
           TimeFrameSelectorWidgetState>();
 
       void onChangeTextField(String value) {

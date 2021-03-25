@@ -40,18 +40,6 @@ class _OutlinedButtonState extends State<OutlinedButton> with ButtonMixin {
           setState(() => _pressing = false);
         },
         child: OutlineButton(
-          child: Text(
-            widget.text,
-            style: Theme.of(context).textTheme.body1.copyWith(
-                  color: getTextColorOnWhiteBackground(
-                    enabled: _enabled,
-                    pressing: _pressing,
-                    onPressed: widget.onPressed,
-                  ),
-                  fontSize: getFontSize(
-                      narrow: widget.narrow, fullWidth: widget.fullWidth),
-                ),
-          ),
           onPressed: isDisabled(enabled: _enabled, onPressed: widget.onPressed)
               ? null
               : () => disableButtonWhileOnPressedExecutes(
@@ -61,6 +49,18 @@ class _OutlinedButtonState extends State<OutlinedButton> with ButtonMixin {
           borderSide: const BorderSide(color: AppColor.blue),
           highlightedBorderColor: AppColor.blue,
           disabledBorderColor: AppColor.mediumGrey,
+          child: Text(
+            widget.text,
+            style: Theme.of(context).textTheme.bodyText2.copyWith(
+                  color: getTextColorOnWhiteBackground(
+                    enabled: _enabled,
+                    pressing: _pressing,
+                    onPressed: widget.onPressed,
+                  ),
+                  fontSize: getFontSize(
+                      narrow: widget.narrow, fullWidth: widget.fullWidth),
+                ),
+          ),
         ),
       ),
     );

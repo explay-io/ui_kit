@@ -6,7 +6,7 @@ import 'package:ui_kit/widgets/slider/slider.dart';
 
 class Sliders extends StatelessWidget {
   static const String sliderRoute = '/slider-page';
-  final _controller = new PageController();
+  final _controller = PageController();
 
   @override
   Widget build(BuildContext context) {

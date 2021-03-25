@@ -51,7 +51,7 @@ class LabelValuePair extends StatelessWidget {
             ? MainAxisAlignment.center
             : MainAxisAlignment.start,
         children: [
-          Flexible(child: value != null ? value : Text(data)),
+          Flexible(child: value ?? Text(data)),
           _buildCopyToClipboardIcon(context, data),
         ],
       ),

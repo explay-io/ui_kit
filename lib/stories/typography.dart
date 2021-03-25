@@ -27,27 +27,27 @@ class AppTypography extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: const [
           Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: EdgeInsets.all(12.0),
             child: Heading('Heading 0   -  Bold; 40pt',
                 headingType: HeadingType.HEADING_0),
           ),
           Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: EdgeInsets.all(12.0),
             child: Heading('Heading 1 - Bold; 30pt',
                 headingType: HeadingType.HEADING_1),
           ),
           Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: EdgeInsets.all(12.0),
             child: Heading('Heading 2 - Bold; 24pt',
                 headingType: HeadingType.HEADING_2),
           ),
           Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: EdgeInsets.all(12.0),
             child: Heading('Heading 3 - Bold; 16pt',
                 headingType: HeadingType.HEADING_3),
           ),
           Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: EdgeInsets.all(12.0),
             child: Heading('Heading 4 - Book; 12pt',
                 headingType: HeadingType.HEADING_4),
           ),
@@ -67,12 +67,12 @@ class AppTypography extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Text('Body 1 - Book; 16pt',
-                    style: Theme.of(context).textTheme.body1),
+                    style: Theme.of(context).textTheme.bodyText2),
           ),
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Text('Body 2 - Book; 14pt',
-                    style: Theme.of(context).textTheme.body2),
+                    style: Theme.of(context).textTheme.bodyText1),
           )
         ],
       ),

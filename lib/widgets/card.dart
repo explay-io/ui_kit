@@ -2,23 +2,23 @@ import 'package:flutter/material.dart';
 
 import '../color.dart';
 
-const _elevationToShadow = const <int, BoxShadow>{
+const _elevationToShadow = <int, BoxShadow>{
   1: null,
-  2: const BoxShadow(
+  2: BoxShadow(
       color: AppColor.shadowColor,
-      offset: const Offset(0.0, 3.0),
+      offset: Offset(0.0, 3.0),
       blurRadius: 5.0,
       spreadRadius: 0.0
   ),
-  3: const BoxShadow(
+  3: BoxShadow(
       color: AppColor.shadowColor,
-      offset: const Offset(0.0, 5.0),
+      offset: Offset(0.0, 5.0),
       blurRadius: 15.0,
       spreadRadius: 0.0
   ),
-  4: const BoxShadow(
+  4: BoxShadow(
       color: AppColor.shadowColor,
-      offset: const Offset(0.0, 10.0),
+      offset: Offset(0.0, 10.0),
       blurRadius: 25.0,
       spreadRadius: 0.0
   )
@@ -47,14 +47,14 @@ class AppCard extends StatelessWidget {
     final boxShadow = _elevationToShadow[elevation];
     return Material(
       child: Container(
-        child: child,
         margin: margin,
-        decoration: new BoxDecoration(
+        decoration: BoxDecoration(
             color: AppColor.deepWhite,
             border: null,
             borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
             boxShadow: boxShadow==null ? null : [boxShadow]
         ),
+        child: child,
       ),
     );
   }

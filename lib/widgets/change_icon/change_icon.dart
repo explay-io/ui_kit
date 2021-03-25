@@ -29,11 +29,12 @@ class _ChangeIconState extends State<ChangeIcon> {
       print(packageInfo.packageName);
       var iconPath = '';
       if (packageInfo.packageName == 'com.example.changeUiKit' ||
-          packageInfo.packageName == 'com.getchange.ui_kit')
+          packageInfo.packageName == 'com.getchange.ui_kit') {
         iconPath = 'lib/assets/icons/${widget.iconData.getIconPath()}';
-      else
+      } else {
         iconPath =
             'packages/ui_kit/assets/icons/${widget.iconData.getIconPath()}';
+      }
 
       rootBundle.loadString(iconPath).then((svgValue) {
         setState(() {

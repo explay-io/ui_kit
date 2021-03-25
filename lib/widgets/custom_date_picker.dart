@@ -24,7 +24,7 @@ class CustomDatePicker extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-          new Flexible(
+          Flexible(
                   child: Container(
                       width: 75,
                       child: TextField(
@@ -35,12 +35,12 @@ class CustomDatePicker extends StatelessWidget {
                           decoration: const InputDecoration(
                             labelText: 'Day',
                             hintText: 'DD',
-                            hintStyle: const TextStyle(color: Colors.white30),
+                            hintStyle: TextStyle(color: Colors.white30),
                           ),
                           onTap: () {
                             _showDatePicker(context);
                           }))),
-          new Flexible(
+          Flexible(
               child: Container(
                   width: 75,
                   child: TextField(
@@ -51,13 +51,13 @@ class CustomDatePicker extends StatelessWidget {
                     decoration: const InputDecoration(
                       labelText: 'Month',
                       hintText: 'MM',
-                      hintStyle: const TextStyle(color: Colors.black26),
+                      hintStyle: TextStyle(color: Colors.black26),
                     ),
                     onTap: () {
                       _showDatePicker(context);
                     },
                   ))),
-          new Flexible(
+          Flexible(
               child: Container(
                   width: 75,
                   child: TextField(
@@ -68,7 +68,7 @@ class CustomDatePicker extends StatelessWidget {
                     decoration: const InputDecoration(
                       labelText: 'Year',
                       hintText: 'YYYY',
-                      hintStyle: const TextStyle(color: Colors.black26),
+                      hintStyle: TextStyle(color: Colors.black26),
                     ),
                     onTap: () {
                       _showDatePicker(context);
@@ -80,7 +80,7 @@ class CustomDatePicker extends StatelessWidget {
   void _showDatePicker(BuildContext context) {
     DatePicker.showDatePicker(
       context,
-      initialDateTime: dateTime == null ? DateTime.now() : dateTime,
+      initialDateTime: dateTime ?? DateTime.now(),
       dateFormat: _format,
       onCancel: () {
         updateState(dateTime);

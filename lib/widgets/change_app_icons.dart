@@ -6,80 +6,80 @@ class ChangeAppIcons {
   ChangeAppIcons._();
 
   static const ChangeIcon atm_withdraw =
-      ChangeIcon(const ChangeIconData('atm', ChangeIconType.enabled));
+      ChangeIcon(ChangeIconData('atm', ChangeIconType.enabled));
 
   static const ChangeIcon atm_withdraw_disabled =
-      ChangeIcon(const ChangeIconData('atm', ChangeIconType.disabled));
+      ChangeIcon(ChangeIconData('atm', ChangeIconType.disabled));
 
   static const ChangeIcon buy =
-      ChangeIcon(const ChangeIconData('buy', ChangeIconType.enabled));
+      ChangeIcon(ChangeIconData('buy', ChangeIconType.enabled));
 
   static const ChangeIcon buy_disabled =
-      ChangeIcon(const ChangeIconData('buy', ChangeIconType.disabled));
+      ChangeIcon(ChangeIconData('buy', ChangeIconType.disabled));
 
   static const ChangeIcon card_payment =
-      ChangeIcon(const ChangeIconData('card_payment', ChangeIconType.enabled));
+      ChangeIcon(ChangeIconData('card_payment', ChangeIconType.enabled));
 
   static const ChangeIcon card_payment_disabled = ChangeIcon(
-    const ChangeIconData('card_payment', ChangeIconType.disabled),
+    ChangeIconData('card_payment', ChangeIconType.disabled),
   );
 
   static const ChangeIcon convert =
-      ChangeIcon(const ChangeIconData('convert', ChangeIconType.enabled));
+      ChangeIcon(ChangeIconData('convert', ChangeIconType.enabled));
 
   static const ChangeIcon reward_enabled =
-      ChangeIcon(const ChangeIconData('reward', ChangeIconType.enabled));
+      ChangeIcon(ChangeIconData('reward', ChangeIconType.enabled));
 
   static const ChangeIcon reward_disabled =
-      ChangeIcon(const ChangeIconData('reward', ChangeIconType.disabled));
+      ChangeIcon(ChangeIconData('reward', ChangeIconType.disabled));
 
   static const ChangeIcon bonus_enabled =
-      ChangeIcon(const ChangeIconData('bonus', ChangeIconType.enabled));
+      ChangeIcon(ChangeIconData('bonus', ChangeIconType.enabled));
 
   static const ChangeIcon bonus_disabled =
-      ChangeIcon(const ChangeIconData('bonus', ChangeIconType.disabled));
+      ChangeIcon(ChangeIconData('bonus', ChangeIconType.disabled));
 
   static const ChangeIcon convert_disabled =
-      ChangeIcon(const ChangeIconData('convert', ChangeIconType.disabled));
+      ChangeIcon(ChangeIconData('convert', ChangeIconType.disabled));
 
   static const ChangeIcon fees =
-      ChangeIcon(const ChangeIconData('fees', ChangeIconType.enabled));
+      ChangeIcon(ChangeIconData('fees', ChangeIconType.enabled));
 
   static const ChangeIcon fees_disabled =
-      ChangeIcon(const ChangeIconData('fees', ChangeIconType.disabled));
+      ChangeIcon(ChangeIconData('fees', ChangeIconType.disabled));
 
   static const ChangeIcon deposit =
-      ChangeIcon(const ChangeIconData('deposit', ChangeIconType.enabled));
+      ChangeIcon(ChangeIconData('deposit', ChangeIconType.enabled));
 
   static const ChangeIcon deposit_disabled =
-      ChangeIcon(const ChangeIconData('deposit', ChangeIconType.disabled));
+      ChangeIcon(ChangeIconData('deposit', ChangeIconType.disabled));
 
   static const ChangeIcon sell =
-      ChangeIcon(const ChangeIconData('sell', ChangeIconType.enabled));
+      ChangeIcon(ChangeIconData('sell', ChangeIconType.enabled));
 
   static const ChangeIcon sell_disabled =
-      ChangeIcon(const ChangeIconData('sell', ChangeIconType.disabled));
+      ChangeIcon(ChangeIconData('sell', ChangeIconType.disabled));
 
   static const ChangeIcon withdraw =
-      ChangeIcon(const ChangeIconData('withdraw', ChangeIconType.enabled));
+      ChangeIcon(ChangeIconData('withdraw', ChangeIconType.enabled));
 
   static const ChangeIcon withdraw_disabled =
-      ChangeIcon(const ChangeIconData('withdraw', ChangeIconType.disabled));
+      ChangeIcon(ChangeIconData('withdraw', ChangeIconType.disabled));
 
   static const ChangeIcon roundup =
-      ChangeIcon(const ChangeIconData('roundup', ChangeIconType.enabled));
+      ChangeIcon(ChangeIconData('roundup', ChangeIconType.enabled));
 
   static const ChangeIcon roundup_disabled =
-      ChangeIcon(const ChangeIconData('roundup', ChangeIconType.disabled));
+      ChangeIcon(ChangeIconData('roundup', ChangeIconType.disabled));
 
   static const ChangeIcon bitcoin_to_savings = ChangeIcon(
-      const ChangeIconData('bitcoin_to_savings', ChangeIconType.enabled));
+      ChangeIconData('bitcoin_to_savings', ChangeIconType.enabled));
 
   static const ChangeIcon bitcoin_to_savings_disabled = ChangeIcon(
-      const ChangeIconData('bitcoin_to_savings', ChangeIconType.disabled));
+      ChangeIconData('bitcoin_to_savings', ChangeIconType.disabled));
 
   static const ChangeIcon wallet =
-      ChangeIcon(const ChangeIconData('wallet', ChangeIconType.enabled));
+      ChangeIcon(ChangeIconData('wallet', ChangeIconType.enabled));
 
   static ChangeIcon walletSized(double width, double height) => ChangeIcon(
       const ChangeIconData(
@@ -90,7 +90,7 @@ class ChangeAppIcons {
       height: height);
 
   static const ChangeIcon wallet_disabled =
-      ChangeIcon(const ChangeIconData('wallet', ChangeIconType.disabled));
+      ChangeIcon(ChangeIconData('wallet', ChangeIconType.disabled));
 
   static ChangeIcon walletDisabledSized(double width, double height) =>
       ChangeIcon(
@@ -102,7 +102,7 @@ class ChangeAppIcons {
           height: height);
 
   static const ChangeIcon prices =
-      ChangeIcon(const ChangeIconData('prices', ChangeIconType.enabled));
+      ChangeIcon(ChangeIconData('prices', ChangeIconType.enabled));
 
   static ChangeIcon pricesSized(double width, double height) => ChangeIcon(
       const ChangeIconData(
@@ -113,7 +113,7 @@ class ChangeAppIcons {
       height: height);
 
   static const ChangeIcon prices_disabled =
-      ChangeIcon(const ChangeIconData('prices', ChangeIconType.disabled));
+      ChangeIcon(ChangeIconData('prices', ChangeIconType.disabled));
 
   static ChangeIcon pricesDisabledSized(double width, double height) =>
       ChangeIcon(
@@ -125,7 +125,7 @@ class ChangeAppIcons {
           height: height);
 
   static const ChangeIcon card =
-      ChangeIcon(const ChangeIconData('card', ChangeIconType.enabled));
+      ChangeIcon(ChangeIconData('card', ChangeIconType.enabled));
 
   static ChangeIcon cardSized(double width, double height) => ChangeIcon(
       const ChangeIconData(
@@ -136,7 +136,7 @@ class ChangeAppIcons {
       height: height);
 
   static const ChangeIcon card_disabled =
-      ChangeIcon(const ChangeIconData('card', ChangeIconType.disabled));
+      ChangeIcon(ChangeIconData('card', ChangeIconType.disabled));
 
   static ChangeIcon cardDisabledSized(double width, double height) =>
       ChangeIcon(
@@ -148,7 +148,7 @@ class ChangeAppIcons {
           height: height);
 
   static const ChangeIcon nav_settings =
-      ChangeIcon(const ChangeIconData('nav_settings', ChangeIconType.enabled));
+      ChangeIcon(ChangeIconData('nav_settings', ChangeIconType.enabled));
 
   static ChangeIcon navSized(double width, double height) => ChangeIcon(
       const ChangeIconData(
@@ -159,7 +159,7 @@ class ChangeAppIcons {
       height: height);
 
   static const ChangeIcon nav_settings_disabled =
-      ChangeIcon(const ChangeIconData('nav_settings', ChangeIconType.disabled));
+      ChangeIcon(ChangeIconData('nav_settings', ChangeIconType.disabled));
 
   static ChangeIcon navDisabledSized(double width, double height) => ChangeIcon(
       const ChangeIconData(
@@ -170,13 +170,13 @@ class ChangeAppIcons {
       height: height);
 
   static const ChangeIcon arrow_forward =
-      ChangeIcon(const ChangeIconData('arrow_forward', ChangeIconType.enabled));
+      ChangeIcon(ChangeIconData('arrow_forward', ChangeIconType.enabled));
 
   static const ChangeIcon arrow_back =
-      ChangeIcon(const ChangeIconData('arrow_back', ChangeIconType.enabled));
+      ChangeIcon(ChangeIconData('arrow_back', ChangeIconType.enabled));
 
   static const ChangeIcon invite =
-      ChangeIcon(const ChangeIconData('invite', ChangeIconType.enabled));
+      ChangeIcon(ChangeIconData('invite', ChangeIconType.enabled));
 
   static ChangeIcon inviteSized(double width, double height) => ChangeIcon(
       const ChangeIconData(
@@ -187,7 +187,7 @@ class ChangeAppIcons {
       height: height);
 
   static const ChangeIcon invite_disabled =
-      ChangeIcon(const ChangeIconData('invite', ChangeIconType.disabled));
+      ChangeIcon(ChangeIconData('invite', ChangeIconType.disabled));
 
   static ChangeIcon inviteDisabledSized(double width, double height) =>
       ChangeIcon(
@@ -199,18 +199,18 @@ class ChangeAppIcons {
           height: height);
 
   static const ChangeIcon checkbox_checked = ChangeIcon(
-      const ChangeIconData('checkbox_checked', ChangeIconType.enabled));
+      ChangeIconData('checkbox_checked', ChangeIconType.enabled));
 
   static const ChangeIcon checkbox_unchecked = ChangeIcon(
-      const ChangeIconData('checkbox_unchecked', ChangeIconType.enabled));
+      ChangeIconData('checkbox_unchecked', ChangeIconType.enabled));
 
   static const ChangeIcon radio_checked =
-      ChangeIcon(const ChangeIconData('radio_checked', ChangeIconType.enabled));
+      ChangeIcon(ChangeIconData('radio_checked', ChangeIconType.enabled));
 
   static const ChangeIcon radio_unchecked = ChangeIcon(
-      const ChangeIconData('radio_unchecked', ChangeIconType.enabled));
+      ChangeIconData('radio_unchecked', ChangeIconType.enabled));
 
   static const ChangeIcon switch_arrow = ChangeIcon(
-    const ChangeIconData('switch_arrow', ChangeIconType.enabled), height: 20, width: 20,
+    ChangeIconData('switch_arrow', ChangeIconType.enabled), height: 20, width: 20,
   );
 }

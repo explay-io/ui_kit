@@ -22,10 +22,10 @@ class DotsIndicator extends AnimatedWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 10.0,
-      child: new Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.end,
-        children: new List<Widget>.generate(itemCount, buildDot),
+        children: List<Widget>.generate(itemCount, buildDot),
       ),
     );
   }
