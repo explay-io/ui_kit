@@ -59,6 +59,8 @@ class _CustomFlexibleSpaceBarState extends State<CustomFlexibleSpaceBar> {
       case TargetPlatform.iOS:
         return true;
     }
+
+    return false;
   }
 
   Alignment _getTitleAlignment(bool effectiveCenterTitle) {
@@ -73,6 +75,7 @@ class _CustomFlexibleSpaceBarState extends State<CustomFlexibleSpaceBar> {
       case TextDirection.ltr:
         return Alignment.bottomLeft;
     }
+    return Alignment.bottomLeft;
   }
 
   double _getCollapsePadding(double t, FlexibleSpaceBarSettings settings) {
@@ -85,6 +88,7 @@ class _CustomFlexibleSpaceBarState extends State<CustomFlexibleSpaceBar> {
         final deltaExtent = settings.maxExtent - settings.minExtent;
         return -Tween<double>(begin: 0.0, end: deltaExtent / 4.0).transform(t);
     }
+    return 0.0;
   }
 
   @override

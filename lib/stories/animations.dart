@@ -67,7 +67,7 @@ class __ShakerStoryState extends State<_ShakerStory> {
               const SizedBox(height: 10),
               FilledButton(
                 'Shake',
-                onPressed: () {
+                onPressed: () async {
                   setState(() {
                     canShake = !canShake;
                   });

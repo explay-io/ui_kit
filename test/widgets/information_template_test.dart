@@ -18,7 +18,7 @@ void main() {
       );
       final action = FilledButton(
         'Button',
-        onPressed: () {},
+        onPressed: () async {},
         fullWidth: true,
         narrow: false,
       );

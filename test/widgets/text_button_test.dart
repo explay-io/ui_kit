@@ -23,7 +23,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: () => TextButton(buttonText, onPressed: () {}),
+      buildButton: () => TextButton(buttonText, onPressed: () async {}),
     );
 
     testOnPressedProp(
@@ -42,7 +42,7 @@ void main() {
       testWidgets: testWidgets,
       buttonText: buttonText,
       buildButton: ({EdgeInsetsGeometry padding}) =>
-          TextButton(buttonText, onPressed: () {}, padding: padding),
+          TextButton(buttonText, onPressed: () async {}, padding: padding),
       underlyingMaterialButtonType: FlatButton,
     );
 
@@ -54,7 +54,7 @@ void main() {
       buildButton: ({TextStyle textStyle}) => TextButton(
         buttonText,
         textStyle: textStyle,
-        onPressed: () {}
+        onPressed: () async {}
       ),
     );
 

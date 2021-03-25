@@ -44,7 +44,7 @@ class _WizardState extends State<Wizard> {
         child: Column(
           children: <Widget>[
             Expanded(flex: 1, child: _getCurrentPage()),
-            FilledButton(_callToActionText(), fullWidth: true, onPressed: () {
+            FilledButton(_callToActionText(), fullWidth: true, onPressed: () async {
               setState(() {
                 _callToActionEvent();
                 currentPage++;

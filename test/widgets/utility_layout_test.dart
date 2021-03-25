@@ -19,7 +19,7 @@ void main() {
       );
       final action = FilledButton(
         'Lorem Ipsum',
-        onPressed: () {},
+        onPressed: () async {},
         fullWidth: true,
         narrow: false,
       );

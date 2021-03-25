@@ -48,7 +48,7 @@ class Layouts extends StatelessWidget {
       child: Center(
         child: FilledButton(
           'I\'m all about that utility',
-          onPressed: () {
+          onPressed: () async {
             Navigator.push<dynamic>(
                 context,
                 MaterialPageRoute<dynamic>(
@@ -63,7 +63,7 @@ class Layouts extends StatelessWidget {
                         ),
                         FilledButton(
                           'Update app',
-                          onPressed: () {
+                          onPressed: () async {
                             Navigator.pop(context);
                           },
                           fullWidth: true,
@@ -83,7 +83,7 @@ class Layouts extends StatelessWidget {
       child: Center(
         child: FilledButton(
           'I\'m all about that txt txt pic',
-          onPressed: () {
+          onPressed: () async {
             Navigator.push<dynamic>(
                 context,
                 MaterialPageRoute<dynamic>(
@@ -98,7 +98,7 @@ class Layouts extends StatelessWidget {
                           ),
                           FilledButton(
                             'Back',
-                            onPressed: () {
+                            onPressed: () async {
                               Navigator.pop(context);
                             },
                             fullWidth: true,
@@ -120,7 +120,7 @@ class Layouts extends StatelessWidget {
       child: Center(
         child: FilledButton(
           'I\'m all about that close button',
-          onPressed: () {
+          onPressed: () async {
             Navigator.push<dynamic>(
                 context,
                 MaterialPageRoute<dynamic>(
@@ -144,7 +144,7 @@ class Layouts extends StatelessWidget {
                               autofocus: true,
                               onSaved: (String value) {},
                             )),
-                        FilledButton('SEND', fullWidth: true, onPressed: () {
+                        FilledButton('SEND', fullWidth: true, onPressed: () async {
                           print('you clicked send');
                         }),
                         leadingWidget: const CloseButton())));
@@ -161,7 +161,7 @@ class Layouts extends StatelessWidget {
         padding: const EdgeInsets.all(30.0),
         child: Center(
             child:
-                FilledButton('I\'m all about that info button', onPressed: () {
+                FilledButton('I\'m all about that info button', onPressed: () async {
           Navigator.push<dynamic>(
               context,
               MaterialPageRoute<dynamic>(
@@ -188,13 +188,13 @@ class Layouts extends StatelessWidget {
                           ),
                         ])),
                     FilledButton('Invite friends', fullWidth: true,
-                        onPressed: () {
+                        onPressed: () async {
                       print('you clicked invite friends');
                     }),
                     tailingWidget: [
                       IconButton(
                           icon: const Icon(Icons.info_outline),
-                          onPressed: () {
+                          onPressed: () async {
                             Navigator.pop(context);
                           })
                     ]),
@@ -207,7 +207,7 @@ class Layouts extends StatelessWidget {
         padding: const EdgeInsets.all(30.0),
         child: Center(
             child: FilledButton('I\'m all about that payment methods',
-                onPressed: () {
+                onPressed: () async {
           Navigator.push<dynamic>(
               context,
               MaterialPageRoute<dynamic>(
@@ -252,7 +252,7 @@ class Layouts extends StatelessWidget {
                     const SizedBox.shrink(),
                     leadingWidget: IconButton(
                         icon: const Icon(Icons.arrow_back),
-                        onPressed: () {
+                        onPressed: () async {
                           Navigator.pop(context);
                         })),
               ));
@@ -265,7 +265,7 @@ class Layouts extends StatelessWidget {
       child: Center(
         child: FilledButton(
           'I\'m all about landing page',
-          onPressed: () {
+          onPressed: () async {
             Navigator.push<dynamic>(
                 context,
                 MaterialPageRoute<dynamic>(
@@ -321,7 +321,7 @@ class Layouts extends StatelessWidget {
                           Column(children: <Widget>[
                             FilledButton(
                               'Accept',
-                              onPressed: () {
+                              onPressed: () async {
                                 print('Test');
                               },
                               fullWidth: true,
@@ -329,7 +329,7 @@ class Layouts extends StatelessWidget {
                             ),
                             TextButton(
                               'Cancel',
-                              onPressed: () {
+                              onPressed: () async {
                                 print('Test');
                               },
                             ),

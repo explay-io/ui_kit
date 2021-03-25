@@ -55,7 +55,7 @@ class CustomRadioState extends State<CustomRadio> {
           child: FilledButton(
             'Next',
             fullWidth: true,
-            onPressed: () {
+            onPressed: () async {
               print('You selected: $selectedRadioModel');
             },
           )),

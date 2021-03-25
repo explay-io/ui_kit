@@ -31,7 +31,7 @@ class Popover extends StatelessWidget {
       child: Center(
         child: FilledButton(
           'Show Large Popover',
-          onPressed: () {
+          onPressed: () async {
             _onExampleOnePressed(context);
           },
           fullWidth: false,
@@ -47,7 +47,7 @@ class Popover extends StatelessWidget {
       child: Center(
         child: FilledButton(
           'Show Small Popover',
-          onPressed: () {
+          onPressed: () async {
             _onExampleTwoPressed(context);
           },
           fullWidth: false,
@@ -63,7 +63,7 @@ class Popover extends StatelessWidget {
       child: Center(
         child: FilledButton(
           'Show Action Popover',
-          onPressed: () {
+          onPressed: () async {
             _onExampleThreePressed(context);
           },
           fullWidth: false,
@@ -138,7 +138,7 @@ class Popover extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: FilledButton(
                   'Ok',
-                  onPressed: () {
+                  onPressed: () async {
                     Navigator.pop(context, 'Ok button');
                   },
                   fullWidth: true,
@@ -146,7 +146,7 @@ class Popover extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: TextButton('Cancel', onPressed: () {
+                child: TextButton('Cancel', onPressed: () async {
                   Navigator.pop(context, 'Cancel button');
                 }),
               )
@@ -164,7 +164,7 @@ class Popover extends StatelessWidget {
               content: Text(value),
               actions: <Widget>[
                 FlatButton(
-                    onPressed: () {
+                    onPressed: () async {
                       Navigator.pop(context);
                     })
                     child: const Text('Thats nice'),

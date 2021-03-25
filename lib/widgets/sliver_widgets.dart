@@ -36,7 +36,7 @@ class SliverWidgets {
   }
 
   Widget bottomButton() {
-    return FilledButton('Content', fullWidth: true, onPressed: () {
+    return FilledButton('Content', fullWidth: true, onPressed: () async {
       debugPrint('Hello you clicked');
     });
   }

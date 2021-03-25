@@ -139,11 +139,11 @@ class AppCards extends StatelessWidget {
                     children: <Widget>[
                       TextButton(
                         'BUY TICKETS',
-                        onPressed: () {},
+                        onPressed: () async {},
                       ),
                       TextButton(
                         'LISTEN',
-                        onPressed: () {},
+                        onPressed: () async {},
                       ),
                     ],
                   ),

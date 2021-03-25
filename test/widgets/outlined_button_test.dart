@@ -23,7 +23,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: () => OutlinedButton(buttonText, onPressed: () {}),
+      buildButton: () => OutlinedButton(buttonText, onPressed: () async {}),
     );
 
     testOnPressedProp(
@@ -42,7 +42,7 @@ void main() {
       testWidgets: testWidgets,
       buttonText: buttonText,
       buildButton: ({bool fullWidth}) =>
-          OutlinedButton(buttonText, onPressed: () {}, fullWidth: fullWidth),
+          OutlinedButton(buttonText, onPressed: () async {}, fullWidth: fullWidth),
       underlyingMaterialButtonType: OutlineButton,
     );
 
@@ -52,7 +52,7 @@ void main() {
       testWidgets: testWidgets,
       buttonText: buttonText,
       buildButton: ({bool narrow}) =>
-          OutlinedButton(buttonText, onPressed: () {}, narrow: narrow),
+          OutlinedButton(buttonText, onPressed: () async {}, narrow: narrow),
       underlyingMaterialButtonType: OutlineButton,
     );
 
@@ -62,7 +62,7 @@ void main() {
       testWidgets: testWidgets,
       buttonText: buttonText,
       buildButton: ({EdgeInsetsGeometry padding}) =>
-          OutlinedButton(buttonText, onPressed: () {}, padding: padding),
+          OutlinedButton(buttonText, onPressed: () async {}, padding: padding),
       underlyingMaterialButtonType: OutlineButton,
     );
 
@@ -73,7 +73,7 @@ void main() {
       buttonText: buttonText,
       buildButton: ({bool narrow, bool fullWidth}) => OutlinedButton(
             buttonText,
-            onPressed: () {},
+            onPressed: () async {},
             narrow: narrow,
             fullWidth: fullWidth,
           ),

@@ -59,7 +59,7 @@ void main() {
       timerInterval: timerInterval,
       buildButton: ({FutureCallback onButtonCallback}) => TwoStatesButton(firstText, secondText, timerInterval,
           onButtonCallback: onButtonCallback,
-          onPressed: () {}),
+          onPressed: () async  {}),
     );
 
     testOnPressedProp(
@@ -79,7 +79,7 @@ void main() {
       testWidgets: testWidgets,
       buttonText: firstText,
       buildButton: ({bool narrow}) =>
-          TwoStatesButton(firstText, secondText, timerInterval, onPressed: (){},
+          TwoStatesButton(firstText, secondText, timerInterval, onPressed: () async {},
               onButtonCallback: (){},
               narrow: narrow),
       underlyingMaterialButtonType: RaisedButton,
@@ -91,7 +91,7 @@ void main() {
       testWidgets: testWidgets,
       buttonText: firstText,
       buildButton: ({EdgeInsetsGeometry padding}) =>
-          TwoStatesButton(firstText, secondText, timerInterval, onPressed: (){},
+          TwoStatesButton(firstText, secondText, timerInterval, onPressed: () async {},
               onButtonCallback: (){}, padding: padding),
       underlyingMaterialButtonType: RaisedButton,
     );
@@ -102,7 +102,7 @@ void main() {
       testWidgets: testWidgets,
       buttonText: firstText,
       buildButton: ({bool narrow, bool fullWidth}) => TwoStatesButton(
-        firstText, secondText, timerInterval, onPressed: (){},
+        firstText, secondText, timerInterval, onPressed: () async {},
         onButtonCallback: (){},
         narrow: narrow,
         fullWidth: fullWidth,
@@ -117,8 +117,8 @@ void main() {
       buildButton: ({TextStyle textStyle}) => TwoStatesButton(
         firstText, secondText, timerInterval,
         textStyle: textStyle,
-        onButtonCallback: (){},
-        onPressed: () {},
+        onButtonCallback: () async {},
+        onPressed: () async {},
         narrow: true,
       ),
     );
