@@ -3,7 +3,7 @@ import 'package:ui_kit/animations/shaker.dart';
 import 'package:ui_kit/story_book/expandable_story.dart';
 import 'package:ui_kit/story_book/prop_updater/int_prop_updater.dart';
 import 'package:ui_kit/story_book/props_explorer.dart';
-import 'package:ui_kit/widgets.dart';
+import 'package:ui_kit/widgets/filled_button.dart';
 
 class Animations extends StatelessWidget {
   @override

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:ui_kit/widgets/custom_radio/radio_model.dart';
-
-import '../change_app_icons.dart';
 
 class RadioItem extends StatelessWidget {
   final RadioModel _item;
@@ -45,7 +44,7 @@ class RadioItem extends StatelessWidget {
 
   Widget _radio(bool isSelected) {
     return isSelected
-        ? Container(child: ChangeAppIcons.radio_checked)
-        : ChangeAppIcons.radio_unchecked;
+        ? Container(child: Icon(MaterialIcons.radio_button_checked))
+        : Icon(MaterialIcons.radio_button_unchecked);
   }
 }
