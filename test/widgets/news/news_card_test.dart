@@ -7,10 +7,10 @@ void main() {
   group('News card create test', () {
     testWidgets('renders news card widget', (WidgetTester tester) async {
       await tester.pumpWidget(wrapInMaterialApp(
-          const NewsCard(title: 'Change is an unicorn!', source: 'Change')));
+          const NewsCard(title: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', source: 'Lorem')));
       expect(find.byType(NewsCard), findsOneWidget);
-      expect(find.text('Change'), findsOneWidget);
-      expect(find.text('Change is an unicorn!'), findsOneWidget);
+      expect(find.text('Lorem'), findsOneWidget);
+      expect(find.text('Lorem Ipsum is simply dummy text of the printing and typesetting industry.'), findsOneWidget);
     });
   });
 }

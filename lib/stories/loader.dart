@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/widgets/change_progress_dialog.dart';
 
-ChangeProgressDialog pr;
+CustomProgressDialog pr;
 
 class Loaders extends StatefulWidget {
   @override
@@ -13,7 +13,7 @@ class _LoadersState extends State<Loaders> {
 
   @override
   Widget build(BuildContext context) {
-    pr = new ChangeProgressDialog(context);
+    pr = new CustomProgressDialog(context);
 
     pr.style(progressWidget:const CircularProgressIndicator());
 

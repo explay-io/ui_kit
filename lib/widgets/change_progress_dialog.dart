@@ -15,10 +15,10 @@ Widget _progressWidget = Image.asset(
   package: 'progress_dialog',
 );
 
-class ChangeProgressDialog {
+class CustomProgressDialog {
   _Body _dialog;
 
-  ChangeProgressDialog(BuildContext context,
+  CustomProgressDialog(BuildContext context,
       {bool isDismissible, bool showLogs}) {
     _context = context;
     _barrierDismissible = isDismissible ?? true;
