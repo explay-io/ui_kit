@@ -26,10 +26,7 @@ dependencies:
   flutter_svg: ^0.19.3
   intl: ^0.17.0
   shimmer: ^1.0.1
-  animated_widgets:
-    git:
-      url: https://github.com/ChangeFinance/AnimatedWidgets.git
-      ref: master
+  animated_widgets: ^1.0.6
   alpha2_countries: ^1.0.5
   url_launcher: ^6.0.2
   rxdart: ^0.26.0
@@ -39,13 +36,12 @@ dependencies:
   flutter_icons: ^1.1.0
   webview_flutter: ^2.0.2
   http: ^0.13.1
+  recase: ^3.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  recase: ^3.0.1
   mockito: ^4.0.0
-  package_info: ^2.0.0
   pedantic: ^1.11.0
 
 # For information on the generic Dart part of this file, see the
