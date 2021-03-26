@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ui_kit/color.dart';
-import 'package:ui_kit/widgets/customradio/radio_item.dart';
-import 'package:ui_kit/widgets/customradio/radio_model.dart';
+import 'package:ui_kit/widgets/custom_radio/radio_item.dart';
+import 'package:ui_kit/widgets/custom_radio/radio_model.dart';
 import 'package:ui_kit/widgets/filled_button.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 
 class CustomRadio extends StatefulWidget {
   final List<RadioModel> radioElements;
@@ -12,16 +12,22 @@ class CustomRadio extends StatefulWidget {
 
   @override
   CustomRadioState createState() {
-    return new CustomRadioState(radioElements: radioElements);
+    return CustomRadioState(radioElements: radioElements);
   }
 
   static List<RadioModel> availableRadioModels() {
     final sampleRadioElements = <RadioModel>[];
-    sampleRadioElements.add(new RadioModel('one',
+    sampleRadioElements.add(
+      RadioModel(
+        'one',
         textShortform: 'any',
         isSelected: false,
-        svgPicture:
-            SvgPicture.asset('assets/save_as_you_pay.svg', height: 30.0, width: 30.0)));
+        picture: Icon(
+          FontAwesome.glass,
+          color: AppColor.blue,
+        ),
+      ),
+    );
     return sampleRadioElements;
   }
 }
@@ -33,11 +39,11 @@ class CustomRadioState extends State<CustomRadio> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new ListView.builder(
+    return Scaffold(
+      body: ListView.builder(
         itemCount: radioElements.length,
         itemBuilder: (BuildContext context, int index) {
-          return new InkWell(
+          return InkWell(
             splashColor: AppColor.darkerBlue,
             onTap: () {
               setState(() {
@@ -46,19 +52,20 @@ class CustomRadioState extends State<CustomRadio> {
                 selectedRadioModel = radioElements[index].textShortform;
               });
             },
-            child: new RadioItem(radioElements[index]),
+            child: RadioItem(radioElements[index]),
           );
         },
       ),
       floatingActionButton: Padding(
-          padding: const EdgeInsets.only(left: 10.0),
-          child: new FilledButton(
-            'Next',
-            fullWidth: true,
-            onPressed: () {
-              print('You selected: $selectedRadioModel');
-            },
-          )),
+        padding: const EdgeInsets.only(left: 10.0),
+        child: FilledButton(
+          'Next',
+          fullWidth: true,
+          onPressed: () {
+            print('You selected: $selectedRadioModel');
+          },
+        ),
+      ),
     );
   }
 }

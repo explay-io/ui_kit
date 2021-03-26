@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:ui_kit/color.dart';
 import 'package:ui_kit/text.dart';
-import 'package:ui_kit/widgets/change_app_icons.dart';
 
 class SwitcherButton extends StatefulWidget {
   final List<String> labels;
@@ -42,9 +42,11 @@ class _SwitcherButtonState extends State<SwitcherButton> {
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          ChangeAppIcons.switch_arrow,
+          Icon(FontAwesome.exchange),
           const SizedBox(height: 8),
-          widget.showLabel ? Text(currentLabel, style: AppText.body3) : Container(),
+          widget.showLabel
+              ? Text(currentLabel, style: AppText.body3)
+              : Container(),
         ],
       ),
     );

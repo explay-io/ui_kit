@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:ui_kit/color.dart';
 import 'package:ui_kit/text.dart';
 import 'package:ui_kit/widgets/text/heading.dart';
 import 'package:ui_kit/widgets/text/heading_type.dart';
 
 class WizardUtilityPage extends StatelessWidget {
-  final SvgPicture picture;
+  final Widget picture;
   final String heading;
   final String body;
 
@@ -31,7 +30,6 @@ class WizardUtilityPage extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Container(
-                constraints: BoxConstraints(maxWidth: picture.width),
                 child: Column(
                   children: <Widget>[
                     Heading(

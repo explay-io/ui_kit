@@ -9,13 +9,14 @@ import 'package:ui_kit/widgets/text/heading_type.dart';
 import 'app_bar.dart';
 
 class UtilityTemplate extends StatelessWidget {
-  final SvgPicture picture;
+  final Widget picture;
   final String heading;
   final String body;
   final Widget action;
   final bool restrictWidth;
 
-  const UtilityTemplate(this.heading, this.body, this.picture, this.action, {this.restrictWidth = true})
+  const UtilityTemplate(this.heading, this.body, this.picture, this.action,
+      {this.restrictWidth = true})
       : super();
 
   @override
@@ -39,7 +40,6 @@ class UtilityTemplate extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Container(
-                constraints: restrictWidth ? BoxConstraints(maxWidth: picture.width): const BoxConstraints(),
                 child: Column(
                   children: <Widget>[
                     Heading(
