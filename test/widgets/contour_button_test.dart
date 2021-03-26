@@ -1,12 +1,12 @@
-import 'package:ui_kit/widgets/button_common.dart';
-import 'package:ui_kit/widgets/outlined_button.dart';
-import 'package:flutter/material.dart' hide OutlinedButton;
+import 'package:ui_kit/widgets/buttons/button_common.dart';
+import 'package:ui_kit/widgets/buttons/contour_button.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'common_button_tests.dart';
 
 void main() {
-  group('OutlinedButton', () {
+  group('ContourButton', () {
     const buttonText = 'Click me';
 
     testPressingState(
@@ -15,7 +15,7 @@ void main() {
       testWidgets: testWidgets,
       buttonText: buttonText,
       buildButton: ({FutureCallback onPressed}) =>
-          OutlinedButton(buttonText, onPressed: onPressed),
+          ContourButton(buttonText, onPressed: onPressed),
     );
 
     testTextProp(
@@ -23,7 +23,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: () => OutlinedButton(buttonText, onPressed: () async {}),
+      buildButton: () => ContourButton(buttonText, onPressed: () async {}),
     );
 
     testOnPressedProp(
@@ -32,8 +32,8 @@ void main() {
       testWidgets: testWidgets,
       buttonText: buttonText,
       buildButton: ({FutureCallback onPressed}) =>
-          OutlinedButton(buttonText, onPressed: onPressed),
-      underlyingMaterialButtonType: OutlineButton,
+          ContourButton(buttonText, onPressed: onPressed),
+      underlyingMaterialButtonType: OutlinedButton,
     );
 
     testFullWidthProp(
@@ -41,9 +41,9 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({bool fullWidth}) =>
-          OutlinedButton(buttonText, onPressed: () async {}, fullWidth: fullWidth),
-      underlyingMaterialButtonType: OutlineButton,
+      buildButton: ({bool fullWidth}) => ContourButton(buttonText,
+          onPressed: () async {}, fullWidth: fullWidth),
+      underlyingMaterialButtonType: OutlinedButton,
     );
 
     testNarrowProp(
@@ -52,8 +52,8 @@ void main() {
       testWidgets: testWidgets,
       buttonText: buttonText,
       buildButton: ({bool narrow}) =>
-          OutlinedButton(buttonText, onPressed: () async {}, narrow: narrow),
-      underlyingMaterialButtonType: OutlineButton,
+          ContourButton(buttonText, onPressed: () async {}, narrow: narrow),
+      underlyingMaterialButtonType: OutlinedButton,
     );
 
     testPaddingProp(
@@ -62,8 +62,8 @@ void main() {
       testWidgets: testWidgets,
       buttonText: buttonText,
       buildButton: ({EdgeInsetsGeometry padding}) =>
-          OutlinedButton(buttonText, onPressed: () async {}, padding: padding),
-      underlyingMaterialButtonType: OutlineButton,
+          ContourButton(buttonText, onPressed: () async {}, padding: padding),
+      underlyingMaterialButtonType: OutlinedButton,
     );
 
     testFontSize(
@@ -71,12 +71,12 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({bool narrow, bool fullWidth}) => OutlinedButton(
-            buttonText,
-            onPressed: () async {},
-            narrow: narrow,
-            fullWidth: fullWidth,
-          ),
+      buildButton: ({bool narrow, bool fullWidth}) => ContourButton(
+        buttonText,
+        onPressed: () async {},
+        narrow: narrow,
+        fullWidth: fullWidth,
+      ),
     );
   });
 }

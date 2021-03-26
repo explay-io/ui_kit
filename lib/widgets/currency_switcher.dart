@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/widgets/currency_display.dart';
-import 'package:ui_kit/widgets/switcher_button.dart';
+import 'package:ui_kit/widgets/buttons/switcher_button.dart';
 
 class CurrencyInfo {
   final String symbol;
@@ -8,18 +8,14 @@ class CurrencyInfo {
   final bool prefix;
   final String amount;
 
-  CurrencyInfo({
-    @required this.symbol,
-    @required this.label,
-    this.amount = '0',
-    this.prefix = false
-  });
+  CurrencyInfo(
+      {@required this.symbol,
+      @required this.label,
+      this.amount = '0',
+      this.prefix = false});
 
   CurrencyInfo copyWith(
-      {String symbol,
-        String label,
-        bool prefix,
-        String amount}) {
+      {String symbol, String label, bool prefix, String amount}) {
     return CurrencyInfo(
         symbol: symbol ?? this.symbol,
         label: label ?? this.label,
@@ -34,9 +30,7 @@ class CurrencySwitcher extends StatefulWidget {
   final Function(int) onSwitch;
 
   CurrencySwitcher(
-      {@required this.currencyInfoList,
-      @required this.amounts,
-      this.onSwitch})
+      {@required this.currencyInfoList, @required this.amounts, this.onSwitch})
       : assert(currencyInfoList != null && currencyInfoList.length == 2);
 
   @override
@@ -54,29 +48,28 @@ class _CurrencySwitcherState extends State<CurrencySwitcher> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 72,
-      width: double.infinity,
-      alignment: Alignment.center,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 32.0),
-              child: _buildDisplay(),
+        height: 72,
+        width: double.infinity,
+        alignment: Alignment.center,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 32.0),
+                child: _buildDisplay(),
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 4.0),
-            child: SwitcherButton(
-              labels: [infoList[0].label, infoList[1].label],
-              onSwitch: _switch,
+            Padding(
+              padding: const EdgeInsets.only(bottom: 4.0),
+              child: SwitcherButton(
+                labels: [infoList[0].label, infoList[1].label],
+                onSwitch: _switch,
+              ),
             ),
-          ),
-        ],
-      )
-    );
+          ],
+        ));
   }
 
   Widget _buildDisplay() {
@@ -112,8 +105,21 @@ class _CurrencySwitcherState extends State<CurrencySwitcher> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: _currentIndex == 0 ? [first, const SizedBox(height: 6,), second]
-          : [second, const SizedBox(height: 6,), first],
+      children: _currentIndex == 0
+          ? [
+              first,
+              const SizedBox(
+                height: 6,
+              ),
+              second
+            ]
+          : [
+              second,
+              const SizedBox(
+                height: 6,
+              ),
+              first
+            ],
     );
   }
 

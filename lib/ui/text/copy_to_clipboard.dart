@@ -15,9 +15,8 @@ class CopyToClipboard extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           Clipboard.setData(ClipboardData(text: value));
-          const snackBar =
-              SnackBar(content: Text('Copied to clipboard'));
-          ScaffoldMessenger.showSnackBar(snackBar);
+          const snackBar = SnackBar(content: Text('Copied to clipboard'));
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
         },
         child: IconTheme(
             data: IconTheme.of(context).copyWith(color: AppColors.secondary),

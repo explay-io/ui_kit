@@ -4,12 +4,12 @@ import 'package:ui_kit/story_book/prop_updater/int_prop_updater.dart';
 import 'package:ui_kit/story_book/prop_updater/list_prop_updater.dart';
 import 'package:ui_kit/story_book/prop_updater/string_prop_updater.dart';
 import 'package:ui_kit/story_book/props_explorer.dart';
-import 'package:ui_kit/widgets/filled_button.dart';
-import 'package:ui_kit/widgets/outlined_button.dart';
-import 'package:flutter/material.dart' hide OutlinedButton, TextButton;
-import 'package:ui_kit/widgets/switcher_button.dart';
-import 'package:ui_kit/widgets/text_button.dart';
-import 'package:ui_kit/widgets/two_states_button.dart';
+import 'package:ui_kit/widgets/buttons/filled_button.dart';
+import 'package:ui_kit/widgets/buttons/contour_button.dart';
+import 'package:flutter/material.dart';
+import 'package:ui_kit/widgets/buttons/switcher_button.dart';
+import 'package:ui_kit/widgets/buttons/simple_button.dart';
+import 'package:ui_kit/widgets/buttons/two_states_button.dart';
 
 class Buttons extends StatelessWidget {
   @override
@@ -19,8 +19,8 @@ class Buttons extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           _filledButtonStory(),
-          _outlinedButtonStory(),
-          _textButtonStory(),
+          _contourButtonStory(),
+          _simpleButtonStory(),
           _switcherButtonStory(),
           _twoStatesButtonStory()
         ],
@@ -98,9 +98,9 @@ class Buttons extends StatelessWidget {
     );
   }
 
-  Widget _outlinedButtonStory() {
+  Widget _contourButtonStory() {
     return ExpandableStory(
-      title: 'Outlined Button',
+      title: 'Contour Button',
       child: PropsExplorer(
         initialProps: const <String, dynamic>{
           'text': 'Activate',
@@ -157,7 +157,7 @@ class Buttons extends StatelessWidget {
             };
           }
 
-          return OutlinedButton(
+          return ContourButton(
             props['text'],
             onPressed: onPressed,
             fullWidth: props['fullWidth'],
@@ -168,9 +168,9 @@ class Buttons extends StatelessWidget {
     );
   }
 
-  Widget _textButtonStory() {
+  Widget _simpleButtonStory() {
     return ExpandableStory(
-      title: 'Text Button',
+      title: 'Simple Button',
       child: PropsExplorer(
         initialProps: const <String, dynamic>{
           'text': 'Activate',
@@ -215,7 +215,7 @@ class Buttons extends StatelessWidget {
             };
           }
 
-          return TextButton(
+          return SimpleButton(
             props['text'],
             onPressed: onPressed,
           );
@@ -234,7 +234,7 @@ class Buttons extends StatelessWidget {
       title: 'Switcher button',
       child: PropsExplorer(
         initialProps: const <String, dynamic>{
-          'buttonLabels': <String>['EUR','USD'],
+          'buttonLabels': <String>['EUR', 'USD'],
         },
         formBuilder: (context, props, updateProp) {
           return ListView(
@@ -272,8 +272,8 @@ class Buttons extends StatelessWidget {
       title: 'Button changes it\'s state buy timer',
       child: PropsExplorer(
         initialProps: const <String, dynamic>{
-          'initialText': 'Confirm buy',
-          'finalText': 'Refresh rate',
+          'initialText': 'Confirm',
+          'finalText': 'Refresh',
           'timeIntervalInSec': 3,
           'enabled': true,
           'fullWidth': false,

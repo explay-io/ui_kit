@@ -38,10 +38,10 @@ class _FilledButtonState extends State<FilledButton> with ButtonMixin {
             ? null
             : () => disableButtonWhileOnPressedExecutes(
                 setEnabled: _setEnabled, onPressed: widget.onPressed),
-        style: ButtonStyle(
+        style: ElevatedButton.styleFrom().copyWith(
           padding: MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
             (Set<MaterialState> states) =>
-              widget.padding ?? getPadding(narrow: widget.narrow),
+                widget.padding ?? getPadding(narrow: widget.narrow),
           ),
           elevation: MaterialStateProperty.resolveWith<double>(
             (Set<MaterialState> states) => 0.0,
@@ -57,14 +57,20 @@ class _FilledButtonState extends State<FilledButton> with ButtonMixin {
               return AppColor.blue;
             },
           ),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(50.0),
+            ),
+          ),
         ),
         child: Text(
           widget.text,
-          style: (widget.textStyle != null) ? widget.textStyle :
-            Theme.of(context).textTheme.bodyText2.copyWith(
-              color: AppColor.deepWhite,
-              fontSize: getFontSize(narrow: widget.narrow, fullWidth: widget.fullWidth)
-            ),
+          style: (widget.textStyle != null)
+              ? widget.textStyle
+              : Theme.of(context).textTheme.bodyText2.copyWith(
+                  color: AppColor.deepWhite,
+                  fontSize: getFontSize(
+                      narrow: widget.narrow, fullWidth: widget.fullWidth)),
         ),
       ),
     );

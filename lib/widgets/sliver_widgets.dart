@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ui_kit/widgets/card.dart';
-import 'package:ui_kit/widgets/filled_button.dart';
+import 'package:ui_kit/widgets/buttons/filled_button.dart';
 import 'package:ui_kit/widgets/illustrations/undraw.dart';
 import 'package:ui_kit/widgets/illustrations/undraw_illustrations.dart';
 import 'package:ui_kit/widgets/layout/sliver_content_template.dart';

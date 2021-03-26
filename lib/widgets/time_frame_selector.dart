@@ -1,19 +1,12 @@
 import 'package:flutter/material.dart' hide TextButton;
 import 'package:ui_kit/color.dart';
 import 'package:ui_kit/text.dart';
-import 'package:ui_kit/widgets/filled_button.dart';
-import 'package:ui_kit/widgets/text_button.dart';
+import 'package:ui_kit/widgets/buttons/filled_button.dart';
+import 'package:ui_kit/widgets/buttons/simple_button.dart';
 
 typedef Callback = void Function(String value);
 
-enum TimeFrame {
-  ONE_HOUR,
-  ONE_DAY,
-  ONE_WEEK,
-  ONE_MONTH,
-  ONE_YEAR,
-  FIVE_YEARS
-}
+enum TimeFrame { ONE_HOUR, ONE_DAY, ONE_WEEK, ONE_MONTH, ONE_YEAR, FIVE_YEARS }
 
 class TimeFrameHelper {
   static TimeFrame getKey(String timeFrame) {
@@ -60,10 +53,11 @@ class TimeFrameSelector extends StatefulWidget {
   final TimeFrame defaultTimeFrame;
   final TimeFrame maxTimeFrame;
 
-  const TimeFrameSelector({Key key,
-    this.defaultTimeFrame = TimeFrame.ONE_DAY,
-    this.maxTimeFrame = TimeFrame.ONE_YEAR,
-    this.onChange})
+  const TimeFrameSelector(
+      {Key key,
+      this.defaultTimeFrame = TimeFrame.ONE_DAY,
+      this.maxTimeFrame = TimeFrame.ONE_YEAR,
+      this.onChange})
       : super(key: key);
 
   @override
@@ -92,42 +86,36 @@ class TimeFrameSelectorWidgetState extends State<TimeFrameSelector> {
       _onPressedPeriod(selected);
     }
 
-    final checkedButton = FilledButton(
-        TimeFrameHelper.getValue(selected),
+    final checkedButton = FilledButton(TimeFrameHelper.getValue(selected),
         onPressed: onPressed,
         textStyle: AppText.graphTextStyle.copyWith(color: AppColor.deepWhite),
-        padding: const EdgeInsets.all(0.0)
-    );
-    final uncheckedButton = TextButton(
+        padding: const EdgeInsets.all(0.0));
+    final uncheckedButton = SimpleButton(
       TimeFrameHelper.getValue(selected),
-        onPressed: onPressed,
-        textStyle: AppText.graphTextStyle.copyWith(color: AppColor.deepBlack),
-        padding: const EdgeInsets.all(0.0),
-    );
-
-    return Expanded(
-        flex: 1 ,
-        child: Container(
-            height: 22.0 ,
-            child: (selectedTimeFrame == selected) ? checkedButton : uncheckedButton
-        )
-    );
-  }
-
-  Expanded _buildDisableItem(TimeFrame selected) {
-    final uncheckedButton = TextButton(
-        TimeFrameHelper.getValue(selected),
-        textStyle: AppText.graphTextStyle.copyWith(color: AppColor.semiGrey),
-        padding: const EdgeInsets.all(0.0)
+      onPressed: onPressed,
+      textStyle: AppText.graphTextStyle.copyWith(color: AppColor.deepBlack),
+      padding: const EdgeInsets.all(0.0),
     );
 
     return Expanded(
         flex: 1,
         child: Container(
             height: 22.0,
-            child: uncheckedButton
-        )
+            child: (selectedTimeFrame == selected)
+                ? checkedButton
+                : uncheckedButton));
+  }
+
+  Expanded _buildDisableItem(TimeFrame selected) {
+    final uncheckedButton = SimpleButton(
+      TimeFrameHelper.getValue(selected),
+      textStyle: AppText.graphTextStyle.copyWith(color: AppColor.semiGrey),
+      padding: const EdgeInsets.all(0.0),
+      onPressed: () async {},
     );
+
+    return Expanded(
+        flex: 1, child: Container(height: 22.0, child: uncheckedButton));
   }
 
   @override
@@ -150,7 +138,6 @@ class TimeFrameSelectorWidgetState extends State<TimeFrameSelector> {
     return Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: widgets
-    );
+        children: widgets);
   }
 }

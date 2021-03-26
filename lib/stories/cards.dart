@@ -7,7 +7,7 @@ import 'package:ui_kit/story_book/prop_updater/string_prop_updater.dart';
 import 'package:ui_kit/story_book/props_explorer.dart';
 import 'package:ui_kit/widgets/card.dart';
 import 'package:ui_kit/widgets/news/news_card.dart';
-import 'package:ui_kit/widgets/text_button.dart';
+import 'package:ui_kit/widgets/buttons/simple_button.dart';
 
 class AppCards extends StatelessWidget {
   @override
@@ -135,13 +135,14 @@ class AppCards extends StatelessWidget {
                       Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
                 ),
                 ButtonBarTheme(
+                  data: ButtonBarThemeData(),
                   child: ButtonBar(
                     children: <Widget>[
-                      TextButton(
+                      SimpleButton(
                         'BUY TICKETS',
                         onPressed: () async {},
                       ),
-                      TextButton(
+                      SimpleButton(
                         'LISTEN',
                         onPressed: () async {},
                       ),
@@ -163,8 +164,7 @@ class AppCards extends StatelessWidget {
         initialProps: const <String, dynamic>{
           'source': 'NewsFeed',
           'time': 0,
-          'title':
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          'title': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
           'image':
               'https://res.cloudinary.com/practicaldev/image/fetch/s--jh5laibJ--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/mq33e4a63bduhbljfiop.png'
         },

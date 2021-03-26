@@ -34,15 +34,15 @@ class Undraw extends StatelessWidget {
   final EdgeInsets padding;
 
   Future<SvgPicture> renderIllustration(String name, Color _exColor) async {
-    var nameSplit = name.toString().split("UndrawIllustration.");
+    var nameSplit = name.toString().split('UndrawIllustration.');
     var illustration =
-        illustrationList.where((i) => i["identifier"] == nameSplit[1]);
-    String url = illustration.toList()[0]["url"];
-    String image = await _getSvgString(url);
+        illustrationList.where((i) => i['identifier'] == nameSplit[1]);
+    var url = illustration.toList()[0]['url'];
+    var image = await _getSvgString(url);
 
-    String valueString = color.toString().split('(0x')[1].split(')')[0];
+    var valueString = color.toString().split('(0x')[1].split(')')[0];
     valueString = valueString.substring(2, valueString.length);
-    image = image.replaceAll("#6c63ff", "#" + valueString);
+    image = image.replaceAll('#6c63ff', '#' + valueString);
     return SvgPicture.string(
       image,
       height: height,
@@ -80,7 +80,7 @@ class Undraw extends StatelessWidget {
   }
 
   Future<String> _getSvgString(url) async {
-    http.Response response = await http.get(Uri.parse(url));
+    var response = await http.get(Uri.parse(url));
     return response.body;
   }
 }

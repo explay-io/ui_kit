@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart' hide TextButton;
-import 'package:ui_kit/widgets/filled_button.dart';
+import 'package:ui_kit/widgets/buttons/filled_button.dart';
 import 'package:ui_kit/widgets/popover_modal.dart';
 import 'package:ui_kit/widgets/text/heading.dart';
 import 'package:ui_kit/widgets/text/heading_type.dart';
-import 'package:ui_kit/widgets/text_button.dart';
+import 'package:ui_kit/widgets/buttons/simple_button.dart';
 
 class Popover extends StatelessWidget {
   final PopoverModal popover = PopoverModal();
@@ -80,8 +80,7 @@ class Popover extends StatelessWidget {
           padding: const EdgeInsets.all(30.0),
           child: Column(
             children: const <Widget>[
-              Heading('Example Header',
-                  headingType: HeadingType.HEADING_2),
+              Heading('Example Header', headingType: HeadingType.HEADING_2),
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
@@ -102,8 +101,7 @@ class Popover extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: const <Widget>[
-              Heading('Example Header',
-                  headingType: HeadingType.HEADING_2),
+              Heading('Example Header', headingType: HeadingType.HEADING_2),
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
@@ -146,7 +144,7 @@ class Popover extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: TextButton('Cancel', onPressed: () async {
+                child: SimpleButton('Cancel', onPressed: () async {
                   Navigator.pop(context, 'Cancel button');
                 }),
               )
@@ -163,8 +161,9 @@ class Popover extends StatelessWidget {
               title: const Text('You clicked'),
               content: Text(value),
               actions: <Widget>[
-                TextButton('Thats nice',
-                  onPressed: () {
+                SimpleButton(
+                  'Thats nice',
+                  onPressed: () async {
                     Navigator.of(context).pop();
                   },
                 ),

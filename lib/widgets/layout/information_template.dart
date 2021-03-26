@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:ui_kit/color.dart';
 import 'package:ui_kit/text.dart';
 import 'package:ui_kit/widgets/layout/page_template.dart';

@@ -1,5 +1,5 @@
-import 'package:ui_kit/widgets/button_common.dart';
-import 'package:ui_kit/widgets/filled_button.dart';
+import 'package:ui_kit/widgets/buttons/button_common.dart';
+import 'package:ui_kit/widgets/buttons/filled_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -24,7 +24,7 @@ void main() {
       buttonText: buttonText,
       buildButton: ({FutureCallback onPressed}) =>
           FilledButton(buttonText, onPressed: onPressed),
-      underlyingMaterialButtonType: RaisedButton,
+      underlyingMaterialButtonType: ElevatedButton,
     );
 
     testFullWidthProp(
@@ -32,9 +32,9 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({bool fullWidth}) =>
-          FilledButton(buttonText, onPressed: () async {}, fullWidth: fullWidth),
-      underlyingMaterialButtonType: RaisedButton,
+      buildButton: ({bool fullWidth}) => FilledButton(buttonText,
+          onPressed: () async {}, fullWidth: fullWidth),
+      underlyingMaterialButtonType: ElevatedButton,
     );
 
     testNarrowProp(
@@ -44,7 +44,7 @@ void main() {
       buttonText: buttonText,
       buildButton: ({bool narrow}) =>
           FilledButton(buttonText, onPressed: () async {}, narrow: narrow),
-      underlyingMaterialButtonType: RaisedButton,
+      underlyingMaterialButtonType: ElevatedButton,
     );
 
     testPaddingProp(
@@ -54,7 +54,7 @@ void main() {
       buttonText: buttonText,
       buildButton: ({EdgeInsetsGeometry padding}) =>
           FilledButton(buttonText, onPressed: () async {}, padding: padding),
-      underlyingMaterialButtonType: RaisedButton,
+      underlyingMaterialButtonType: ElevatedButton,
     );
 
     testFontSize(
@@ -63,11 +63,11 @@ void main() {
       testWidgets: testWidgets,
       buttonText: buttonText,
       buildButton: ({bool narrow, bool fullWidth}) => FilledButton(
-            buttonText,
-            onPressed: () async {},
-            narrow: narrow,
-            fullWidth: fullWidth,
-          ),
+        buttonText,
+        onPressed: () async {},
+        narrow: narrow,
+        fullWidth: fullWidth,
+      ),
     );
 
     testFontStyle(
@@ -76,10 +76,10 @@ void main() {
       testWidgets: testWidgets,
       buttonText: buttonText,
       buildButton: ({TextStyle textStyle}) => FilledButton(
-          buttonText,
-          textStyle: textStyle,
-          onPressed: () async {},
-          narrow: true,
+        buttonText,
+        textStyle: textStyle,
+        onPressed: () async {},
+        narrow: true,
       ),
     );
   });

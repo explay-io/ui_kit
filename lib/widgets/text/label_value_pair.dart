@@ -51,18 +51,17 @@ class LabelValuePair extends StatelessWidget {
             : MainAxisAlignment.start,
         children: [
           Flexible(
-            child: value != null
-                ? value
-                : Text(
-                    data,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontFamily: 'Circular',
-                      color: Colors.black,
-                      height: 1.5,
-                      fontWeight: FontWeight.bold,
-                    ),
+            child: value ??
+                Text(
+                  data,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontFamily: 'Circular',
+                    color: Colors.black,
+                    height: 1.5,
+                    fontWeight: FontWeight.bold,
                   ),
+                ),
           ),
           _buildCopyToClipboardIcon(context, data),
         ],
@@ -76,27 +75,6 @@ class LabelValuePair extends StatelessWidget {
     }
     return CopyToClipboard(value: value);
   }
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is LabelValuePair &&
-          runtimeType == other.runtimeType &&
-          labelText == other.labelText &&
-          valueText == other.valueText &&
-          value == other.value &&
-          textAlign == other.textAlign &&
-          copyToClipboardEnabled == other.copyToClipboardEnabled &&
-          padding == other.padding;
-
-  @override
-  int get hashCode =>
-      labelText.hashCode ^
-      valueText.hashCode ^
-      value.hashCode ^
-      textAlign.hashCode ^
-      copyToClipboardEnabled.hashCode ^
-      padding.hashCode;
 }
 
 enum ValueLabelTextAlign { center, left }

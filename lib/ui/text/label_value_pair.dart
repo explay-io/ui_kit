@@ -11,14 +11,13 @@ class LabelValuePair extends StatelessWidget {
   final bool copyToClipboardEnabled;
   final EdgeInsets padding;
 
-  const LabelValuePair({
-    @required this.labelText,
-    this.valueText,
-    this.copyToClipboardEnabled = false,
-    this.textAlign,
-    this.value,
-    this.padding
-  });
+  const LabelValuePair(
+      {@required this.labelText,
+      this.valueText,
+      this.copyToClipboardEnabled = false,
+      this.textAlign,
+      this.value,
+      this.padding});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +42,8 @@ class LabelValuePair extends StatelessWidget {
     return textAlign != null && textAlign == ValueLabelTextAlign.center;
   }
 
-  Widget _buildBody(BuildContext context, Widget value, String data, {EdgeInsets padding}) {
+  Widget _buildBody(BuildContext context, Widget value, String data,
+      {EdgeInsets padding}) {
     return Padding(
       padding: padding ?? const EdgeInsets.only(bottom: 16.0),
       child: Row(
@@ -64,31 +64,6 @@ class LabelValuePair extends StatelessWidget {
     }
     return CopyToClipboard(value: value);
   }
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-          other is LabelValuePair &&
-              runtimeType == other.runtimeType &&
-              labelText == other.labelText &&
-              valueText == other.valueText &&
-              value == other.value &&
-              textAlign == other.textAlign &&
-              copyToClipboardEnabled == other.copyToClipboardEnabled &&
-              padding == other.padding;
-
-  @override
-  int get hashCode =>
-      labelText.hashCode ^
-      valueText.hashCode ^
-      value.hashCode ^
-      textAlign.hashCode ^
-      copyToClipboardEnabled.hashCode ^
-      padding.hashCode;
-
-
-
 }
 
 enum ValueLabelTextAlign { center, left }
-

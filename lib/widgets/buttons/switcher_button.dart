@@ -34,10 +34,25 @@ class _SwitcherButtonState extends State<SwitcherButton> {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
-      padding: const EdgeInsets.all(10),
+    return TextButton(
+      style: TextButton.styleFrom(
+        padding: const EdgeInsets.all(10),
+        // splashColor: AppColor.grey,
+      ).copyWith(
+        overlayColor: MaterialStateProperty.resolveWith<Color>(
+            (Set<MaterialState> states) {
+          // if (states.contains(MaterialState.focused)) return Colors.red;
+          // if (states.contains(MaterialState.hovered)) return Colors.green;
+          if (states.contains(MaterialState.pressed)) AppColor.grey;
+          return null; // Defer to the widget's default.
+        }),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50.0),
+          ),
+        ),
+      ),
       onPressed: _switch,
-      splashColor: AppColor.grey,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.center,

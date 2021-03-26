@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ui_kit/widgets/filled_button.dart';
+import 'package:ui_kit/widgets/buttons/filled_button.dart';
 import 'package:ui_kit/widgets/layout/utility_template.dart';
 
 import '../wrap_in_material_app.dart';
@@ -23,7 +23,8 @@ void main() {
         fullWidth: true,
         narrow: false,
       );
-      await tester.pumpWidget(wrapInMaterialApp(UtilityTemplate(header, text, pic, action)));
+      await tester.pumpWidget(
+          wrapInMaterialApp(UtilityTemplate(header, text, pic, action)));
 
       expect(find.byType(AppBar), findsOneWidget);
       expect(find.text(header), findsOneWidget);

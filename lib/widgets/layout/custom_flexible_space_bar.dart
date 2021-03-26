@@ -17,8 +17,8 @@ class CustomFlexibleSpaceBar extends StatefulWidget {
     this.centerTitle,
     this.titlePadding,
     this.collapseMode = CollapseMode.parallax,
-  }) : assert(collapseMode != null),
-       super(key: key);
+  })  : assert(collapseMode != null),
+        super(key: key);
 
   final Widget title;
   final Widget background;
@@ -58,9 +58,9 @@ class _CustomFlexibleSpaceBarState extends State<CustomFlexibleSpaceBar> {
         return false;
       case TargetPlatform.iOS:
         return true;
+      default:
+        return false;
     }
-
-    return false;
   }
 
   Alignment _getTitleAlignment(bool effectiveCenterTitle) {
@@ -93,8 +93,10 @@ class _CustomFlexibleSpaceBarState extends State<CustomFlexibleSpaceBar> {
 
   @override
   Widget build(BuildContext context) {
-    final settings = context.dependOnInheritedWidgetOfExactType<FlexibleSpaceBarSettings>();
-    assert(settings != null, 'A FlexibleSpaceBar must be wrapped in the widget returned by FlexibleSpaceBar.createSettings().');
+    final settings =
+        context.dependOnInheritedWidgetOfExactType<FlexibleSpaceBarSettings>();
+    assert(settings != null,
+        'A FlexibleSpaceBar must be wrapped in the widget returned by FlexibleSpaceBar.createSettings().');
 
     final children = <Widget>[];
 
@@ -102,7 +104,9 @@ class _CustomFlexibleSpaceBarState extends State<CustomFlexibleSpaceBar> {
 
     // 0.0 -> Expanded
     // 1.0 -> Collapsed to toolbar
-    final double t = (1.0 - (settings.currentExtent - settings.minExtent) / deltaExtent).clamp(0.0, 1.0);
+    final double t =
+        (1.0 - (settings.currentExtent - settings.minExtent) / deltaExtent)
+            .clamp(0.0, 1.0);
 
     // background image
     if (widget.background != null) {
@@ -122,33 +126,20 @@ class _CustomFlexibleSpaceBarState extends State<CustomFlexibleSpaceBar> {
     }
 
     if (widget.title != null) {
-      Widget title;
-      switch (defaultTargetPlatform) {
-        case TargetPlatform.iOS:
-          title = widget.title;
-          break;
-        case TargetPlatform.fuchsia:
-        case TargetPlatform.android:
-          title = Semantics(
-            namesRoute: true,
-            child: widget.title,
-          );
-      }
-
       final theme = Theme.of(context);
       final opacity = settings.toolbarOpacity;
       if (opacity > 0.0) {
         var titleStyle = theme.primaryTextTheme.headline6;
-        titleStyle = titleStyle.copyWith(
-          color: titleStyle.color.withOpacity(opacity)
-        );
+        titleStyle =
+            titleStyle.copyWith(color: titleStyle.color.withOpacity(opacity));
         final effectiveCenterTitle = _getEffectiveCenterTitle(theme);
         final padding = widget.titlePadding ??
-          EdgeInsetsDirectional.only(
-            start: effectiveCenterTitle ? 0.0 : 72.0,
-            bottom: 16.0,
-          );
-        final scaleValue = Tween<double>(begin: 1.0, end: 2.0/3.0).transform(t);
+            EdgeInsetsDirectional.only(
+              start: effectiveCenterTitle ? 0.0 : 72.0,
+              bottom: 16.0,
+            );
+        final scaleValue =
+            Tween<double>(begin: 1.0, end: 2.0 / 3.0).transform(t);
         final scaleTransform = Matrix4.identity()
           ..scale(scaleValue, scaleValue, 1.0);
         final titleAlignment = _getTitleAlignment(effectiveCenterTitle);
@@ -161,7 +152,7 @@ class _CustomFlexibleSpaceBarState extends State<CustomFlexibleSpaceBar> {
               alignment: titleAlignment,
               child: DefaultTextStyle(
                 style: titleStyle,
-                child: title,
+                child: widget.title,
               ),
             ),
           ),

@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 
 import 'button_common.dart';
 
-class TextButton extends StatefulWidget {
+class SimpleButton extends StatefulWidget {
   final String text;
   final FutureCallback onPressed;
   final EdgeInsetsGeometry padding;
   final TextStyle textStyle;
 
-  TextButton(
+  SimpleButton(
     this.text, {
     @required this.onPressed,
     this.padding,
@@ -19,10 +19,10 @@ class TextButton extends StatefulWidget {
         super(key: key);
 
   @override
-  _TextButtonState createState() => _TextButtonState();
+  _SimpleButtonState createState() => _SimpleButtonState();
 }
 
-class _TextButtonState extends State<TextButton> with ButtonMixin {
+class _SimpleButtonState extends State<SimpleButton> with ButtonMixin {
   bool _enabled = true;
   bool _pressing = false;
 
@@ -35,25 +35,33 @@ class _TextButtonState extends State<TextButton> with ButtonMixin {
       onTapCancel: () {
         setState(() => _pressing = false);
       },
-      child: FlatButton(
+      child: TextButton(
         onPressed: isDisabled(enabled: _enabled, onPressed: widget.onPressed)
             ? null
             : () => disableButtonWhileOnPressedExecutes(
                 setEnabled: _setEnabled, onPressed: widget.onPressed),
-        textColor: AppColor.blue,
-        padding: widget.padding ??
-            const EdgeInsets.symmetric(vertical: 17.5, horizontal: 18.5),
+        style: TextButton.styleFrom(
+          primary: AppColor.blue,
+          padding: widget.padding ??
+              const EdgeInsets.symmetric(vertical: 17.5, horizontal: 18.5),
+        ).copyWith(
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(50.0),
+            ),
+          ),
+        ),
         child: Text(
           widget.text,
-          style:  (widget.textStyle != null) ? widget.textStyle :
+          style: widget.textStyle ??
               Theme.of(context).textTheme.bodyText2.copyWith(
-                color: getTextColorOnWhiteBackground(
-                  enabled: _enabled,
-                  pressing: _pressing,
-                  onPressed: widget.onPressed,
-                ),
-                fontSize: 12.0,
-              ),
+                    color: getTextColorOnWhiteBackground(
+                      enabled: _enabled,
+                      pressing: _pressing,
+                      onPressed: widget.onPressed,
+                    ),
+                    fontSize: 12.0,
+                  ),
         ),
       ),
     );

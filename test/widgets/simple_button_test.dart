@@ -1,7 +1,7 @@
-import 'package:ui_kit/widgets/button_common.dart';
-import 'package:flutter/material.dart' hide TextButton;
+import 'package:ui_kit/widgets/buttons/button_common.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ui_kit/widgets/text_button.dart';
+import 'package:ui_kit/widgets/buttons/simple_button.dart';
 
 import 'common_button_tests.dart';
 
@@ -15,7 +15,7 @@ void main() {
       testWidgets: testWidgets,
       buttonText: buttonText,
       buildButton: ({FutureCallback onPressed}) =>
-          TextButton(buttonText, onPressed: onPressed),
+          SimpleButton(buttonText, onPressed: onPressed),
     );
 
     testTextProp(
@@ -23,7 +23,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: () => TextButton(buttonText, onPressed: () async {}),
+      buildButton: () => SimpleButton(buttonText, onPressed: () async {}),
     );
 
     testOnPressedProp(
@@ -32,8 +32,8 @@ void main() {
       testWidgets: testWidgets,
       buttonText: buttonText,
       buildButton: ({FutureCallback onPressed}) =>
-          TextButton(buttonText, onPressed: onPressed),
-      underlyingMaterialButtonType: FlatButton,
+          SimpleButton(buttonText, onPressed: onPressed),
+      underlyingMaterialButtonType: TextButton,
     );
 
     testPaddingProp(
@@ -42,8 +42,8 @@ void main() {
       testWidgets: testWidgets,
       buttonText: buttonText,
       buildButton: ({EdgeInsetsGeometry padding}) =>
-          TextButton(buttonText, onPressed: () async {}, padding: padding),
-      underlyingMaterialButtonType: FlatButton,
+          SimpleButton(buttonText, onPressed: () async {}, padding: padding),
+      underlyingMaterialButtonType: TextButton,
     );
 
     testFontStyle(
@@ -51,12 +51,8 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({TextStyle textStyle}) => TextButton(
-        buttonText,
-        textStyle: textStyle,
-        onPressed: () async {}
-      ),
+      buildButton: ({TextStyle textStyle}) => SimpleButton(buttonText,
+          textStyle: textStyle, onPressed: () async {}),
     );
-
   });
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart' hide TextButton;
-import 'package:flutter_svg/svg.dart';
 import 'package:ui_kit/widgets/custom_radio/custom_radio.dart';
-import 'package:ui_kit/widgets/filled_button.dart';
+import 'package:ui_kit/widgets/buttons/filled_button.dart';
 import 'package:ui_kit/widgets/illustrations/undraw.dart';
 import 'package:ui_kit/widgets/illustrations/undraw_illustrations.dart';
 import 'package:ui_kit/widgets/layout/generic_template.dart';
@@ -11,7 +10,7 @@ import 'package:ui_kit/widgets/layout/utility_template.dart';
 import 'package:ui_kit/widgets/text/heading.dart';
 import 'package:ui_kit/widgets/text/heading_type.dart';
 import 'package:ui_kit/widgets/text/label_value_pair.dart';
-import 'package:ui_kit/widgets/text_button.dart';
+import 'package:ui_kit/widgets/buttons/simple_button.dart';
 
 import '../color.dart';
 
@@ -50,8 +49,8 @@ class Layouts extends StatelessWidget {
       child: Center(
         child: FilledButton(
           'Utility Layout',
-          onPressed: () {
-            Navigator.push<dynamic>(
+          onPressed: () async {
+            await Navigator.push<dynamic>(
                 context,
                 MaterialPageRoute<dynamic>(
                     settings: const RouteSettings(name: utilityLayoutRoute),
@@ -84,8 +83,8 @@ class Layouts extends StatelessWidget {
       child: Center(
         child: FilledButton(
           'Information Layout',
-          onPressed: () {
-            Navigator.push<dynamic>(
+          onPressed: () async {
+            await Navigator.push<dynamic>(
                 context,
                 MaterialPageRoute<dynamic>(
                     settings: const RouteSettings(name: informationLayoutRoute),
@@ -120,8 +119,8 @@ class Layouts extends StatelessWidget {
       child: Center(
         child: FilledButton(
           'Dismissable Layout',
-          onPressed: () {
-            Navigator.push<dynamic>(
+          onPressed: () async {
+            await Navigator.push<dynamic>(
                 context,
                 MaterialPageRoute<dynamic>(
                     settings: const RouteSettings(name: dismissibleLayoutRoute),
@@ -163,8 +162,8 @@ class Layouts extends StatelessWidget {
       child: Center(
         child: FilledButton(
           'With info button',
-          onPressed: () {
-            Navigator.push<dynamic>(
+          onPressed: () async {
+            await Navigator.push<dynamic>(
               context,
               MaterialPageRoute<dynamic>(
                 settings: const RouteSettings(name: infoLayoutRoute),
@@ -195,7 +194,7 @@ class Layouts extends StatelessWidget {
                   FilledButton(
                     'Invite friends',
                     fullWidth: true,
-                    onPressed: () {
+                    onPressed: () async {
                       print('you clicked invite friends');
                     },
                   ),
@@ -222,8 +221,8 @@ class Layouts extends StatelessWidget {
       child: Center(
         child: FilledButton(
           'Choice Layout',
-          onPressed: () {
-            Navigator.push<dynamic>(
+          onPressed: () async {
+            await Navigator.push<dynamic>(
               context,
               MaterialPageRoute<dynamic>(
                 settings: const RouteSettings(name: infoLayoutRoute),
@@ -247,7 +246,7 @@ class Layouts extends StatelessWidget {
                                 textAlign: TextAlign.left,
                                 style: Theme.of(context)
                                     .textTheme
-                                    .body2
+                                    .bodyText1
                                     .copyWith(color: AppColor.semiGrey)),
                           ),
                         ),
@@ -258,7 +257,7 @@ class Layouts extends StatelessWidget {
                             textAlign: TextAlign.left,
                             style: Theme.of(context)
                                 .textTheme
-                                .body2
+                                .bodyText1
                                 .copyWith(color: AppColor.semiGrey),
                           ),
                         ),
@@ -293,8 +292,8 @@ class Layouts extends StatelessWidget {
       child: Center(
         child: FilledButton(
           'Titled Dismissable Layout',
-          onPressed: () {
-            Navigator.push<dynamic>(
+          onPressed: () async {
+            await Navigator.push<dynamic>(
               context,
               MaterialPageRoute<dynamic>(
                 settings: const RouteSettings(name: dismissibleLayoutRoute),
@@ -312,7 +311,7 @@ class Layouts extends StatelessWidget {
                           padding: const EdgeInsets.only(top: 14.0),
                           child: Text(
                               'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                              style: Theme.of(context).textTheme.body1),
+                              style: Theme.of(context).textTheme.bodyText2),
                         ),
                       ),
                       const SizedBox(
@@ -331,7 +330,7 @@ class Layouts extends StatelessWidget {
                                   text: 'Lorem ipsum dolor sit amet.',
                                   style: Theme.of(context)
                                       .textTheme
-                                      .body2
+                                      .bodyText1
                                       .copyWith(color: AppColor.semiGrey),
                                 ),
                               ],
@@ -344,15 +343,15 @@ class Layouts extends StatelessWidget {
                   Column(children: <Widget>[
                     FilledButton(
                       'Accept',
-                      onPressed: () {
+                      onPressed: () async {
                         print('Test');
                       },
                       fullWidth: true,
                       narrow: false,
                     ),
-                    TextButton(
+                    SimpleButton(
                       'Cancel',
-                      onPressed: () {
+                      onPressed: () async {
                         print('Test');
                       },
                     ),

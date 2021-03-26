@@ -14,16 +14,15 @@ class LabelValueEditableField extends StatelessWidget {
   final String route;
   final Object arguments;
 
-  const LabelValueEditableField({
-    @required this.labelText,
-    this.valueText,
-    this.editable = false,
-    this.textAlign,
-    this.value,
-    this.padding,
-    this.route,
-    this.arguments
-  });
+  const LabelValueEditableField(
+      {@required this.labelText,
+      this.valueText,
+      this.editable = false,
+      this.textAlign,
+      this.value,
+      this.padding,
+      this.route,
+      this.arguments});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +47,8 @@ class LabelValueEditableField extends StatelessWidget {
     return textAlign != null && textAlign == ValueLabelTextAlign.center;
   }
 
-  Widget _buildBody(BuildContext context, Widget value, String data, {EdgeInsets padding}) {
+  Widget _buildBody(BuildContext context, Widget value, String data,
+      {EdgeInsets padding}) {
     return Padding(
       padding: padding ?? const EdgeInsets.only(bottom: 16.0),
       child: Row(
@@ -56,7 +56,15 @@ class LabelValueEditableField extends StatelessWidget {
             ? MainAxisAlignment.center
             : MainAxisAlignment.start,
         children: [
-          Flexible(child: value ?? Text(data, style: const TextStyle(fontSize: 16 , fontFamily: 'Circular', color: Colors.black, height: 1.5, fontWeight: FontWeight.bold))),
+          Flexible(
+              child: value ??
+                  Text(data,
+                      style: const TextStyle(
+                          fontSize: 16,
+                          fontFamily: 'Circular',
+                          color: Colors.black,
+                          height: 1.5,
+                          fontWeight: FontWeight.bold))),
           _buildRoutingIcon(context, data),
         ],
       ),
@@ -78,7 +86,7 @@ class LabelValueEditableField extends StatelessWidget {
           }
         },
         child: IconTheme(
-            data: IconTheme.of(context).copyWith(color: AppColor.blue ),
+            data: IconTheme.of(context).copyWith(color: AppColor.blue),
             child: const Icon(
               Icons.create,
               size: 20.0,
@@ -86,30 +94,6 @@ class LabelValueEditableField extends StatelessWidget {
       ),
     );
   }
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-          other is LabelValueEditableField &&
-              runtimeType == other.runtimeType &&
-              labelText == other.labelText &&
-              valueText == other.valueText &&
-              value == other.value &&
-              textAlign == other.textAlign &&
-              editable == other.editable &&
-              padding == other.padding &&
-              route == other.route;
-
-  @override
-  int get hashCode =>
-      labelText.hashCode ^
-      valueText.hashCode ^
-      value.hashCode ^
-      textAlign.hashCode ^
-      editable.hashCode ^
-      padding.hashCode ^
-      route.hashCode;
 }
 
 enum ValueLabelTextAlign { center, left }
-

@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:ui_kit/color.dart';
 import 'package:ui_kit/widgets/custom_radio/radio_item.dart';
 import 'package:ui_kit/widgets/custom_radio/radio_model.dart';
-import 'package:ui_kit/widgets/filled_button.dart';
+import 'package:ui_kit/widgets/buttons/filled_button.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
 class CustomRadio extends StatefulWidget {
@@ -61,7 +61,7 @@ class CustomRadioState extends State<CustomRadio> {
         child: FilledButton(
           'Next',
           fullWidth: true,
-          onPressed: () {
+          onPressed: () async {
             print('You selected: $selectedRadioModel');
           },
         ),

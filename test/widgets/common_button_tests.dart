@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:ui_kit/color.dart';
 import 'package:ui_kit/text.dart';
-import 'package:ui_kit/widgets/button_common.dart';
+import 'package:ui_kit/widgets/buttons/button_common.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
@@ -179,7 +179,8 @@ void testPaddingProp({
   Type underlyingMaterialButtonType,
 }) {
   group('padding prop', () {
-    testWidgets('if padding is passed, overwrite default', (WidgetTester tester) async {
+    testWidgets('if padding is passed, overwrite default',
+        (WidgetTester tester) async {
       const padding = EdgeInsets.all(8.0);
       await tester.pumpWidget(wrapInMaterialApp(buildButton(padding: padding)));
       final button =
@@ -195,7 +196,8 @@ void testPaddingProp({
           // ignore: avoid_as
           find.byType(underlyingMaterialButtonType).evaluate().single.widget
               as MaterialButton;
-      expect(button.padding.vertical, 2 * ButtonStyleConstants.wideVerticalPadding);
+      expect(button.padding.vertical,
+          2 * ButtonStyleConstants.wideVerticalPadding);
     });
   });
 }
@@ -230,16 +232,12 @@ void testFontStyle({
   Function buildButton,
 }) {
   group('font text style', () {
-    testWidgets(
-        'text style is set',
-            (WidgetTester tester) async {
-          await tester.pumpWidget(wrapInMaterialApp(buildButton(
-              textStyle: AppText.body2
-          )));
-          expect(tester.widget<Text>(find.text(buttonText)).style.fontSize,
-              ButtonStyleConstants.smallFontSize);
-        });
-
+    testWidgets('text style is set', (WidgetTester tester) async {
+      await tester
+          .pumpWidget(wrapInMaterialApp(buildButton(textStyle: AppText.body2)));
+      expect(tester.widget<Text>(find.text(buttonText)).style.fontSize,
+          ButtonStyleConstants.smallFontSize);
+    });
   });
 }
 
