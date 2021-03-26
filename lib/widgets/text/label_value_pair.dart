@@ -10,14 +10,13 @@ class LabelValuePair extends StatelessWidget {
   final bool copyToClipboardEnabled;
   final EdgeInsets padding;
 
-  const LabelValuePair({
-    @required this.labelText,
-    this.valueText,
-    this.copyToClipboardEnabled = false,
-    this.textAlign,
-    this.value,
-    this.padding
-  });
+  const LabelValuePair(
+      {@required this.labelText,
+      this.valueText,
+      this.copyToClipboardEnabled = false,
+      this.textAlign,
+      this.value,
+      this.padding});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +41,8 @@ class LabelValuePair extends StatelessWidget {
     return textAlign != null && textAlign == ValueLabelTextAlign.center;
   }
 
-  Widget _buildBody(BuildContext context, Widget value, String data, {EdgeInsets padding}) {
+  Widget _buildBody(BuildContext context, Widget value, String data,
+      {EdgeInsets padding}) {
     return Padding(
       padding: padding ?? const EdgeInsets.only(bottom: 16.0),
       child: Row(
@@ -50,7 +50,20 @@ class LabelValuePair extends StatelessWidget {
             ? MainAxisAlignment.center
             : MainAxisAlignment.start,
         children: [
-          Flexible(child: value ?? Text(data, style: const TextStyle(fontSize: 16 , fontFamily: 'Circular', color: Colors.black, height: 1.5, fontWeight: FontWeight.bold))),
+          Flexible(
+            child: value != null
+                ? value
+                : Text(
+                    data,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontFamily: 'Circular',
+                      color: Colors.black,
+                      height: 1.5,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+          ),
           _buildCopyToClipboardIcon(context, data),
         ],
       ),
@@ -67,14 +80,14 @@ class LabelValuePair extends StatelessWidget {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is LabelValuePair &&
-              runtimeType == other.runtimeType &&
-              labelText == other.labelText &&
-              valueText == other.valueText &&
-              value == other.value &&
-              textAlign == other.textAlign &&
-              copyToClipboardEnabled == other.copyToClipboardEnabled &&
-              padding == other.padding;
+      other is LabelValuePair &&
+          runtimeType == other.runtimeType &&
+          labelText == other.labelText &&
+          valueText == other.valueText &&
+          value == other.value &&
+          textAlign == other.textAlign &&
+          copyToClipboardEnabled == other.copyToClipboardEnabled &&
+          padding == other.padding;
 
   @override
   int get hashCode =>
@@ -84,10 +97,6 @@ class LabelValuePair extends StatelessWidget {
       textAlign.hashCode ^
       copyToClipboardEnabled.hashCode ^
       padding.hashCode;
-
-
-
 }
 
 enum ValueLabelTextAlign { center, left }
-

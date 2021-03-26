@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ui_kit/widgets/card.dart';
 import 'package:ui_kit/widgets/filled_button.dart';
+import 'package:ui_kit/widgets/illustrations/undraw.dart';
+import 'package:ui_kit/widgets/illustrations/undraw_illustrations.dart';
 import 'package:ui_kit/widgets/layout/sliver_content_template.dart';
 
 import '../color.dart';
 import '../text.dart';
 
 class SliverWidgets {
-
   List<Widget> buildSliverList() {
     final sliverList = <Widget>[];
-    for(var i = 0; i <= 6; i++) {
-     sliverList.add(appCard());
+    for (var i = 0; i <= 6; i++) {
+      sliverList.add(appCard());
     }
     return sliverList;
   }
@@ -49,12 +49,16 @@ class SliverWidgets {
     );
   }
 
-  Widget svgPicture() {
-    return SvgPicture.asset('assets/update-app.svg',
-        width: 80.0, height: 85.0);
+  Widget picture() {
+    return Undraw(
+      color: AppColor.blue,
+      illustration: UndrawIllustration.mobile_application,
+      height: 85.0,
+      width: 80.0,
+    );
   }
 
   Widget content() {
-    return SliverContentTemplate(svgPicture(), copy());
+    return SliverContentTemplate(picture(), copy());
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:ui_kit/color.dart';
+import 'package:ui_kit/widgets/illustrations/undraw.dart';
+import 'package:ui_kit/widgets/illustrations/undraw_illustrations.dart';
 import 'package:ui_kit/widgets/text/heading.dart';
 import 'package:ui_kit/widgets/text/heading_type.dart';
 import 'package:ui_kit/widgets/wizzard/template/wizard_utility_page.dart';
@@ -13,7 +15,11 @@ class WizardStory extends StatelessWidget {
   Widget build(BuildContext context) {
     return Wizard(
       intoWidget: _wizardIntro(),
-      wizardPages: [_wizardPageOne(), _wizardPageTwo(), _wizardPageThree()],
+      wizardPages: [
+        _wizardPageOne(),
+        _wizardPageTwo(),
+        _wizardPageThree(),
+      ],
       outroWidget: _wizardOutro(),
       binder: binder,
     );
@@ -21,25 +27,29 @@ class WizardStory extends StatelessWidget {
 
   Widget _wizardIntro() {
     return WizardUtilityPage(
-        'Welcome to Wizard',
-        'Before you get start with wizard please read this description '
-            'because of reasons, may the force be with you.',
-        SvgPicture.asset(
-          'assets/update-app.svg',
-          width: 285.0,
-          height: 215.0,
-        ));
+      'Welcome to Wizard',
+      'Before you get start with wizard please read this description '
+          'because of reasons, may the force be with you.',
+      Undraw(
+        color: AppColor.blue,
+        illustration: UndrawIllustration.mobile_application,
+        width: 285.0,
+        height: 215.0,
+      ),
+    );
   }
 
   Widget _wizardOutro() {
     return WizardUtilityPage(
-        'You\'re all set!!',
-        'Have fun with the wizard and may the you not slip into the dark side.',
-        SvgPicture.asset(
-          'assets/update-app.svg',
-          width: 285.0,
-          height: 215.0,
-        ));
+      'You\'re all set!!',
+      'Have fun with the wizard and may the you not slip into the dark side.',
+      Undraw(
+        color: AppColor.blue,
+        illustration: UndrawIllustration.mobile_application,
+        width: 285.0,
+        height: 215.0,
+      ),
+    );
   }
 
   Widget _wizardPageOne() {

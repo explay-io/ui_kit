@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:ui_kit/color.dart';
+import 'package:ui_kit/widgets/illustrations/undraw.dart';
+import 'package:ui_kit/widgets/illustrations/undraw_illustrations.dart';
 import 'package:ui_kit/widgets/layout/page_template.dart';
 import 'package:ui_kit/widgets/slider/layout/utility_slide.dart';
 import 'package:ui_kit/widgets/slider/slider.dart';
@@ -24,10 +26,11 @@ class Sliders extends StatelessWidget {
 
   Widget buildSlideOne() {
     return UtilitySlide(
-      'Lorem Ipsum.',
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-      SvgPicture.asset(
-        'assets/card_holder.svg',
+      'Slide 1 title',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      Undraw(
+        color: AppColor.blue,
+        illustration: UndrawIllustration.mobile_application,
         width: 285.0,
         height: 215.0,
       ),
@@ -36,10 +39,11 @@ class Sliders extends StatelessWidget {
 
   Widget buildSlideTwo() {
     return UtilitySlide(
-      'Lorem Ipsum.',
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-      SvgPicture.asset(
-        'assets/free_trading.svg',
+      'Slide 2 title',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      Undraw(
+        color: AppColor.blue,
+        illustration: UndrawIllustration.mobile_application,
         width: 285.0,
         height: 215.0,
       ),
@@ -48,10 +52,11 @@ class Sliders extends StatelessWidget {
 
   Widget buildSlideThree() {
     return UtilitySlide(
-      'Lorem Ipsum.',
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-      SvgPicture.asset(
-        'assets/secure_funds.svg',
+      'Slide 3 title',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      Undraw(
+        color: AppColor.blue,
+        illustration: UndrawIllustration.mobile_application,
         width: 285.0,
         height: 215.0,
       ),

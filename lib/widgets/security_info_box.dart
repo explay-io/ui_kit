@@ -1,15 +1,14 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../color.dart';
 import '../text.dart';
 
 class SecurityInfoBox extends StatelessWidget {
-  final String assetName;
+  final Widget icon;
   final String infoHeader;
   final String infoBody;
 
-  const SecurityInfoBox(this.assetName, this.infoHeader, this.infoBody);
+  const SecurityInfoBox(this.icon, this.infoHeader, this.infoBody);
 
   @override
   Widget build(BuildContext context) {
@@ -20,38 +19,35 @@ class SecurityInfoBox extends StatelessWidget {
             color: AppColor.veryLightGrey,
             border: null,
             borderRadius: BorderRadius.all(Radius.circular(16)),
-            boxShadow: null
-        ),
-        child:Padding(
-          padding: const EdgeInsets.only(top: 15, bottom: 15, left: 10, right: 10),
+            boxShadow: null),
+        child: Padding(
+          padding:
+              const EdgeInsets.only(top: 15, bottom: 15, left: 10, right: 10),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.only(right: 10.0),
-                child: Align(alignment: Alignment.topLeft, child:SvgPicture.asset(
-                  assetName,
-                  width: 24.0,
-                  height: 24.0,
-                )),
+                child: Align(alignment: Alignment.topLeft, child: icon),
               ),
               Flexible(
-                child: Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 5),
-                        child: Align(
-                            alignment: Alignment.topLeft,
-                            child: Text(infoHeader,
-                              style: AppText.body3,)
-                        ),
-                      ),
-                      Text(infoBody,
-                        style: AppText.body3SemiGray,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 15,),
-                    ]
-                ),
+                child: Column(children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 5),
+                    child: Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          infoHeader,
+                          style: AppText.body3,
+                        )),
+                  ),
+                  Text(
+                    infoBody,
+                    style: AppText.body3SemiGray,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 15,
+                  ),
+                ]),
               )
             ],
           ),

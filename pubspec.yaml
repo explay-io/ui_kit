@@ -1,5 +1,5 @@
 name: ui_kit
-description: A new Flutter project.
+description: Flutter UI Kit
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -26,27 +26,22 @@ dependencies:
   flutter_svg: ^0.19.3
   intl: ^0.17.0
   shimmer: ^1.0.1
-  animated_widgets:
-    git:
-      url: https://github.com/ChangeFinance/AnimatedWidgets.git
-      ref: master
+  animated_widgets: ^1.0.6
   alpha2_countries: ^1.0.5
   url_launcher: ^6.0.2
   rxdart: ^0.26.0
-
   flutter_cupertino_date_picker:
     git: https://github.com/winteragency/flutter-cupertino-date-picker.git
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  flutter_icons: ^1.1.0
+  webview_flutter: ^2.0.2
+  http: ^0.13.1
+  recase: ^3.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  recase: ^3.0.1
   mockito: ^4.0.0
-  package_info: ^2.0.0
   pedantic: ^1.11.0
 
 # For information on the generic Dart part of this file, see the
@@ -59,27 +54,6 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
-  assets:
-    - assets/update-app.svg
-    - assets/euro.svg
-    - assets/bitcoin_colourful.svg
-    - assets/referral-screen.svg
-    - assets/card_holder.svg
-    - assets/free_trading.svg
-    - assets/fully_regulated.svg
-    - assets/macbook_user.svg
-    - assets/secure_funds.svg
-    - assets/deposit.svg
-    - assets/confirmation.svg
-    - assets/convert_is_secured.svg
-    - assets/grow_your_savings.svg
-    - assets/round_up_purchases.svg
-    - assets/save_as_you_pay.svg
-    - assets/you_are_all_set.svg
-    - assets/icons/ether.svg
-    - assets/icons/american_tech_stocks.svg
-    - lib/assets/icons/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
