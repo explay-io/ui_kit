@@ -33,19 +33,31 @@ class _FilledButtonState extends State<FilledButton> with ButtonMixin {
   Widget build(BuildContext context) {
     return Container(
       width: widget.fullWidth ? matchParentWidth(context) : null,
-      child: RaisedButton(
+      child: ElevatedButton(
         onPressed: isDisabled(enabled: _enabled, onPressed: widget.onPressed)
             ? null
             : () => disableButtonWhileOnPressedExecutes(
                 setEnabled: _setEnabled, onPressed: widget.onPressed),
-        padding: widget.padding ?? getPadding(narrow: widget.narrow),
-        elevation: 0.0,
-        highlightElevation: 0.0,
-        disabledElevation: 0.0,
-        textColor: AppColor.deepWhite,
-        disabledTextColor: AppColor.deepWhite,
-        disabledColor: AppColor.mediumGrey,
-        highlightColor: AppColor.darkerBlue,
+        style: ButtonStyle(
+          padding: MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
+            (Set<MaterialState> states) =>
+              widget.padding ?? getPadding(narrow: widget.narrow),
+          ),
+          elevation: MaterialStateProperty.resolveWith<double>(
+            (Set<MaterialState> states) => 0.0,
+          ),
+          backgroundColor: MaterialStateProperty.resolveWith<Color>(
+            (Set<MaterialState> states) {
+              if (states.contains(MaterialState.pressed)) {
+                return AppColor.darkerBlue;
+              } else if (states.contains(MaterialState.disabled)) {
+                return AppColor.mediumGrey;
+              }
+
+              return AppColor.blue;
+            },
+          ),
+        ),
         child: Text(
           widget.text,
           style: (widget.textStyle != null) ? widget.textStyle :

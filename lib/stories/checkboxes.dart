@@ -76,7 +76,7 @@ class Checkboxes extends StatelessWidget {
           title: const Text('You clicked checkbox'),
           content: Text('isChecked: $chkState'),
           actions: <Widget>[
-            FlatButton(
+            TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },

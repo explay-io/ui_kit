@@ -48,11 +48,14 @@ class CustomCheckbox extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Container(
-                height: 24.0,
-                width: 24.0,
-                child: _icon(isChecked)
-            ),
+            // TODO: remove below code when checkbox icons introduced
+            Text('icons aren\'t available'),
+            // TODO: uncomment below code when checkbox icons introduced
+            // Container(
+            //     height: 24.0,
+            //     width: 24.0,
+            //     child: _icon(isChecked)
+            // ),
             Container(
                 margin: const EdgeInsets.only(left: 10.0, right: 10.00),
                 child: label
@@ -63,9 +66,10 @@ class CustomCheckbox extends StatelessWidget {
     );
   }
 
-  Widget _icon(bool isChecked) {
-    return isChecked
-        ? Container(child: ChangeAppIcons.checkbox_checked)
-        : ChangeAppIcons.checkbox_unchecked;
-  }
+  // TODO: uncomment below code when checkbox icons introduced
+  // Widget _icon(bool isChecked) {
+  //   return isChecked
+  //       ? Container(child: ChangeAppIcons.checkbox_checked)
+  //       : ChangeAppIcons.checkbox_unchecked;
+  // }
 }

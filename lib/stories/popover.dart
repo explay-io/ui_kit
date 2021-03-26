@@ -163,12 +163,11 @@ class Popover extends StatelessWidget {
               title: const Text('You clicked'),
               content: Text(value),
               actions: <Widget>[
-                FlatButton(
-                    onPressed: () async {
-                      Navigator.pop(context);
-                    },
-                child: const Text('Thats nice'),
-                )
+                TextButton('Thats nice',
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
               ],
             );
           });

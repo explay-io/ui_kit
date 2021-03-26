@@ -39,16 +39,29 @@ class _OutlinedButtonState extends State<OutlinedButton> with ButtonMixin {
         onTapCancel: () {
           setState(() => _pressing = false);
         },
-        child: OutlineButton(
+        child: OutlinedButton(
           onPressed: isDisabled(enabled: _enabled, onPressed: widget.onPressed)
               ? null
               : () => disableButtonWhileOnPressedExecutes(
                   setEnabled: _setEnabled, onPressed: widget.onPressed),
-          padding: widget.padding ?? getPadding(narrow: widget.narrow),
-          textColor: AppColor.blue,
+          padding: MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
+            (Set<MaterialState> states) =>
+              widget.padding ?? getPadding(narrow: widget.narrow),
+          ),
+          backgroundColor: MaterialStateProperty.resolveWith<Color>(
+            (Set<MaterialState> states) {
+              if (states.contains(MaterialState.pressed)) {
+                return AppColor.darkerBlue;
+              } else if (states.contains(MaterialState.disabled)) {
+                return AppColor.mediumGrey;
+              }
+
+              return AppColor.blue;
+            },
+          ),
+        ),
+          // textColor: AppColor.blue,
           borderSide: const BorderSide(color: AppColor.blue),
-          highlightedBorderColor: AppColor.blue,
-          disabledBorderColor: AppColor.mediumGrey,
           child: Text(
             widget.text,
             style: Theme.of(context).textTheme.bodyText2.copyWith(

@@ -18,9 +18,8 @@ class _LoadersState extends State<Loaders> {
     pr.style(progressWidget:const CircularProgressIndicator());
 
     return Scaffold(
-      body: Center(child: RaisedButton(
-              color: Colors.blue,
-              onPressed: () {
+      body: Center(child: ElevatedButton(
+              onPressed: () async {
                 pr.show();
               },
               child: Text(

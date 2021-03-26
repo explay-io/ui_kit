@@ -17,7 +17,7 @@ class CopyToClipboard extends StatelessWidget {
           Clipboard.setData(ClipboardData(text: value));
           const snackBar =
               SnackBar(content: Text('Copied to clipboard'));
-          Scaffold.of(context).showSnackBar(snackBar);
+          ScaffoldMessenger.showSnackBar(snackBar);
         },
         child: IconTheme(
             data: IconTheme.of(context).copyWith(color: AppColors.secondary),
