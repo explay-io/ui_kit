@@ -8,9 +8,9 @@ void main() {
     testWidgets('validates input values', (WidgetTester tester) async {
       expect (
           () {
-            return const GaugeIndicator(width: 200,
-                bearishThreshold: 0.4,
-                bullishThreshold: 0.8,
+            return GaugeIndicator(width: 200,
+                dangerThreshold: 0.4,
+                safeThreshold: 0.8,
                 score: 0.75);
           },
           returnsNormally
@@ -19,9 +19,10 @@ void main() {
       expect (
           () {
             final score = DateTime.now().year.toDouble();
-            return  GaugeIndicator(width: 200,
-                bearishThreshold: 0.4,
-                bullishThreshold: 0.8,
+            print("score");
+            return GaugeIndicator(width: 200,
+                dangerThreshold : 0.4,
+                safeThreshold: 0.8,
                 score: score);
           },
           throwsAssertionError
@@ -30,9 +31,9 @@ void main() {
 
     testWidgets('renders widget', (WidgetTester tester) async {
       await tester.pumpWidget(wrapInMaterialApp(
-          const GaugeIndicator(width: 200,
-              bearishThreshold: 0.4,
-              bullishThreshold: 0.8,
+          GaugeIndicator(width: 200,
+              dangerThreshold: 0.4,
+              safeThreshold: 0.8,
               score: 0.75))
       );
 
