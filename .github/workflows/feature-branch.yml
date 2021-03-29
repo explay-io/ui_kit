@@ -19,7 +19,7 @@ jobs:
     - name: Lint app
       run: flutter analyze
     - name: Test app
-      run: flutter test --coverage --concurrency=2 lib/**/*_test.dart
+      run: flutter test --coverage --concurrency=2 lib
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
