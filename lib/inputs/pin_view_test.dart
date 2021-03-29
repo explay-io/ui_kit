@@ -13,6 +13,7 @@ void main() {
       await tester.pump();
 
       expect(find.byType(PinView), findsOneWidget);
+      // ignore: invalid_use_of_visible_for_testing_member
       expect(find.byType(PinDot), findsNWidgets(4));
     });
 
@@ -24,8 +25,10 @@ void main() {
       await tester.pump();
 
       expect(find.byType(PinView), findsOneWidget);
+      // ignore: invalid_use_of_visible_for_testing_member
       final pindotsFinder = find.byType(PinDot);
       final pinDots =
+          // ignore: invalid_use_of_visible_for_testing_member
           pindotsFinder.evaluate().map<PinDot>((e) => e.widget).toList();
       final activeDots = pinDots.where((pinDot) => pinDot.active).toList();
       final inactiveDots = pinDots.where((pinDot) => !pinDot.active).toList();
