@@ -18,7 +18,7 @@ void main() {
         height: 215.0,
       );
       final action = FilledButton(
-        'Lorem Ipsum',
+        'Button Text',
         onPressed: () {},
         fullWidth: true,
         narrow: false,
@@ -29,7 +29,7 @@ void main() {
       expect(find.text(header), findsOneWidget);
       expect(find.text(text), findsOneWidget);
       expect(find.byType(SvgPicture), findsOneWidget);
-      expect(find.text('Lorem Ipsum'), findsOneWidget);
+      expect(find.text('Button Text'), findsOneWidget);
     });
   });
 }
