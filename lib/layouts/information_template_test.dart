@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ui_kit/buttons/filled_button.dart';
 import 'package:ui_kit/colors/app_color.dart';
