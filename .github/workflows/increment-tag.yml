@@ -11,4 +11,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run script increment-git-tag-patch
-      run: sudo ./scripts/increment-git-tag-patch.sh
+      run: ./scripts/increment-git-tag-patch.sh
