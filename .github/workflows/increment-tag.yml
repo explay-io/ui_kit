@@ -3,12 +3,19 @@ name: Increment tag
 on:
   push:
     branches:
-      - 'master'
+      - 'UO-28/fix-increment-tag'
 
 jobs:
   tags-update:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
-    - name: Run script increment-git-tag-patch
-      run: ./scripts/increment-git-tag-patch.sh
+    - name: Create an incremental tag
+      uses: aurestic/incremental-tag@1.0.8
+      with:
+        flag_branch: true
+        message: Bump version
+        prev_tag: 'v'
+        update_odoo_module_version: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
