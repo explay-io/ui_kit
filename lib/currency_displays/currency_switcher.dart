@@ -9,13 +9,13 @@ class CurrencyInfo {
   final String amount;
 
   CurrencyInfo(
-      {@required this.symbol,
-      @required this.label,
+      {required this.symbol,
+      required this.label,
       this.amount = '0',
       this.prefix = false});
 
   CurrencyInfo copyWith(
-      {String symbol, String label, bool prefix, String amount}) {
+      {String? symbol, String? label, bool? prefix, String? amount}) {
     return CurrencyInfo(
         symbol: symbol ?? this.symbol,
         label: label ?? this.label,
@@ -27,10 +27,10 @@ class CurrencyInfo {
 class CurrencySwitcher extends StatefulWidget {
   final List<CurrencyInfo> currencyInfoList;
   final List<String> amounts;
-  final Function(int) onSwitch;
+  final Function(int)? onSwitch;
 
   CurrencySwitcher(
-      {@required this.currencyInfoList, @required this.amounts, this.onSwitch})
+      {required this.currencyInfoList, required this.amounts, this.onSwitch})
       : assert(currencyInfoList != null && currencyInfoList.length == 2);
 
   @override
@@ -41,7 +41,7 @@ class _CurrencySwitcherState extends State<CurrencySwitcher> {
   List<String> get amounts => widget.amounts;
   List<CurrencyInfo> get infoList => widget.currencyInfoList;
 
-  Function(int) get onSwitch => widget.onSwitch;
+  Function(int)? get onSwitch => widget.onSwitch;
 
   int _currentIndex = 0;
 
@@ -127,7 +127,7 @@ class _CurrencySwitcherState extends State<CurrencySwitcher> {
     setState(() {
       _currentIndex = index;
       if (onSwitch != null) {
-        onSwitch(index);
+        onSwitch!(index);
       }
     });
   }

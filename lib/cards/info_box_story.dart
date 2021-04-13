@@ -39,7 +39,7 @@ Widget _securedInfoBoxStory() {
                 shrinkWrap: true,
                 children: <Widget>[
                   StringPropUpdater(
-                    props: props,
+                    props: props!,
                     updateProp: updateProp,
                     propKey: 'infoHeader',
                   ),
@@ -59,7 +59,7 @@ Widget _securedInfoBoxStory() {
                     FontAwesome.ambulance,
                     color: AppColor.blue,
                   ),
-                  props['infoHeader'],
+                  props!['infoHeader'],
                   props['infoBody'],
                 ),
               ))

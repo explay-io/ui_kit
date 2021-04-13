@@ -5,16 +5,16 @@ import 'button_common.dart';
 
 class SimpleButton extends StatefulWidget {
   final String text;
-  final FutureCallback onPressed;
-  final EdgeInsetsGeometry padding;
-  final TextStyle textStyle;
+  final FutureCallback? onPressed;
+  final EdgeInsetsGeometry? padding;
+  final TextStyle? textStyle;
 
   SimpleButton(
     this.text, {
-    @required this.onPressed,
+    required this.onPressed,
     this.padding,
     this.textStyle,
-    Key key,
+    Key? key,
   })  : assert(text != null),
         super(key: key);
 
@@ -39,7 +39,7 @@ class _SimpleButtonState extends State<SimpleButton> with ButtonMixin {
         onPressed: isDisabled(enabled: _enabled, onPressed: widget.onPressed)
             ? null
             : () => disableButtonWhileOnPressedExecutes(
-                setEnabled: _setEnabled, onPressed: widget.onPressed),
+                setEnabled: _setEnabled, onPressed: widget.onPressed!),
         style: TextButton.styleFrom(
           primary: AppColor.blue,
           padding: widget.padding ??
@@ -54,7 +54,7 @@ class _SimpleButtonState extends State<SimpleButton> with ButtonMixin {
         child: Text(
           widget.text,
           style: widget.textStyle ??
-              Theme.of(context).textTheme.bodyText2.copyWith(
+              Theme.of(context).textTheme.bodyText2!.copyWith(
                     color: getTextColorOnWhiteBackground(
                       enabled: _enabled,
                       pressing: _pressing,

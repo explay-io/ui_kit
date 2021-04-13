@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 
 bool _isShowing = false;
-BuildContext _context, _dismissingContext;
+BuildContext? _context, _dismissingContext;
 bool _barrierDismissible = true, _showLogs = false;
 
 double _dialogElevation = 8.0, _borderRadius = 8.0;
@@ -16,23 +16,23 @@ Widget _progressWidget = Image.asset(
 );
 
 class CustomProgressDialog {
-  _Body _dialog;
+  _Body? _dialog;
 
   CustomProgressDialog(BuildContext context,
-      {bool isDismissible, bool showLogs}) {
+      {bool? isDismissible, bool? showLogs}) {
     _context = context;
     _barrierDismissible = isDismissible ?? true;
     _showLogs = showLogs ?? false;
   }
 
   void style(
-      {double progress,
-      double maxProgress,
-      Widget progressWidget,
-      Color backgroundColor,
-      double elevation,
-      double borderRadius,
-      Curve insetAnimCurve}) {
+      {double? progress,
+      double? maxProgress,
+      Widget? progressWidget,
+      Color? backgroundColor,
+      double? elevation,
+      double? borderRadius,
+      Curve? insetAnimCurve}) {
     if (_isShowing) {
       return;
     }
@@ -45,14 +45,14 @@ class CustomProgressDialog {
   }
 
   void update(
-      {double progress,
-      double maxProgress,
-      Widget progressWidget,}) {
+      {double? progress,
+      double? maxProgress,
+      Widget? progressWidget,}) {
 
     _progressWidget = progressWidget ?? _progressWidget;
 
     if (_isShowing) {
-      _dialog.update();
+      _dialog!.update();
     }
   }
 
@@ -64,8 +64,8 @@ class CustomProgressDialog {
     if (_isShowing) {
       try {
         _isShowing = false;
-        if (Navigator.of(_dismissingContext).canPop()) {
-          Navigator.of(_dismissingContext).pop();
+        if (Navigator.of(_dismissingContext!).canPop()) {
+          Navigator.of(_dismissingContext!).pop();
           if (_showLogs) {
             debugPrint('ProgressDialog dismissed');
           }
@@ -86,7 +86,7 @@ class CustomProgressDialog {
     if (_isShowing) {
       try {
         _isShowing = false;
-        Navigator.of(_dismissingContext).pop(true);
+        Navigator.of(_dismissingContext!).pop(true);
         if (_showLogs) {
           debugPrint('ProgressDialog dismissed');
         }
@@ -112,7 +112,7 @@ class CustomProgressDialog {
       }
 
       showDialog<dynamic>(
-        context: _context,
+        context: _context!,
         barrierDismissible: false,
         builder: (BuildContext context) {
           _dismissingContext = context;

@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:ui_kit/colors/app_color.dart';
 
 class CopyToClipboard extends StatelessWidget {
-  final String value;
+  final String? value;
 
   const CopyToClipboard({this.value});
 

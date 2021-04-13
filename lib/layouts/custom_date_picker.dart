@@ -9,9 +9,9 @@ class CustomDatePicker extends StatelessWidget {
   final _monthCtrl = TextEditingController();
   final _yearCtrl = TextEditingController();
   final Callback onChange;
-  final DateTime dateTime;
+  final DateTime? dateTime;
 
-  CustomDatePicker({@required this.onChange, this.dateTime});
+  CustomDatePicker({required this.onChange, this.dateTime});
 
   @override
   Widget build(BuildContext context) {
@@ -96,12 +96,12 @@ class CustomDatePicker extends StatelessWidget {
     );
   }
 
-  void updateState(DateTime dateTime) {
+  void updateState(DateTime? dateTime) {
     _dayCtrl.text =
-        dateTime != null ? dateTime.day.toString().padLeft(2, '0') : dateTime;
+        dateTime != null ? dateTime.day.toString().padLeft(2, '0') : dateTime as String;
     _monthCtrl.text =
-        dateTime != null ? dateTime.month.toString().padLeft(2, '0') : dateTime;
-    _yearCtrl.text = dateTime != null ? dateTime.year.toString() : dateTime;
+        dateTime != null ? dateTime.month.toString().padLeft(2, '0') : dateTime as String;
+    _yearCtrl.text = dateTime != null ? dateTime.year.toString() : dateTime as String;
   }
 }
 

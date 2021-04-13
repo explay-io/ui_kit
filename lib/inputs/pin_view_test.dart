@@ -29,7 +29,7 @@ void main() {
       final pindotsFinder = find.byType(PinDot);
       final pinDots =
           // ignore: invalid_use_of_visible_for_testing_member
-          pindotsFinder.evaluate().map<PinDot>((e) => e.widget).toList();
+          pindotsFinder.evaluate().map<PinDot>((e) => e.widget as PinDot).toList();
       final activeDots = pinDots.where((pinDot) => pinDot.active).toList();
       final inactiveDots = pinDots.where((pinDot) => !pinDot.active).toList();
 

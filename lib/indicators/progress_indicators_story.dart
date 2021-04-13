@@ -36,7 +36,7 @@ class ProgressIndicators extends StatelessWidget {
               shrinkWrap: true,
               children: <Widget>[
                 DoublePropUpdater(
-                  props: props,
+                  props: props!,
                   updateProp: updateProp,
                   propKey: 'percentageFilled',
                   min: 0.0,
@@ -71,11 +71,11 @@ class ProgressIndicators extends StatelessWidget {
             );
           },
           widgetBuilder: (context, props) {
-            final double percentageFilled = props['percentageFilled'];
-            final double roundedBorder = props['roundedBorder'];
-            final double height = props['height'];
-            final bool background = props['background'];
-            final String selectedOption = props['color'];
+            final double percentageFilled = props!['percentageFilled'];
+            final double? roundedBorder = props['roundedBorder'];
+            final double? height = props['height'];
+            final bool? background = props['background'];
+            final String? selectedOption = props['color'];
 
             return Container(
               padding: const EdgeInsets.only(right: 20.0, left: 20.0),
@@ -91,7 +91,7 @@ class ProgressIndicators extends StatelessWidget {
     );
   }
 
-  Color optionToColor(String optionSelected) {
+  Color? optionToColor(String? optionSelected) {
     switch (optionSelected) {
       case 'Yellow':
         {

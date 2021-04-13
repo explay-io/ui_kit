@@ -14,10 +14,10 @@ void main() {
 
     testWidgets('sets correct default properties', (WidgetTester tester) async {
       await tester.pumpWidget(wrapInMaterialApp(const PasswordValidator()));
-      final SimpleProgressIndicator progressIndicator =
-          tester.element(find.byType(SimpleProgressIndicator)).widget;
-      final PasswordValidator passwordValidator =
-          tester.element(find.byType(PasswordValidator)).widget;
+      final progressIndicator =
+          tester.element(find.byType(SimpleProgressIndicator)).widget as SimpleProgressIndicator;
+      final passwordValidator =
+          tester.element(find.byType(PasswordValidator)).widget as PasswordValidator;
       final hintList = [
         'Try making it longer then 8 digits and adding capital characters that makes it difficult for others to guess.',
         'That is a good password, but you can try to add digits and special characters to make it a great one!',
@@ -65,10 +65,10 @@ void main() {
         ],
       )));
 
-      final PasswordValidator passwordValidator =
-          tester.element(find.byType(PasswordValidator)).widget;
-      final SimpleProgressIndicator progressIndicator =
-          tester.element(find.byType(SimpleProgressIndicator)).widget;
+      final passwordValidator =
+          tester.element(find.byType(PasswordValidator)).widget as PasswordValidator;
+      final progressIndicator =
+          tester.element(find.byType(SimpleProgressIndicator)).widget as SimpleProgressIndicator;
       final hintList = ['testHint1', 'testHint2', 'testHint3'];
       final strengthList = [
         'testStrength1',

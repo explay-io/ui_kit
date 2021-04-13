@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 typedef Callback = void Function(String value);
 
 class EmailInput extends StatelessWidget {
-  final String errorText;
-  final TextEditingController controller;
-  final Callback onChanged;
+  final String? errorText;
+  final TextEditingController? controller;
+  final Callback? onChanged;
 
   const EmailInput({this.errorText, this.controller, this.onChanged});
 

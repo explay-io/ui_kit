@@ -5,8 +5,8 @@ import 'package:ui_kit/typography/heading.dart';
 import 'app_bar.dart';
 
 class GenericTemplate extends StatelessWidget {
-  final Widget leadingWidget;
-  final List<Widget> tailingWidget;
+  final Widget? leadingWidget;
+  final List<Widget>? tailingWidget;
 
   final Heading header;
   final Widget child;

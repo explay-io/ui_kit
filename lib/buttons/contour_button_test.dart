@@ -14,7 +14,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({FutureCallback onPressed}) =>
+      buildButton: ({FutureCallback? onPressed}) =>
           ContourButton(buttonText, onPressed: onPressed),
     );
 
@@ -31,7 +31,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({FutureCallback onPressed}) =>
+      buildButton: ({FutureCallback? onPressed}) =>
           ContourButton(buttonText, onPressed: onPressed),
       underlyingMaterialButtonType: OutlinedButton,
     );
@@ -41,7 +41,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({bool fullWidth}) => ContourButton(buttonText,
+      buildButton: ({bool? fullWidth}) => ContourButton(buttonText,
           onPressed: () async {}, fullWidth: fullWidth),
       underlyingMaterialButtonType: OutlinedButton,
     );
@@ -51,7 +51,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({bool narrow}) =>
+      buildButton: ({bool? narrow}) =>
           ContourButton(buttonText, onPressed: () async {}, narrow: narrow),
       underlyingMaterialButtonType: OutlinedButton,
     );
@@ -61,7 +61,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({EdgeInsetsGeometry padding}) =>
+      buildButton: ({EdgeInsetsGeometry? padding}) =>
           ContourButton(buttonText, onPressed: () async {}, padding: padding),
       underlyingMaterialButtonType: OutlinedButton,
     );
@@ -71,7 +71,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({bool narrow, bool fullWidth}) => ContourButton(
+      buildButton: ({bool? narrow, bool? fullWidth}) => ContourButton(
         buttonText,
         onPressed: () async {},
         narrow: narrow,

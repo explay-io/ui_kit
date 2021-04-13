@@ -5,18 +5,18 @@ import 'button_common.dart';
 
 class ContourButton extends StatefulWidget {
   final String text;
-  final FutureCallback onPressed;
-  final bool fullWidth;
-  final bool narrow;
-  final EdgeInsetsGeometry padding;
+  final FutureCallback? onPressed;
+  final bool? fullWidth;
+  final bool? narrow;
+  final EdgeInsetsGeometry? padding;
 
   ContourButton(
     this.text, {
-    @required this.onPressed,
+    required this.onPressed,
     this.fullWidth = false,
     this.narrow = false,
     this.padding,
-    Key key,
+    Key? key,
   })  : assert(text != null),
         super(key: key);
 
@@ -31,7 +31,7 @@ class _ContourButtonState extends State<ContourButton> with ButtonMixin {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: widget.fullWidth ? matchParentWidth(context) : null,
+      width: widget.fullWidth! ? matchParentWidth(context) : null,
       child: GestureDetector(
         onTapDown: (_) {
           setState(() => _pressing = true);
@@ -43,9 +43,9 @@ class _ContourButtonState extends State<ContourButton> with ButtonMixin {
           onPressed: isDisabled(enabled: _enabled, onPressed: widget.onPressed)
               ? null
               : () => disableButtonWhileOnPressedExecutes(
-                  setEnabled: _setEnabled, onPressed: widget.onPressed),
+                  setEnabled: _setEnabled, onPressed: widget.onPressed!),
           style: OutlinedButton.styleFrom(
-            padding: widget.padding ?? getPadding(narrow: widget.narrow),
+            padding: widget.padding ?? getPadding(narrow: widget.narrow!),
             side: BorderSide(color: AppColor.darkerBlue),
           ).copyWith(
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -56,14 +56,14 @@ class _ContourButtonState extends State<ContourButton> with ButtonMixin {
           ),
           child: Text(
             widget.text,
-            style: Theme.of(context).textTheme.bodyText2.copyWith(
+            style: Theme.of(context).textTheme.bodyText2!.copyWith(
                   color: getTextColorOnWhiteBackground(
                     enabled: _enabled,
                     pressing: _pressing,
                     onPressed: widget.onPressed,
                   ),
                   fontSize: getFontSize(
-                      narrow: widget.narrow, fullWidth: widget.fullWidth),
+                      narrow: widget.narrow!, fullWidth: widget.fullWidth),
                 ),
           ),
         ),

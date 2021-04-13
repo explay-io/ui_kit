@@ -7,28 +7,28 @@ import 'button_common.dart';
 
 class TwoStatesButton extends StatefulWidget {
   final String initialText;
-  final String finalText;
-  final int timeIntervalInSec;
-  final Function onButtonCallback;
-  final FutureCallback onPressed;
-  final bool fullWidth;
-  final bool narrow;
-  final EdgeInsetsGeometry padding;
-  final TextStyle textStyle;
+  final String? finalText;
+  final int? timeIntervalInSec;
+  final Function? onButtonCallback;
+  final FutureCallback? onPressed;
+  final bool? fullWidth;
+  final bool? narrow;
+  final EdgeInsetsGeometry? padding;
+  final TextStyle? textStyle;
   final bool resetButtonOnBuild;
 
   TwoStatesButton(
     this.initialText,
     this.finalText,
     this.timeIntervalInSec, {
-    @required this.onButtonCallback,
-    @required this.onPressed,
+    required this.onButtonCallback,
+    required this.onPressed,
     this.fullWidth = false,
     this.narrow = false,
     this.padding,
     this.textStyle,
     this.resetButtonOnBuild = false,
-    Key key,
+    Key? key,
   })  : assert(initialText != null),
         super(key: key);
 
@@ -38,8 +38,8 @@ class TwoStatesButton extends StatefulWidget {
 
 class _TwoStatesButtonState extends State<TwoStatesButton> with ButtonMixin {
   bool _enabled = true;
-  Timer _timer;
-  String _currentText;
+  late Timer _timer;
+  String? _currentText;
   bool _resetState = false;
 
   @override
@@ -51,7 +51,7 @@ class _TwoStatesButtonState extends State<TwoStatesButton> with ButtonMixin {
 
   void _startTimer() {
     setState(() => _currentText = widget.initialText);
-    _timer = Timer(Duration(seconds: widget.timeIntervalInSec), () {
+    _timer = Timer(Duration(seconds: widget.timeIntervalInSec!), () {
       _resetState = false;
       setState(() => _currentText = widget.finalText);
     });
@@ -78,28 +78,28 @@ class _TwoStatesButtonState extends State<TwoStatesButton> with ButtonMixin {
   Widget build(BuildContext context) {
     _resetTimer();
     return Container(
-      width: widget.fullWidth ? matchParentWidth(context) : null,
+      width: widget.fullWidth! ? matchParentWidth(context) : null,
       child: ElevatedButton(
         onPressed: isDisabled(enabled: _enabled, onPressed: widget.onPressed)
             ? null
             : () {
                 if (_timer.isActive) {
                   disableButtonWhileOnPressedExecutes(
-                      setEnabled: _setEnabled, onPressed: widget.onPressed);
+                      setEnabled: _setEnabled, onPressed: widget.onPressed!);
                 } else {
                   _startTimer();
-                  widget.onButtonCallback();
+                  widget.onButtonCallback!();
                 }
               },
         style: ElevatedButton.styleFrom(
-          padding: widget.padding ?? getPadding(narrow: widget.narrow),
+          padding: widget.padding ?? getPadding(narrow: widget.narrow!),
           primary: AppColor.deepWhite,
         ).copyWith(
           elevation: MaterialStateProperty.resolveWith<double>(
               (Set<MaterialState> states) {
             return 0.0;
           }),
-          backgroundColor: MaterialStateProperty.resolveWith<Color>(
+          backgroundColor: MaterialStateProperty.resolveWith<Color?>(
               (Set<MaterialState> states) {
             if (states.contains(MaterialState.disabled)) {
               return AppColor.mediumGrey;
@@ -109,7 +109,7 @@ class _TwoStatesButtonState extends State<TwoStatesButton> with ButtonMixin {
             }
             return null; // Defer to the widget's default.
           }),
-          foregroundColor: MaterialStateProperty.resolveWith<Color>(
+          foregroundColor: MaterialStateProperty.resolveWith<Color?>(
               (Set<MaterialState> states) {
             if (states.contains(MaterialState.disabled)) {
               return AppColor.deepWhite;
@@ -123,12 +123,12 @@ class _TwoStatesButtonState extends State<TwoStatesButton> with ButtonMixin {
           ),
         ),
         child: Text(
-          _currentText,
+          _currentText!,
           style: widget.textStyle ??
-              Theme.of(context).textTheme.bodyText2.copyWith(
+              Theme.of(context).textTheme.bodyText2!.copyWith(
                   color: AppColor.deepWhite,
                   fontSize: getFontSize(
-                      narrow: widget.narrow, fullWidth: widget.fullWidth)),
+                      narrow: widget.narrow!, fullWidth: widget.fullWidth)),
         ),
       ),
     );

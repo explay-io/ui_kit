@@ -6,16 +6,16 @@ import '../label_value_pair/label_text.dart';
 
 class LabelValueEditableField extends StatelessWidget {
   final String labelText;
-  final String valueText;
-  final Widget value;
-  final ValueLabelTextAlign textAlign;
+  final String? valueText;
+  final Widget? value;
+  final ValueLabelTextAlign? textAlign;
   final bool editable;
-  final EdgeInsets padding;
-  final String route;
-  final Object arguments;
+  final EdgeInsets? padding;
+  final String? route;
+  final Object? arguments;
 
   const LabelValueEditableField(
-      {@required this.labelText,
+      {required this.labelText,
       this.valueText,
       this.editable = false,
       this.textAlign,
@@ -43,12 +43,12 @@ class LabelValueEditableField extends StatelessWidget {
     );
   }
 
-  bool _isCenterAligned(ValueLabelTextAlign textAlign) {
+  bool _isCenterAligned(ValueLabelTextAlign? textAlign) {
     return textAlign != null && textAlign == ValueLabelTextAlign.center;
   }
 
-  Widget _buildBody(BuildContext context, Widget value, String data,
-      {EdgeInsets padding}) {
+  Widget _buildBody(BuildContext context, Widget? value, String? data,
+      {EdgeInsets? padding}) {
     return Padding(
       padding: padding ?? const EdgeInsets.only(bottom: 16.0),
       child: Row(
@@ -58,7 +58,7 @@ class LabelValueEditableField extends StatelessWidget {
         children: [
           Flexible(
               child: value ??
-                  Text(data,
+                  Text(data!,
                       style: const TextStyle(
                           fontSize: 16,
                           fontFamily: 'Circular',
@@ -71,7 +71,7 @@ class LabelValueEditableField extends StatelessWidget {
     );
   }
 
-  Widget _buildRoutingIcon(BuildContext context, String value) {
+  Widget _buildRoutingIcon(BuildContext context, String? value) {
     if (!editable) {
       return Container();
     }
@@ -80,9 +80,9 @@ class LabelValueEditableField extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           if (arguments != null) {
-            Navigator.pushNamed(context, route, arguments: arguments);
+            Navigator.pushNamed(context, route!, arguments: arguments);
           } else {
-            Navigator.pushNamed(context, route);
+            Navigator.pushNamed(context, route!);
           }
         },
         child: IconTheme(

@@ -6,7 +6,7 @@ import 'colors/app_color.dart';
 final ThemeData theme = ThemeData(
     brightness: Brightness.light,
     primaryColor: primaryColor,
-    primarySwatch: AppColor.blueSwatch,
+    primarySwatch: AppColor.blueSwatch as MaterialColor?,
     canvasColor: AppColor.deepWhite,
     backgroundColor: AppColor.deepWhite,
     scaffoldBackgroundColor: AppColor.deepWhite,

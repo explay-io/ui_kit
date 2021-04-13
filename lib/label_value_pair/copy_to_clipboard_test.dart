@@ -21,9 +21,9 @@ void main() {
         home: Scaffold(body: CopyToClipboard(value: '123456')),
       ));
       await tester.tap(find.byType(Icon));
-      expectMethodCall('Clipboard.setData', arguments: <String, dynamic>{
+      expectMethodCall('Clipboard.setData', (arguments: <String, dynamic>{
         'text': '123456',
-      });
+      }) as Map<String, Object>?);
     });
   });
 }

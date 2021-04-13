@@ -4,7 +4,7 @@ import 'package:ui_kit/colors/app_color.dart';
 import 'high_popover_modal.dart';
 
 class PopoverModal {
-  Future<T> showPopover<T>(
+  Future<T?> showPopover<T>(
     BuildContext context,
     Widget child,
   ) {

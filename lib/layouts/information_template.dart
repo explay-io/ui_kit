@@ -8,8 +8,8 @@ import 'package:ui_kit/typography/heading_type.dart';
 import 'app_bar.dart';
 
 class InformationTemplate extends StatelessWidget {
-  final Widget leadingWidget;
-  final List<Widget> tailingWidget;
+  final Widget? leadingWidget;
+  final List<Widget>? tailingWidget;
   final Widget picture;
   final String heading;
   final String body;

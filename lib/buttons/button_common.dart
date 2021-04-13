@@ -28,21 +28,21 @@ mixin ButtonMixin {
   }
 
   bool isDisabled({
-    bool enabled,
-    FutureCallback onPressed,
+    required bool enabled,
+    FutureCallback? onPressed,
   }) {
     return !enabled || onPressed == null;
   }
 
   Color getTextColorOnWhiteBackground(
-      {bool enabled, bool pressing, FutureCallback onPressed}) {
+      {required bool enabled, bool? pressing, FutureCallback? onPressed}) {
     if (isDisabled(enabled: enabled, onPressed: onPressed)) {
       return AppColor.mediumGrey;
     }
-    return pressing ? AppColor.darkerBlue : AppColor.blue;
+    return pressing! ? AppColor.darkerBlue : AppColor.blue;
   }
 
-  double getFontSize({bool narrow, bool fullWidth = false}) {
+  double getFontSize({required bool narrow, bool? fullWidth = false}) {
     if (_isSmall(narrow: narrow, fullWidth: fullWidth)) {
       return ButtonStyleConstants.smallFontSize;
     }
@@ -50,15 +50,15 @@ mixin ButtonMixin {
   }
 
   Future<void> disableButtonWhileOnPressedExecutes({
-    EnabledSetter setEnabled,
-    FutureCallback onPressed,
+    required EnabledSetter setEnabled,
+    required FutureCallback onPressed,
   }) async {
     setEnabled(false);
     await onPressed();
     setEnabled(true);
   }
 
-  bool _isSmall({bool narrow, bool fullWidth}) {
-    return narrow && !fullWidth;
+  bool _isSmall({required bool narrow, bool? fullWidth}) {
+    return narrow && !fullWidth!;
   }
 }

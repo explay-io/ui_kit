@@ -4,36 +4,33 @@ typedef PropUpdater = void Function(String name, dynamic value);
 
 typedef WidgetBuilder = Widget Function(
   BuildContext context,
-  Map<String, dynamic> props,
+  Map<String, dynamic>? props,
 );
 
 typedef FormBuilder = Widget Function(
   BuildContext context,
-  Map<String, dynamic> props,
+  Map<String, dynamic>? props,
   PropUpdater updateProp,
 );
 
 class PropsExplorer extends StatefulWidget {
-  final Map<String, dynamic> initialProps;
+  final Map<String, dynamic>? initialProps;
   final WidgetBuilder widgetBuilder;
   final FormBuilder formBuilder;
 
   PropsExplorer({
-    @required this.initialProps,
-    @required this.widgetBuilder,
-    @required this.formBuilder,
-    Key key,
-  })  : assert(initialProps != null),
-        assert(widgetBuilder != null),
-        assert(formBuilder != null),
-        super(key: key);
+    required this.initialProps,
+    required this.widgetBuilder,
+    required this.formBuilder,
+    Key? key,
+  })  : super(key: key);
 
   @override
   _PropsExplorerState createState() => _PropsExplorerState();
 }
 
 class _PropsExplorerState extends State<PropsExplorer> {
-  Map<String, dynamic> _props;
+  Map<String, dynamic>? _props;
 
   @override
   void initState() {
@@ -58,7 +55,7 @@ class _PropsExplorerState extends State<PropsExplorer> {
 
   void _updateProp(String name, dynamic value) {
     setState(() {
-      final newProps = Map<String, dynamic>.from(_props);
+      final newProps = Map<String, dynamic>.from(_props!);
       newProps[name] = value;
       _props = newProps;
     });

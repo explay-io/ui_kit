@@ -7,7 +7,7 @@ import 'package:ui_kit/inputs/custom_radio/radio_item.dart';
 import 'package:ui_kit/inputs/custom_radio/radio_model.dart';
 
 class CustomRadio extends StatefulWidget {
-  final List<RadioModel> radioElements;
+  final List<RadioModel>? radioElements;
   const CustomRadio({this.radioElements});
 
   @override
@@ -33,26 +33,26 @@ class CustomRadio extends StatefulWidget {
 }
 
 class CustomRadioState extends State<CustomRadio> {
-  List<RadioModel> radioElements;
+  List<RadioModel>? radioElements;
   CustomRadioState({this.radioElements});
-  String selectedRadioModel;
+  String? selectedRadioModel;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
-        itemCount: radioElements.length,
+        itemCount: radioElements!.length,
         itemBuilder: (BuildContext context, int index) {
           return InkWell(
             splashColor: AppColor.darkerBlue,
             onTap: () {
               setState(() {
-                radioElements.forEach((element) => element.isSelected = false);
-                radioElements[index].isSelected = true;
-                selectedRadioModel = radioElements[index].textShortform;
+                radioElements!.forEach((element) => element.isSelected = false);
+                radioElements![index].isSelected = true;
+                selectedRadioModel = radioElements![index].textShortform;
               });
             },
-            child: RadioItem(radioElements[index]),
+            child: RadioItem(radioElements![index]),
           );
         },
       ),

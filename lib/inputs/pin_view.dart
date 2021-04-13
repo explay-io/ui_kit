@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../colors/app_color.dart';
 
 class PinView extends StatelessWidget {
-  final int length;
-  final String text;
+  final int? length;
+  final String? text;
 
   PinView(this.length, this.text);
 
@@ -17,7 +17,7 @@ class PinView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         children: List<Widget>.generate(
-            length, (index) => PinDot(active: index <= text.runes.length - 1)),
+            length!, (index) => PinDot(active: index <= text!.runes.length - 1)),
       ),
     );
   }
@@ -27,7 +27,7 @@ class PinView extends StatelessWidget {
 class PinDot extends StatelessWidget {
   final bool active;
 
-  const PinDot({@required this.active});
+  const PinDot({required this.active});
 
   @override
   Widget build(BuildContext context) {

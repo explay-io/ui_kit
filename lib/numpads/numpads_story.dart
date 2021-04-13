@@ -45,7 +45,7 @@ Widget _numPadStory() {
                 shrinkWrap: true,
                 children: <Widget>[
                   IntPropUpdater(
-                    props: props,
+                    props: props!,
                     updateProp: updateProp,
                     propKey: 'decimalPlaces',
                     hintText: 'Simulate decimal places',
@@ -79,7 +79,7 @@ Widget _numPadStory() {
                                   textAlign: TextAlign.left,
                                   style: Theme.of(context)
                                       .textTheme
-                                      .headline3
+                                      .headline3!
                                       .copyWith(fontWeight: FontWeight.normal),
                                   decoration: InputDecoration.collapsed(
                                       hintText: '0',
@@ -88,7 +88,7 @@ Widget _numPadStory() {
                   height: 240.0,
                   child: NumPadText(
                     onChange: onChangeTextField,
-                    decimalPlaces: props['decimalPlaces'],
+                    decimalPlaces: props!['decimalPlaces'],
                     clearOnLongPress: props['clearOnLongPress'],
                     textLengthLimit: props['textLengthLimit'],
                   ))
@@ -116,7 +116,7 @@ class _PasscodeNumpadStory extends StatelessWidget {
                   shrinkWrap: true,
                   children: <Widget>[
                     IntPropUpdater(
-                      props: props,
+                      props: props!,
                       updateProp: updateProp,
                       propKey: 'textLengthLimit',
                       hintText: 'Text Length limit (0 for no limit)',
@@ -155,7 +155,7 @@ class _PasscodeNumpadStory extends StatelessWidget {
                                     textAlign: TextAlign.left,
                                     style: Theme.of(context)
                                         .textTheme
-                                        .headline3
+                                        .headline3!
                                         .copyWith(
                                             fontWeight: FontWeight.normal),
                                     decoration: InputDecoration.collapsed(
@@ -168,7 +168,7 @@ class _PasscodeNumpadStory extends StatelessWidget {
                       onChange: (String newVal) {
                         _textEditingController.text = newVal;
                       },
-                      textLengthLimit: props['textLengthLimit'],
+                      textLengthLimit: props!['textLengthLimit'],
                       actionButtonText: props['actionButtonText'],
                       enabled: props['enabled'],
                       onActionbuttonPressed: () {

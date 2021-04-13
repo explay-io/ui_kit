@@ -3,12 +3,12 @@ import 'package:ui_kit/typography/heading_type.dart';
 
 class Heading extends StatelessWidget {
   final String data;
-  final BoxConstraints constraints;
-  final HeadingType headingType;
-  final TextAlign textAlign;
+  final BoxConstraints? constraints;
+  final HeadingType? headingType;
+  final TextAlign? textAlign;
 
   const Heading(this.data,
-      {this.constraints, this.headingType, this.textAlign, Key key})
+      {this.constraints, this.headingType, this.textAlign, Key? key})
       : super(key: key);
 
   @override
@@ -20,7 +20,7 @@ class Heading extends StatelessWidget {
     );
   }
 
-  TextStyle _textStyle(BuildContext context) {
+  TextStyle? _textStyle(BuildContext context) {
     switch (headingType) {
       case HeadingType.HEADING_0:
         return Theme.of(context).textTheme.headline1;

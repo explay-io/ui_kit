@@ -6,9 +6,9 @@ import 'undraw_illustrations.dart';
 
 class Undraw extends StatelessWidget {
   Undraw({
-    Key key,
-    @required this.illustration,
-    @required this.color,
+    Key? key,
+    required this.illustration,
+    required this.color,
     this.semanticLabel,
     this.alignment = Alignment.center,
     this.fit = BoxFit.contain,
@@ -23,21 +23,21 @@ class Undraw extends StatelessWidget {
 
   final UndrawIllustration illustration;
   final Color color;
-  final String semanticLabel;
+  final String? semanticLabel;
   final AlignmentGeometry alignment;
   final BoxFit fit;
-  final BlendMode colorBlendMode;
-  final double height;
-  final double width;
-  final Widget placeholder;
-  final Widget errorWidget;
-  final EdgeInsets padding;
+  final BlendMode? colorBlendMode;
+  final double? height;
+  final double? width;
+  final Widget? placeholder;
+  final Widget? errorWidget;
+  final EdgeInsets? padding;
 
   Future<SvgPicture> renderIllustration(String name, Color _exColor) async {
     var nameSplit = name.toString().split('UndrawIllustration.');
     var illustration =
         illustrationList.where((i) => i['identifier'] == nameSplit[1]);
-    var url = illustration.toList()[0]['url'];
+    var url = illustration.toList()[0]['url']!;
     var image = await _getSvgString(url);
 
     var valueString = color.toString().split('(0x')[1].split(')')[0];
@@ -48,7 +48,7 @@ class Undraw extends StatelessWidget {
       height: height,
       width: width,
       alignment: alignment,
-      colorBlendMode: colorBlendMode,
+      colorBlendMode: colorBlendMode!,
       fit: fit,
       semanticsLabel: semanticLabel,
     );

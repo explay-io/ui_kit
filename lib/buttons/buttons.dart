@@ -46,7 +46,7 @@ class Buttons extends StatelessWidget {
             shrinkWrap: true,
             children: <Widget>[
               StringPropUpdater(
-                props: props,
+                props: props!,
                 updateProp: updateProp,
                 propKey: 'text',
               ),
@@ -75,9 +75,9 @@ class Buttons extends StatelessWidget {
           );
         },
         widgetBuilder: (context, props) {
-          Function onPressed = () {};
+          Function? onPressed = () {};
 
-          if (props['enabled'] == false) {
+          if (props!['enabled'] == false) {
             onPressed = null;
           }
 
@@ -90,7 +90,7 @@ class Buttons extends StatelessWidget {
 
           return FilledButton(
             props['text'],
-            onPressed: onPressed,
+            onPressed: onPressed as Future<void> Function()?,
             fullWidth: props['fullWidth'],
             narrow: props['narrow'],
           );
@@ -116,7 +116,7 @@ class Buttons extends StatelessWidget {
             shrinkWrap: true,
             children: <Widget>[
               StringPropUpdater(
-                props: props,
+                props: props!,
                 updateProp: updateProp,
                 propKey: 'text',
               ),
@@ -145,9 +145,9 @@ class Buttons extends StatelessWidget {
           );
         },
         widgetBuilder: (context, props) {
-          Function onPressed = () {};
+          Function? onPressed = () {};
 
-          if (props['enabled'] == false) {
+          if (props!['enabled'] == false) {
             onPressed = null;
           }
 
@@ -160,7 +160,7 @@ class Buttons extends StatelessWidget {
 
           return ContourButton(
             props['text'],
-            onPressed: onPressed,
+            onPressed: onPressed as Future<void> Function()?,
             fullWidth: props['fullWidth'],
             narrow: props['narrow'],
           );
@@ -184,7 +184,7 @@ class Buttons extends StatelessWidget {
             shrinkWrap: true,
             children: <Widget>[
               StringPropUpdater(
-                props: props,
+                props: props!,
                 updateProp: updateProp,
                 propKey: 'text',
               ),
@@ -203,9 +203,9 @@ class Buttons extends StatelessWidget {
           );
         },
         widgetBuilder: (context, props) {
-          Function onPressed = () {};
+          Function? onPressed = () {};
 
-          if (props['enabled'] == false) {
+          if (props!['enabled'] == false) {
             onPressed = null;
           }
 
@@ -218,7 +218,7 @@ class Buttons extends StatelessWidget {
 
           return SimpleButton(
             props['text'],
-            onPressed: onPressed,
+            onPressed: onPressed as Future<void> Function()?,
           );
         },
       ),
@@ -243,7 +243,7 @@ class Buttons extends StatelessWidget {
             shrinkWrap: true,
             children: <Widget>[
               ListPropUpdater<String>(
-                props: props,
+                props: props!,
                 updateProp: updateProp,
                 propKey: 'buttonLabels',
                 listToTextConverter: listToTextConverter,
@@ -254,7 +254,7 @@ class Buttons extends StatelessWidget {
           );
         },
         widgetBuilder: (context, props) {
-          final List<String> labels = props['buttonLabels'];
+          final List<String>? labels = props!['buttonLabels'];
           return Column(
             children: <Widget>[
               SwitcherButton(
@@ -286,7 +286,7 @@ class Buttons extends StatelessWidget {
             shrinkWrap: true,
             children: <Widget>[
               StringPropUpdater(
-                props: props,
+                props: props!,
                 updateProp: updateProp,
                 propKey: 'initialText',
               ),
@@ -320,10 +320,10 @@ class Buttons extends StatelessWidget {
           );
         },
         widgetBuilder: (context, props) {
-          Function onPressed = () {};
-          Function onRefreshRate = () {};
+          Function? onPressed = () {};
+          Function? onRefreshRate = () {};
 
-          if (props['enabled'] == false) {
+          if (props!['enabled'] == false) {
             onPressed = null;
             onRefreshRate = null;
           }
@@ -332,7 +332,7 @@ class Buttons extends StatelessWidget {
             props['initialText'],
             props['finalText'],
             props['timeIntervalInSec'],
-            onPressed: onPressed,
+            onPressed: onPressed as Future<void> Function()?,
             onButtonCallback: onRefreshRate,
             fullWidth: props['fullWidth'],
             narrow: props['narrow'],

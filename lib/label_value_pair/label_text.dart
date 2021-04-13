@@ -11,7 +11,7 @@ class LabelText extends StatelessWidget {
     final theme = Theme.of(context).textTheme;
     return Text(
       data,
-      style: theme.bodyText2.copyWith(
+      style: theme.bodyText2!.copyWith(
           color: AppColor.semiGrey,
           fontSize: 12.0,
           fontFamily: 'Circular',

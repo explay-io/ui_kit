@@ -5,8 +5,8 @@ import '../text.dart';
 
 class SecurityInfoBox extends StatelessWidget {
   final Widget icon;
-  final String infoHeader;
-  final String infoBody;
+  final String? infoHeader;
+  final String? infoBody;
 
   const SecurityInfoBox(this.icon, this.infoHeader, this.infoBody);
 
@@ -37,12 +37,12 @@ class SecurityInfoBox extends StatelessWidget {
                     child: Align(
                         alignment: Alignment.topLeft,
                         child: Text(
-                          infoHeader,
+                          infoHeader!,
                           style: AppText.body3,
                         )),
                   ),
                   Text(
-                    infoBody,
+                    infoBody!,
                     style: AppText.body3SemiGray,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 15,

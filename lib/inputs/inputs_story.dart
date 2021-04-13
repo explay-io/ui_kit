@@ -27,7 +27,7 @@ class Inputs extends StatelessWidget {
             shrinkWrap: true,
             children: <Widget>[
               BoolPropUpdater(
-                props: props,
+                props: props!,
                 updateProp: updateProp,
                 propKey: 'error',
               ),
@@ -41,7 +41,7 @@ class Inputs extends StatelessWidget {
         },
         widgetBuilder: (context, props) {
           return EmailInput(
-              errorText: props['error'] ? props['errorText'] : null);
+              errorText: props!['error'] ? props['errorText'] : null);
         },
       ),
     );

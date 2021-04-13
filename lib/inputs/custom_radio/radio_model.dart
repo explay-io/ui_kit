@@ -8,8 +8,8 @@ class RadioModel {
     this.textShortform,
   });
 
-  bool isSelected;
+  bool? isSelected;
   final String text;
-  Widget picture;
-  final String textShortform;
+  Widget? picture;
+  final String? textShortform;
 }
