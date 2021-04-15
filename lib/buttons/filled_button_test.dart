@@ -22,8 +22,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({FutureCallback? onPressed}) =>
-          FilledButton(buttonText, onPressed: onPressed),
+      buildButton: ({ FutureCallback? onPressed}) => FilledButton(buttonText, onPressed: onPressed),
       underlyingMaterialButtonType: ElevatedButton,
     );
 

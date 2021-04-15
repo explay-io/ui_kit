@@ -22,7 +22,8 @@ class CopyToClipboard extends StatelessWidget {
             child: const Icon(
               Icons.content_copy,
               size: 20.0,
-            )),
+           )
+         ),
       ),
     );
   }

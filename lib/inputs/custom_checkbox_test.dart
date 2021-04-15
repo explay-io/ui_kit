@@ -9,7 +9,10 @@ import '../test_utils/wrap_in_material_app.dart';
 
 class OnCheckboxChangedMock extends Mock implements Function {
   // ignore: avoid_positional_boolean_parameters
-  void call(bool value);
+  void call(bool value) {
+    // ignore: invalid_use_of_visible_for_testing_member
+    return super.noSuchMethod(Invocation.method(#call, []));
+  }
 }
 
 void main() {

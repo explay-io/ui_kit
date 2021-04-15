@@ -15,8 +15,7 @@ class SimpleButton extends StatefulWidget {
     this.padding,
     this.textStyle,
     Key? key,
-  })  : assert(text != null),
-        super(key: key);
+  })  : super(key: key);
 
   @override
   _SimpleButtonState createState() => _SimpleButtonState();

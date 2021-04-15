@@ -4,12 +4,12 @@ typedef PropUpdater = void Function(String name, dynamic value);
 
 typedef WidgetBuilder = Widget Function(
   BuildContext context,
-  Map<String, dynamic>? props,
+  Map<String, dynamic> props,
 );
 
 typedef FormBuilder = Widget Function(
   BuildContext context,
-  Map<String, dynamic>? props,
+  Map<String, dynamic> props,
   PropUpdater updateProp,
 );
 
@@ -19,7 +19,7 @@ class PropsExplorer extends StatefulWidget {
   final FormBuilder formBuilder;
 
   PropsExplorer({
-    required this.initialProps,
+    this.initialProps,
     required this.widgetBuilder,
     required this.formBuilder,
     Key? key,
@@ -30,7 +30,7 @@ class PropsExplorer extends StatefulWidget {
 }
 
 class _PropsExplorerState extends State<PropsExplorer> {
-  Map<String, dynamic>? _props;
+  late Map<String, dynamic> _props;
 
   @override
   void initState() {
@@ -55,7 +55,7 @@ class _PropsExplorerState extends State<PropsExplorer> {
 
   void _updateProp(String name, dynamic value) {
     setState(() {
-      final newProps = Map<String, dynamic>.from(_props!);
+      final newProps = Map<String, dynamic>.from(_props);
       newProps[name] = value;
       _props = newProps;
     });

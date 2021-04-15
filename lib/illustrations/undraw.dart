@@ -18,8 +18,7 @@ class Undraw extends StatelessWidget {
     this.placeholder,
     this.errorWidget,
     this.padding,
-  })  : assert(illustration != null),
-        assert(color != null);
+  });
 
   final UndrawIllustration illustration;
   final Color color;

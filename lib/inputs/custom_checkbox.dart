@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
 class CustomCheckbox extends StatelessWidget {
-  final bool? isChecked;
+  final bool isChecked;
   final ValueChanged<bool> onChanged;
-  final Widget? label;
+  final Widget label;
   final String? errorText;
 
   const CustomCheckbox({
     required this.isChecked,
     required this.onChanged,
     Key? key,
-    this.label,
+    required this.label,
     this.errorText,
   }) : super(key: key);
 
@@ -36,7 +36,7 @@ class CustomCheckbox extends StatelessWidget {
   Widget buildCheckboxTile() {
     return GestureDetector(
         onTap: () {
-          onChanged(!isChecked!);
+          onChanged(isChecked);
         },
         child: Container(
           margin: const EdgeInsets.only(top: 14.00),
@@ -44,7 +44,7 @@ class CustomCheckbox extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Container(height: 24.0, width: 24.0, child: _icon(isChecked!)),
+              Container(height: 24.0, width: 24.0, child: _icon(isChecked)),
               Container(
                   margin: const EdgeInsets.only(left: 10.0, right: 10.00),
                   child: label),

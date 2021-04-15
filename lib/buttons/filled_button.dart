@@ -13,14 +13,13 @@ class FilledButton extends StatefulWidget {
 
   FilledButton(
     this.text, {
-    required this.onPressed,
+    this.onPressed,
     this.fullWidth = false,
     this.narrow = false,
     this.padding,
     this.textStyle,
     Key? key,
-  })  : assert(text != null),
-        super(key: key);
+  })  : super(key: key);
 
   @override
   _FilledButtonState createState() => _FilledButtonState();
@@ -70,7 +69,7 @@ class _FilledButtonState extends State<FilledButton> with ButtonMixin {
               : Theme.of(context).textTheme.bodyText2!.copyWith(
                   color: AppColor.deepWhite,
                   fontSize: getFontSize(
-                      narrow: widget.narrow!, fullWidth: widget.fullWidth)),
+                      narrow: widget.narrow!, fullWidth: widget.fullWidth!)),
         ),
       ),
     );

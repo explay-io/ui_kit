@@ -10,58 +10,61 @@ import '../test_utils/wrap_in_material_app.dart';
 import 'button_common.dart';
 
 class FutureCallbackMock extends Mock implements Function {
-  Future<void> call();
+  Future<void> call() async {
+    // ignore: invalid_use_of_visible_for_testing_member
+    return super.noSuchMethod(Invocation.method(#call, []));
+  }
 }
 
 void testTextProp({
   required Function group,
   Function? setUp,
-  Function? testWidgets,
-  String? buttonText,
-  Function? buildButton,
+  required Function testWidgets,
+  required String buttonText,
+  required Widget Function() buildButton,
 }) {
   group('text prop', () {
-    testWidgets!('renders text', (WidgetTester tester) async {
-      await tester.pumpWidget(wrapInMaterialApp(buildButton!()));
-      expect(find.text(buttonText!), findsOneWidget);
+    testWidgets('renders text', (WidgetTester tester) async {
+      await tester.pumpWidget(wrapInMaterialApp(buildButton()));
+      expect(find.text(buttonText), findsOneWidget);
     });
   });
 }
 
 void testOnPressedProp({
   required Function group,
-  Function? setUp,
-  Function? testWidgets,
-  String? buttonText,
-  Function? buildButton,
-  Type? underlyingMaterialButtonType,
+  required Function setUp,
+  required Function testWidgets,
+  required String buttonText,
+  required Widget Function({ FutureCallback? onPressed }) buildButton,
+  required Type underlyingMaterialButtonType,
 }) {
   group('onPressed prop', () {
-    Future? future;
+    late Future future;
     late Completer completer;
     late FutureCallback onPressed;
 
-    setUp!(() {
+    setUp(() {
       completer = Completer<void>();
       future = completer.future;
-      onPressed = FutureCallbackMock().call;
-      when(onPressed()).thenAnswer(((_) => future!) as Future<void> Function(Invocation));
+      onPressed = FutureCallbackMock();
+      when(onPressed()).thenAnswer(((_) =>  future));
     });
 
-    testWidgets!('if onPressed is null should pass null to unrelying button',
+    testWidgets('if onPressed is null should pass null to unrelying button',
         (WidgetTester tester) async {
-      await tester.pumpWidget(wrapInMaterialApp(buildButton!(onPressed: null)));
+      await tester.pumpWidget(wrapInMaterialApp(buildButton(onPressed: null)));
       expect(
           tester
-              .widget<MaterialButton>(find.byType(underlyingMaterialButtonType!))
+              .widget<ButtonStyleButton>(find.byType(underlyingMaterialButtonType))
               .enabled,
           isFalse);
-    }, skip: true);
+    });
 
     testWidgets('on tap calls onPressed prop', (WidgetTester tester) async {
       await tester
-          .pumpWidget(wrapInMaterialApp(buildButton!(onPressed: onPressed)));
-      await tester.tap(find.text(buttonText!));
+          .pumpWidget(wrapInMaterialApp(buildButton(onPressed: onPressed)));
+      await tester.tap(find.text(buttonText));
       await tester.pump();
       verify(onPressed()).called(1);
     });
@@ -69,8 +72,8 @@ void testOnPressedProp({
     testWidgets('tapping twice results in one call to onPressed',
         (WidgetTester tester) async {
       await tester
-          .pumpWidget(wrapInMaterialApp(buildButton!(onPressed: onPressed)));
-      await tester.tap(find.text(buttonText!));
+          .pumpWidget(wrapInMaterialApp(buildButton(onPressed: onPressed)));
+      await tester.tap(find.text(buttonText));
       await tester.pump();
       await tester.tap(find.text(buttonText));
       await tester.pump();
@@ -81,13 +84,13 @@ void testOnPressedProp({
         (WidgetTester tester) async {
       await tester.runAsync(() async {
         await tester
-            .pumpWidget(wrapInMaterialApp(buildButton!(onPressed: onPressed)));
-        await tester.tap(find.text(buttonText!));
+            .pumpWidget(wrapInMaterialApp(buildButton(onPressed: onPressed)));
+        await tester.tap(find.text(buttonText));
         await tester.pump();
         expect(
             tester
-                .widget<MaterialButton>(
-                    find.byType(underlyingMaterialButtonType!))
+                .widget<ButtonStyleButton>(
+                    find.byType(underlyingMaterialButtonType))
                 .enabled,
             isFalse);
         completer.complete();
@@ -95,34 +98,34 @@ void testOnPressedProp({
         await tester.pump();
         expect(
             tester
-                .widget<MaterialButton>(
+                .widget<ButtonStyleButton>(
                     find.byType(underlyingMaterialButtonType))
                 .enabled,
             isTrue);
       });
-    }, skip: true);
+    });
   });
 }
 
 void testFullWidthProp({
   required Function group,
-  Function? setUp,
-  Function? testWidgets,
+  required Function setUp,
+  required Function testWidgets,
   String? buttonText,
-  Function? buildButton,
+  required Function buildButton,
   Type? underlyingMaterialButtonType,
 }) {
   group('fullWidth prop', () {
     TestWidgetsFlutterBinding binding;
 
-    setUp!(() {
+    setUp(() {
       binding = TestWidgetsFlutterBinding.ensureInitialized() as TestWidgetsFlutterBinding;
       binding.window.physicalSizeTestValue = const Size(400, 200);
       binding.window.devicePixelRatioTestValue = 1.0;
     });
 
-    testWidgets!('if true renders in full width', (WidgetTester tester) async {
-      final Widget? button = buildButton!(fullWidth: true);
+    testWidgets('if true renders in full width', (WidgetTester tester) async {
+      final Widget? button = buildButton(fullWidth: true);
       await tester.pumpWidget(wrapInMaterialApp(button));
       final buttonWidth =
           tester.element(find.byType(button.runtimeType)).size!.width;
@@ -131,7 +134,7 @@ void testFullWidthProp({
 
     testWidgets('if false does not render full width',
         (WidgetTester tester) async {
-      final Widget? button = buildButton!(fullWidth: false);
+      final Widget? button = buildButton(fullWidth: false);
       await tester.pumpWidget(wrapInMaterialApp(button));
 
       final buttonWidth =
@@ -144,80 +147,84 @@ void testFullWidthProp({
 void testNarrowProp({
   required Function group,
   Function? setUp,
-  Function? testWidgets,
+  required Function testWidgets,
   String? buttonText,
-  Function? buildButton,
-  Type? underlyingMaterialButtonType,
+  required Function buildButton,
+  required Type underlyingMaterialButtonType,
 }) {
   group('narrow prop', () {
-    testWidgets!('if true renders smaller padding', (WidgetTester tester) async {
-      await tester.pumpWidget(wrapInMaterialApp(buildButton!(narrow: true)));
+    const interactiveStates = <MaterialState>{};
+    testWidgets('if true renders smaller padding', (WidgetTester tester) async {
+      await tester.pumpWidget(wrapInMaterialApp(buildButton(narrow: true)));
       final button =
           // ignore: avoid_as
-          find.byType(underlyingMaterialButtonType!).evaluate().single.widget
-              as MaterialButton;
-      expect(button.padding, ButtonStyleConstants.narrowPadding);
-    }, skip: true);
+          find.byType(underlyingMaterialButtonType).evaluate().single.widget
+              as ButtonStyleButton;
+      final padding = button.style!.padding!.resolve(interactiveStates);
+      expect(padding, ButtonStyleConstants.narrowPadding);
+    });
 
     testWidgets('if false renders larger padding', (WidgetTester tester) async {
-      await tester.pumpWidget(wrapInMaterialApp(buildButton!(narrow: false)));
+      await tester.pumpWidget(wrapInMaterialApp(buildButton(narrow: false)));
       final button =
           // ignore: avoid_as
-          find.byType(underlyingMaterialButtonType!).evaluate().single.widget
-              as MaterialButton;
-      expect(button.padding, ButtonStyleConstants.widePadding);
-    }, skip: true);
+          find.byType(underlyingMaterialButtonType).evaluate().single.widget
+              as ButtonStyleButton;
+      final padding = button.style!.padding!.resolve(interactiveStates);
+      expect(padding, ButtonStyleConstants.widePadding);
+    });
   });
 }
 
 void testPaddingProp({
   required Function group,
   Function? setUp,
-  Function? testWidgets,
+  required Function testWidgets,
   String? buttonText,
-  Function? buildButton,
-  Type? underlyingMaterialButtonType,
+  required Function buildButton,
+  required Type underlyingMaterialButtonType,
 }) {
   group('padding prop', () {
-    testWidgets!('if padding is passed, overwrite default',
+    const interactiveStates = <MaterialState>{};
+    testWidgets('if padding is passed, overwrite default',
         (WidgetTester tester) async {
-      const padding = EdgeInsets.all(8.0);
-      await tester.pumpWidget(wrapInMaterialApp(buildButton!(padding: padding)));
+      final padding = EdgeInsets.all(8.0);
+      await tester.pumpWidget(wrapInMaterialApp(buildButton(padding: padding)));
       final button =
           // ignore: avoid_as
-          find.byType(underlyingMaterialButtonType!).evaluate().single.widget
-              as MaterialButton;
-      expect(button.padding, padding);
-    }, skip: true);
+          find.byType(underlyingMaterialButtonType).evaluate().single.widget
+              as ButtonStyleButton;
+      expect(button.style!.padding!.resolve(interactiveStates), padding);
+    });
 
     testWidgets('if padding is null, defaults to', (WidgetTester tester) async {
-      await tester.pumpWidget(wrapInMaterialApp(buildButton!(padding: null)));
+      await tester.pumpWidget(wrapInMaterialApp(buildButton(padding: null)));
       final button =
           // ignore: avoid_as
-          find.byType(underlyingMaterialButtonType!).evaluate().single.widget
-              as MaterialButton;
-      expect(button.padding!.vertical,
-          2 * ButtonStyleConstants.wideVerticalPadding);
-    }, skip: true);
+          find.byType(underlyingMaterialButtonType).evaluate().single.widget
+              as ButtonStyleButton;
+      final verticalPadding = button.style!.padding!.resolve(interactiveStates)!.vertical;
+      expect(verticalPadding, 2 * ButtonStyleConstants.wideVerticalPadding);
+    });
   });
 }
 
 void testFontSize({
   required Function group,
   Function? setUp,
-  Function? testWidgets,
-  String? buttonText,
-  Function? buildButton,
+  required Function testWidgets,
+  required String buttonText,
+  required Function buildButton,
 }) {
   group('font size', () {
-    testWidgets!(
+    testWidgets(
         'if fullWidth is false and narrow is true, the font size becomes smaller',
         (WidgetTester tester) async {
-      await tester.pumpWidget(wrapInMaterialApp(buildButton!(
+      await tester.pumpWidget(wrapInMaterialApp(buildButton(
         fullWidth: false,
         narrow: true,
       )));
-      expect(tester.widget<Text>(find.text(buttonText!)).style!.fontSize,
+      expect(tester.widget<Text>(find.text(buttonText)).style!.fontSize,
           ButtonStyleConstants.smallFontSize);
     });
   });
@@ -226,16 +233,16 @@ void testFontSize({
 void testFontStyle({
   required Function group,
   Function? setUp,
-  Function? testWidgets,
-  String? buttonText,
+  required Function testWidgets,
+  required String buttonText,
   TextStyle? textStyle,
-  Function? buildButton,
+  required Function buildButton,
 }) {
   group('font text style', () {
-    testWidgets!('text style is set', (WidgetTester tester) async {
+    testWidgets('text style is set', (WidgetTester tester) async {
       await tester
-          .pumpWidget(wrapInMaterialApp(buildButton!(textStyle: AppText.body2)));
-      expect(tester.widget<Text>(find.text(buttonText!)).style!.fontSize,
+          .pumpWidget(wrapInMaterialApp(buildButton(textStyle: AppText.body2)));
+      expect(tester.widget<Text>(find.text(buttonText)).style!.fontSize,
           ButtonStyleConstants.smallFontSize);
     });
   });
@@ -244,15 +251,15 @@ void testFontStyle({
 void testPressingState({
   required Function group,
   Function? setUp,
-  Function? testWidgets,
-  String? buttonText,
-  Function? buildButton,
+  required Function testWidgets,
+  required String buttonText,
+  required Function buildButton,
 }) {
   group('pressing state', () {
-    testWidgets!('when button is pressed it changes text color',
+    testWidgets('when button is pressed it changes text color',
         (WidgetTester tester) async {
-      await tester.pumpWidget(wrapInMaterialApp(buildButton!(onPressed: () {})));
-      expect(tester.widget<Text>(find.text(buttonText!)).style!.color,
+      await tester.pumpWidget(wrapInMaterialApp(buildButton(onPressed: () async {})));
+      expect(tester.widget<Text>(find.text(buttonText)).style!.color,
           AppColor.blue);
       final gesture = await tester.createGesture();
       await gesture.down(tester.getCenter(find.text(buttonText)));
@@ -268,8 +275,8 @@ void testPressingState({
     testWidgets(
         'if button is disabled should have grey text regardless of tap events',
         (WidgetTester tester) async {
-      await tester.pumpWidget(wrapInMaterialApp(buildButton!(onPressed: null)));
-      expect(tester.widget<Text>(find.text(buttonText!)).style!.color,
+      await tester.pumpWidget(wrapInMaterialApp(buildButton(onPressed: null)));
+      expect(tester.widget<Text>(find.text(buttonText)).style!.color,
           AppColor.mediumGrey);
       final gesture = await tester.createGesture();
       await gesture.down(tester.getCenter(find.text(buttonText)));
