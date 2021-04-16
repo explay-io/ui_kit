@@ -6,14 +6,14 @@ Custom toolkit for ui elements and reusable components
 
 UI Kit is a normal flutter app, so run it with
 ```
-flutter run
+flutter run --no-sound-null-safety
 ```
 
 ## Run tests
 
 Run tests with
 ```
-flutter test lib/**/*_test.dart
+flutter test --no-sound-null-safety lib
 ```
 
 ## Principles
