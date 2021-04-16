@@ -46,7 +46,7 @@ class Buttons extends StatelessWidget {
             shrinkWrap: true,
             children: <Widget>[
               StringPropUpdater(
-                props: props!,
+                props: props,
                 updateProp: updateProp,
                 propKey: 'text',
               ),
@@ -77,7 +77,7 @@ class Buttons extends StatelessWidget {
         widgetBuilder: (context, props) {
           Function? onPressed = () {};
 
-          if (props!['enabled'] == false) {
+          if (props['enabled'] == false) {
             onPressed = null;
           }
 
@@ -116,7 +116,7 @@ class Buttons extends StatelessWidget {
             shrinkWrap: true,
             children: <Widget>[
               StringPropUpdater(
-                props: props!,
+                props: props,
                 updateProp: updateProp,
                 propKey: 'text',
               ),
@@ -147,7 +147,7 @@ class Buttons extends StatelessWidget {
         widgetBuilder: (context, props) {
           Function? onPressed = () {};
 
-          if (props!['enabled'] == false) {
+          if (props['enabled'] == false) {
             onPressed = null;
           }
 
@@ -184,7 +184,7 @@ class Buttons extends StatelessWidget {
             shrinkWrap: true,
             children: <Widget>[
               StringPropUpdater(
-                props: props!,
+                props: props,
                 updateProp: updateProp,
                 propKey: 'text',
               ),
@@ -205,7 +205,7 @@ class Buttons extends StatelessWidget {
         widgetBuilder: (context, props) {
           Function? onPressed = () {};
 
-          if (props!['enabled'] == false) {
+          if (props['enabled'] == false) {
             onPressed = null;
           }
 
@@ -243,7 +243,7 @@ class Buttons extends StatelessWidget {
             shrinkWrap: true,
             children: <Widget>[
               ListPropUpdater<String>(
-                props: props!,
+                props: props,
                 updateProp: updateProp,
                 propKey: 'buttonLabels',
                 listToTextConverter: listToTextConverter,
@@ -254,7 +254,7 @@ class Buttons extends StatelessWidget {
           );
         },
         widgetBuilder: (context, props) {
-          final List<String>? labels = props!['buttonLabels'];
+          final List<String>? labels = props['buttonLabels'];
           return Column(
             children: <Widget>[
               SwitcherButton(
@@ -286,7 +286,7 @@ class Buttons extends StatelessWidget {
             shrinkWrap: true,
             children: <Widget>[
               StringPropUpdater(
-                props: props!,
+                props: props,
                 updateProp: updateProp,
                 propKey: 'initialText',
               ),
@@ -323,7 +323,7 @@ class Buttons extends StatelessWidget {
           Function? onPressed = () {};
           Function? onRefreshRate = () {};
 
-          if (props!['enabled'] == false) {
+          if (props['enabled'] == false) {
             onPressed = null;
             onRefreshRate = null;
           }

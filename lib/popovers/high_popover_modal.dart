@@ -48,10 +48,7 @@ class BottomSheet extends StatefulWidget {
     this.animationController,
     this.enableDrag = true,
     this.elevation = 0.0,
-  })  : assert(enableDrag != null),
-        assert(onClosing != null),
-        assert(builder != null),
-        assert(elevation != null && elevation >= 0.0),
+  }) : assert(elevation >= 0.0),
         super(key: key);
 
   /// The animation that controls the bottom sheet's position.
@@ -334,8 +331,6 @@ Future<T?> showModalBottomSheetCustom<T>({
   required BuildContext context,
   required WidgetBuilder builder,
 }) {
-  assert(context != null);
-  assert(builder != null);
   assert(debugCheckHasMaterialLocalizations(context));
   return Navigator.push(
       context,

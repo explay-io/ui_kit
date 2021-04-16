@@ -48,7 +48,7 @@ class PasswordValidators extends StatelessWidget {
             shrinkWrap: true,
             children: <Widget>[
               StringPropUpdater(
-                props: props!,
+                props: props,
                 updateProp: updateProp,
                 propKey: 'password',
               )
@@ -56,7 +56,7 @@ class PasswordValidators extends StatelessWidget {
           );
         },
         widgetBuilder: (context, props) {
-          final String password = props!['password'];
+          final String password = props['password'];
 
           return Container(
             child: PasswordValidator(

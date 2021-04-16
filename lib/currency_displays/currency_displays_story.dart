@@ -41,7 +41,7 @@ class CurrencyDisplays extends StatelessWidget {
             shrinkWrap: true,
             children: <Widget>[
               StringPropUpdater(
-                  props: props!,
+                  props: props,
                   updateProp: updateProp,
                   propKey: 'currencySymbol'),
               BoolPropUpdater(
@@ -62,7 +62,7 @@ class CurrencyDisplays extends StatelessWidget {
           );
         },
         widgetBuilder: (context, props) {
-          double? amount = props!['amount'];
+          double? amount = props['amount'];
           final String? symbol = props['currencySymbol'];
           final bool amountIsNull = props['amountIsNull'];
           final bool isLarge = props['isLarge'];
@@ -121,7 +121,7 @@ class CurrencyDisplays extends StatelessWidget {
             shrinkWrap: true,
             children: <Widget>[
               StringPropUpdater(
-                  props: props!,
+                  props: props,
                   updateProp: updateProp,
                   propKey: 'currencySymbol'),
               DoublePropUpdater(
@@ -134,7 +134,7 @@ class CurrencyDisplays extends StatelessWidget {
           );
         },
         widgetBuilder: (context, props) {
-          final double? amount = props!['amount'];
+          final double? amount = props['amount'];
           final String? symbol = props['currencySymbol'];
           return AssetRate(symbol, amount);
         },

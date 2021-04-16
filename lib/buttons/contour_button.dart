@@ -17,8 +17,7 @@ class ContourButton extends StatefulWidget {
     this.narrow = false,
     this.padding,
     Key? key,
-  })  : assert(text != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   _ContourButtonState createState() => _ContourButtonState();

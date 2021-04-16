@@ -24,8 +24,7 @@ class PasswordValidator extends StatefulWidget {
       Colors.lightGreen,
       Colors.greenAccent
     ],
-  })  : assert(password != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   _PasswordValidatorState createState() => _PasswordValidatorState();
@@ -53,39 +52,17 @@ class _PasswordValidatorState extends State<PasswordValidator> {
     final passwordStrength = _passwordStrength();
     switch (passwordStrength) {
       case 1:
-        {
-          return 'Strength: ${widget.strengthList[0]}';
-        }
-        break;
-
+        return 'Strength: ${widget.strengthList[0]}';
       case 2:
-        {
-          return 'Strength: ${widget.strengthList[1]}';
-        }
-        break;
-
+        return 'Strength: ${widget.strengthList[1]}';
       case 3:
-        {
-          return 'Strength: ${widget.strengthList[2]}';
-        }
-        break;
-
+        return 'Strength: ${widget.strengthList[2]}';
       case 4:
-        {
-          return 'Strength: ${widget.strengthList[3]}';
-        }
-        break;
-
+        return 'Strength: ${widget.strengthList[3]}';
       case 5:
-        {
-          return 'Strength: ${widget.strengthList[4]}';
-        }
-        break;
-
+        return 'Strength: ${widget.strengthList[4]}';
       default:
-        {
-          return 'Strength: ${widget.strengthList[0]}';
-        }
+        return 'Strength: ${widget.strengthList[0]}';
     }
   }
 
@@ -93,39 +70,17 @@ class _PasswordValidatorState extends State<PasswordValidator> {
     final passwordStrength = _passwordStrength();
     switch (passwordStrength) {
       case 1:
-        {
-          return widget.colorList[0];
-        }
-        break;
-
+        return widget.colorList[0];
       case 2:
-        {
-          return widget.colorList[1];
-        }
-        break;
-
+        return widget.colorList[1];
       case 3:
-        {
-          return widget.colorList[2];
-        }
-        break;
-
+        return widget.colorList[2];
       case 4:
-        {
-          return widget.colorList[3];
-        }
-        break;
-
+        return widget.colorList[3];
       case 5:
-        {
-          return widget.colorList[4];
-        }
-        break;
-
+        return widget.colorList[4];
       default:
-        {
-          return widget.colorList[0];
-        }
+        return widget.colorList[0];
     }
   }
 

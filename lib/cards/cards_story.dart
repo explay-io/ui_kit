@@ -40,7 +40,7 @@ class AppCards extends StatelessWidget {
             shrinkWrap: true,
             children: <Widget>[
               DoublePropUpdater(
-                  props: props!,
+                  props: props,
                   updateProp: updateProp,
                   propKey: 'elevation',
                   min: 1,
@@ -61,7 +61,7 @@ class AppCards extends StatelessWidget {
           );
         },
         widgetBuilder: (context, props) {
-          final double elevation = props!['elevation'];
+          final double elevation = props['elevation'];
           final double margin = props['margin'];
           final double? borderRadius = props['borderRadius'];
 
@@ -95,7 +95,7 @@ class AppCards extends StatelessWidget {
             shrinkWrap: true,
             children: <Widget>[
               DoublePropUpdater(
-                  props: props!,
+                  props: props,
                   updateProp: updateProp,
                   propKey: 'elevation',
                   min: 1,
@@ -116,7 +116,7 @@ class AppCards extends StatelessWidget {
           );
         },
         widgetBuilder: (context, props) {
-          final double elevation = props!['elevation'];
+          final double elevation = props['elevation'];
           final double margin = props['margin'];
           final double? borderRadius = props['borderRadius'];
 
@@ -174,7 +174,7 @@ class AppCards extends StatelessWidget {
             shrinkWrap: true,
             children: <Widget>[
               StringPropUpdater(
-                  props: props!, updateProp: updateProp, propKey: 'source'),
+                  props: props, updateProp: updateProp, propKey: 'source'),
               IntPropUpdater(
                   props: props, updateProp: updateProp, propKey: 'time'),
               StringPropUpdater(
@@ -185,7 +185,7 @@ class AppCards extends StatelessWidget {
           );
         },
         widgetBuilder: (context, props) {
-          final String? source = props!['source'];
+          final String? source = props['source'];
           final int? time = props['time'];
           final String? title = props['title'];
           final String? image = props['image'];

@@ -32,7 +32,7 @@ class Checkboxes extends StatelessWidget {
             shrinkWrap: true,
             children: <Widget>[
               StringPropUpdater(
-                  props: props!, updateProp: updateProp, propKey: 'label'),
+                  props: props, updateProp: updateProp, propKey: 'label'),
               StringPropUpdater(
                   props: props, updateProp: updateProp, propKey: 'errorText'),
               BoolPropUpdater(
@@ -41,9 +41,9 @@ class Checkboxes extends StatelessWidget {
           );
         },
         widgetBuilder: (context, props) {
-          final String label = props!['label'];
+          final String label = props['label'];
           final String? errorText = props['errorText'];
-          final bool? isChecked = props['isChecked'];
+          final bool isChecked = props['isChecked'] ?? false;
 
           return CustomCheckbox(
             isChecked: isChecked,

@@ -33,7 +33,7 @@ class PinViews extends StatelessWidget {
             shrinkWrap: true,
             children: <Widget>[
               IntPropUpdater(
-                props: props!,
+                props: props,
                 updateProp: updateProp,
                 propKey: 'length',
                 hintText: 'Length',
@@ -50,7 +50,7 @@ class PinViews extends StatelessWidget {
         widgetBuilder: (context, props) {
           return Container(
             child: Center(
-              child: PinView(props!['length'], props['text']),
+              child: PinView(props['length'], props['text']),
             ),
           );
         },

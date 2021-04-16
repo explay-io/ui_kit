@@ -47,7 +47,7 @@ class __ShakerStoryState extends State<_ShakerStory> {
             shrinkWrap: true,
             children: <Widget>[
               IntPropUpdater(
-                props: props!,
+                props: props,
                 updateProp: updateProp,
                 propKey: 'durationMs',
               ),
@@ -55,7 +55,7 @@ class __ShakerStoryState extends State<_ShakerStory> {
           );
         },
         widgetBuilder: (context, props) {
-          final int durationMs = props!['durationMs'];
+          final int durationMs = props['durationMs'];
 
           return Column(
             mainAxisSize: MainAxisSize.min,

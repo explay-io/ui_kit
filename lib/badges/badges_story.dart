@@ -52,7 +52,7 @@ Widget _simpleBadgeStory() {
                 shrinkWrap: true,
                 children: <Widget>[
                   StringPropUpdater(
-                    props: props!,
+                    props: props,
                     updateProp: updateProp,
                     propKey: 'text',
                   ),
@@ -75,7 +75,7 @@ Widget _simpleBadgeStory() {
               Container(
                   child: Center(
                       child: Badge(
-                props!['text'],
+                props['text'],
                 minWidth: props['minWidth'],
                 bgColor: _optionToColor(props['bgColor']),
               ))),
@@ -98,7 +98,7 @@ Widget _multiValueBadgeStory() {
                 shrinkWrap: true,
                 children: <Widget>[
                   DoublePropUpdater(
-                      props: props!,
+                      props: props,
                       updateProp: updateProp,
                       propKey: 'minWidth',
                       min: 60.0,
@@ -115,7 +115,7 @@ Widget _multiValueBadgeStory() {
             return Column(mainAxisSize: MainAxisSize.min, children: [
               Container(
                   child: MultiValueBadge(
-                props!['texts'],
+                props['texts'],
                 minWidth: props['minWidth'],
                 bgColor: _optionToColor(props['bgColor']),
               )),

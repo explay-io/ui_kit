@@ -26,7 +26,7 @@ class _WizardState extends State<Wizard> {
   List<Widget>? wizardPages;
   Widget? outroWidget;
 
-  Widget leadingWidget = const BackButton();
+  Widget? leadingWidget = const BackButton();
   List<Widget>? tailingWidget;
 
   _WizardState(

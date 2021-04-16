@@ -13,10 +13,7 @@ class BoolPropUpdater extends StatelessWidget {
     required this.updateProp,
     required this.propKey,
     Key? key,
-  })  : assert(props != null),
-        assert(updateProp != null),
-        assert(propKey != null),
-        assert(props[propKey] != null),
+  })  : assert(props[propKey] != null),
         assert(props[propKey] is bool),
         super(key: key);
 

@@ -36,7 +36,7 @@ Widget _gaugeIndicatorStory() {
                 shrinkWrap: true,
                 children: <Widget>[
                   DoublePropUpdater(
-                      props: props!,
+                      props: props,
                       updateProp: updateProp,
                       propKey: 'dangerThreshold',
                       min: 0.0,
@@ -61,7 +61,7 @@ Widget _gaugeIndicatorStory() {
                   child: Center(
                       child: GaugeIndicator(
                           width: 200,
-                          dangerThreshold: props!['dangerThreshold'] / 100.0,
+                          dangerThreshold: props['dangerThreshold'] / 100.0,
                           safeThreshold: props['safeThreshold'] / 100.0,
                           score: props['score'] / 100.0))),
             ]);

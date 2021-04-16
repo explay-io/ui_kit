@@ -17,8 +17,7 @@ class CustomFlexibleSpaceBar extends StatefulWidget {
     this.centerTitle,
     this.titlePadding,
     this.collapseMode = CollapseMode.parallax,
-  })  : assert(collapseMode != null),
-        super(key: key);
+  }) : super(key: key);
 
   final Widget? title;
   final Widget? background;
@@ -32,7 +31,6 @@ class CustomFlexibleSpaceBar extends StatefulWidget {
     double? minExtent,
     double? maxExtent,
   }) {
-    assert(currentExtent != null);
     return FlexibleSpaceBarSettings(
       toolbarOpacity: toolbarOpacity ?? 1.0,
       minExtent: minExtent ?? currentExtent,
@@ -51,7 +49,6 @@ class _CustomFlexibleSpaceBarState extends State<CustomFlexibleSpaceBar> {
     if (widget.centerTitle != null) {
       return widget.centerTitle;
     }
-    assert(theme.platform != null);
     switch (theme.platform) {
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
@@ -68,14 +65,14 @@ class _CustomFlexibleSpaceBarState extends State<CustomFlexibleSpaceBar> {
       return Alignment.bottomCenter;
     }
     final textDirection = Directionality.of(context);
-    assert(textDirection != null);
     switch (textDirection) {
       case TextDirection.rtl:
         return Alignment.bottomRight;
       case TextDirection.ltr:
         return Alignment.bottomLeft;
+      default:
+        return Alignment.bottomLeft;
     }
-    return Alignment.bottomLeft;
   }
 
   double _getCollapsePadding(double t, FlexibleSpaceBarSettings settings) {
@@ -87,16 +84,15 @@ class _CustomFlexibleSpaceBarState extends State<CustomFlexibleSpaceBar> {
       case CollapseMode.parallax:
         final deltaExtent = settings.maxExtent - settings.minExtent;
         return -Tween<double>(begin: 0.0, end: deltaExtent / 4.0).transform(t);
+      default:
+        return 0.0;
     }
-    return 0.0;
   }
 
   @override
   Widget build(BuildContext context) {
     final settings =
         context.dependOnInheritedWidgetOfExactType<FlexibleSpaceBarSettings>()!;
-    assert(settings != null,
-        'A FlexibleSpaceBar must be wrapped in the widget returned by FlexibleSpaceBar.createSettings().');
 
     final children = <Widget>[];
 
