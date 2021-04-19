@@ -111,8 +111,8 @@ void testFullWidthProp({
   required Function group,
   required Function setUp,
   required Function testWidgets,
-  String? buttonText,
-  required Function buildButton,
+  String buttonText = '',
+  required Widget Function({ bool fullWidth }) buildButton,
   Type? underlyingMaterialButtonType,
 }) {
   group('fullWidth prop', () {
@@ -125,7 +125,7 @@ void testFullWidthProp({
     });
 
     testWidgets('if true renders in full width', (WidgetTester tester) async {
-      final Widget? button = buildButton(fullWidth: true);
+      final button = buildButton(fullWidth: true);
       await tester.pumpWidget(wrapInMaterialApp(button));
       final buttonWidth =
           tester.element(find.byType(button.runtimeType)).size!.width;
@@ -134,7 +134,7 @@ void testFullWidthProp({
 
     testWidgets('if false does not render full width',
         (WidgetTester tester) async {
-      final Widget? button = buildButton(fullWidth: false);
+      final button = buildButton(fullWidth: false);
       await tester.pumpWidget(wrapInMaterialApp(button));
 
       final buttonWidth =
@@ -148,8 +148,8 @@ void testNarrowProp({
   required Function group,
   Function? setUp,
   required Function testWidgets,
-  String? buttonText,
-  required Function buildButton,
+  String buttonText = '',
+  required Widget Function({ bool narrow }) buildButton,
   required Type underlyingMaterialButtonType,
 }) {
   group('narrow prop', () {
@@ -180,8 +180,8 @@ void testPaddingProp({
   required Function group,
   Function? setUp,
   required Function testWidgets,
-  String? buttonText,
-  required Function buildButton,
+  String buttonText = '',
+  required Widget Function({ EdgeInsets? padding }) buildButton,
   required Type underlyingMaterialButtonType,
 }) {
   group('padding prop', () {
@@ -214,7 +214,7 @@ void testFontSize({
   Function? setUp,
   required Function testWidgets,
   required String buttonText,
-  required Function buildButton,
+  required Widget Function({ bool fullWidth, bool narrow }) buildButton,
 }) {
   group('font size', () {
     testWidgets(
@@ -236,7 +236,7 @@ void testFontStyle({
   required Function testWidgets,
   required String buttonText,
   TextStyle? textStyle,
-  required Function buildButton,
+  required Widget Function({ TextStyle textStyle }) buildButton,
 }) {
   group('font text style', () {
     testWidgets('text style is set', (WidgetTester tester) async {
@@ -253,7 +253,7 @@ void testPressingState({
   Function? setUp,
   required Function testWidgets,
   required String buttonText,
-  required Function buildButton,
+  required Widget Function({ FutureCallback? onPressed }) buildButton,
 }) {
   group('pressing state', () {
     testWidgets('when button is pressed it changes text color',
