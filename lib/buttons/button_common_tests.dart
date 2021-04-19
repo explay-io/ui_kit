@@ -16,9 +16,11 @@ class FutureCallbackMock extends Mock implements Function {
   }
 }
 
+void defaultSetup () {}
+
 void testTextProp({
   required Function group,
-  Function? setUp,
+  Function setUp = defaultSetup,
   required Function testWidgets,
   required String buttonText,
   required Widget Function() buildButton,
@@ -146,7 +148,7 @@ void testFullWidthProp({
 
 void testNarrowProp({
   required Function group,
-  Function? setUp,
+  Function setUp = defaultSetup,
   required Function testWidgets,
   String buttonText = '',
   required Widget Function({ bool narrow }) buildButton,
@@ -178,7 +180,7 @@ void testNarrowProp({
 
 void testPaddingProp({
   required Function group,
-  Function? setUp,
+  Function setUp = defaultSetup,
   required Function testWidgets,
   String buttonText = '',
   required Widget Function({ EdgeInsets? padding }) buildButton,
@@ -211,7 +213,7 @@ void testPaddingProp({
 
 void testFontSize({
   required Function group,
-  Function? setUp,
+  Function setUp = defaultSetup,
   required Function testWidgets,
   required String buttonText,
   required Widget Function({ bool fullWidth, bool narrow }) buildButton,
@@ -232,7 +234,7 @@ void testFontSize({
 
 void testFontStyle({
   required Function group,
-  Function? setUp,
+  Function setUp = defaultSetup,
   required Function testWidgets,
   required String buttonText,
   TextStyle? textStyle,
@@ -250,7 +252,7 @@ void testFontStyle({
 
 void testPressingState({
   required Function group,
-  Function? setUp,
+  Function setUp = defaultSetup,
   required Function testWidgets,
   required String buttonText,
   required Widget Function({ FutureCallback? onPressed }) buildButton,
