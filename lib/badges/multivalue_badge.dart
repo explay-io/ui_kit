@@ -5,11 +5,15 @@ import 'badge.dart';
 
 class MultiValueBadge extends StatefulWidget {
   final List<String> texts;
-  final double? minWidth;
-  final TextStyle? textStyle;
-  final Color? bgColor;
+  final double minWidth;
+  final TextStyle textStyle;
+  final Color bgColor;
 
-  MultiValueBadge(this.texts, {this.minWidth, this.textStyle, this.bgColor}) {
+  MultiValueBadge(this.texts, {
+    required this.minWidth,
+    this.textStyle = Badge.defaultTextStyle,
+    this.bgColor = Badge.defaultBgColor,
+  }) {
     createState();
   }
 
@@ -20,7 +24,6 @@ class MultiValueBadge extends StatefulWidget {
 }
 
 class _MultiValueBadgeState extends State<MultiValueBadge> {
-
   int currentIdx = 0;
   _MultiValueBadgeState(this.currentIdx);
 

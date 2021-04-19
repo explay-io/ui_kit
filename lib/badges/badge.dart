@@ -7,19 +7,22 @@ class Badge extends StatelessWidget {
   static const double badgeHeight = 30.0;
   static const double fontSize = 14.0;
   static const double padding = 10.0;
+
   static const defaultTextStyle = TextStyle(color: AppColor.deepWhite, fontSize: fontSize);
+  static const defaultBgColor = AppColor.blue;
+  static void defaultOnTap() {}
 
   final String text;
   final double minWidth;
   final TextStyle textStyle;
   final Color bgColor;
-  final VoidCallback? onTap;
+  final VoidCallback onTap;
 
   const Badge(this.text, {
       required this.minWidth,
       this.textStyle = defaultTextStyle,
-      this.bgColor = AppColor.blue,
-      this.onTap
+      this.bgColor = defaultBgColor,
+      this.onTap = defaultOnTap,
    });
 
   @override
@@ -35,7 +38,7 @@ class Badge extends StatelessWidget {
                 const BorderRadius.all(Radius.circular(badgeHeight / 2)),
             color: bgColor),
         child: GestureDetector(
-            onTap: onTap ?? () {},
+            onTap: onTap,
             child: Row(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
