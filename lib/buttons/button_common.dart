@@ -1,7 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:ui_kit/colors/app_color.dart';
 
-typedef FutureCallback = Future<void> Function();
+typedef FutureCallback = FutureOr<void> Function();
 
 typedef EnabledSetter = void Function(bool enabled);
 

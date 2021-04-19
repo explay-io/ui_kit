@@ -260,7 +260,7 @@ void testPressingState({
   group('pressing state', () {
     testWidgets('when button is pressed it changes text color',
         (WidgetTester tester) async {
-      await tester.pumpWidget(wrapInMaterialApp(buildButton(onPressed: () async {})));
+      await tester.pumpWidget(wrapInMaterialApp(buildButton(onPressed: () {})));
       expect(tester.widget<Text>(find.text(buttonText)).style!.color,
           AppColor.blue);
       final gesture = await tester.createGesture();
