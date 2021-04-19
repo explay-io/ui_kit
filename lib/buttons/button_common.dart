@@ -42,7 +42,7 @@ mixin ButtonMixin {
     return pressing! ? AppColor.darkerBlue : AppColor.blue;
   }
 
-  double getFontSize({required bool narrow, bool? fullWidth = false}) {
+  double getFontSize({required bool narrow, bool fullWidth = false}) {
     if (_isSmall(narrow: narrow, fullWidth: fullWidth)) {
       return ButtonStyleConstants.smallFontSize;
     }
