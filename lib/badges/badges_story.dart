@@ -11,7 +11,7 @@ import 'multivalue_badge.dart';
 
 const _colorList = ['Red', 'Blue'];
 
-Color _optionToColor(String? optionSelected) {
+Color _optionToColor(String optionSelected) {
   switch (optionSelected) {
     case 'Red':
       return AppColor.red;
