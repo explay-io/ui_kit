@@ -7,33 +7,35 @@ class Badge extends StatelessWidget {
   static const double badgeHeight = 30.0;
   static const double fontSize = 14.0;
   static const double padding = 10.0;
+  static const defaultTextStyle = TextStyle(color: AppColor.deepWhite, fontSize: fontSize);
 
-  final String? text;
-  final double? minWidth;
-  final TextStyle? textStyle;
-  final Color? bgColor;
+  final String text;
+  final double minWidth;
+  final TextStyle textStyle;
+  final Color bgColor;
   final VoidCallback? onTap;
 
-  const Badge(this.text,
-      {this.minWidth, this.textStyle, this.bgColor, this.onTap});
+  const Badge(this.text, {
+      required this.minWidth,
+      this.textStyle = defaultTextStyle,
+      this.bgColor = AppColor.blue,
+      this.onTap
+   });
 
   @override
   Widget build(BuildContext context) {
-    const defaultTextStyle =
-        TextStyle(color: AppColor.deepWhite, fontSize: fontSize);
-
     return Container(
         constraints: BoxConstraints(
-          minWidth: minWidth!,
+          minWidth: minWidth,
         ),
         width: null,
         height: badgeHeight,
         decoration: BoxDecoration(
             borderRadius:
                 const BorderRadius.all(Radius.circular(badgeHeight / 2)),
-            color: bgColor ?? AppColor.blue),
+            color: bgColor),
         child: GestureDetector(
-            onTap: onTap,
+            onTap: onTap ?? () {},
             child: Row(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -42,13 +44,13 @@ class Badge extends StatelessWidget {
                   Padding(
                       padding: const EdgeInsets.symmetric(horizontal: padding),
                       child: Shimmer.fromColors(
-                        key: Key(text!),
+                        key: Key(text),
                         baseColor: defaultTextStyle.color!,
-                        highlightColor: bgColor!,
+                        highlightColor: bgColor,
                         loop: 1,
                         period: const Duration(milliseconds: 750),
-                        child: Text(text!,
-                            style: textStyle ?? defaultTextStyle,
+                        child: Text(text,
+                            style: textStyle,
                             textAlign: TextAlign.right),
                       ))
                 ])));
