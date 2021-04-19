@@ -254,7 +254,7 @@ class Buttons extends StatelessWidget {
           );
         },
         widgetBuilder: (context, props) {
-          final List<String>? labels = props['buttonLabels'];
+          final List<String> labels = props['buttonLabels'];
           return Column(
             children: <Widget>[
               SwitcherButton(
