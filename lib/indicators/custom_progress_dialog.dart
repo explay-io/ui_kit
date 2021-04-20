@@ -1,58 +1,59 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 bool _isShowing = false;
-BuildContext? _context, _dismissingContext;
-bool _barrierDismissible = true, _showLogs = false;
-
-double _dialogElevation = 8.0, _borderRadius = 8.0;
-Color _backgroundColor = Colors.white;
-Curve _insetAnimCurve = Curves.easeInOut;
+bool _showLogs = false;
 
 Widget _progressWidget = Image.asset(
   'assets/double_ring_loading_io.gif',
   package: 'progress_dialog',
 );
 
+late BuildContext _dismissingContext;
+
 class CustomProgressDialog {
-  _Body? _dialog;
+  static const double defaultDialogElevation = 8.0;
+  static const double defaultBorderRadius = 8.0;
+  static const Color defaultBackgroundColor = Colors.white;
+  static const Curve defaultInsetAnimCurve = Curves.easeInOut;
+
+  double _dialogElevation = defaultDialogElevation;
+  double _borderRadius = defaultBorderRadius;
+  Color _backgroundColor = defaultBackgroundColor;
+  Curve _insetAnimCurve = defaultInsetAnimCurve;
+
+  late _Body _dialog;
+  late BuildContext _context;
+  bool _barrierDismissible = true;
 
   CustomProgressDialog(BuildContext context,
-      {bool? isDismissible, bool? showLogs}) {
+      {bool isDismissible = true, bool showLogs = false}) {
     _context = context;
-    _barrierDismissible = isDismissible ?? true;
-    _showLogs = showLogs ?? false;
+    _barrierDismissible = isDismissible;
+    _showLogs = showLogs;
   }
 
-  void style(
-      {double? progress,
-      double? maxProgress,
-      Widget? progressWidget,
-      Color? backgroundColor,
-      double? elevation,
-      double? borderRadius,
-      Curve? insetAnimCurve}) {
-    if (_isShowing) {
-      return;
-    }
+  void style({
+    required Widget progressWidget,
+    Color backgroundColor = defaultBackgroundColor,
+    double elevation = defaultDialogElevation,
+    double borderRadius = defaultBorderRadius,
+    Curve insetAnimCurve = defaultInsetAnimCurve,
+  }) {
+    if (_isShowing) return;
 
-    _progressWidget = progressWidget ?? _progressWidget;
-    _backgroundColor = backgroundColor ?? _backgroundColor;
-    _dialogElevation = elevation ?? _dialogElevation;
-    _borderRadius = borderRadius ?? _borderRadius;
-    _insetAnimCurve = insetAnimCurve ?? _insetAnimCurve;
+    _progressWidget = progressWidget;
+    _backgroundColor = backgroundColor;
+    _dialogElevation = elevation;
+    _borderRadius = borderRadius;
+    _insetAnimCurve = insetAnimCurve;
   }
 
-  void update(
-      {double? progress,
-      double? maxProgress,
-      Widget? progressWidget,}) {
-
-    _progressWidget = progressWidget ?? _progressWidget;
+  void update({required Widget progressWidget}) {
+    _progressWidget = _progressWidget;
 
     if (_isShowing) {
-      _dialog!.update();
+      _dialog.update();
     }
   }
 
@@ -64,8 +65,8 @@ class CustomProgressDialog {
     if (_isShowing) {
       try {
         _isShowing = false;
-        if (Navigator.of(_dismissingContext!).canPop()) {
-          Navigator.of(_dismissingContext!).pop();
+        if (Navigator.of(_dismissingContext).canPop()) {
+          Navigator.of(_dismissingContext).pop();
           if (_showLogs) {
             debugPrint('ProgressDialog dismissed');
           }
@@ -86,7 +87,7 @@ class CustomProgressDialog {
     if (_isShowing) {
       try {
         _isShowing = false;
-        Navigator.of(_dismissingContext!).pop(true);
+        Navigator.of(_dismissingContext).pop(true);
         if (_showLogs) {
           debugPrint('ProgressDialog dismissed');
         }
@@ -112,7 +113,7 @@ class CustomProgressDialog {
       }
 
       showDialog<dynamic>(
-        context: _context!,
+        context: _context,
         barrierDismissible: false,
         builder: (BuildContext context) {
           _dismissingContext = context;
@@ -154,9 +155,7 @@ class _Body extends StatefulWidget {
 }
 
 class _BodyState extends State<_Body> {
-  void update() {
-    setState(() {});
-  }
+  void update() {}
 
   @override
   void dispose() {
