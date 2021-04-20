@@ -14,14 +14,14 @@ class CustomFlexibleSpaceBar extends StatefulWidget {
     Key? key,
     this.title,
     this.background,
-    this.centerTitle,
+    this.centerTitle = false,
     this.titlePadding,
     this.collapseMode = CollapseMode.parallax,
   }) : super(key: key);
 
   final Widget? title;
   final Widget? background;
-  final bool? centerTitle;
+  final bool centerTitle;
   final CollapseMode collapseMode;
   final EdgeInsetsGeometry? titlePadding;
 
@@ -47,8 +47,8 @@ class CustomFlexibleSpaceBar extends StatefulWidget {
 
 class _CustomFlexibleSpaceBarState extends State<CustomFlexibleSpaceBar> {
   bool _getEffectiveCenterTitle(ThemeData theme) {
-    if (widget.centerTitle != null) {
-      return widget.centerTitle!;
+    if (widget.centerTitle) {
+      return widget.centerTitle;
     }
     switch (theme.platform) {
       case TargetPlatform.android:
