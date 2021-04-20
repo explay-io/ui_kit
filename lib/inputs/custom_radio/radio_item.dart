@@ -19,9 +19,7 @@ class RadioItem extends StatelessWidget {
           Container(
             height: 24.0,
             width: 24.0,
-            child: _radio(
-              _item.isSelected!,
-            ),
+            child: _radio(_item.isSelected),
           ),
           Container(
             margin: const EdgeInsets.only(left: 10.0, right: 10.00),
