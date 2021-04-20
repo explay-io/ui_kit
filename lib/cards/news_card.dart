@@ -6,18 +6,20 @@ import 'package:ui_kit/text.dart';
 typedef Callback = void Function();
 
 class NewsCard extends StatelessWidget {
-  final String? title;
-  final String? image;
-  final String? source;
-  final int? time;
-  final Callback? onClick;
+  final String title;
+  final String image;
+  final String source;
+  final int time;
+  final Callback onClick;
+
+  static void defaultOnClick() {}
 
   const NewsCard(
       {this.title = '',
-      this.image,
+      this.image = '',
       this.source = '',
       this.time = 0,
-      this.onClick});
+      this.onClick = defaultOnClick});
 
   @override
   Widget build(BuildContext context) {
@@ -38,14 +40,14 @@ class NewsCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.baseline,
                       textBaseline: TextBaseline.alphabetic,
                       children: <Widget>[
-                        Text(source!, style: AppText.newsSourceTime),
+                        Text(source, style: AppText.newsSourceTime),
                         const Padding(
                             padding: EdgeInsets.symmetric(horizontal: 4),
                             child: Text(
                               '●',
                               style: TextStyle(fontSize: 6),
                             )),
-                        Text(DateUtils.formatTime(time!),
+                        Text(DateUtils.formatTime(time),
                             style: AppText.newsSourceTime)
                       ],
                     ),
@@ -57,7 +59,7 @@ class NewsCard extends StatelessWidget {
                         Flexible(
                             child: Container(
                                 height: 60,
-                                child: Text(title!,
+                                child: Text(title,
                                     style: AppText.body1.copyWith(height: 1.2),
                                     maxLines: 3,
                                     overflow: TextOverflow.ellipsis))),
@@ -65,13 +67,13 @@ class NewsCard extends StatelessWidget {
                         Container(
                             width: 60,
                             height: 60,
-                            decoration: image == null
+                            decoration: image == ''
                                 ? null
                                 : BoxDecoration(
                                     borderRadius: const BorderRadius.all(
                                         Radius.circular(4.0)),
                                     image: DecorationImage(
-                                        image: NetworkImage(image!),
+                                        image: NetworkImage(image),
                                         fit: BoxFit.fitHeight)))
                       ],
                     )

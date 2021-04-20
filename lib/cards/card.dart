@@ -24,7 +24,7 @@ const _elevationToShadow = <int, BoxShadow?>{
 class AppCard extends StatelessWidget {
   const AppCard(
       {Key? key,
-      this.child,
+      required this.child,
       this.margin = const EdgeInsets.all(0.0),
       this.color = AppColor.deepWhite,
       this.elevation = 2,
@@ -35,8 +35,8 @@ class AppCard extends StatelessWidget {
   final Color color;
   final int elevation;
   final EdgeInsetsGeometry margin;
-  final Widget? child;
-  final double? borderRadius;
+  final Widget child;
+  final double borderRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class AppCard extends StatelessWidget {
         decoration: BoxDecoration(
             color: AppColor.deepWhite,
             border: null,
-            borderRadius: BorderRadius.all(Radius.circular(borderRadius!)),
+            borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
             boxShadow: boxShadow == null ? null : [boxShadow]),
         child: child,
       ),
