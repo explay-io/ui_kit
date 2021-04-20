@@ -5,20 +5,20 @@ class CustomCheckbox extends StatelessWidget {
   final bool isChecked;
   final ValueChanged<bool> onChanged;
   final Widget label;
-  final String? errorText;
+  final String errorText;
 
   const CustomCheckbox({
     required this.isChecked,
     required this.onChanged,
     Key? key,
     required this.label,
-    this.errorText,
+    this.errorText = '',
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
-        children: errorText == null
+        children: errorText == ''
             ? [buildCheckboxTile()]
             : [buildCheckboxTile(), buildError(context)]);
   }
@@ -28,7 +28,7 @@ class CustomCheckbox extends StatelessWidget {
     return Container(
       constraints: const BoxConstraints.tightFor(width: double.infinity),
       padding: const EdgeInsets.only(left: 35.0),
-      child: Text(errorText!,
+      child: Text(errorText,
           style: TextStyle(color: theme.errorColor, fontSize: 12.0)),
     );
   }

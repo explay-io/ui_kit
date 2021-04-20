@@ -42,8 +42,8 @@ class Checkboxes extends StatelessWidget {
         },
         widgetBuilder: (context, props) {
           final String label = props['label'];
-          final String? errorText = props['errorText'];
-          final bool isChecked = props['isChecked'] ?? false;
+          final String errorText = props['errorText'];
+          final bool isChecked = props['isChecked'];
 
           return CustomCheckbox(
             isChecked: isChecked,
