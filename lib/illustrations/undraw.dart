@@ -12,7 +12,7 @@ class Undraw extends StatelessWidget {
     this.semanticLabel,
     this.alignment = Alignment.center,
     this.fit = BoxFit.contain,
-    this.colorBlendMode,
+    this.colorBlendMode = BlendMode.srcIn,
     this.height,
     this.width,
     this.placeholder,
@@ -25,7 +25,7 @@ class Undraw extends StatelessWidget {
   final String? semanticLabel;
   final AlignmentGeometry alignment;
   final BoxFit fit;
-  final BlendMode? colorBlendMode;
+  final BlendMode colorBlendMode;
   final double? height;
   final double? width;
   final Widget? placeholder;
@@ -47,7 +47,7 @@ class Undraw extends StatelessWidget {
       height: height,
       width: width,
       alignment: alignment,
-      colorBlendMode: colorBlendMode!,
+      colorBlendMode: colorBlendMode,
       fit: fit,
       semanticsLabel: semanticLabel,
     );
