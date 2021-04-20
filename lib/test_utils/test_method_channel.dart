@@ -45,7 +45,7 @@ MethodCallStubbing whenMethodCall(Matcher nameMatcher, Matcher argMatcher) {
   return MethodCallStubbing(nameMatcher, argMatcher);
 }
 
-void expectMethodCall(String name, {Map<String, Object>? arguments}) {
+void expectMethodCall(String name, {Map<String, Object> arguments = const {}}) {
   final methodCall = _log.firstWhere((call) => call.method == name, orElse: () {
     fail('No call found for $name, all calls $_log');
   });
