@@ -9,10 +9,10 @@ enum CurrencyDisplaySize { small, large }
 
 class CurrencyDisplay extends StatelessWidget {
   final bool displayAsPrefix;
-  final String? currencySymbol;
-  final String? amount;
+  final String currencySymbol;
+  final String amount;
   final CurrencyDisplaySize size;
-  final bool? showCursor;
+  final bool showCursor;
 
   static final TextStyle _smallTextStyle =
       theme.textTheme.bodyText1!.copyWith(color: AppColor.semiGrey);
@@ -22,7 +22,7 @@ class CurrencyDisplay extends StatelessWidget {
 
   CurrencyDisplay(
       {required this.currencySymbol,
-      this.amount,
+      this.amount = '',
       this.size = CurrencyDisplaySize.large,
       this.showCursor = true,
       this.displayAsPrefix = true});
@@ -54,11 +54,11 @@ class CurrencyDisplay extends StatelessWidget {
   Widget build(BuildContext context) {
     final children = <Widget>[];
     if (displayAsPrefix) {
-      children.add(Text(currencySymbol!,
+      children.add(Text(currencySymbol,
           maxLines: 1, style: textStyle, textAlign: TextAlign.end));
       children.add(Text(_getAmount()!,
           style: textStyle, maxLines: 1, textAlign: TextAlign.end));
-      if (showCursor!) {
+      if (showCursor) {
         children
             .add(_Cursor(cursorHeight: cursorHeight, cursorColor: cursorColor));
       }
@@ -67,7 +67,7 @@ class CurrencyDisplay extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           child: Text(_getAmount()!,
               style: textStyle, maxLines: 1, textAlign: TextAlign.end)));
-      if (showCursor!) {
+      if (showCursor) {
         children
             .add(_Cursor(cursorHeight: cursorHeight, cursorColor: cursorColor));
       }
@@ -95,7 +95,7 @@ class CurrencyDisplay extends StatelessWidget {
 
   String? _getAmount() {
     if (size == CurrencyDisplaySize.small) {
-      if (!amount!.contains('.') && amount!.isNotEmpty) {
+      if (!amount.contains('.') && amount.isNotEmpty) {
         return '$amount.0';
       }
     }

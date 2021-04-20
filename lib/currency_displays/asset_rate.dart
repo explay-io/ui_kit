@@ -4,8 +4,8 @@ import 'package:intl/intl.dart' as intl;
 import '../text.dart';
 
 class AssetRate extends StatelessWidget {
-  final String? symbol;
-  final double? rate;
+  final String symbol;
+  final double rate;
 
   const AssetRate(this.symbol, this.rate);
 

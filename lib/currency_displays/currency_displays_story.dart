@@ -62,13 +62,13 @@ class CurrencyDisplays extends StatelessWidget {
           );
         },
         widgetBuilder: (context, props) {
-          double? amount = props['amount'];
-          final String? symbol = props['currencySymbol'];
+          double amount = props['amount'];
+          final String symbol = props['currencySymbol'];
           final bool amountIsNull = props['amountIsNull'];
           final bool isLarge = props['isLarge'];
-          final bool? showCursor = props['showCursor'];
+          final bool showCursor = props['showCursor'];
           if (amountIsNull) {
-            amount = null;
+            amount = 0;
           }
           return CurrencyDisplay(
               amount: '$amount',
@@ -134,8 +134,8 @@ class CurrencyDisplays extends StatelessWidget {
           );
         },
         widgetBuilder: (context, props) {
-          final double? amount = props['amount'];
-          final String? symbol = props['currencySymbol'];
+          final double amount = props['amount'];
+          final String symbol = props['currencySymbol'];
           return AssetRate(symbol, amount);
         },
       ),
