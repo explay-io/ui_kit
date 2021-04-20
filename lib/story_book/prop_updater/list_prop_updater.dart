@@ -28,13 +28,13 @@ class ListPropUpdater<T> extends StatefulWidget {
 }
 
 class _ListPropUpdaterState extends State<ListPropUpdater> {
-  TextEditingController? _controller;
+  late TextEditingController _controller;
 
   @override
   void initState() {
     _controller = TextEditingController();
-    final List<String>? list = widget.props[widget.propKey];
-    _controller!.text = widget.listToTextConverter(list!);
+    final List<String> list = widget.props[widget.propKey];
+    _controller.text = widget.listToTextConverter(list);
     super.initState();
   }
 

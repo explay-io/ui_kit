@@ -3,17 +3,17 @@ import 'package:recase/recase.dart';
 
 class StoryBook extends StatelessWidget {
   final List<Widget> pages;
-  final String? title;
+  final String title;
 
   StoryBook({
     required this.pages,
-    this.title,
+    this.title = 'Story Book',
   })  : super();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text(title ?? 'Story Book')),
+        appBar: AppBar(title: Text(title)),
         body: ListView.builder(
           shrinkWrap: true,
           itemBuilder: (BuildContext context, int index) =>

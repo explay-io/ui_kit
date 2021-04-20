@@ -24,12 +24,12 @@ class StringPropUpdater extends StatefulWidget {
 }
 
 class _StringPropUpdaterState extends State<StringPropUpdater> {
-  TextEditingController? _controller;
+  late TextEditingController _controller;
 
   @override
   void initState() {
     _controller = TextEditingController();
-    _controller!.text = widget.props[widget.propKey];
+    _controller.text = widget.props[widget.propKey];
     super.initState();
   }
 

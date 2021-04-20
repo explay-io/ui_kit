@@ -24,12 +24,12 @@ class IntPropUpdater extends StatefulWidget {
 }
 
 class _IntPropUpdaterState extends State<IntPropUpdater> {
-  TextEditingController? _controller;
+  late TextEditingController _controller;
 
   @override
   void initState() {
     _controller = TextEditingController();
-    _controller!.text = widget.props[widget.propKey].toString();
+    _controller.text = widget.props[widget.propKey].toString();
     super.initState();
   }
 
