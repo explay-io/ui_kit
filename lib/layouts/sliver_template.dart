@@ -9,7 +9,7 @@ class SliverTemplate extends StatefulWidget {
 
   final Widget pinWidget;
   final Widget content;
-  final List<Widget>? sliverList;
+  final List<Widget> sliverList;
   final bool isPinned;
   final Widget appBarTitleWidget;
   final Widget backgroundWidget;
@@ -18,7 +18,7 @@ class SliverTemplate extends StatefulWidget {
 
   const SliverTemplate({
     this.content = const SizedBox.shrink(),
-    this.sliverList,
+    this.sliverList = const [],
     this.pinWidget = const SizedBox.shrink(),
     this.isPinned = true,
     this.appBarTitleWidget = const SizedBox.shrink(),
@@ -109,7 +109,7 @@ class _SliverTemplateState extends State<SliverTemplate> {
             ),
             SliverList(
               delegate: SliverChildListDelegate(
-                widget.sliverList!,
+                widget.sliverList,
               ),
             ),
           ],

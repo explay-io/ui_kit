@@ -24,15 +24,16 @@ class CustomFlexibleSpaceBar extends StatefulWidget {
   final bool? centerTitle;
   final CollapseMode collapseMode;
   final EdgeInsetsGeometry? titlePadding;
+
   static Widget createSettings({
     required double currentExtent,
     required Widget child,
-    double? toolbarOpacity,
+    double toolbarOpacity = 1.0,
     double? minExtent,
     double? maxExtent,
   }) {
     return FlexibleSpaceBarSettings(
-      toolbarOpacity: toolbarOpacity ?? 1.0,
+      toolbarOpacity: toolbarOpacity,
       minExtent: minExtent ?? currentExtent,
       maxExtent: maxExtent ?? currentExtent,
       currentExtent: currentExtent,
@@ -45,9 +46,9 @@ class CustomFlexibleSpaceBar extends StatefulWidget {
 }
 
 class _CustomFlexibleSpaceBarState extends State<CustomFlexibleSpaceBar> {
-  bool? _getEffectiveCenterTitle(ThemeData theme) {
+  bool _getEffectiveCenterTitle(ThemeData theme) {
     if (widget.centerTitle != null) {
-      return widget.centerTitle;
+      return widget.centerTitle!;
     }
     switch (theme.platform) {
       case TargetPlatform.android:
@@ -128,7 +129,7 @@ class _CustomFlexibleSpaceBarState extends State<CustomFlexibleSpaceBar> {
         var titleStyle = theme.primaryTextTheme.headline6!;
         titleStyle =
             titleStyle.copyWith(color: titleStyle.color!.withOpacity(opacity));
-        final effectiveCenterTitle = _getEffectiveCenterTitle(theme)!;
+        final effectiveCenterTitle = _getEffectiveCenterTitle(theme);
         final padding = widget.titlePadding ??
             EdgeInsetsDirectional.only(
               start: effectiveCenterTitle ? 0.0 : 72.0,
