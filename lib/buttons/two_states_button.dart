@@ -112,11 +112,7 @@ class _TwoStatesButtonState extends State<TwoStatesButton> {
     return Container(
       width: containerWidth,
       child: ElevatedButton(
-        onPressed: makeOnPressedCallback(
-          enabled: _enabled && widget.enabled,
-          onPressed: handlePress,
-          setEnabled: _setEnabled,
-        ),
+        onPressed: _enabled && widget.enabled ? handlePress : null,
         style: buttonStyle,
         child: Text(
           _currentText,

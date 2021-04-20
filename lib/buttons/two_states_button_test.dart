@@ -9,6 +9,9 @@ import '../test_utils/wrap_in_material_app.dart';
 import 'button_common.dart';
 import 'button_common_tests.dart';
 
+void defaultSetup () {}
+void defaultCallback () {}
+
 void main() {
   group('TwoStatesButton', () {
     const firstText = 'Ready';
@@ -27,23 +30,23 @@ void main() {
 
     void testSwitchTextProp({
       required Function group,
-      Function? setUp,
-      Function? testWidgets,
-      String? firstText,
-      String? secondText,
-      int? timerInterval,
-      Function? buildButton,
+      Function setUp = defaultSetup,
+      required Function testWidgets,
+      required String firstText,
+      required String secondText,
+      required int timerInterval,
+      required Function buildButton,
     }) {
       group('switch text prop', () {
-        testWidgets!('renders text', (WidgetTester tester) async {
-          await tester.pumpWidget(wrapInMaterialApp(buildButton!()));
-          expect(find.text(firstText!), findsOneWidget);
+        testWidgets('renders text', (WidgetTester tester) async {
+          await tester.pumpWidget(wrapInMaterialApp(buildButton()));
+          expect(find.text(firstText), findsOneWidget);
 
           await tester.pumpWidget(
               wrapInMaterialApp(
                   buildButton(onButtonCallback: onButtonCallback)),
-              Duration(seconds: timerInterval! + 1));
-          expect(find.text(secondText!), findsOneWidget);
+              Duration(seconds: timerInterval + 1));
+          expect(find.text(secondText), findsOneWidget);
 
           await tester.tap(find.text(secondText));
           await tester.pump();
@@ -59,7 +62,7 @@ void main() {
       firstText: firstText,
       secondText: secondText,
       timerInterval: timerInterval,
-      buildButton: ({FutureCallback? onButtonCallback}) => TwoStatesButton(
+      buildButton: ({ FutureCallback onButtonCallback = defaultCallback }) => TwoStatesButton(
           firstText, secondText, timerInterval,
           onButtonCallback: onButtonCallback, onPressed: () async {}),
     );
@@ -69,10 +72,11 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: firstText,
-      buildButton: ({FutureCallback? onPressed}) => TwoStatesButton(
+      buildButton: ({ required FutureCallback onPressed, bool enabled = true}) => TwoStatesButton(
         firstText,
         secondText,
         timerInterval,
+        enabled: enabled,
         onPressed: onPressed,
         onButtonCallback: () {},
       ),
@@ -84,7 +88,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: firstText,
-      buildButton: ({bool? narrow}) => TwoStatesButton(
+      buildButton: ({required bool narrow}) => TwoStatesButton(
           firstText, secondText, timerInterval,
           onPressed: () async {}, onButtonCallback: () {}, narrow: narrow),
       underlyingMaterialButtonType: ElevatedButton,
@@ -106,7 +110,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: firstText,
-      buildButton: ({bool? narrow, bool? fullWidth}) => TwoStatesButton(
+      buildButton: ({required bool narrow, required bool fullWidth}) => TwoStatesButton(
         firstText,
         secondText,
         timerInterval,

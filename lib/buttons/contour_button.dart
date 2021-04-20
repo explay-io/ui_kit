@@ -42,7 +42,6 @@ class _ContourButtonState extends State<ContourButton> {
     final textColor = getTextColorOnWhiteBackground(
       enabled: _enabled && widget.enabled,
       pressing: _pressing,
-      onPressed: widget.onPressed,
     );
     final textStyle = Theme.of(context).textTheme.bodyText2!.copyWith(color: textColor, fontSize: widget.fontSize);
 
@@ -50,6 +49,7 @@ class _ContourButtonState extends State<ContourButton> {
       width: containerWidth,
       child: GestureDetector(
         onTapDown: (_) => setState(() => _pressing = true),
+        onTapUp: (_) => setState(() => _pressing = false),
         onTapCancel: () => setState(() => _pressing = false),
         child: OutlinedButton(
           onPressed: makeOnPressedCallback(

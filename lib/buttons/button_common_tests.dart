@@ -38,7 +38,7 @@ void testOnPressedProp({
   required Function setUp,
   required Function testWidgets,
   required String buttonText,
-  required Widget Function({ FutureCallback? onPressed }) buildButton,
+  required Widget Function({ required FutureCallback onPressed, bool enabled }) buildButton,
   required Type underlyingMaterialButtonType,
 }) {
   group('onPressed prop', () {
@@ -53,9 +53,9 @@ void testOnPressedProp({
       when(onPressed()).thenAnswer(((_) =>  future));
     });
 
-    testWidgets('if onPressed is null should pass null to unrelying button',
+    testWidgets('if enabled is false should pass null to unrelying button',
         (WidgetTester tester) async {
-      await tester.pumpWidget(wrapInMaterialApp(buildButton(onPressed: null)));
+      await tester.pumpWidget(wrapInMaterialApp(buildButton(onPressed: () {}, enabled: false)));
       expect(
           tester
               .widget<ButtonStyleButton>(find.byType(underlyingMaterialButtonType))
@@ -114,7 +114,7 @@ void testFullWidthProp({
   required Function setUp,
   required Function testWidgets,
   String buttonText = '',
-  required Widget Function({ bool fullWidth }) buildButton,
+  required Widget Function({ required bool fullWidth }) buildButton,
   Type? underlyingMaterialButtonType,
 }) {
   group('fullWidth prop', () {
@@ -151,7 +151,7 @@ void testNarrowProp({
   Function setUp = defaultSetup,
   required Function testWidgets,
   String buttonText = '',
-  required Widget Function({ bool narrow }) buildButton,
+  required Widget Function({ required bool narrow }) buildButton,
   required Type underlyingMaterialButtonType,
 }) {
   group('narrow prop', () {
@@ -216,7 +216,7 @@ void testFontSize({
   Function setUp = defaultSetup,
   required Function testWidgets,
   required String buttonText,
-  required Widget Function({ bool fullWidth, bool narrow }) buildButton,
+  required Widget Function({ required bool fullWidth, required bool narrow }) buildButton,
 }) {
   group('font size', () {
     testWidgets(
@@ -255,7 +255,9 @@ void testPressingState({
   Function setUp = defaultSetup,
   required Function testWidgets,
   required String buttonText,
-  required Widget Function({ FutureCallback? onPressed }) buildButton,
+  required Widget Function({
+    required FutureCallback onPressed, bool enabled
+  }) buildButton,
 }) {
   group('pressing state', () {
     testWidgets('when button is pressed it changes text color',
@@ -277,7 +279,7 @@ void testPressingState({
     testWidgets(
         'if button is disabled should have grey text regardless of tap events',
         (WidgetTester tester) async {
-      await tester.pumpWidget(wrapInMaterialApp(buildButton(onPressed: null)));
+      await tester.pumpWidget(wrapInMaterialApp(buildButton(onPressed: () {}, enabled: false)));
       expect(tester.widget<Text>(find.text(buttonText)).style!.color,
           AppColor.mediumGrey);
       final gesture = await tester.createGesture();

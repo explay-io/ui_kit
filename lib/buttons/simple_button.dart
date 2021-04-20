@@ -34,7 +34,6 @@ class _SimpleButtonState extends State<SimpleButton> {
       color: getTextColorOnWhiteBackground(
         enabled: _enabled && widget.enabled,
         pressing: _pressing,
-        onPressed: widget.onPressed,
       ),
       fontSize: 12.0,
     );
