@@ -112,7 +112,7 @@ class _BottomSheetState extends State<BottomSheet> {
       return;
     }
     widget.animationController!.value -=
-        details.primaryDelta! / (_childHeight /* ?? details.primaryDelta! */);
+        details.primaryDelta! / _childHeight;
   }
 
   void _handleDragEnd(DragEndDetails details) {
