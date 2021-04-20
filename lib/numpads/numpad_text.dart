@@ -5,14 +5,16 @@ import 'package:ui_kit/text.dart';
 typedef Callback = void Function(String value);
 
 class NumPadText extends StatefulWidget {
+  static void defaultOnKey(_) {}
+
   final Callback onChange;
-  final int? decimalPlaces;
-  final bool? clearOnLongPress;
-  final int? textLengthLimit;
+  final int decimalPlaces;
+  final bool clearOnLongPress;
+  final int textLengthLimit;
   final String startNumPadText;
   final bool needNumPadTextUpdate;
   final bool noTextCache;
-  final Callback? onKey;
+  final Callback onKey;
 
   const NumPadText(
       {required this.onChange,
@@ -20,9 +22,9 @@ class NumPadText extends StatefulWidget {
       this.textLengthLimit = 0,
       this.startNumPadText = '',
       this.needNumPadTextUpdate = false,
-      this.decimalPlaces,
+      this.decimalPlaces = 0,
       this.noTextCache = false,
-      this.onKey});
+      this.onKey = defaultOnKey});
 
   @override
   _NumPadTextState createState() => _NumPadTextState();
@@ -36,9 +38,9 @@ class _NumPadTextState extends State<NumPadText> {
   }
 
   bool shouldRestrictDecimalPlaces(String result) {
-    return widget.decimalPlaces != null &&
+    return widget.decimalPlaces != 0 &&
         result.contains('.') &&
-        result.substring(result.indexOf('.')).length > widget.decimalPlaces! + 1;
+        result.substring(result.indexOf('.')).length > widget.decimalPlaces + 1;
   }
 
   bool _checkPressedClear(String key) {
@@ -71,8 +73,8 @@ class _NumPadTextState extends State<NumPadText> {
     if (alreadyHasADot(key, _text)) {
       return false;
     }
-    if (widget.textLengthLimit! > 0 &&
-        (_text + key).length > widget.textLengthLimit!) {
+    if (widget.textLengthLimit > 0 &&
+        (_text + key).length > widget.textLengthLimit) {
       return false;
     }
     _text += key;
@@ -80,8 +82,8 @@ class _NumPadTextState extends State<NumPadText> {
   }
 
   void onKeyTapped(String key) {
-    if (widget.noTextCache && widget.onKey != null) {
-      widget.onKey!(key);
+    if (widget.noTextCache) {
+      widget.onKey(key);
       return;
     }
 
@@ -102,7 +104,7 @@ class _NumPadTextState extends State<NumPadText> {
   }
 
   void onKeyLongPressed(String key) {
-    if (key == 'C' && widget.clearOnLongPress!) {
+    if (key == 'C' && widget.clearOnLongPress) {
       _text = '';
       widget.onChange(_text);
     }
@@ -143,13 +145,20 @@ class _NumPadTextState extends State<NumPadText> {
 }
 
 class KeyItem extends StatelessWidget {
-  final Widget child;
-  final String? value;
-  final void Function(String value)? onKeyTap;
-  final void Function(String value)? onKeyLongPress;
+  static void defaultOnKeyLongPress(_) {}
+  static void defaultOnKeyTap(_) {}
 
-  const KeyItem(
-      {required this.child, this.value, this.onKeyTap, this.onKeyLongPress});
+  final Widget child;
+  final String value;
+  final void Function(String value) onKeyTap;
+  final void Function(String value) onKeyLongPress;
+
+  const KeyItem({
+    required this.child,
+    this.value = '',
+    this.onKeyTap = defaultOnKeyTap,
+    this.onKeyLongPress = defaultOnKeyLongPress
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -158,8 +167,8 @@ class KeyItem extends StatelessWidget {
             radius: 30,
             splashColor: AppColor.brightBlue,
             highlightColor: Colors.white,
-            onLongPress: () => onKeyLongPress!(value!),
-            onTap: () => onKeyTap!(value!),
+            onLongPress: () => onKeyLongPress(value),
+            onTap: () => onKeyTap(value),
             child: Container(alignment: Alignment.center, child: child)));
   }
 }
