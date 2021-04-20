@@ -3,11 +3,19 @@ import 'package:flutter/material.dart';
 typedef Callback = void Function(String value);
 
 class EmailInput extends StatelessWidget {
-  final String? errorText;
-  final TextEditingController? controller;
-  final Callback? onChanged;
+  static void defaultOnChanged (_) {}
 
-  const EmailInput({this.errorText, this.controller, this.onChanged});
+  final String errorText;
+  final Callback onChanged;
+  late final TextEditingController controller;
+
+  EmailInput({
+    this.errorText = '',
+    controller,
+    this.onChanged = defaultOnChanged
+  }) {
+    this.controller = controller ?? TextEditingController();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +24,7 @@ class EmailInput extends StatelessWidget {
         keyboardType: TextInputType.emailAddress,
         textCapitalization: TextCapitalization.none,
         autocorrect: false,
-        controller: controller ?? TextEditingController(),
+        controller: controller,
         decoration: InputDecoration(
             labelText: 'Email Address',
             labelStyle: const TextStyle(fontSize: 18, height: -1.0),

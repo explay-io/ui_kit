@@ -9,6 +9,7 @@ class CustomLabelValue extends StatelessWidget {
         labelText: 'First Name',
         valueText: 'John',
         editable: true,
+        route: '/',
       ),
     );
   }

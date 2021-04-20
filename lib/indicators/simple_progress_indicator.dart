@@ -25,9 +25,9 @@ class _SimpleProgressIndicatorState extends State<SimpleProgressIndicator> {
   @override
   Widget build(BuildContext context){
 
-    Color? hasBackgroud() {
+    Color hasBackgroud() {
       if(widget.background) {
-        return Colors.grey[200];
+        return Colors.grey[200]!;
       } else {
         return Colors.white;
       }
@@ -40,7 +40,7 @@ class _SimpleProgressIndicatorState extends State<SimpleProgressIndicator> {
         child: LinearProgressIndicator(
           value: (widget.percentageFilled * 0.01).toDouble(),
           backgroundColor: hasBackgroud(),
-          valueColor: AlwaysStoppedAnimation<Color?>(widget.color),
+          valueColor: AlwaysStoppedAnimation<Color>(widget.color),
         ),
       ),
     );
