@@ -56,16 +56,9 @@ bool _isSmall({required bool narrow, bool? fullWidth}) {
   return narrow && !fullWidth!;
 }
 
-bool isDisabled({
-  required bool enabled,
-  FutureCallback? onPressed,
-}) {
-  return !enabled || onPressed == null;
-}
-
 Color getTextColorOnWhiteBackground(
     {required bool enabled, bool? pressing, FutureCallback? onPressed}) {
-  if (isDisabled(enabled: enabled, onPressed: onPressed)) {
+  if (enabled) {
     return AppColor.mediumGrey;
   }
   return pressing! ? AppColor.darkerBlue : AppColor.blue;
@@ -88,7 +81,7 @@ Function()? makeOnPressedCallback ({
   required FutureCallback onPressed,
   required void Function(bool enabled) setEnabled,
 }) {
-  return isDisabled(enabled: enabled, onPressed: onPressed)
+  return enabled
     ? null
     : () => disableButtonWhileOnPressedExecutes(
         setEnabled: setEnabled, onPressed: onPressed);
