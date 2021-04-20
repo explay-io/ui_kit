@@ -3,13 +3,14 @@ import 'package:ui_kit/typography/heading_type.dart';
 
 class Heading extends StatelessWidget {
   final String data;
-  final BoxConstraints? constraints;
-  final HeadingType? headingType;
-  final TextAlign? textAlign;
+  final HeadingType headingType;
+  final TextAlign textAlign;
 
-  const Heading(this.data,
-      {this.constraints, this.headingType, this.textAlign, Key? key})
-      : super(key: key);
+  const Heading(this.data, {
+    this.headingType = HeadingType.HEADING_4,
+    this.textAlign = TextAlign.left,
+    Key? key
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
