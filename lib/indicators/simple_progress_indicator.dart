@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class SimpleProgressIndicator extends StatefulWidget {
   final double percentageFilled;
-  final double? roundedBorder;
-  final double? height;
-  final bool? background;
-  final Color? color;
+  final double roundedBorder;
+  final double height;
+  final bool background;
+  final Color color;
 
   const SimpleProgressIndicator({
     Key? key,
@@ -26,7 +26,7 @@ class _SimpleProgressIndicatorState extends State<SimpleProgressIndicator> {
   Widget build(BuildContext context){
 
     Color? hasBackgroud() {
-      if(widget.background!) {
+      if(widget.background) {
         return Colors.grey[200];
       } else {
         return Colors.white;
@@ -34,7 +34,7 @@ class _SimpleProgressIndicatorState extends State<SimpleProgressIndicator> {
     }
 
     return ClipRRect(
-      borderRadius: BorderRadius.circular(widget.roundedBorder!),
+      borderRadius: BorderRadius.circular(widget.roundedBorder),
       child: SizedBox(
         height: widget.height,
         child: LinearProgressIndicator(
