@@ -6,39 +6,49 @@ import 'package:flutter/material.dart';
 import 'button_common.dart';
 
 class TwoStatesButton extends StatefulWidget {
+  static void defaultOnPressed() {}
+  static void defaultOnButtonCallback() {}
+
   final String initialText;
-  final String? finalText;
-  final int? timeIntervalInSec;
-  final Function? onButtonCallback;
-  final FutureCallback? onPressed;
-  final bool? fullWidth;
-  final bool? narrow;
-  final EdgeInsetsGeometry? padding;
+  final String finalText;
+  final int timeIntervalInSec;
+  final Function onButtonCallback;
+  final FutureCallback onPressed;
+  final bool fullWidth;
+  final bool narrow;
   final TextStyle? textStyle;
   final bool resetButtonOnBuild;
+  final bool enabled;
+
+  late final EdgeInsetsGeometry padding;
+  late final double fontSize;
 
   TwoStatesButton(
     this.initialText,
     this.finalText,
     this.timeIntervalInSec, {
-    required this.onButtonCallback,
-    required this.onPressed,
+    this.onButtonCallback = defaultOnButtonCallback,
+    this.onPressed = defaultOnPressed,
     this.fullWidth = false,
     this.narrow = false,
-    this.padding,
+    this.enabled = true,
+    padding,
     this.textStyle,
     this.resetButtonOnBuild = false,
     Key? key,
-  }) : super(key: key);
+  }) : super(key: key) {
+    this.padding = padding ?? getPadding(narrow: narrow);
+    fontSize = getFontSize(narrow: narrow, fullWidth: fullWidth);
+  }
 
   @override
   _TwoStatesButtonState createState() => _TwoStatesButtonState();
 }
 
-class _TwoStatesButtonState extends State<TwoStatesButton> with ButtonMixin {
+class _TwoStatesButtonState extends State<TwoStatesButton> {
   bool _enabled = true;
   late Timer _timer;
-  String? _currentText;
+  String _currentText = '';
   bool _resetState = false;
 
   @override
@@ -50,7 +60,7 @@ class _TwoStatesButtonState extends State<TwoStatesButton> with ButtonMixin {
 
   void _startTimer() {
     setState(() => _currentText = widget.initialText);
-    _timer = Timer(Duration(seconds: widget.timeIntervalInSec!), () {
+    _timer = Timer(Duration(seconds: widget.timeIntervalInSec), () {
       _resetState = false;
       setState(() => _currentText = widget.finalText);
     });
@@ -73,61 +83,47 @@ class _TwoStatesButtonState extends State<TwoStatesButton> with ButtonMixin {
     }
   }
 
+  void handlePress() {
+    if (_timer.isActive) {
+      disableButtonWhileOnPressedExecutes(
+          setEnabled: _setEnabled, onPressed: widget.onPressed);
+    } else {
+      _startTimer();
+      widget.onButtonCallback();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     _resetTimer();
+
+    final containerWidth = widget.fullWidth ? matchParentWidth(context) : null;
+
+    final buttonStyle = ElevatedButton.styleFrom(
+      padding: widget.padding,
+      primary: AppColor.deepWhite,
+    ).copyWith(
+      elevation: ButtonStyleConstants.zeroElevation,
+      backgroundColor: stateColor(),
+      foregroundColor: stateColor(disabled: AppColor.deepWhite, pressed: null),
+      shape: ButtonStyleConstants.rounded,
+    );
+
     return Container(
-      width: widget.fullWidth! ? matchParentWidth(context) : null,
+      width: containerWidth,
       child: ElevatedButton(
-        onPressed: isDisabled(enabled: _enabled, onPressed: widget.onPressed)
-            ? null
-            : () {
-                if (_timer.isActive) {
-                  disableButtonWhileOnPressedExecutes(
-                      setEnabled: _setEnabled, onPressed: widget.onPressed!);
-                } else {
-                  _startTimer();
-                  widget.onButtonCallback!();
-                }
-              },
-        style: ElevatedButton.styleFrom(
-          padding: widget.padding ?? getPadding(narrow: widget.narrow!),
-          primary: AppColor.deepWhite,
-        ).copyWith(
-          elevation: MaterialStateProperty.resolveWith<double>(
-              (Set<MaterialState> states) {
-            return 0.0;
-          }),
-          backgroundColor: MaterialStateProperty.resolveWith<Color?>(
-              (Set<MaterialState> states) {
-            if (states.contains(MaterialState.disabled)) {
-              return AppColor.mediumGrey;
-            }
-            if (states.contains(MaterialState.pressed)) {
-              return AppColor.darkerBlue;
-            }
-            return null; // Defer to the widget's default.
-          }),
-          foregroundColor: MaterialStateProperty.resolveWith<Color?>(
-              (Set<MaterialState> states) {
-            if (states.contains(MaterialState.disabled)) {
-              return AppColor.deepWhite;
-            }
-            return null; // Defer to the widget's default.
-          }),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50.0),
-            ),
-          ),
+        onPressed: makeOnPressedCallback(
+          enabled: _enabled && widget.enabled,
+          onPressed: handlePress,
+          setEnabled: _setEnabled,
         ),
+        style: buttonStyle,
         child: Text(
-          _currentText!,
-          style: widget.textStyle ??
-              Theme.of(context).textTheme.bodyText2!.copyWith(
-                  color: AppColor.deepWhite,
-                  fontSize: getFontSize(
-                      narrow: widget.narrow!, fullWidth: widget.fullWidth)),
+          _currentText,
+          style: widget.textStyle ?? Theme.of(context).textTheme.bodyText2!.copyWith(
+            color: AppColor.deepWhite,
+            fontSize: widget.fontSize,
+          ),
         ),
       ),
     );

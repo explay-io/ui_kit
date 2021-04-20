@@ -14,7 +14,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({FutureCallback? onPressed}) =>
+      buildButton: ({FutureCallback onPressed}) =>
           ContourButton(buttonText, onPressed: onPressed),
     );
 
