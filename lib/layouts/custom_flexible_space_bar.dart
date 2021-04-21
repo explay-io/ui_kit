@@ -11,30 +11,29 @@ import 'package:flutter/widgets.dart';
 // https://github.com/flutter/flutter/issues/17887
 class CustomFlexibleSpaceBar extends StatefulWidget {
   const CustomFlexibleSpaceBar({
-    Key key,
+    Key? key,
     this.title,
     this.background,
-    this.centerTitle,
+    this.centerTitle = false,
     this.titlePadding,
     this.collapseMode = CollapseMode.parallax,
-  })  : assert(collapseMode != null),
-        super(key: key);
+  }) : super(key: key);
 
-  final Widget title;
-  final Widget background;
+  final Widget? title;
+  final Widget? background;
   final bool centerTitle;
   final CollapseMode collapseMode;
-  final EdgeInsetsGeometry titlePadding;
+  final EdgeInsetsGeometry? titlePadding;
+
   static Widget createSettings({
-    @required double currentExtent,
-    @required Widget child,
-    double toolbarOpacity,
-    double minExtent,
-    double maxExtent,
+    required double currentExtent,
+    required Widget child,
+    double toolbarOpacity = 1.0,
+    double? minExtent,
+    double? maxExtent,
   }) {
-    assert(currentExtent != null);
     return FlexibleSpaceBarSettings(
-      toolbarOpacity: toolbarOpacity ?? 1.0,
+      toolbarOpacity: toolbarOpacity,
       minExtent: minExtent ?? currentExtent,
       maxExtent: maxExtent ?? currentExtent,
       currentExtent: currentExtent,
@@ -48,10 +47,9 @@ class CustomFlexibleSpaceBar extends StatefulWidget {
 
 class _CustomFlexibleSpaceBarState extends State<CustomFlexibleSpaceBar> {
   bool _getEffectiveCenterTitle(ThemeData theme) {
-    if (widget.centerTitle != null) {
+    if (widget.centerTitle) {
       return widget.centerTitle;
     }
-    assert(theme.platform != null);
     switch (theme.platform) {
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
@@ -68,14 +66,14 @@ class _CustomFlexibleSpaceBarState extends State<CustomFlexibleSpaceBar> {
       return Alignment.bottomCenter;
     }
     final textDirection = Directionality.of(context);
-    assert(textDirection != null);
     switch (textDirection) {
       case TextDirection.rtl:
         return Alignment.bottomRight;
       case TextDirection.ltr:
         return Alignment.bottomLeft;
+      default:
+        return Alignment.bottomLeft;
     }
-    return Alignment.bottomLeft;
   }
 
   double _getCollapsePadding(double t, FlexibleSpaceBarSettings settings) {
@@ -87,16 +85,15 @@ class _CustomFlexibleSpaceBarState extends State<CustomFlexibleSpaceBar> {
       case CollapseMode.parallax:
         final deltaExtent = settings.maxExtent - settings.minExtent;
         return -Tween<double>(begin: 0.0, end: deltaExtent / 4.0).transform(t);
+      default:
+        return 0.0;
     }
-    return 0.0;
   }
 
   @override
   Widget build(BuildContext context) {
     final settings =
-        context.dependOnInheritedWidgetOfExactType<FlexibleSpaceBarSettings>();
-    assert(settings != null,
-        'A FlexibleSpaceBar must be wrapped in the widget returned by FlexibleSpaceBar.createSettings().');
+        context.dependOnInheritedWidgetOfExactType<FlexibleSpaceBarSettings>()!;
 
     final children = <Widget>[];
 
@@ -104,7 +101,7 @@ class _CustomFlexibleSpaceBarState extends State<CustomFlexibleSpaceBar> {
 
     // 0.0 -> Expanded
     // 1.0 -> Collapsed to toolbar
-    final double t =
+    final t =
         (1.0 - (settings.currentExtent - settings.minExtent) / deltaExtent)
             .clamp(0.0, 1.0);
 
@@ -120,7 +117,7 @@ class _CustomFlexibleSpaceBarState extends State<CustomFlexibleSpaceBar> {
           left: 0.0,
           right: 0.0,
           height: settings.maxExtent,
-          child: widget.background,
+          child: widget.background!,
         ));
       }
     }
@@ -129,9 +126,9 @@ class _CustomFlexibleSpaceBarState extends State<CustomFlexibleSpaceBar> {
       final theme = Theme.of(context);
       final opacity = settings.toolbarOpacity;
       if (opacity > 0.0) {
-        var titleStyle = theme.primaryTextTheme.headline6;
+        var titleStyle = theme.primaryTextTheme.headline6!;
         titleStyle =
-            titleStyle.copyWith(color: titleStyle.color.withOpacity(opacity));
+            titleStyle.copyWith(color: titleStyle.color!.withOpacity(opacity));
         final effectiveCenterTitle = _getEffectiveCenterTitle(theme);
         final padding = widget.titlePadding ??
             EdgeInsetsDirectional.only(
@@ -152,7 +149,7 @@ class _CustomFlexibleSpaceBarState extends State<CustomFlexibleSpaceBar> {
               alignment: titleAlignment,
               child: DefaultTextStyle(
                 style: titleStyle,
-                child: widget.title,
+                child: widget.title!,
               ),
             ),
           ),

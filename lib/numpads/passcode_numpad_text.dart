@@ -5,6 +5,9 @@ import 'package:ui_kit/text.dart';
 typedef Callback = void Function(String value);
 
 class PasscodeNumPadText extends StatefulWidget {
+  static void defaultOnKey(_) {}
+  static void defaultOnActionbuttonPressed() {}
+
   final Callback onChange;
   final int textLengthLimit;
   final Callback onKey;
@@ -13,15 +16,15 @@ class PasscodeNumPadText extends StatefulWidget {
   final bool enabled;
   final bool needNumPadTextUpdate;
   final bool hasSecondaryActionButton;
-  final Widget secondaryActionWidget;
-  final VoidCallback onSecondaryActionButtonPressed;
+  final Widget? secondaryActionWidget;
+  final VoidCallback? onSecondaryActionButtonPressed;
 
   const PasscodeNumPadText({
-    @required this.onChange,
+    required this.onChange,
     this.textLengthLimit = 0,
-    this.onKey,
-    this.actionButtonText,
-    this.onActionbuttonPressed,
+    this.onKey = defaultOnKey,
+    this.actionButtonText = '',
+    this.onActionbuttonPressed = defaultOnActionbuttonPressed,
     this.enabled = true,
     this.needNumPadTextUpdate = false,
     this.hasSecondaryActionButton = false,
@@ -46,9 +49,7 @@ class _PasscodeNumPadTextState extends State<PasscodeNumPadText> {
 
     final isCancel = 'C' == key;
 
-    if (widget.onKey != null) {
-      widget.onKey(key);
-    }
+    widget.onKey(key);
 
     if (widget.needNumPadTextUpdate) {
       _text = '';
@@ -86,7 +87,7 @@ class _PasscodeNumPadTextState extends State<PasscodeNumPadText> {
                       .copyWith(color: AppColor.semiGrey)));
     } else {
       if (widget.hasSecondaryActionButton && _text.trim().isEmpty) {
-        child = widget.secondaryActionWidget;
+        child = widget.secondaryActionWidget!;
       } else {
         child = Icon(Icons.arrow_back,
             size: 24.0,
@@ -95,31 +96,17 @@ class _PasscodeNumPadTextState extends State<PasscodeNumPadText> {
     }
 
     Function(String value) onKeyTap;
-    if (val == widget.actionButtonText &&
-        widget.onActionbuttonPressed != null) {
+    if (val == widget.actionButtonText) {
       onKeyTap = (_) => widget.onActionbuttonPressed();
     } else if (val == 'C' &&
         widget.hasSecondaryActionButton &&
         widget.onSecondaryActionButtonPressed != null &&
         _text.trim().isEmpty) {
-      onKeyTap = (_) => widget.onSecondaryActionButtonPressed();
+      onKeyTap = (_) => widget.onSecondaryActionButtonPressed!();
     } else {
-      onKeyTap = widget.enabled ? onKeyTapped : null;
+      onKeyTap = widget.enabled ? onKeyTapped : (_) {};
     }
 
-    /*return _KeyItem(
-      value: val,
-      child: (val != 'C')
-          ? Text(val,
-              textAlign: TextAlign.center,
-              style: isActionButton
-                  ? actionButtonStyle
-                  : (enabled ? AppText.numPadTextStyle : AppText.numPadTextStyle.copyWith(color: AppColor.semiGrey)))
-          : Icon(Icons.arrow_back, size: 24.0, color: enabled ? AppColor.deepBlack : AppColor.semiGrey),
-      onKeyTap: (val == widget.actionButtonText && widget.onActionbuttonPressed != null)
-          ? (_) => widget.onActionbuttonPressed()
-          : (enabled ? onKeyTapped : null),
-    );*/
     return _KeyItem(
       value: val,
       onKeyTap: onKeyTap,
@@ -144,7 +131,7 @@ class _PasscodeNumPadTextState extends State<PasscodeNumPadText> {
       Container(child: buildRow(['1', '2', '3'])),
       Container(child: buildRow(['4', '5', '6'])),
       Container(child: buildRow(['7', '8', '9'])),
-      Container(child: buildRow([widget.actionButtonText ?? '', '0', 'C']))
+      Container(child: buildRow([widget.actionButtonText, '0', 'C']))
     ]);
   }
 }
@@ -154,7 +141,7 @@ class _KeyItem extends StatelessWidget {
   final String value;
   final Function(String value) onKeyTap;
 
-  const _KeyItem({@required this.child, this.value, this.onKeyTap});
+  const _KeyItem({required this.child, required this.value, required this.onKeyTap});
 
   @override
   Widget build(BuildContext context) {
@@ -163,7 +150,7 @@ class _KeyItem extends StatelessWidget {
             radius: 30,
             splashColor: AppColor.brightBlue,
             highlightColor: Colors.white,
-            onTap: onKeyTap != null ? () => onKeyTap(value) : null,
+            onTap: () => onKeyTap(value),
             child: Container(alignment: Alignment.center, child: child)));
   }
 }

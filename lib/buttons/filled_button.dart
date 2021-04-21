@@ -4,74 +4,62 @@ import 'package:flutter/material.dart';
 import 'button_common.dart';
 
 class FilledButton extends StatefulWidget {
+  static void defaultOnPressed() {}
+
   final String text;
   final FutureCallback onPressed;
   final bool fullWidth;
   final bool narrow;
-  final EdgeInsetsGeometry padding;
-  final TextStyle textStyle;
+  final bool enabled;
+  final TextStyle? textStyle;
+  late final MaterialStateProperty<EdgeInsetsGeometry> padding;
+  late final double fontSize;
 
   FilledButton(
     this.text, {
-    @required this.onPressed,
+    this.onPressed = defaultOnPressed,
     this.fullWidth = false,
     this.narrow = false,
-    this.padding,
+    this.enabled = true,
+    padding,
     this.textStyle,
-    Key key,
-  })  : assert(text != null),
-        super(key: key);
+    Key? key,
+  })  : super(key: key) {
+    this.padding = MaterialStateProperty.resolveWith((_) => padding ?? getPadding(narrow: narrow));
+    fontSize = getFontSize(narrow: narrow, fullWidth: fullWidth);
+  }
 
   @override
   _FilledButtonState createState() => _FilledButtonState();
 }
 
-class _FilledButtonState extends State<FilledButton> with ButtonMixin {
+class _FilledButtonState extends State<FilledButton> {
   bool _enabled = true;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: widget.fullWidth ? matchParentWidth(context) : null,
-      child: ElevatedButton(
-        onPressed: isDisabled(enabled: _enabled, onPressed: widget.onPressed)
-            ? null
-            : () => disableButtonWhileOnPressedExecutes(
-                setEnabled: _setEnabled, onPressed: widget.onPressed),
-        style: ElevatedButton.styleFrom().copyWith(
-          padding: MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
-            (Set<MaterialState> states) =>
-                widget.padding ?? getPadding(narrow: widget.narrow),
-          ),
-          elevation: MaterialStateProperty.resolveWith<double>(
-            (Set<MaterialState> states) => 0.0,
-          ),
-          backgroundColor: MaterialStateProperty.resolveWith<Color>(
-            (Set<MaterialState> states) {
-              if (states.contains(MaterialState.pressed)) {
-                return AppColor.darkerBlue;
-              } else if (states.contains(MaterialState.disabled)) {
-                return AppColor.mediumGrey;
-              }
+    final containerWidth = widget.fullWidth ? matchParentWidth(context) : null;
 
-              return AppColor.blue;
-            },
-          ),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50.0),
-            ),
-          ),
+    final textStyle = widget.textStyle ?? Theme.of(context).textTheme.bodyText2!.copyWith(
+      color: AppColor.deepWhite,
+      fontSize: getFontSize(narrow: widget.narrow, fullWidth: widget.fullWidth)
+    );
+
+    return Container(
+      width: containerWidth,
+      child: ElevatedButton(
+        onPressed: makeOnPressedCallback(
+          enabled: _enabled && widget.enabled,
+          onPressed: widget.onPressed,
+          setEnabled: _setEnabled,
         ),
-        child: Text(
-          widget.text,
-          style: (widget.textStyle != null)
-              ? widget.textStyle
-              : Theme.of(context).textTheme.bodyText2.copyWith(
-                  color: AppColor.deepWhite,
-                  fontSize: getFontSize(
-                      narrow: widget.narrow, fullWidth: widget.fullWidth)),
+        style: ElevatedButton.styleFrom().copyWith(
+          padding: widget.padding,
+          elevation: ButtonStyleConstants.zeroElevation,
+          backgroundColor: stateColor(defaultColor: AppColor.blue),
+          shape: ButtonStyleConstants.rounded,
         ),
+        child: Text(widget.text, style: textStyle),
       ),
     );
   }

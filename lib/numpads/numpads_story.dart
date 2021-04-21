@@ -79,7 +79,7 @@ Widget _numPadStory() {
                                   textAlign: TextAlign.left,
                                   style: Theme.of(context)
                                       .textTheme
-                                      .headline3
+                                      .headline3!
                                       .copyWith(fontWeight: FontWeight.normal),
                                   decoration: InputDecoration.collapsed(
                                       hintText: '0',
@@ -155,7 +155,7 @@ class _PasscodeNumpadStory extends StatelessWidget {
                                     textAlign: TextAlign.left,
                                     style: Theme.of(context)
                                         .textTheme
-                                        .headline3
+                                        .headline3!
                                         .copyWith(
                                             fontWeight: FontWeight.normal),
                                     decoration: InputDecoration.collapsed(

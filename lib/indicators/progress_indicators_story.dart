@@ -94,34 +94,15 @@ class ProgressIndicators extends StatelessWidget {
   Color optionToColor(String optionSelected) {
     switch (optionSelected) {
       case 'Yellow':
-        {
-          return Colors.orange[400];
-        }
-        break;
-
+          return Colors.orange[400]!;
       case 'Blue':
-        {
-          return Colors.blue[300];
-        }
-        break;
-
+          return Colors.blue[300]!;
       case 'Green':
-        {
           return Colors.greenAccent;
-        }
-        break;
-
       case 'Red':
-        {
-          return Colors.red[300];
-        }
-        break;
-
+          return Colors.red[300]!;
       default:
-        {
-          return Colors.red[200];
-        }
-        break;
+          return Colors.red[200]!;
     }
   }
 }

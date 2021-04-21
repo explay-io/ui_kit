@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../colors/app_color.dart';
 
-const _elevationToShadow = <int, BoxShadow>{
+const _elevationToShadow = <int, BoxShadow?>{
   1: null,
   2: BoxShadow(
       color: AppColor.shadowColor,
@@ -23,8 +23,8 @@ const _elevationToShadow = <int, BoxShadow>{
 
 class AppCard extends StatelessWidget {
   const AppCard(
-      {Key key,
-      this.child,
+      {Key? key,
+      required this.child,
       this.margin = const EdgeInsets.all(0.0),
       this.color = AppColor.deepWhite,
       this.elevation = 2,

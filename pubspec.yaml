@@ -18,31 +18,32 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_svg: ^0.19.3
+  flutter_svg: ^0.21.0+1
   intl: ^0.17.0
-  shimmer: ^1.0.1
+  shimmer: ^2.0.0
   animated_widgets: ^1.0.6
   alpha2_countries: ^1.0.5
-  url_launcher: ^6.0.2
+  url_launcher: ^6.0.3
   rxdart: ^0.26.0
   flutter_cupertino_date_picker:
     git: https://github.com/winteragency/flutter-cupertino-date-picker.git
   cupertino_icons: ^1.0.2
   flutter_icons: ^1.1.0
-  webview_flutter: ^2.0.2
+  webview_flutter: ^2.0.4
   http: ^0.13.1
-  recase: ^3.0.1
+  recase: ^4.0.0-nullsafety.0
+  collection: ^1.15.0-nullsafety.4
 
 dev_dependencies:
   test: ^1.16.5
   flutter_test:
     sdk: flutter
-  mockito: ^4.0.0
+  mockito: ^5.0.3
   pedantic: ^1.11.0
 
 # For information on the generic Dart part of this file, see the

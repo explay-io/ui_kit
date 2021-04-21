@@ -9,15 +9,18 @@ class CustomDatePicker extends StatelessWidget {
   final _monthCtrl = TextEditingController();
   final _yearCtrl = TextEditingController();
   final Callback onChange;
-  final DateTime dateTime;
+  late final DateTime dateTime;
 
-  CustomDatePicker({@required this.onChange, this.dateTime});
+  CustomDatePicker({
+    required this.onChange,
+    dateTime,
+  }) {
+    this.dateTime = dateTime ?? DateTime.now();
+  }
 
   @override
   Widget build(BuildContext context) {
-    if (dateTime != null) {
-      updateState(dateTime);
-    }
+    updateState(dateTime);
     return
         Container(
             child: Row(
@@ -80,7 +83,7 @@ class CustomDatePicker extends StatelessWidget {
   void _showDatePicker(BuildContext context) {
     DatePicker.showDatePicker(
       context,
-      initialDateTime: dateTime ?? DateTime.now(),
+      initialDateTime: dateTime,
       dateFormat: _format,
       onCancel: () {
         updateState(dateTime);
@@ -97,11 +100,9 @@ class CustomDatePicker extends StatelessWidget {
   }
 
   void updateState(DateTime dateTime) {
-    _dayCtrl.text =
-        dateTime != null ? dateTime.day.toString().padLeft(2, '0') : dateTime;
-    _monthCtrl.text =
-        dateTime != null ? dateTime.month.toString().padLeft(2, '0') : dateTime;
-    _yearCtrl.text = dateTime != null ? dateTime.year.toString() : dateTime;
+    _dayCtrl.text = dateTime.day.toString().padLeft(2, '0');
+    _monthCtrl.text = dateTime.month.toString().padLeft(2, '0');
+    _yearCtrl.text = dateTime.year.toString();
   }
 }
 

@@ -13,12 +13,12 @@ class SliverTemplate extends StatefulWidget {
   final bool isPinned;
   final Widget appBarTitleWidget;
   final Widget backgroundWidget;
-  final FloatingActionButton floatingActionButton;
-  final ScrollController scrollController;
+  final FloatingActionButton? floatingActionButton;
+  final ScrollController? scrollController;
 
   const SliverTemplate({
     this.content = const SizedBox.shrink(),
-    this.sliverList,
+    this.sliverList = const [],
     this.pinWidget = const SizedBox.shrink(),
     this.isPinned = true,
     this.appBarTitleWidget = const SizedBox.shrink(),
@@ -45,7 +45,7 @@ class _SliverTemplateState extends State<SliverTemplate> {
     final sliverAppBarHeight = SliverTemplate.getSliverAppBarHeight(context);
     final topAppBarBox =
         // ignore: avoid_as
-        topAppBarKey.currentContext.findRenderObject() as RenderBox;
+        topAppBarKey.currentContext!.findRenderObject() as RenderBox;
     final topAppBarHeight = topAppBarBox.size.height;
     if (sliverAppBarHeight - offset <= topAppBarHeight) {
       setState(() {

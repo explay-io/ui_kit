@@ -22,11 +22,11 @@ void main() {
       await tester.pumpWidget(wrapInMaterialApp(const AppCard(child: child)));
 
       final widget = tester.widget(find.byType(underlyingWidget));
-      final Container containerWidget = widget;
+      final containerWidget = widget as Container;
       expect(containerWidget.margin, EdgeInsets.zero);
       expect(containerWidget.child, child);
 
-      final BoxDecoration decoration = containerWidget.decoration;
+      final decoration = containerWidget.decoration as BoxDecoration;
       expect(decoration.color, AppColor.deepWhite);
       expect(
           decoration.borderRadius, const BorderRadius.all(Radius.circular(4)));
@@ -49,11 +49,11 @@ void main() {
       )));
 
       final widget = tester.widget(find.byType(underlyingWidget));
-      final Container containerWidget = widget;
+      final containerWidget = widget as Container;
       expect(containerWidget.margin, const EdgeInsets.all(11.0));
       expect(containerWidget.child, child);
 
-      final BoxDecoration decoration = containerWidget.decoration;
+      final decoration = containerWidget.decoration as BoxDecoration;
       expect(decoration.color, AppColor.deepWhite);
       expect(
           decoration.borderRadius, const BorderRadius.all(Radius.circular(1)));

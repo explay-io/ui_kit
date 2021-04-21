@@ -68,7 +68,7 @@ class CurrencyDisplays extends StatelessWidget {
           final bool isLarge = props['isLarge'];
           final bool showCursor = props['showCursor'];
           if (amountIsNull) {
-            amount = null;
+            amount = 0;
           }
           return CurrencyDisplay(
               amount: '$amount',

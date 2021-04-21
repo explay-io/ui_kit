@@ -1,7 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:ui_kit/colors/app_color.dart';
 
-typedef FutureCallback = Future<void> Function();
+typedef FutureCallback = FutureOr<void> Function();
 
 typedef EnabledSetter = void Function(bool enabled);
 
@@ -15,50 +17,72 @@ class ButtonStyleConstants {
       vertical: wideVerticalPadding, horizontal: horizontalPadding);
   static const double fontSize = 16.0;
   static const double smallFontSize = 14.0;
+
+  static final zeroElevation = MaterialStateProperty.resolveWith((_) => 0.0);
+  static final rounded = MaterialStateProperty.all(
+    RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0))
+  );
 }
 
-mixin ButtonMixin {
-  double matchParentWidth(BuildContext context) =>
-      MediaQuery.of(context).size.width;
-
-  EdgeInsetsGeometry getPadding({bool narrow = false}) {
-    return narrow
-        ? ButtonStyleConstants.narrowPadding
-        : ButtonStyleConstants.widePadding;
+final stateColor = ({
+  Color? defaultColor,
+  Color? disabled = AppColor.mediumGrey,
+  Color? pressed = AppColor.darkerBlue,
+}) =>
+  MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+  if (states.contains(MaterialState.disabled)) {
+    return disabled;
   }
-
-  bool isDisabled({
-    bool enabled,
-    FutureCallback onPressed,
-  }) {
-    return !enabled || onPressed == null;
+  if (states.contains(MaterialState.pressed)) {
+    return pressed;
   }
+  return defaultColor; // Defer to the widget's default.
+});
 
-  Color getTextColorOnWhiteBackground(
-      {bool enabled, bool pressing, FutureCallback onPressed}) {
-    if (isDisabled(enabled: enabled, onPressed: onPressed)) {
-      return AppColor.mediumGrey;
-    }
-    return pressing ? AppColor.darkerBlue : AppColor.blue;
-  }
+EdgeInsetsGeometry getPadding({bool narrow = false}) {
+  return narrow
+      ? ButtonStyleConstants.narrowPadding
+      : ButtonStyleConstants.widePadding;
+}
 
-  double getFontSize({bool narrow, bool fullWidth = false}) {
-    if (_isSmall(narrow: narrow, fullWidth: fullWidth)) {
-      return ButtonStyleConstants.smallFontSize;
-    }
-    return ButtonStyleConstants.fontSize;
+double getFontSize({required bool narrow, bool fullWidth = false}) {
+  if (_isSmall(narrow: narrow, fullWidth: fullWidth)) {
+    return ButtonStyleConstants.smallFontSize;
   }
+  return ButtonStyleConstants.fontSize;
+}
 
-  Future<void> disableButtonWhileOnPressedExecutes({
-    EnabledSetter setEnabled,
-    FutureCallback onPressed,
-  }) async {
-    setEnabled(false);
-    await onPressed();
-    setEnabled(true);
-  }
+bool _isSmall({required bool narrow, bool? fullWidth}) {
+  return narrow && !fullWidth!;
+}
 
-  bool _isSmall({bool narrow, bool fullWidth}) {
-    return narrow && !fullWidth;
+Color getTextColorOnWhiteBackground(
+    {required bool enabled, required bool pressing}) {
+  if (!enabled) {
+    return AppColor.mediumGrey;
   }
+  return pressing ? AppColor.darkerBlue : AppColor.blue;
+}
+
+Future<void> disableButtonWhileOnPressedExecutes({
+  required EnabledSetter setEnabled,
+  required FutureCallback onPressed,
+}) async {
+  setEnabled(false);
+  await onPressed();
+  setEnabled(true);
+}
+
+double matchParentWidth(BuildContext context) =>
+  MediaQuery.of(context).size.width;
+
+Function()? makeOnPressedCallback ({
+  required bool enabled,
+  required FutureCallback onPressed,
+  required void Function(bool enabled) setEnabled,
+}) {
+  return !enabled
+    ? null
+    : () => disableButtonWhileOnPressedExecutes(
+        setEnabled: setEnabled, onPressed: onPressed);
 }

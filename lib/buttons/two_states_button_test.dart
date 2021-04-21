@@ -9,6 +9,9 @@ import '../test_utils/wrap_in_material_app.dart';
 import 'button_common.dart';
 import 'button_common_tests.dart';
 
+void defaultSetup () {}
+void defaultCallback () {}
+
 void main() {
   group('TwoStatesButton', () {
     const firstText = 'Ready';
@@ -16,7 +19,7 @@ void main() {
     const timerInterval = 5;
     Future future;
     Completer completer;
-    FutureCallback onButtonCallback;
+    late FutureCallback onButtonCallback;
 
     setUp(() {
       completer = Completer<void>();
@@ -26,13 +29,13 @@ void main() {
     });
 
     void testSwitchTextProp({
-      Function group,
-      Function setUp,
-      Function testWidgets,
-      String firstText,
-      String secondText,
-      int timerInterval,
-      Function buildButton,
+      required Function group,
+      Function setUp = defaultSetup,
+      required Function testWidgets,
+      required String firstText,
+      required String secondText,
+      required int timerInterval,
+      required Function buildButton,
     }) {
       group('switch text prop', () {
         testWidgets('renders text', (WidgetTester tester) async {
@@ -59,7 +62,7 @@ void main() {
       firstText: firstText,
       secondText: secondText,
       timerInterval: timerInterval,
-      buildButton: ({FutureCallback onButtonCallback}) => TwoStatesButton(
+      buildButton: ({ FutureCallback onButtonCallback = defaultCallback }) => TwoStatesButton(
           firstText, secondText, timerInterval,
           onButtonCallback: onButtonCallback, onPressed: () async {}),
     );
@@ -69,10 +72,11 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: firstText,
-      buildButton: ({FutureCallback onPressed}) => TwoStatesButton(
+      buildButton: ({ required FutureCallback onPressed, bool enabled = true}) => TwoStatesButton(
         firstText,
         secondText,
         timerInterval,
+        enabled: enabled,
         onPressed: onPressed,
         onButtonCallback: () {},
       ),
@@ -84,7 +88,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: firstText,
-      buildButton: ({bool narrow}) => TwoStatesButton(
+      buildButton: ({required bool narrow}) => TwoStatesButton(
           firstText, secondText, timerInterval,
           onPressed: () async {}, onButtonCallback: () {}, narrow: narrow),
       underlyingMaterialButtonType: ElevatedButton,
@@ -95,7 +99,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: firstText,
-      buildButton: ({EdgeInsetsGeometry padding}) => TwoStatesButton(
+      buildButton: ({EdgeInsetsGeometry? padding}) => TwoStatesButton(
           firstText, secondText, timerInterval,
           onPressed: () async {}, onButtonCallback: () {}, padding: padding),
       underlyingMaterialButtonType: ElevatedButton,
@@ -106,7 +110,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: firstText,
-      buildButton: ({bool narrow, bool fullWidth}) => TwoStatesButton(
+      buildButton: ({required bool narrow, required bool fullWidth}) => TwoStatesButton(
         firstText,
         secondText,
         timerInterval,
@@ -122,7 +126,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: firstText,
-      buildButton: ({TextStyle textStyle}) => TwoStatesButton(
+      buildButton: ({TextStyle? textStyle}) => TwoStatesButton(
         firstText,
         secondText,
         timerInterval,

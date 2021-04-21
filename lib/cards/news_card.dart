@@ -12,12 +12,14 @@ class NewsCard extends StatelessWidget {
   final int time;
   final Callback onClick;
 
+  static void defaultOnClick() {}
+
   const NewsCard(
       {this.title = '',
-      this.image,
+      this.image = '',
       this.source = '',
       this.time = 0,
-      this.onClick});
+      this.onClick = defaultOnClick});
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +67,7 @@ class NewsCard extends StatelessWidget {
                         Container(
                             width: 60,
                             height: 60,
-                            decoration: image == null
+                            decoration: image == ''
                                 ? null
                                 : BoxDecoration(
                                     borderRadius: const BorderRadius.all(

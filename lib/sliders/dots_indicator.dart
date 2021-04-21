@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../colors/app_color.dart';
 
 class DotsIndicator extends AnimatedWidget {
+  static void defaultOnPageSelected(_) {}
+
   final PageController controller;
   final int itemCount;
   final ValueChanged<int> onPageSelected;
@@ -11,9 +13,9 @@ class DotsIndicator extends AnimatedWidget {
   final double dotSize;
 
   const DotsIndicator(
-      {@required this.controller,
-      @required this.itemCount,
-      this.onPageSelected,
+      {required this.controller,
+      required this.itemCount,
+      this.onPageSelected = defaultOnPageSelected,
       this.dotSize = 8.0,
       this.distanceBetweenCenterOfDots = 20.0})
       : super(listenable: controller);
@@ -47,12 +49,12 @@ class Dot extends StatelessWidget {
   final double dotSize;
   final Function onTap;
 
-  const Dot({this.color, this.dotSize, this.onTap});
+  const Dot({required this.color,required this.dotSize,required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
+      onTap: onTap as void Function()?,
       child: Center(
         child: Material(
           color: color,

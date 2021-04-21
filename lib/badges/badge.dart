@@ -8,20 +8,25 @@ class Badge extends StatelessWidget {
   static const double fontSize = 14.0;
   static const double padding = 10.0;
 
+  static const defaultTextStyle = TextStyle(color: AppColor.deepWhite, fontSize: fontSize);
+  static const defaultBgColor = AppColor.blue;
+  static void defaultOnTap() {}
+
   final String text;
   final double minWidth;
   final TextStyle textStyle;
   final Color bgColor;
   final VoidCallback onTap;
 
-  const Badge(this.text,
-      {this.minWidth, this.textStyle, this.bgColor, this.onTap});
+  const Badge(this.text, {
+      required this.minWidth,
+      this.textStyle = defaultTextStyle,
+      this.bgColor = defaultBgColor,
+      this.onTap = defaultOnTap,
+   });
 
   @override
   Widget build(BuildContext context) {
-    const defaultTextStyle =
-        TextStyle(color: AppColor.deepWhite, fontSize: fontSize);
-
     return Container(
         constraints: BoxConstraints(
           minWidth: minWidth,
@@ -31,7 +36,7 @@ class Badge extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius:
                 const BorderRadius.all(Radius.circular(badgeHeight / 2)),
-            color: bgColor ?? AppColor.blue),
+            color: bgColor),
         child: GestureDetector(
             onTap: onTap,
             child: Row(
@@ -43,12 +48,12 @@ class Badge extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: padding),
                       child: Shimmer.fromColors(
                         key: Key(text),
-                        baseColor: defaultTextStyle.color,
+                        baseColor: defaultTextStyle.color!,
                         highlightColor: bgColor,
                         loop: 1,
                         period: const Duration(milliseconds: 750),
                         child: Text(text,
-                            style: textStyle ?? defaultTextStyle,
+                            style: textStyle,
                             textAlign: TextAlign.right),
                       ))
                 ])));

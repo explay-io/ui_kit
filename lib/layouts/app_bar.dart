@@ -2,24 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:ui_kit/colors/app_color.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final Widget leadingWidget;
-  final List<Widget> tailingWidget;
-  final Widget title;
+  // directly passed to material AppBar
+  final Widget? leadingWidget;
+  final List<Widget>? tailingWidget;
+  final Widget? title;
+
   final bool centerTitle;
   final bool implyLeading;
   final bool showProgress;
   final int flowStep;
   final int flowStepsNumber;
 
-  const MainAppBar(
-      {this.title,
-      this.centerTitle = false,
-      this.implyLeading = true,
-      this.leadingWidget,
-      this.tailingWidget,
-      this.showProgress = false,
-      this.flowStep = 0,
-      this.flowStepsNumber = 0});
+  const MainAppBar({
+    this.title,
+    this.leadingWidget,
+    this.tailingWidget,
+    this.centerTitle = false,
+    this.implyLeading = true,
+    this.showProgress = false,
+    this.flowStep = 0,
+    this.flowStepsNumber = 0
+  });
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);

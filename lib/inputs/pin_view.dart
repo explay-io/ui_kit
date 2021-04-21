@@ -27,7 +27,7 @@ class PinView extends StatelessWidget {
 class PinDot extends StatelessWidget {
   final bool active;
 
-  const PinDot({@required this.active});
+  const PinDot({required this.active});
 
   @override
   Widget build(BuildContext context) {

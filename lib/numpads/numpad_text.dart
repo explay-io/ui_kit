@@ -5,6 +5,8 @@ import 'package:ui_kit/text.dart';
 typedef Callback = void Function(String value);
 
 class NumPadText extends StatefulWidget {
+  static void defaultOnKey(_) {}
+
   final Callback onChange;
   final int decimalPlaces;
   final bool clearOnLongPress;
@@ -15,14 +17,14 @@ class NumPadText extends StatefulWidget {
   final Callback onKey;
 
   const NumPadText(
-      {@required this.onChange,
+      {required this.onChange,
       this.clearOnLongPress = false,
       this.textLengthLimit = 0,
       this.startNumPadText = '',
       this.needNumPadTextUpdate = false,
-      this.decimalPlaces,
+      this.decimalPlaces = 0,
       this.noTextCache = false,
-      this.onKey});
+      this.onKey = defaultOnKey});
 
   @override
   _NumPadTextState createState() => _NumPadTextState();
@@ -36,7 +38,7 @@ class _NumPadTextState extends State<NumPadText> {
   }
 
   bool shouldRestrictDecimalPlaces(String result) {
-    return widget.decimalPlaces != null &&
+    return widget.decimalPlaces != 0 &&
         result.contains('.') &&
         result.substring(result.indexOf('.')).length > widget.decimalPlaces + 1;
   }
@@ -80,7 +82,7 @@ class _NumPadTextState extends State<NumPadText> {
   }
 
   void onKeyTapped(String key) {
-    if (widget.noTextCache && widget.onKey != null) {
+    if (widget.noTextCache) {
       widget.onKey(key);
       return;
     }
@@ -143,13 +145,20 @@ class _NumPadTextState extends State<NumPadText> {
 }
 
 class KeyItem extends StatelessWidget {
+  static void defaultOnKeyLongPress(_) {}
+  static void defaultOnKeyTap(_) {}
+
   final Widget child;
   final String value;
-  final Function(String value) onKeyTap;
-  final Function(String value) onKeyLongPress;
+  final void Function(String value) onKeyTap;
+  final void Function(String value) onKeyLongPress;
 
-  const KeyItem(
-      {@required this.child, this.value, this.onKeyTap, this.onKeyLongPress});
+  const KeyItem({
+    required this.child,
+    this.value = '',
+    this.onKeyTap = defaultOnKeyTap,
+    this.onKeyLongPress = defaultOnKeyLongPress
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -15,14 +15,14 @@ class CurrencyDisplay extends StatelessWidget {
   final bool showCursor;
 
   static final TextStyle _smallTextStyle =
-      theme.textTheme.bodyText1.copyWith(color: AppColor.semiGrey);
+      theme.textTheme.bodyText1!.copyWith(color: AppColor.semiGrey);
 
   static NumberFormat get numberFormatter => NumberFormat('######.##');
   static NumberFormat get smallNumberFormatter => NumberFormat('#.######');
 
   CurrencyDisplay(
-      {@required this.currencySymbol,
-      this.amount,
+      {required this.currencySymbol,
+      this.amount = '',
       this.size = CurrencyDisplaySize.large,
       this.showCursor = true,
       this.displayAsPrefix = true});
@@ -56,7 +56,7 @@ class CurrencyDisplay extends StatelessWidget {
     if (displayAsPrefix) {
       children.add(Text(currencySymbol,
           maxLines: 1, style: textStyle, textAlign: TextAlign.end));
-      children.add(Text(_getAmount(),
+      children.add(Text(_getAmount()!,
           style: textStyle, maxLines: 1, textAlign: TextAlign.end));
       if (showCursor) {
         children
@@ -65,7 +65,7 @@ class CurrencyDisplay extends StatelessWidget {
     } else {
       children.add(Align(
           alignment: Alignment.bottomCenter,
-          child: Text(_getAmount(),
+          child: Text(_getAmount()!,
               style: textStyle, maxLines: 1, textAlign: TextAlign.end)));
       if (showCursor) {
         children
@@ -93,7 +93,7 @@ class CurrencyDisplay extends StatelessWidget {
     );
   }
 
-  String _getAmount() {
+  String? _getAmount() {
     if (size == CurrencyDisplaySize.small) {
       if (!amount.contains('.') && amount.isNotEmpty) {
         return '$amount.0';
@@ -116,7 +116,7 @@ class _Cursor extends StatefulWidget {
 
 class __CursorState extends State<_Cursor> with TickerProviderStateMixin {
   bool _show = true;
-  Timer timer;
+  late Timer timer;
 
   @override
   void initState() {

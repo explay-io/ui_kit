@@ -6,38 +6,37 @@ import 'undraw_illustrations.dart';
 
 class Undraw extends StatelessWidget {
   Undraw({
-    Key key,
-    @required this.illustration,
-    @required this.color,
+    Key? key,
+    required this.illustration,
+    required this.color,
     this.semanticLabel,
     this.alignment = Alignment.center,
     this.fit = BoxFit.contain,
-    this.colorBlendMode,
+    this.colorBlendMode = BlendMode.srcIn,
     this.height,
     this.width,
     this.placeholder,
     this.errorWidget,
     this.padding,
-  })  : assert(illustration != null),
-        assert(color != null);
+  });
 
   final UndrawIllustration illustration;
   final Color color;
-  final String semanticLabel;
+  final String? semanticLabel;
   final AlignmentGeometry alignment;
   final BoxFit fit;
   final BlendMode colorBlendMode;
-  final double height;
-  final double width;
-  final Widget placeholder;
-  final Widget errorWidget;
-  final EdgeInsets padding;
+  final double? height;
+  final double? width;
+  final Widget? placeholder;
+  final Widget? errorWidget;
+  final EdgeInsets? padding;
 
   Future<SvgPicture> renderIllustration(String name, Color _exColor) async {
     var nameSplit = name.toString().split('UndrawIllustration.');
     var illustration =
         illustrationList.where((i) => i['identifier'] == nameSplit[1]);
-    var url = illustration.toList()[0]['url'];
+    var url = illustration.toList()[0]['url']!;
     var image = await _getSvgString(url);
 
     var valueString = color.toString().split('(0x')[1].split(')')[0];

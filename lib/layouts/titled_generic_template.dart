@@ -4,11 +4,11 @@ import 'package:ui_kit/layouts/page_template.dart';
 import 'app_bar.dart';
 
 class TitledGenericTemplate extends StatelessWidget {
-  final Widget leadingWidget;
-  final List<Widget> tailingWidget;
+  final Widget? leadingWidget;
+  final List<Widget>? tailingWidget;
 
-  final Widget title;
-  final Widget picture;
+  final Widget? title;
+  final Widget? picture;
   final Widget child;
   final Widget formSubmitAction;
 
@@ -23,7 +23,7 @@ class TitledGenericTemplate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final scrollChildren = <Widget>[];
+    final scrollChildren = <Widget?>[];
     if (_prepareImage() != null) {
       scrollChildren.add(_prepareImage());
     }
@@ -45,7 +45,7 @@ class TitledGenericTemplate extends StatelessWidget {
               flex: 1,
               child: SingleChildScrollView(
                 child: Column(
-                  children: scrollChildren,
+                  children: scrollChildren as List<Widget>,
                 ),
               ),
             ),
@@ -59,7 +59,7 @@ class TitledGenericTemplate extends StatelessWidget {
     );
   }
 
-  Widget _prepareImage() {
+  Widget? _prepareImage() {
     if (picture != null) {
       return Padding(
         padding: const EdgeInsets.only(bottom: 34.0),

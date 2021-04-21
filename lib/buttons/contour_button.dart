@@ -4,67 +4,66 @@ import 'package:flutter/material.dart';
 import 'button_common.dart';
 
 class ContourButton extends StatefulWidget {
+  static void defaultOnPressed() {}
+
   final String text;
   final FutureCallback onPressed;
   final bool fullWidth;
   final bool narrow;
-  final EdgeInsetsGeometry padding;
+  final bool enabled;
+  late final EdgeInsetsGeometry padding;
+  late final double fontSize;
 
   ContourButton(
     this.text, {
-    @required this.onPressed,
+    this.onPressed = defaultOnPressed,
     this.fullWidth = false,
     this.narrow = false,
-    this.padding,
-    Key key,
-  })  : assert(text != null),
-        super(key: key);
+    this.enabled = true,
+    padding,
+    Key? key,
+  }) : super(key: key) {
+    this.padding = padding ?? getPadding(narrow: narrow);
+    fontSize = getFontSize(narrow: narrow, fullWidth: fullWidth);
+  }
 
   @override
   _ContourButtonState createState() => _ContourButtonState();
 }
 
-class _ContourButtonState extends State<ContourButton> with ButtonMixin {
+class _ContourButtonState extends State<ContourButton> {
   bool _enabled = true;
   bool _pressing = false;
 
   @override
   Widget build(BuildContext context) {
+    final containerWidth = widget.fullWidth ? matchParentWidth(context) : null;
+
+    final textColor = getTextColorOnWhiteBackground(
+      enabled: _enabled && widget.enabled,
+      pressing: _pressing,
+    );
+    final textStyle = Theme.of(context).textTheme.bodyText2!.copyWith(color: textColor, fontSize: widget.fontSize);
+
     return Container(
-      width: widget.fullWidth ? matchParentWidth(context) : null,
+      width: containerWidth,
       child: GestureDetector(
-        onTapDown: (_) {
-          setState(() => _pressing = true);
-        },
-        onTapCancel: () {
-          setState(() => _pressing = false);
-        },
+        onTapDown: (_) => setState(() => _pressing = true),
+        onTapUp: (_) => setState(() => _pressing = false),
+        onTapCancel: () => setState(() => _pressing = false),
         child: OutlinedButton(
-          onPressed: isDisabled(enabled: _enabled, onPressed: widget.onPressed)
-              ? null
-              : () => disableButtonWhileOnPressedExecutes(
-                  setEnabled: _setEnabled, onPressed: widget.onPressed),
-          style: OutlinedButton.styleFrom(
-            padding: widget.padding ?? getPadding(narrow: widget.narrow),
-            side: BorderSide(color: AppColor.darkerBlue),
-          ).copyWith(
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(50.0),
-              ),
-            ),
+          onPressed: makeOnPressedCallback(
+            enabled: _enabled && widget.enabled,
+            onPressed: widget.onPressed,
+            setEnabled: _setEnabled
           ),
+          style: OutlinedButton.styleFrom(
+            padding: widget.padding,
+            side: BorderSide(color: AppColor.darkerBlue),
+          ).copyWith(shape: ButtonStyleConstants.rounded),
           child: Text(
             widget.text,
-            style: Theme.of(context).textTheme.bodyText2.copyWith(
-                  color: getTextColorOnWhiteBackground(
-                    enabled: _enabled,
-                    pressing: _pressing,
-                    onPressed: widget.onPressed,
-                  ),
-                  fontSize: getFontSize(
-                      narrow: widget.narrow, fullWidth: widget.fullWidth),
-                ),
+            style: textStyle,
           ),
         ),
       ),

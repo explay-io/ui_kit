@@ -5,7 +5,7 @@ import 'package:ui_kit/colors/app_color.dart';
 class CopyToClipboard extends StatelessWidget {
   final String value;
 
-  const CopyToClipboard({this.value});
+  const CopyToClipboard({this.value = ''});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,8 @@ class CopyToClipboard extends StatelessWidget {
             child: const Icon(
               Icons.content_copy,
               size: 20.0,
-            )),
+           )
+         ),
       ),
     );
   }

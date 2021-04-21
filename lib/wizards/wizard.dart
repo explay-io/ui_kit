@@ -10,8 +10,12 @@ class Wizard extends StatefulWidget {
   final List<Widget> wizardPages;
   final Widget outroWidget;
 
-  const Wizard(
-      {this.intoWidget, this.wizardPages, this.outroWidget, this.binder});
+  const Wizard({
+    required this.intoWidget,
+    this.wizardPages = const [],
+    required this.outroWidget,
+    required this.binder
+  });
 
   @override
   _WizardState createState() =>
@@ -26,8 +30,8 @@ class _WizardState extends State<Wizard> {
   List<Widget> wizardPages;
   Widget outroWidget;
 
-  Widget leadingWidget = const BackButton();
-  List<Widget> tailingWidget;
+  Widget? leadingWidget = const BackButton();
+  List<Widget>? tailingWidget;
 
   _WizardState(
       this.intoWidget, this.wizardPages, this.outroWidget, this.binder);

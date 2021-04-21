@@ -12,20 +12,15 @@ class ListPropUpdater<T> extends StatefulWidget {
   final List<T> Function(String text) textToListConverter;
 
   ListPropUpdater({
-    @required this.props,
-    @required this.updateProp,
-    @required this.propKey,
-    @required this.listToTextConverter,
-    @required this.textToListConverter,
+    required this.props,
+    required this.updateProp,
+    required this.propKey,
+    required this.listToTextConverter,
+    required this.textToListConverter,
     this.hintText = '',
-    Key key,
-  })  : assert(props != null),
-        assert(updateProp != null),
-        assert(propKey != null),
-        assert(props[propKey] != null),
+    Key? key,
+  })  : assert(props[propKey] != null),
         assert(props[propKey] is List),
-        assert(listToTextConverter != null),
-        assert(textToListConverter != null),
         super(key: key);
 
   @override
@@ -33,7 +28,7 @@ class ListPropUpdater<T> extends StatefulWidget {
 }
 
 class _ListPropUpdaterState extends State<ListPropUpdater> {
-  TextEditingController _controller;
+  late TextEditingController _controller;
 
   @override
   void initState() {

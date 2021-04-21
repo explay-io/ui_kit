@@ -12,13 +12,11 @@ class AppSlider extends StatelessWidget {
   final double distanceBetweenCenterOfDots;
 
   const AppSlider(
-      {@required this.slides,
-      @required this.pageController,
+      {required this.slides,
+      required this.pageController,
       this.dotsPadding = const EdgeInsets.all(20.0),
-      this.dotSize,
-      this.distanceBetweenCenterOfDots})
-      : assert(slides != null),
-        assert(pageController != null);
+      this.dotSize = 0.0,
+      this.distanceBetweenCenterOfDots = 0.0});
 
   @override
   Widget build(BuildContext context) {

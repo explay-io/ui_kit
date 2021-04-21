@@ -159,7 +159,7 @@ class Popover extends StatelessWidget {
           builder: (BuildContext context) {
             return AlertDialog(
               title: const Text('You clicked'),
-              content: Text(value),
+              content: Text(value!),
               actions: <Widget>[
                 SimpleButton(
                   'Thats nice',

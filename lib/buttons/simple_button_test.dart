@@ -14,8 +14,8 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({FutureCallback onPressed}) =>
-          SimpleButton(buttonText, onPressed: onPressed),
+      buildButton: ({ required FutureCallback onPressed, bool enabled = true }) =>
+          SimpleButton(buttonText, onPressed: onPressed, enabled: enabled),
     );
 
     testTextProp(
@@ -31,8 +31,8 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({FutureCallback onPressed}) =>
-          SimpleButton(buttonText, onPressed: onPressed),
+      buildButton: ({required FutureCallback onPressed, bool enabled = true}) =>
+          SimpleButton(buttonText, onPressed: onPressed, enabled: enabled),
       underlyingMaterialButtonType: TextButton,
     );
 
@@ -41,8 +41,9 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({EdgeInsetsGeometry padding}) =>
-          SimpleButton(buttonText, onPressed: () async {}, padding: padding),
+      buildButton: ({ EdgeInsetsGeometry? padding}) => padding != null
+        ? SimpleButton(buttonText, onPressed: () async {}, padding: padding)
+        : SimpleButton(buttonText, onPressed: () async {}),
       underlyingMaterialButtonType: TextButton,
     );
 
@@ -51,7 +52,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({TextStyle textStyle}) => SimpleButton(buttonText,
+      buildButton: ({TextStyle? textStyle}) => SimpleButton(buttonText,
           textStyle: textStyle, onPressed: () async {}),
     );
   });

@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:ui_kit/buttons/button_common.dart';
 import 'package:ui_kit/colors/app_color.dart';
 import 'package:ui_kit/text.dart';
 
 class SwitcherButton extends StatefulWidget {
+  static void defaultOnSwitch(int index) {}
+
   final List<String> labels;
   final Function(int) onSwitch;
   final bool showLabel;
 
-  SwitcherButton({@required this.labels, this.onSwitch, this.showLabel = true});
+  SwitcherButton({
+    this.labels = const [],
+    this.onSwitch = defaultOnSwitch,
+    this.showLabel = true,
+ });
 
   @override
   _SwitcherButtonState createState() => _SwitcherButtonState();
@@ -20,13 +27,9 @@ class _SwitcherButtonState extends State<SwitcherButton> {
   Function(int) get onSwitch => widget.onSwitch;
 
   String get currentLabel {
-    if (labels.isEmpty) {
-      _currentIndex = 0;
-      return '';
-    }
-    if (_currentIndex >= labels.length) {
-      _currentIndex = labels.length - 1;
-    }
+    if (labels.isEmpty) return '';
+    if (_currentIndex >= labels.length) return labels.last;
+
     return labels[_currentIndex];
   }
 
@@ -37,26 +40,15 @@ class _SwitcherButtonState extends State<SwitcherButton> {
     return TextButton(
       style: TextButton.styleFrom(
         padding: const EdgeInsets.all(10),
-        // splashColor: AppColor.grey,
       ).copyWith(
-        overlayColor: MaterialStateProperty.resolveWith<Color>(
-            (Set<MaterialState> states) {
-          // if (states.contains(MaterialState.focused)) return Colors.red;
-          // if (states.contains(MaterialState.hovered)) return Colors.green;
-          if (states.contains(MaterialState.pressed)) AppColor.grey;
-          return null; // Defer to the widget's default.
-        }),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(50.0),
-          ),
-        ),
+        overlayColor: stateColor(pressed: AppColor.grey, disabled: null),
+        shape: ButtonStyleConstants.rounded,
       ),
       onPressed: _switch,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
+        children: [
           Icon(FontAwesome.exchange),
           const SizedBox(height: 8),
           widget.showLabel
@@ -69,15 +61,8 @@ class _SwitcherButtonState extends State<SwitcherButton> {
 
   void _switch() {
     setState(() {
-      if (_currentIndex == labels.length - 1) {
-        _currentIndex = 0;
-      } else {
-        _currentIndex++;
-      }
-
-      if (onSwitch != null) {
-        onSwitch(_currentIndex);
-      }
+      _currentIndex = _currentIndex >= labels.length - 1 ? 0 : _currentIndex + 1;
+      onSwitch(_currentIndex);
     });
   }
 }

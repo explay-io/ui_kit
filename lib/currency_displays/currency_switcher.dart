@@ -9,18 +9,23 @@ class CurrencyInfo {
   final String amount;
 
   CurrencyInfo(
-      {@required this.symbol,
-      @required this.label,
+      {required this.symbol,
+      required this.label,
       this.amount = '0',
       this.prefix = false});
 
-  CurrencyInfo copyWith(
-      {String symbol, String label, bool prefix, String amount}) {
+  CurrencyInfo copyWith({
+      required String symbol,
+      required String label,
+      bool prefix = false,
+      String amount = '0'
+  }) {
     return CurrencyInfo(
-        symbol: symbol ?? this.symbol,
-        label: label ?? this.label,
-        prefix: prefix ?? this.prefix,
-        amount: amount ?? this.amount);
+      symbol: symbol,
+      label: label,
+      prefix: prefix,
+      amount: amount
+    );
   }
 }
 
@@ -29,9 +34,14 @@ class CurrencySwitcher extends StatefulWidget {
   final List<String> amounts;
   final Function(int) onSwitch;
 
-  CurrencySwitcher(
-      {@required this.currencyInfoList, @required this.amounts, this.onSwitch})
-      : assert(currencyInfoList != null && currencyInfoList.length == 2);
+  static void defaultOnSwitch(int index) {}
+
+  CurrencySwitcher({
+    required this.currencyInfoList,
+    required this.amounts,
+    this.onSwitch = defaultOnSwitch,
+  })
+      : assert(currencyInfoList.length == 2);
 
   @override
   _CurrencySwitcherState createState() => _CurrencySwitcherState();
@@ -73,7 +83,7 @@ class _CurrencySwitcherState extends State<CurrencySwitcher> {
   }
 
   Widget _buildDisplay() {
-    if (amounts == null) {
+    if (amounts.isEmpty) {
       return CurrencyDisplay(
           currencySymbol: infoList[_currentIndex == 0 ? 1 : 0].symbol);
     }
@@ -126,9 +136,7 @@ class _CurrencySwitcherState extends State<CurrencySwitcher> {
   void _switch(int index) {
     setState(() {
       _currentIndex = index;
-      if (onSwitch != null) {
-        onSwitch(index);
-      }
+      onSwitch(index);
     });
   }
 }

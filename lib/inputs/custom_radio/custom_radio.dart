@@ -8,7 +8,7 @@ import 'package:ui_kit/inputs/custom_radio/radio_model.dart';
 
 class CustomRadio extends StatefulWidget {
   final List<RadioModel> radioElements;
-  const CustomRadio({this.radioElements});
+  const CustomRadio({this.radioElements = const []});
 
   @override
   CustomRadioState createState() {
@@ -34,8 +34,8 @@ class CustomRadio extends StatefulWidget {
 
 class CustomRadioState extends State<CustomRadio> {
   List<RadioModel> radioElements;
-  CustomRadioState({this.radioElements});
-  String selectedRadioModel;
+  CustomRadioState({this.radioElements = const []});
+  String selectedRadioModel = '';
 
   @override
   Widget build(BuildContext context) {

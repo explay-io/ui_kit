@@ -13,8 +13,8 @@ class OnPageSelectedMock extends Mock implements Function {
 }
 
 void main() {
-  int dotsCount;
-  PageController pageController;
+  late int dotsCount;
+  late PageController pageController;
 
   setUp(() {
     dotsCount = 4;

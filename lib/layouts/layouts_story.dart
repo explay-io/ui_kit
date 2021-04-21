@@ -141,7 +141,7 @@ class Layouts extends StatelessWidget {
                                     borderSide: BorderSide(color: Colors.grey)),
                               ),
                               autofocus: true,
-                              onSaved: (String value) {},
+                              onSaved: (String? value) {},
                             )),
                         FilledButton('SEND', fullWidth: true,
                             onPressed: () async {
@@ -246,7 +246,7 @@ class Layouts extends StatelessWidget {
                                 textAlign: TextAlign.left,
                                 style: Theme.of(context)
                                     .textTheme
-                                    .bodyText1
+                                    .bodyText1!
                                     .copyWith(color: AppColor.semiGrey)),
                           ),
                         ),
@@ -257,7 +257,7 @@ class Layouts extends StatelessWidget {
                             textAlign: TextAlign.left,
                             style: Theme.of(context)
                                 .textTheme
-                                .bodyText1
+                                .bodyText1!
                                 .copyWith(color: AppColor.semiGrey),
                           ),
                         ),
@@ -330,7 +330,7 @@ class Layouts extends StatelessWidget {
                                   text: 'Lorem ipsum dolor sit amet.',
                                   style: Theme.of(context)
                                       .textTheme
-                                      .bodyText1
+                                      .bodyText1!
                                       .copyWith(color: AppColor.semiGrey),
                                 ),
                               ],

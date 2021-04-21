@@ -14,8 +14,8 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({FutureCallback onPressed}) =>
-          ContourButton(buttonText, onPressed: onPressed),
+      buildButton: ({ required FutureCallback onPressed, bool enabled = true}) =>
+          ContourButton(buttonText, onPressed: onPressed, enabled: enabled),
     );
 
     testTextProp(
@@ -31,8 +31,8 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({FutureCallback onPressed}) =>
-          ContourButton(buttonText, onPressed: onPressed),
+      buildButton: ({ required FutureCallback onPressed, bool enabled = true}) =>
+          ContourButton(buttonText, onPressed: onPressed, enabled: enabled),
       underlyingMaterialButtonType: OutlinedButton,
     );
 
@@ -41,7 +41,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({bool fullWidth}) => ContourButton(buttonText,
+      buildButton: ({ required bool fullWidth}) => ContourButton(buttonText,
           onPressed: () async {}, fullWidth: fullWidth),
       underlyingMaterialButtonType: OutlinedButton,
     );
@@ -51,7 +51,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({bool narrow}) =>
+      buildButton: ({ required bool narrow}) =>
           ContourButton(buttonText, onPressed: () async {}, narrow: narrow),
       underlyingMaterialButtonType: OutlinedButton,
     );
@@ -61,7 +61,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({EdgeInsetsGeometry padding}) =>
+      buildButton: ({EdgeInsetsGeometry? padding}) =>
           ContourButton(buttonText, onPressed: () async {}, padding: padding),
       underlyingMaterialButtonType: OutlinedButton,
     );
@@ -71,7 +71,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({bool narrow, bool fullWidth}) => ContourButton(
+      buildButton: ({ required bool narrow, required bool fullWidth}) => ContourButton(
         buttonText,
         onPressed: () async {},
         narrow: narrow,

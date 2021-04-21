@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:ui_kit/buttons/simple_button.dart';
 import 'package:ui_kit/buttons/switcher_button.dart';
 import 'package:ui_kit/buttons/two_states_button.dart';
@@ -75,11 +77,7 @@ class Buttons extends StatelessWidget {
           );
         },
         widgetBuilder: (context, props) {
-          Function onPressed = () {};
-
-          if (props['enabled'] == false) {
-            onPressed = null;
-          }
+          FutureOr<void> Function() onPressed = () {};
 
           if (props['taskDuration'] != null && props['enabled'] != false) {
             onPressed = () async {
@@ -90,6 +88,7 @@ class Buttons extends StatelessWidget {
 
           return FilledButton(
             props['text'],
+            enabled: props['enabled'],
             onPressed: onPressed,
             fullWidth: props['fullWidth'],
             narrow: props['narrow'],
@@ -145,11 +144,7 @@ class Buttons extends StatelessWidget {
           );
         },
         widgetBuilder: (context, props) {
-          Function onPressed = () {};
-
-          if (props['enabled'] == false) {
-            onPressed = null;
-          }
+          FutureOr<void> Function() onPressed = () {};
 
           if (props['taskDuration'] != null && props['enabled'] != false) {
             onPressed = () async {
@@ -160,6 +155,7 @@ class Buttons extends StatelessWidget {
 
           return ContourButton(
             props['text'],
+            enabled: props['enabled'],
             onPressed: onPressed,
             fullWidth: props['fullWidth'],
             narrow: props['narrow'],
@@ -203,11 +199,7 @@ class Buttons extends StatelessWidget {
           );
         },
         widgetBuilder: (context, props) {
-          Function onPressed = () {};
-
-          if (props['enabled'] == false) {
-            onPressed = null;
-          }
+          FutureOr<void> Function() onPressed = () {};
 
           if (props['taskDuration'] != null && props['enabled'] != false) {
             onPressed = () async {
@@ -218,6 +210,7 @@ class Buttons extends StatelessWidget {
 
           return SimpleButton(
             props['text'],
+            enabled: props['enabled'],
             onPressed: onPressed,
           );
         },
@@ -320,18 +313,14 @@ class Buttons extends StatelessWidget {
           );
         },
         widgetBuilder: (context, props) {
-          Function onPressed = () {};
-          Function onRefreshRate = () {};
-
-          if (props['enabled'] == false) {
-            onPressed = null;
-            onRefreshRate = null;
-          }
+          FutureOr<void> Function() onPressed = () {};
+          Function? onRefreshRate = () {};
 
           return TwoStatesButton(
             props['initialText'],
             props['finalText'],
             props['timeIntervalInSec'],
+            enabled: props['enabled'],
             onPressed: onPressed,
             onButtonCallback: onRefreshRate,
             fullWidth: props['fullWidth'],

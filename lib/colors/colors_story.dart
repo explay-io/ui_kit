@@ -136,7 +136,11 @@ class ColorInfoBox extends StatelessWidget {
   final String name;
   final String usage;
 
-  const ColorInfoBox({this.color, this.name, this.usage});
+  const ColorInfoBox({
+    required this.color,
+    required this.name,
+    required this.usage
+  });
 
   @override
   Widget build(BuildContext context) {

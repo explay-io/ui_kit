@@ -7,21 +7,21 @@ import '../label_value_pair/label_text.dart';
 class LabelValueEditableField extends StatelessWidget {
   final String labelText;
   final String valueText;
-  final Widget value;
+  final Widget? value;
   final ValueLabelTextAlign textAlign;
   final bool editable;
   final EdgeInsets padding;
   final String route;
-  final Object arguments;
+  final Object? arguments;
 
   const LabelValueEditableField(
-      {@required this.labelText,
-      this.valueText,
+      {required this.labelText,
+      this.valueText = '',
       this.editable = false,
-      this.textAlign,
+      this.textAlign = ValueLabelTextAlign.left,
       this.value,
-      this.padding,
-      this.route,
+      this.padding = const EdgeInsets.only(bottom: 16.0),
+      required this.route,
       this.arguments});
 
   @override
@@ -44,13 +44,13 @@ class LabelValueEditableField extends StatelessWidget {
   }
 
   bool _isCenterAligned(ValueLabelTextAlign textAlign) {
-    return textAlign != null && textAlign == ValueLabelTextAlign.center;
+    return textAlign == ValueLabelTextAlign.center;
   }
 
-  Widget _buildBody(BuildContext context, Widget value, String data,
-      {EdgeInsets padding}) {
+  Widget _buildBody(BuildContext context, Widget? value, String data,
+      {required EdgeInsets padding}) {
     return Padding(
-      padding: padding ?? const EdgeInsets.only(bottom: 16.0),
+      padding: padding,
       child: Row(
         mainAxisAlignment: _isCenterAligned(textAlign)
             ? MainAxisAlignment.center
@@ -65,13 +65,13 @@ class LabelValueEditableField extends StatelessWidget {
                           color: Colors.black,
                           height: 1.5,
                           fontWeight: FontWeight.bold))),
-          _buildRoutingIcon(context, data),
+          _buildRoutingIcon(context),
         ],
       ),
     );
   }
 
-  Widget _buildRoutingIcon(BuildContext context, String value) {
+  Widget _buildRoutingIcon(BuildContext context) {
     if (!editable) {
       return Container();
     }
@@ -79,11 +79,7 @@ class LabelValueEditableField extends StatelessWidget {
       padding: const EdgeInsets.only(left: 4.0),
       child: GestureDetector(
         onTap: () {
-          if (arguments != null) {
-            Navigator.pushNamed(context, route, arguments: arguments);
-          } else {
-            Navigator.pushNamed(context, route);
-          }
+          Navigator.pushNamed(context, route, arguments: arguments);
         },
         child: IconTheme(
             data: IconTheme.of(context).copyWith(color: AppColor.blue),

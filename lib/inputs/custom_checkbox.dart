@@ -8,17 +8,17 @@ class CustomCheckbox extends StatelessWidget {
   final String errorText;
 
   const CustomCheckbox({
-    @required this.isChecked,
-    @required this.onChanged,
-    Key key,
-    this.label,
-    this.errorText,
+    required this.isChecked,
+    required this.onChanged,
+    Key? key,
+    required this.label,
+    this.errorText = '',
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
-        children: errorText == null
+        children: errorText == ''
             ? [buildCheckboxTile()]
             : [buildCheckboxTile(), buildError(context)]);
   }
@@ -36,7 +36,7 @@ class CustomCheckbox extends StatelessWidget {
   Widget buildCheckboxTile() {
     return GestureDetector(
         onTap: () {
-          onChanged(!isChecked);
+          onChanged(isChecked);
         },
         child: Container(
           margin: const EdgeInsets.only(top: 14.00),

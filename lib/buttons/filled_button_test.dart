@@ -22,8 +22,8 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({FutureCallback onPressed}) =>
-          FilledButton(buttonText, onPressed: onPressed),
+      buildButton: ({ required FutureCallback onPressed, bool enabled = true }) =>
+        FilledButton(buttonText, onPressed: onPressed, enabled: enabled),
       underlyingMaterialButtonType: ElevatedButton,
     );
 
@@ -32,7 +32,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({bool fullWidth}) => FilledButton(buttonText,
+      buildButton: ({ required bool fullWidth}) => FilledButton(buttonText,
           onPressed: () async {}, fullWidth: fullWidth),
       underlyingMaterialButtonType: ElevatedButton,
     );
@@ -42,7 +42,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({bool narrow}) =>
+      buildButton: ({ required bool narrow}) =>
           FilledButton(buttonText, onPressed: () async {}, narrow: narrow),
       underlyingMaterialButtonType: ElevatedButton,
     );
@@ -52,7 +52,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({EdgeInsetsGeometry padding}) =>
+      buildButton: ({EdgeInsetsGeometry? padding}) =>
           FilledButton(buttonText, onPressed: () async {}, padding: padding),
       underlyingMaterialButtonType: ElevatedButton,
     );
@@ -62,9 +62,9 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({bool narrow, bool fullWidth}) => FilledButton(
+      buildButton: ({ required bool fullWidth, required bool narrow }) => FilledButton(
         buttonText,
-        onPressed: () async {},
+        onPressed: () {},
         narrow: narrow,
         fullWidth: fullWidth,
       ),
@@ -75,7 +75,7 @@ void main() {
       setUp: setUp,
       testWidgets: testWidgets,
       buttonText: buttonText,
-      buildButton: ({TextStyle textStyle}) => FilledButton(
+      buildButton: ({TextStyle? textStyle}) => FilledButton(
         buttonText,
         textStyle: textStyle,
         onPressed: () async {},
