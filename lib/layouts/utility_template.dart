@@ -43,7 +43,7 @@ class UtilityTemplate extends StatelessWidget {
                   children: <Widget>[
                     Heading(
                       heading,
-                      headingType: HeadingType.HEADING_1,
+                      headingType: HeadingType.HEADING_3,
                       textAlign: TextAlign.center,
                     ),
                     Padding(
