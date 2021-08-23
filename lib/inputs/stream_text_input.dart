@@ -58,7 +58,7 @@ class _StreamTextInputState extends State<StreamTextInput> {
       builder: (context, snapshot) {
         return TextField(
           keyboardType: widget.keyboardType,
-          textAlign: widget.align,
+          textAlign: TextAlign.center,
           textCapitalization: TextCapitalization.none,
           autocorrect: false,
           controller: _controller,
