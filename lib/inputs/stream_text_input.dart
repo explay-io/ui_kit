@@ -13,7 +13,7 @@ class StreamTextInput extends StatefulWidget {
   final String? hintText;
   final TextInputType? keyboardType;
   final bool obscureText;
-  final TextAlign align;
+  final TextAlign? align;
 
   const StreamTextInput({
     Key? key,
