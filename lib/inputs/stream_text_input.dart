@@ -21,7 +21,7 @@ class StreamTextInput extends StatefulWidget {
     this.onChange = defaultOnChange,
     this.hintText,
     this.keyboardType,
-    required this.align,
+    this.align,
     this.obscureText = false,
   }) : super(key: key);
 
