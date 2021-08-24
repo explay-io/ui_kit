@@ -21,7 +21,7 @@ class StreamTextInput extends StatefulWidget {
     this.onChange = defaultOnChange,
     this.hintText,
     this.keyboardType,
-    this.align,
+    this.align = TextAlign.left,
     this.obscureText = false,
   }) : super(key: key);
 
@@ -58,7 +58,7 @@ class _StreamTextInputState extends State<StreamTextInput> {
       builder: (context, snapshot) {
         return TextField(
           keyboardType: widget.keyboardType,
-          textAlign: TextAlign.center,
+          textAlign: align,
           textCapitalization: TextCapitalization.none,
           autocorrect: false,
           controller: _controller,
