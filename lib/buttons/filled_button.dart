@@ -1,4 +1,5 @@
 import 'package:ui_kit/colors/app_color.dart';
+import 'package:timetraveller/ui_kit/colors.dart';
 import 'package:flutter/material.dart';
 
 import 'button_common.dart';
@@ -11,6 +12,7 @@ class FilledButton extends StatefulWidget {
   final bool fullWidth;
   final bool narrow;
   final bool enabled;
+  final Color color;
   final TextStyle? textStyle;
   late final MaterialStateProperty<EdgeInsetsGeometry> padding;
   late final double fontSize;
@@ -21,11 +23,13 @@ class FilledButton extends StatefulWidget {
     this.fullWidth = false,
     this.narrow = false,
     this.enabled = true,
+    this.color = AppColor.blue,
     padding,
     this.textStyle,
     Key? key,
-  })  : super(key: key) {
-    this.padding = MaterialStateProperty.resolveWith((_) => padding ?? getPadding(narrow: narrow));
+  }) : super(key: key) {
+    this.padding = MaterialStateProperty.resolveWith(
+        (_) => padding ?? getPadding(narrow: narrow));
     fontSize = getFontSize(narrow: narrow, fullWidth: fullWidth);
   }
 
@@ -40,10 +44,11 @@ class _FilledButtonState extends State<FilledButton> {
   Widget build(BuildContext context) {
     final containerWidth = widget.fullWidth ? matchParentWidth(context) : null;
 
-    final textStyle = widget.textStyle ?? Theme.of(context).textTheme.bodyText2!.copyWith(
-      color: AppColor.deepWhite,
-      fontSize: getFontSize(narrow: widget.narrow, fullWidth: widget.fullWidth)
-    );
+    final textStyle = widget.textStyle ??
+        Theme.of(context).textTheme.bodyText2!.copyWith(
+            color: AppColor.deepWhite,
+            fontSize: getFontSize(
+                narrow: widget.narrow, fullWidth: widget.fullWidth));
 
     return Container(
       width: containerWidth,
@@ -56,7 +61,7 @@ class _FilledButtonState extends State<FilledButton> {
         style: ElevatedButton.styleFrom().copyWith(
           padding: widget.padding,
           elevation: ButtonStyleConstants.zeroElevation,
-          backgroundColor: stateColor(defaultColor: AppColor.blue),
+          backgroundColor: stateColor(defaultColor: widget.color),
           shape: ButtonStyleConstants.rounded,
         ),
         child: Text(widget.text, style: textStyle),
