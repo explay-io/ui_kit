@@ -30,23 +30,21 @@ class StreamTextInput extends StatefulWidget {
 }
 
 class _StreamTextInputState extends State<StreamTextInput> {
-  final _controller = TextEditingController();
   late StreamSubscription<String> _value$Subscription;
+  late String value;
 
   @override
   void initState() {
     super.initState();
     _value$Subscription = widget.value$.listen((value) {
-      _controller.text = value;
-      _controller.selection = TextSelection.fromPosition(
-        TextPosition(offset: _controller.text.length),
-      );
+      setState(() {
+        value = value;
+      });
     });
   }
 
   @override
   void dispose() {
-    _controller.dispose();
     _value$Subscription.cancel();
     super.dispose();
   }
@@ -61,7 +59,6 @@ class _StreamTextInputState extends State<StreamTextInput> {
           textAlign: widget.align,
           textCapitalization: TextCapitalization.none,
           autocorrect: false,
-          controller: _controller,
           decoration: InputDecoration(
             focusedBorder: const UnderlineInputBorder(
               borderSide: BorderSide(color: Colors.grey),
