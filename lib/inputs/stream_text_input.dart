@@ -36,9 +36,9 @@ class _StreamTextInputState extends State<StreamTextInput> {
   @override
   void initState() {
     super.initState();
-    _value$Subscription = widget.value$.listen((value) {
+    _value$Subscription = widget.value$.listen((newValue) {
       setState(() {
-        value = value;
+        value = newValue;
       });
     });
   }
