@@ -68,9 +68,13 @@ Future<void> disableButtonWhileOnPressedExecutes({
   required EnabledSetter setEnabled,
   required FutureCallback onPressed,
 }) async {
-  setEnabled(false);
-  await onPressed();
-  setEnabled(true);
+  try {
+    setEnabled(false);
+    await onPressed();
+    setEnabled(true);
+  } finally {
+    setEnabled(true);
+  }
 }
 
 double matchParentWidth(BuildContext context) =>
