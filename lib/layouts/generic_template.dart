@@ -7,14 +7,20 @@ import 'app_bar.dart';
 class GenericTemplate extends StatelessWidget {
   final Widget? leadingWidget;
   final List<Widget>? tailingWidget;
+  final Widget? floatingActionButton;
 
   final Heading header;
   final Widget child;
   final Widget formSubmitAction;
 
-  const GenericTemplate(this.header, this.child, this.formSubmitAction,
-      {this.leadingWidget, this.tailingWidget})
-      : super();
+  const GenericTemplate(
+    this.header,
+    this.child,
+    this.formSubmitAction, {
+    this.leadingWidget,
+    this.tailingWidget,
+    this.floatingActionButton,
+  }) : super();
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +30,7 @@ class GenericTemplate extends StatelessWidget {
         leadingWidget: leadingWidget,
         tailingWidget: tailingWidget,
       ),
+      floatingActionButton: floatingActionButton,
       child: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Column(
