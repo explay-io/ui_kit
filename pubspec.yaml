@@ -29,7 +29,7 @@ dependencies:
   animated_widgets: ^1.0.6
   alpha2_countries: ^1.0.5
   url_launcher: ^6.0.3
-  rxdart: ^0.26.0
+  rxdart: ^0.27.5
   flutter_cupertino_date_picker:
     git: https://github.com/winteragency/flutter-cupertino-date-picker.git
   cupertino_icons: ^1.0.2
